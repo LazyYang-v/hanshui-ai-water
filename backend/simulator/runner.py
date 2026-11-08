@@ -14,11 +14,13 @@ import logging
 import os
 import time
 from datetime import UTC, datetime, timedelta
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import numpy as np
 import psycopg
 import redis
+from psycopg.types.json import Jsonb
 
 from .engine import DeviceConfig, Simulator, Snapshot, plant_config
 from .scenarios import DEFAULT_DURATION_MIN, Scenario
@@ -39,6 +41,8 @@ KEY_LATEST = "realtime:latest"
 
 BASE_TICK_S = 5.0          # 1 倍速时每 5 秒一步
 DEVICE_EVERY_S = 30.0      # 设备数据每 30 秒（仿真时间）写一次
+CHECKPOINT_MAX_GAP = timedelta(hours=1)   # 停机超过这个时长，保存的状态已过时，改为预热
+CHECKPOINT_DDL = Path(__file__).resolve().parents[1] / "db" / "init" / "007_sim_checkpoint.sql"
 
 PLANT_COLS = ["ts", "plant_id", "inflow_m3h", "cod_in", "nh3n_in", "tn_in", "tp_in", "cod_out", "nh3n_out",
               "tn_out", "tp_out", "ss_out", "do_aerobic_1", "do_aerobic_2", "air_flow_m3h", "blower_kw",
@@ -65,6 +69,7 @@ class Writer:
         self.device_rows: list[tuple] = []
         self.weather_rows: list[tuple] = []
         self.status: dict[int, str] = {}
+        self.checkpoint: tuple[datetime, dict] | None = None   # (状态对应的时刻, Simulator.dump_state())
         self._last_device_ts: datetime | None = None
 
     def add(self, snap: Snapshot) -> None:
@@ -87,6 +92,11 @@ class Writer:
                             cp.write_row(row)
             for device_id, status in self.status.items():
                 cur.execute("UPDATE device SET status = %s WHERE id = %s", (status, device_id))
+            if self.checkpoint:
+                # 与读数同事务：恢复的状态一定对应库里最后一条读数
+                cur.execute("""INSERT INTO sim_checkpoint (id, ts, state) VALUES (1, %s, %s)
+                               ON CONFLICT (id) DO UPDATE SET ts = EXCLUDED.ts, state = EXCLUDED.state""",
+                            (self.checkpoint[0], Jsonb(self.checkpoint[1])))
         self.plant_rows.clear()
         self.device_rows.clear()
         self.weather_rows.clear()
@@ -200,6 +210,7 @@ def live(conn: psycopg.Connection, r: redis.Redis, sim: Simulator, code_by_id: d
             dt = min(lag, 60.0)
         snap = sim.step(clock, dt)
         writer.add(snap)
+        writer.checkpoint = (snap.ts, sim.dump_state())
         writer.flush()
         _publish(r, sim, snap, code_by_id)
         clock += timedelta(seconds=dt)
@@ -231,7 +242,7 @@ def live(conn: psycopg.Connection, r: redis.Redis, sim: Simulator, code_by_id: d
 def reset(conn: psycopg.Connection, r: redis.Redis) -> None:
     """清空运行数据（保留厂站和设备台账），之后重新回填。"""
     with conn.transaction():
-        conn.execute("TRUNCATE plant_reading, device_reading, weather, alarm, work_order, report RESTART IDENTITY CASCADE")
+        conn.execute("TRUNCATE plant_reading, device_reading, weather, alarm, work_order, report, sim_checkpoint RESTART IDENTITY CASCADE")
         conn.execute("UPDATE device SET status = '运行' WHERE status IN ('故障', '检修')")
     # TRUNCATE 不会使连续聚合失效，需要手动清掉物化数据
     conn.execute("CALL refresh_continuous_aggregate('plant_reading_1h', NULL, NULL)")
@@ -239,9 +250,28 @@ def reset(conn: psycopg.Connection, r: redis.Redis) -> None:
     log.info("已清空运行数据")
 
 
+def restore_checkpoint(conn: psycopg.Connection, sim: Simulator, start: datetime) -> bool:
+    """恢复上次停机时的状态；没有检查点或停机过久时返回 False。"""
+    row = conn.execute("SELECT ts, state FROM sim_checkpoint WHERE id = 1").fetchone()
+    if row is None or start - row[0] > CHECKPOINT_MAX_GAP:
+        return False
+    sim.load_state(row[1])
+    log.info("已恢复 %s 的运行状态，进行中场景 %d 个", row[0].astimezone(LOCAL).strftime("%m-%d %H:%M:%S"),
+             len(sim.book.active(start)))
+    return True
+
+
+def warm_up(conn: psycopg.Connection, sim: Simulator, start: datetime) -> None:
+    """无可用检查点：预热 3 小时让状态收敛。此时没有场景，库里残留的“故障”不再成立。"""
+    for i in range(180):
+        sim.step(start - timedelta(minutes=180 - i), 60)
+    conn.execute("UPDATE device SET status = '运行' WHERE status = '故障'")
+
+
 def run(backfill_days: int, backfill_step: float, speed: float, seed: int, do_reset: bool = False) -> None:
     conn = psycopg.connect(DATABASE_URL, autocommit=True)  # 写入由 Writer 显式开事务
     r = redis.Redis.from_url(REDIS_URL, decode_responses=True)
+    conn.execute(CHECKPOINT_DDL.read_text())
     if do_reset:
         reset(conn, r)
     sim, id_by_code = load_simulator(conn, seed)
@@ -253,8 +283,8 @@ def run(backfill_days: int, backfill_step: float, speed: float, seed: int, do_re
         backfill(conn, sim, now, backfill_days, backfill_step, seed)
         start = now
     else:
-        # 续跑：时钟从上次写到的位置继续（演示加速过则可能领先墙上时间）；先预热 3 小时让状态收敛
+        # 续跑：时钟从上次写到的位置继续（演示加速过则可能领先墙上时间）
         start = max(now, last + timedelta(seconds=BASE_TICK_S)) if last else now
-        for i in range(180):
-            sim.step(start - timedelta(minutes=180 - i), 60)
+        if not restore_checkpoint(conn, sim, start):
+            warm_up(conn, sim, start)
     live(conn, r, sim, code_by_id, start, speed)

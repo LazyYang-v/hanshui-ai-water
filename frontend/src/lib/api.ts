@@ -164,12 +164,14 @@ export interface ToolCall {
   output: { sql?: string; columns?: string[]; rows?: unknown[][]; ok?: boolean } | null
 }
 export interface ChatResult {
-  run_id: string; session_id: string; ok: boolean; refused: boolean; answer: string; reason: string | null; error: string | null
+  question: string; run_id: string; session_id: string; ok: boolean; refused: boolean; answer: string; reason: string | null; error: string | null
   claims: { kind: string; text: string; citation_numbers: number[] }[]
   citations: Citation[]; tool_calls: ToolCall[]; models: string[]
   prompt_tokens: number; completion_tokens: number; total_ms: number; warnings: string[]
   actions?: ChatAction[]
+  followups?: ChatFollowup[]        // 本轮之后的人工操作（已派单），刷新后据此显示派单结果
 }
+export interface ChatFollowup { type: 'work_order'; work_order_id: number; alarm_id: number; at: string; text: string }
 
 // 对话里的派单入口：服务端按本轮查询范围（厂站、时间段、指标）或用户写明的编号匹配告警，不经模型
 export interface ChatAction {

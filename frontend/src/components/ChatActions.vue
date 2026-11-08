@@ -3,15 +3,19 @@
 // 草稿与确认派单走与告警页相同的接口，派单需人工确认并登录，结果记回本次对话。
 import { reactive } from 'vue'
 import { RouterLink } from 'vue-router'
-import { api, type ChatAction, type Draft } from '../lib/api'
+import { api, type ChatAction, type ChatFollowup, type Draft } from '../lib/api'
 import { mdhm } from '../lib/format'
 import WorkOrderDraftForm from './WorkOrderDraftForm.vue'
 
-const props = defineProps<{ actions: ChatAction[]; chat: { session_id: string; run_id: string } }>()
+const props = defineProps<{ actions: ChatAction[]; chat: { session_id: string; run_id: string }; followups?: ChatFollowup[] }>()
 
 interface State { busy: boolean; err: string; draft: Draft | null; dispatched: { id: number; recorded: boolean } | null }
 const st = reactive<Record<number, State>>({})
 for (const a of props.actions) st[a.alarm_id] = { busy: false, err: '', draft: null, dispatched: null }
+// 页面刷新后恢复的对话：派单结果来自服务端记录
+for (const f of props.followups ?? []) {
+  if (st[f.alarm_id]) st[f.alarm_id].dispatched = { id: f.work_order_id, recorded: true }
+}
 
 const LEVEL_CLASS: Record<string, string> = { 告警: 's-alarm', 预警: 's-warn', 提示: 's-normal' }
 

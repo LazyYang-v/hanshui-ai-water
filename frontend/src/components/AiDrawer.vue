@@ -1,25 +1,13 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue'
-import type { ChatResult } from '../lib/api'
+import { nextTick, ref, watch } from 'vue'
+import { api, ApiError, type ChatResult } from '../lib/api'
+import { loadSessionId, restoredTurn, saveSessionId, statusNote, stepOk, TOOL_LABEL, type Turn } from '../lib/chatHistory'
 import ChatActions from './ChatActions.vue'
 import CitedAnswer from './CitedAnswer.vue'
 import { postSSE } from '../lib/sse'
 
 const open = defineModel<boolean>('open', { default: false })
 
-interface Step { id: string; text: string; state: 'run' | 'ok' | 'fail'; ms?: number | null }
-interface Turn {
-  question: string
-  steps: Step[]
-  result: ChatResult | null
-  error: string
-  running: boolean
-  startedAt: number
-  elapsed?: number
-}
-
-const TOOL_LABEL: Record<string, string> = { sql_query: '查数（Text2SQL）', rag_search: '知识检索', plant_statistics: '固定统计' }
-const STATUS_LABEL: Record<string, string> = { empty: '无结果', refused: '被拒绝', error: '出错', cancelled: '已停止' }
 const EXAMPLES = [
   '各厂站当前出水氨氮是多少？哪座最高？',
   '黄官镇昨天是否有氨氮超标？请结合 DO、进水量和鼓风机状态分析可能原因',
@@ -29,11 +17,31 @@ const EXAMPLES = [
 
 const turns = ref<Turn[]>([])
 const input = ref('')
-const sessionId = ref<string | null>(null)
+const sessionId = ref<string | null>(loadSessionId())
 const listEl = ref<HTMLElement | null>(null)
 let ctrl: AbortController | null = null
 
 const busy = () => turns.value.some((t) => t.running)
+
+watch(sessionId, saveSessionId)
+
+// 首次打开抽屉时取回上次的对话；会话过期就当作新对话
+let restored = false
+async function restore() {
+  const id = sessionId.value
+  if (restored || !id) return
+  restored = true
+  try {
+    const s = await api.get<{ turns: ChatResult[] }>(`/api/ai/chat/sessions/${encodeURIComponent(id)}`)
+    if (sessionId.value === id && !turns.value.length) {
+      turns.value = s.turns.map(restoredTurn)
+      scroll()
+    }
+  } catch (e) {
+    if (e instanceof ApiError && e.status === 404 && sessionId.value === id) sessionId.value = null
+  }
+}
+watch(open, (v) => { if (v) restore() }, { immediate: true })
 
 async function scroll() {
   await nextTick()
@@ -56,9 +64,9 @@ async function ask(q?: string) {
       else if (event === 'tool_end') {
         const s = t.steps.find((x) => x.id === data.id)
         if (s) {
-          s.state = data.status === 'ok' || data.status === 'empty' ? 'ok' : 'fail'
+          s.state = stepOk(data.status) ? 'ok' : 'fail'
           s.ms = data.total_ms
-          if (data.status !== 'ok') s.text += `（${STATUS_LABEL[data.status] ?? data.status}${data.error ? '：' + data.error : ''}）`
+          s.text += statusNote(data.status, data.error)
         }
       } else if (event === 'answer_start') t.steps.push({ id: 'answer', text: data.message ?? '综合证据并校验引用', state: 'run' })
       else if (event === 'done') {
@@ -117,7 +125,8 @@ function reset() {
               <CitedAnswer v-else :answer="t.result.answer" :citations="t.result.citations" :tools="t.result.tool_calls" />
               <div v-if="t.result.warnings?.length" class="warn">注意：{{ t.result.warnings.join('；') }}</div>
               <ChatActions v-if="t.result.actions?.length" :actions="t.result.actions"
-                           :chat="{ session_id: t.result.session_id, run_id: t.result.run_id }" />
+                           :chat="{ session_id: t.result.session_id, run_id: t.result.run_id }"
+                           :followups="t.result.followups" />
               <div class="meta dim">
                 {{ t.result.models.join(', ') }} · {{ t.result.prompt_tokens + t.result.completion_tokens }} tokens ·
                 {{ ((t.elapsed ?? t.result.total_ms) / 1000).toFixed(1) }} 秒 · {{ t.result.citations.length }} 处引用

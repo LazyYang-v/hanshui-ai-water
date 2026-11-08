@@ -76,6 +76,11 @@ class Scenario:
         d["description"] = KINDS[self.kind]
         return d
 
+    @classmethod
+    def from_dict(cls, d: dict) -> Scenario:
+        """to_dict 的逆操作，end、description 由其余字段推出。"""
+        return cls(d["kind"], datetime.fromisoformat(d["start"]), d["duration_min"], d["plant_code"], d["params"], d["id"])
+
 
 class ScenarioBook:
     def __init__(self):

@@ -2,7 +2,7 @@ name: hanshui
 
 services:
   db:
-    image: timescale/timescaledb:latest-pg17
+    image: timescale/timescaledb:2.31.0-pg17
     environment:
       POSTGRES_DB: shuiwu
       POSTGRES_USER: shuiwu

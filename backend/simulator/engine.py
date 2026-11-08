@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 from datetime import datetime
 
 import numpy as np
 
-from .model import PlantConfig, PlantModel, local_hour
-from .scenarios import ScenarioBook
+from .model import PlantConfig, PlantModel, PlantState, local_hour
+from .scenarios import Scenario, ScenarioBook
 
 AMPS_PER_KW = 1.79  # 380V、功率因数 0.85：I = P / (√3 · 0.38 · 0.85)
 
@@ -74,6 +74,25 @@ class Simulator:
         self.rng = np.random.default_rng([seed, 0])
         self.book = ScenarioBook()
         self._status: dict[int, str] = {d.id: ("备用" if d.standby else "运行") for d in devices}
+
+    def dump_state(self) -> dict:
+        """可 JSON 序列化的运行状态（水质与控制器状态、设备状态、场景），重启后由 load_state 恢复。"""
+        return {
+            "plants": {str(pid): asdict(m.s) for pid, m in self.models.items()},
+            "device_status": {str(did): status for did, status in self._status.items()},
+            "scenarios": [sc.to_dict() for sc in self.book.items],
+        }
+
+    def load_state(self, state: dict) -> None:
+        """厂站、设备或状态字段与保存时不同的（台账或代码已更新）跳过，其余照常恢复。"""
+        known = {f.name for f in fields(PlantState)}
+        for pid, saved in state["plants"].items():
+            if model := self.models.get(int(pid)):
+                model.s = PlantState(**{k: v for k, v in saved.items() if k in known})
+        for did, status in state["device_status"].items():
+            if int(did) in self._status:
+                self._status[int(did)] = status
+        self.book.items = [Scenario.from_dict(d) for d in state["scenarios"]]
 
     def step(self, ts: datetime, dt_s: float) -> Snapshot:
         rain = self.book.rain(ts)

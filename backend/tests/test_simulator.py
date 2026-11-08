@@ -1,5 +1,6 @@
 """模拟器标定测试：保证数据在正常工况下合规，在各场景下呈现预期的异常特征。"""
 
+import json
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -125,3 +126,48 @@ def test_scenario_validation_and_clear():
     sc = book.add(Scenario("pipe_leak", T0, 600, "P03"))
     assert book.clear(plant_code="P03", at=at(1)) == 1
     assert sc.duration_min == 60 and not sc.active(at(2))
+
+
+def _sim(seed):
+    return Simulator([plant_config(p) for p in PLANTS], DEVICES, seed=seed)
+
+
+def _with_blower_fault():
+    sim = _sim(42)
+    sim.book.add(Scenario("blower_fault", T0 + timedelta(hours=1), 600, "P01"))
+    sim.book.add(Scenario("storm", T0 + timedelta(hours=1), 600, params={"peak_mm_h": 12.0}))
+    for i in range(240):
+        sim.step(T0 + timedelta(minutes=i), 60)
+    return sim
+
+
+def test_state_survives_json_roundtrip_so_restart_continues_the_curve():
+    before = _with_blower_fault()
+    saved = json.loads(json.dumps(before.dump_state()))
+
+    after = _sim(7)                                  # 新进程：随机序列不同，状态全靠恢复
+    after.load_state(saved)
+
+    assert {pid: m.s for pid, m in after.models.items()} == {pid: m.s for pid, m in before.models.items()}
+    assert after._status == before._status and "故障" in after._status.values()
+    assert [sc.to_dict() for sc in after.book.items] == [sc.to_dict() for sc in before.book.items]
+    t = T0 + timedelta(hours=4)
+    assert {sc.kind for sc in after.book.active(t)} == {"blower_fault", "storm"}
+
+    state = before.models[1].s
+    row = after.step(t, 60).plants[1]
+    assert row["nh3n_out"] == pytest.approx(state.nh3n_out, rel=0.2)
+    assert row["air_flow_m3h"] == pytest.approx(state.air, rel=0.1)
+
+
+def test_load_state_skips_plants_devices_and_fields_no_longer_present():
+    sim = _sim(42)
+    saved = json.loads(json.dumps(sim.dump_state()))
+    saved["plants"]["1"] = {"nh3n_out": 3.3, "removed_field": 1.0}
+    saved["plants"]["9999"] = {"nh3n_out": 9.9}
+    saved["device_status"]["9999"] = "故障"
+
+    sim.load_state(saved)
+
+    assert sim.models[1].s.nh3n_out == 3.3
+    assert 9999 not in sim.models and 9999 not in sim._status
