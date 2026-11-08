@@ -18,15 +18,24 @@ import json
 import os
 import re
 import time
-from datetime import datetime, timezone
-from pathlib import Path
+from datetime import UTC, datetime
 from urllib.parse import urlsplit
 
 import httpx
 
 from evals.agent.diagnosis_data import (
-    EVAL_DB, HERE, RO_ROLE, EvalError, build_dataset, connection_urls, data_signature,
-    database_reference, load_spec, spec_digest, verify_sql_outputs, verify_statistics_reference,
+    EVAL_DB,
+    HERE,
+    RO_ROLE,
+    EvalError,
+    build_dataset,
+    connection_urls,
+    data_signature,
+    database_reference,
+    load_spec,
+    spec_digest,
+    verify_sql_outputs,
+    verify_statistics_reference,
 )
 from evals.agent.diagnosis_score import compact, same_time, score_case
 from evals.http import alogin
@@ -239,7 +248,7 @@ def summarize(cases):
 
 
 async def evaluate(args, spec, cases, target):
-    report = {'label': args.label, 'started_at': datetime.now(timezone.utc).isoformat(),
+    report = {'label': args.label, 'started_at': datetime.now(UTC).isoformat(),
               'clock': spec['clock'], 'version': spec['version'], 'spec_sha256': spec_digest(),
               'database': EVAL_DB, 'selected_ids': [c['id'] for c in cases],
               'request_count_note': '题数是Agent HTTP请求数；底层Flash调用因规划、Text2SQL与重试会更多',
@@ -255,7 +264,7 @@ async def evaluate(args, spec, cases, target):
     except Exception as exc:
         report['startup_exception'] = safe_exception(exc)
     finally:
-        report['finished_at'] = datetime.now(timezone.utc).isoformat()
+        report['finished_at'] = datetime.now(UTC).isoformat()
         report['summary'] = summarize(report['cases'])
         save_json(target / 'report.json', report)
     return not report.get('startup_exception') and report['summary']['failed'] == 0

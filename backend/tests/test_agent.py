@@ -372,8 +372,10 @@ async def test_first_plan_truncated_is_repaired_without_thinking():
 @pytest.mark.parametrize("disconnect", ["headers_error", "headers_disconnect", "body_disconnect"])
 async def test_sse_disconnect_always_cancels_work_and_releases_lease(disconnect):
     from types import SimpleNamespace
+
     import fakeredis
     from starlette.requests import ClientDisconnect
+
     from app.ai.agent.sessions import SessionStore
     from app.api.chat import ChatRequest, stream
 

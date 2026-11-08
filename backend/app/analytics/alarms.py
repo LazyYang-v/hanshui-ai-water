@@ -24,9 +24,23 @@ from psycopg.types.json import Jsonb
 from psycopg_pool import AsyncConnectionPool
 from redis.asyncio import Redis
 
-from app.analytics.rules import (BUCKET, DEFAULT_LOAD_CONFIG, DOSE_FEATURES, LOAD_METRICS, LOCAL_TZ, LOOKBACK,
-                                 RULES, Baseline, DeviceSignals, Episode, LoadConfig, PlantSignals, Reference,
-                                 detect, fit_dose_model, worse_level)
+from app.analytics.rules import (
+    DEFAULT_LOAD_CONFIG,
+    DOSE_FEATURES,
+    LOAD_METRICS,
+    LOCAL_TZ,
+    LOOKBACK,
+    RULES,
+    Baseline,
+    DeviceSignals,
+    Episode,
+    LoadConfig,
+    PlantSignals,
+    Reference,
+    detect,
+    fit_dose_model,
+    worse_level,
+)
 from app.deps import sim_now
 from app.domain.metrics import EFFLUENT_KEYS
 

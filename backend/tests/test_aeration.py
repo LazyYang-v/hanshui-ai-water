@@ -10,8 +10,20 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from app.api import aeration as aeration_api
-from simulator.aeration import (EVAL_DAY, P01, PI, AerationObs, HoltWinters, Instruments, LoadFeedforward, Params,
-                                compare, downsample, metrics, simulate)
+from simulator.aeration import (
+    EVAL_DAY,
+    P01,
+    PI,
+    AerationObs,
+    HoltWinters,
+    Instruments,
+    LoadFeedforward,
+    Params,
+    compare,
+    downsample,
+    metrics,
+    simulate,
+)
 from simulator.model import DO_SAT, PlantModel
 from simulator.scenarios import ScenarioBook
 

@@ -15,7 +15,6 @@ API使用进程内fakeredis固定时钟、关闭alarmmonitor，dense遵循本地
 from __future__ import annotations
 
 import hashlib
-import json
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -94,6 +93,7 @@ def build_dataset(*, rebuild=False):
     import psycopg
     from psycopg import sql
     from psycopg.types.json import Jsonb
+
     from simulator import runner
     from simulator.scenarios import Scenario
 
@@ -286,6 +286,7 @@ def verify_statistics_reference(query, server, raw):
 def verify_sql_outputs(result):
     """以独立库只读账号重放被引用SQL，核对返回表；仍另外核对固定实体/时刻金标。"""
     import psycopg
+
     from app.ai.text2sql.guard import guard
     from app.ai.text2sql.service import _cell
 
@@ -319,6 +320,7 @@ def create_eval_app():
     from dataclasses import replace
 
     import fakeredis
+
     from app.config import Settings
     from app.main import create_app
 

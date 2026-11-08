@@ -10,7 +10,7 @@ from app.ai.agent.evidence import conversation
 from app.ai.agent.prompts import ANSWER_SYSTEM, PLAN_SYSTEM
 from app.api.alarms import build_draft
 from app.deps import LOCAL_TZ
-from app.services.chat_actions import relevance, scope_from_result
+from app.services.chat_actions import relevance, scope_from_result, turn_covers
 from tests.test_ops_api import ops  # noqa: F401 —— 复用“清表 + 扫描 48 小时”的夹具
 
 PLANTS = [{"code": f"P0{i}", "name": n} for i, n in enumerate(
@@ -187,7 +187,7 @@ def test_draft_prefers_chat_recommendations():
     now = datetime(2026, 11, 8, 10, 5, tzinfo=LOCAL_TZ)
     draft = build_draft(alarm, now, turn)
     assert draft["source"]["kind"] == "chat_answer" and draft["source"]["run_id"] == "r" * 32
-    assert "不专指本告警" in draft["source"]["note"]
+    assert "问的正是本告警的指标" in draft["source"]["note"]
     first, last = draft["steps"][0], draft["steps"][-1]
     assert first["text"] == "核查二沉池泥位与出水SS" and first["source"] == "ai"     # 只取核查建议，不取原因假设
     assert [c["kind"] for c in first["citations"]] == ["knowledge", "statistic"]
@@ -202,6 +202,24 @@ def test_draft_prefers_chat_recommendations():
     # 模板里嵌入西文结尾的指标名时补空格
     ss = build_draft({**alarm, "metric": "ss_out"}, now)["steps"]
     assert ss[0]["text"].startswith("复核出水 SS 在线仪表读数") and "跟踪出水 SS 恢复情况" in ss[-1]["text"]
+
+
+def test_chat_recommendations_only_for_the_asked_metric():
+    # 线上走查的那一轮：问的是 3 号厂出水氨氮，工具子问题顺带查了出水 SS，入口里有 SS 告警 #44、#37 和氨氮预警 #38
+    resolved = "3号厂（P03）2026年11月8日出水氨氮升高原因排查：核查同时段水质、DO、进水量、曝气风量"
+    result = {"question": "3 号厂氨氮为什么升高？", "resolved_question": resolved,
+              "tool_calls": [{"tool": "sql_query", "question": "P03 按小时的MLSS、出水SS、进水COD"}]}
+    scope = scope_from_result(result, [], datetime(2026, 11, 8, 19, tzinfo=LOCAL_TZ))
+    ss, nh3n = {"metric": "ss_out"}, {"metric": "nh3n_out"}
+    assert relevance(ss, scope.words) == 2 and relevance(ss, scope.asked) == 0      # 排序时问到的氨氮排在 SS 前
+    assert relevance(nh3n, scope.asked) == 2
+    turn = {"resolved_question": resolved, "actions": [
+        {"alarm_id": 44, "metric": "ss_out", "matched_by": "scope"},
+        {"alarm_id": 38, "metric": "nh3n_out", "matched_by": "scope"},
+        {"alarm_id": 25, "metric": "ss_out", "matched_by": "explicit"}]}
+    assert turn_covers(turn, 38) and not turn_covers(turn, 44)
+    assert turn_covers(turn, 25)                 # 用户点名的告警
+    assert not turn_covers(turn, 99)             # 该轮没给过入口
 
 
 def test_explicit_alarm_id_offered_even_when_agent_refuses(ops, fake_llm):  # noqa: F811

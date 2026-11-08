@@ -9,7 +9,14 @@ import httpx
 import pytest
 
 import app.ai.gateway as gateway_module
-from app.ai.gateway import AttemptRecord, Cassette, LLMError, LLMGateway, OpenAICompatProvider, request_key
+from app.ai.gateway import (
+    AttemptRecord,
+    Cassette,
+    LLMError,
+    LLMGateway,
+    OpenAICompatProvider,
+    request_key,
+)
 
 MSG = [{"role": "user", "content": "你好"}]
 

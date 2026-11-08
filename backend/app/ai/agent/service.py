@@ -14,7 +14,12 @@ from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
 from pydantic import ValidationError
 
-from app.ai.agent.evidence import conversation, missing_hypothesis, observations, validate_answer
+from app.ai.agent.evidence import (
+    conversation,
+    missing_hypothesis,
+    observations,
+    validate_answer,
+)
 from app.ai.agent.models import AgentResult, Decision, ToolRecord
 from app.ai.agent.prompts import ANSWER_SYSTEM, PLAN_SYSTEM
 from app.ai.gateway import LLMError, LLMGateway

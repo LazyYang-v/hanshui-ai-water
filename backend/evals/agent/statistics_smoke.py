@@ -9,7 +9,7 @@ import argparse
 import asyncio
 import json
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -44,7 +44,7 @@ async def main():
     if path.exists():
         parser.error(f"不覆盖已有记录：{path}")
     path.parent.mkdir(parents=True, exist_ok=True)
-    report = {"checked_at": datetime.now(timezone.utc).isoformat(), "cases": []}
+    report = {"checked_at": datetime.now(UTC).isoformat(), "cases": []}
     async with httpx.AsyncClient(base_url=args.url, timeout=220, trust_env=False) as client:
         await alogin(client)
         gateway = (await client.get("/api/ai/gateway")).raise_for_status().json()

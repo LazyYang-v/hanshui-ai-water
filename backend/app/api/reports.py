@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import date as Date   # 请求字段名就叫 date，类型用别名避免被字段遮住
+from datetime import date as Date  # 请求字段名就叫 date，类型用别名避免被字段遮住
 from typing import Literal
 
 from fastapi import APIRouter, HTTPException, Query, Request

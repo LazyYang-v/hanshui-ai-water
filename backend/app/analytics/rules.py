@@ -16,7 +16,12 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 
-from app.domain.metrics import DEVICE_METRICS, EFFLUENT_KEYS, LOAD_SOURCES, PLANT_METRICS
+from app.domain.metrics import (
+    DEVICE_METRICS,
+    EFFLUENT_KEYS,
+    LOAD_SOURCES,
+    PLANT_METRICS,
+)
 
 LOCAL_TZ = ZoneInfo("Asia/Shanghai")
 BUCKET = timedelta(minutes=5)

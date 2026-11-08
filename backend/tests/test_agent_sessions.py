@@ -9,7 +9,13 @@ import fakeredis
 import pytest
 from redis.asyncio.client import Pipeline
 
-from app.ai.agent.sessions import SessionBusy, SessionExpired, SessionLease, SessionNotFound, SessionStore
+from app.ai.agent.sessions import (
+    SessionBusy,
+    SessionExpired,
+    SessionLease,
+    SessionNotFound,
+    SessionStore,
+)
 
 
 @pytest.fixture(params=[False, True], ids=["bytes", "decoded"])

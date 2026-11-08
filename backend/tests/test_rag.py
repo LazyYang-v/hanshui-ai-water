@@ -1,11 +1,17 @@
 """RAG 边界和 API 测试：假向量/假模型，无模型下载、无付费请求。"""
 
 import json
+
 import numpy as np
 import pytest
 
-from app.ai.rag.corpus import DEFAULT_CORPUS, Chunk, Document, load_corpus, load_document
-from app.ai.rag.retrieval import DenseUnavailable, Hit, KnowledgeIndex, SearchResult
+from app.ai.rag.corpus import (
+    Chunk,
+    Document,
+    load_corpus,
+    load_document,
+)
+from app.ai.rag.retrieval import DenseUnavailable, KnowledgeIndex
 from app.ai.rag.service import RAG, validate_answer
 from tests.conftest import FakeLLM
 

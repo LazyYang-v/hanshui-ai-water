@@ -9,7 +9,7 @@ import argparse
 import asyncio
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -57,7 +57,7 @@ async def main():
     parser.add_argument("--url", default="http://localhost:8000")
     parser.add_argument("--output", type=Path, default=Path(__file__).parent / "results" / "api-smoke-optimized.json")
     args = parser.parse_args()
-    report = {"checked_at": datetime.now(timezone.utc).isoformat(), "cases": []}
+    report = {"checked_at": datetime.now(UTC).isoformat(), "cases": []}
     path = args.output
     if path.exists():
         parser.error(f"不覆盖已有验收记录：{path}；请指定新的--output")

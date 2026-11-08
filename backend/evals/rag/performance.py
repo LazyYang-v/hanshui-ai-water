@@ -10,7 +10,7 @@ import re
 import statistics
 import time
 from dataclasses import asdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import yaml
@@ -80,7 +80,7 @@ async def main():
         raise SystemExit("回放必须指定已有cassette")
     gateway = LLMGateway(providers, mode=args.mode, cassette=Cassette(cassette), cache_size=0)
     engines = {name: RAG(index, gateway, config) for name, config in CONFIGS.items()}
-    metadata = {"checked_at": datetime.now(timezone.utc).isoformat(), **index.status(),
+    metadata = {"checked_at": datetime.now(UTC).isoformat(), **index.status(),
                 "mode": args.mode, "model": "deepseek-flash", "concurrency": args.concurrency,
                 "configs": {name: asdict(cfg) for name, cfg in CONFIGS.items()},
                 "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),

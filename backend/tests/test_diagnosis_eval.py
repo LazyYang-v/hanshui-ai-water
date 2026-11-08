@@ -16,11 +16,21 @@ import pytest
 
 from evals.agent.diagnosis import assert_flash_gateway, reserve_output, select_cases
 from evals.agent.diagnosis_data import (
-    EVAL_DB, EvalError, check_readonly_identity, connection_urls, independent_statistics,
-    load_spec, verify_statistics_reference,
+    EVAL_DB,
+    EvalError,
+    check_readonly_identity,
+    connection_urls,
+    independent_statistics,
+    load_spec,
+    verify_statistics_reference,
 )
 from evals.agent.diagnosis_score import (
-    PREFIX, nearest_sample_sql, projection_sources, row_sources, same_value, score_case,
+    PREFIX,
+    nearest_sample_sql,
+    projection_sources,
+    row_sources,
+    same_value,
+    score_case,
 )
 
 CLOCK = '2026-11-07T12:00:00+08:00'

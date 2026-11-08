@@ -3,7 +3,6 @@
 import asyncio
 import copy
 import json
-from dataclasses import replace
 
 import pytest
 
@@ -12,7 +11,6 @@ from app.ai.agent.evidence import observations, validate_answer
 from app.ai.agent.models import AgentResult, Decision, ToolCall, ToolRecord
 from app.ai.agent.service import Runtime, discard_event
 from app.ai.gateway import AttemptRecord, ChatResult, LLMError
-from app.ai.text2sql.service import Text2SQLResult
 from tests.conftest import END
 from tests.test_agent import SQL, decision, draft, evidence_result, scripted
 

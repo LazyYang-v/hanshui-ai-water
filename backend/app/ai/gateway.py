@@ -22,7 +22,7 @@ import logging
 import os
 import random
 import time
-from asyncio import Semaphore     # 直接导入：测试会替换模块里的 asyncio（假时钟）
+from asyncio import Semaphore  # 直接导入：测试会替换模块里的 asyncio（假时钟）
 from collections import OrderedDict, deque
 from collections.abc import AsyncIterator
 from dataclasses import asdict, dataclass, field, replace

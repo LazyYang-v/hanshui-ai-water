@@ -24,8 +24,20 @@ import numpy as np
 import psycopg
 from psycopg.rows import dict_row
 
-from app.analytics.alarms import BASELINE_SPAN, SignalHistory, load_history, load_signals, scan
-from app.analytics.rules import BUCKET, DEFAULT_LOAD_CONFIG, LOCAL_TZ, LoadConfig, detect, load_episodes
+from app.analytics.alarms import (
+    BASELINE_SPAN,
+    load_history,
+    load_signals,
+    scan,
+)
+from app.analytics.rules import (
+    BUCKET,
+    DEFAULT_LOAD_CONFIG,
+    LOCAL_TZ,
+    LoadConfig,
+    detect,
+    load_episodes,
+)
 from simulator import runner
 from simulator.scenarios import Scenario
 
@@ -164,11 +176,11 @@ def consistency(episodes, rows):
     for key in full.keys() & inc.keys():
         e, a = full[key], inc[key]
         bad = {}
-        for field, want in (("ended_at", e.end), ("level", e.level), ("peak", e.peak), ("peak_at", e.peak_at)):
-            got = a[field]
-            same = abs(got - want) < 1e-3 if field == "peak" and got is not None and want is not None else got == want
+        for col, want in (("ended_at", e.end), ("level", e.level), ("peak", e.peak), ("peak_at", e.peak_at)):
+            got = a[col]
+            same = abs(got - want) < 1e-3 if col == "peak" and got is not None and want is not None else got == want
             if not same:
-                bad[field] = {"full": str(want), "incremental": str(got)}
+                bad[col] = {"full": str(want), "incremental": str(got)}
         if bad:
             diffs.append({"key": str(key), **bad})
     return {"full": len(full), "incremental": len(inc), "missing": [str(k) for k in full.keys() - inc.keys()],
@@ -264,6 +276,7 @@ async def replay(codes, *, tune=False):
     async with await psycopg.AsyncConnection.connect(db_url(), autocommit=True, row_factory=dict_row) as conn:
         history = await load_history(conn, T0, EVAL_END)
         ms, revisions, scans, source_checks = [], [], 0, []
+        previous: dict = {}                 # 上一次扫描时各告警的结束时间，用于发现恢复后又改写
         t, resumed = EVAL_START + BUCKET, False
         check_at = {EVAL_START + timedelta(hours=h) for h in (3, 12, 24, 40, 96, 144)}
         while t <= EVAL_END:
@@ -274,7 +287,7 @@ async def replay(codes, *, tune=False):
             if t >= OUTAGE[1] and not resumed:
                 span, resumed = BASELINE_SPAN, True
             # 复用生产完整扫描/事务合并，仅注入按时刻切窗的只读聚合快照。
-            stats, events = await scan(conn, max(T0, t - span), t, history=history)
+            stats, _ = await scan(conn, max(T0, t - span), t, history=history)
             # 恢复后又有更新或重开，由逐扫描的结束时间快照判断。
             current = await (await conn.execute("SELECT id,ended_at FROM alarm WHERE rule IS NOT NULL")).fetchall()
             if scans:

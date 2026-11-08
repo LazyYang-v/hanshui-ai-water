@@ -86,7 +86,7 @@ async def test_budget_and_cache_do_not_rebill_or_share_mutable_results():
 
 
 async def test_ttl_lru_and_context_changes_invalidate_cache(monkeypatch):
-    import app.ai.rag.service as service
+    from app.ai.rag import service
     clock = [0.0]
     monkeypatch.setattr(service, "time", SimpleNamespace(
         monotonic=lambda: clock[0], perf_counter=time.perf_counter))

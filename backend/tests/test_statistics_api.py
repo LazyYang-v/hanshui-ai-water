@@ -87,10 +87,14 @@ def test_agent_registered_statistics_and_sse_parameters_are_json_safe(client, fa
     (call,) = result["tool_calls"]
     assert call["tool"] == "plant_statistics" and call["status"] == "ok"
     assert all(c["kind"] == "statistic" for c in result["citations"])
-    # 引用里保留每条事实的完整文本；合成段落时相同的覆盖说明（“；有效N/N个5分钟桶”）只在句末写一次
-    assert all(c["text"].split("；有效")[0] in result["answer"] and c["coverage"] for c in result["citations"])
+    # 引用里保留每条事实的完整文本；合成段落时相同的覆盖说明（“；有效N/N个5分钟桶”）只在句末写一次，
+    # 同厂站同指标的主语只写第一次
+    subject = "黄官镇污水处理站（P06）出水氨氮"
+    assert all(c["text"].startswith(subject) and c["text"].endswith("个5分钟桶") and c["coverage"] for c in result["citations"])
     statistic_claims = [c for c in result["claims"] if c["kind"] == "statistic"]
-    assert all(c["text"].count("；有效") == 1 for c in statistic_claims)
+    assert all(c["text"].count("；有效") == 1 and c["text"].count(subject) == 1 for c in statistic_claims)
+    for c in result["citations"]:
+        assert c["text"].removeprefix(subject).split("；有效")[0] in result["answer"]
     start = next(data for name, data in frames if name == "tool_start")
     assert start["parameters"]["start"] == BODY["start"]
     assert all(message[0]["content"] in (PLAN_SYSTEM, ANSWER_SYSTEM) for message in fake_llm.calls)

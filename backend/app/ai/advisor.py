@@ -212,7 +212,7 @@ def knowledge_query(alarm: dict) -> str:
 
 
 def question_for(alarm: dict, now: datetime) -> str:
-    label, unit = metric_meta(alarm["metric"])
+    _, unit = metric_meta(alarm["metric"])
     unit = (alarm.get("detail") or {}).get("unit", unit)
     state = (f"已于 {alarm['ended_at'].astimezone(LOCAL_TZ):%m-%d %H:%M} 恢复" if alarm.get("ended_at")
              else f"截至 {now:%m-%d %H:%M} 仍在持续")

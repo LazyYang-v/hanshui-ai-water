@@ -1,7 +1,7 @@
 """固定统计的语义回归；--noconftest 可运行全部纯函数和 JSON 协议测试。"""
 
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 import pytest
 from fastapi import FastAPI
@@ -10,7 +10,13 @@ from pydantic import ValidationError
 
 from app.ai.agent.models import Decision
 from app.analytics.rules import BUCKET, LOCAL_TZ
-from app.analytics.statistics import StatisticsQuery, bounds, collect_statistics, make_result, summarize
+from app.analytics.statistics import (
+    StatisticsQuery,
+    bounds,
+    collect_statistics,
+    make_result,
+    summarize,
+)
 
 T0 = datetime(2026, 11, 5, tzinfo=LOCAL_TZ)
 ALL_STATISTICS = [
@@ -94,7 +100,7 @@ def test_metric_without_threshold_can_report_measurements():
 
 
 def test_query_normalizes_naive_and_offset_times_and_accepts_31_days():
-    q = query(start=T0.replace(tzinfo=None), end=(T0 + timedelta(days=31)).astimezone(timezone.utc))
+    q = query(start=T0.replace(tzinfo=None), end=(T0 + timedelta(days=31)).astimezone(UTC))
     assert q.start == T0 and q.start.tzinfo == LOCAL_TZ
     assert q.end - q.start == timedelta(days=31)
     assert q.end.tzinfo == LOCAL_TZ

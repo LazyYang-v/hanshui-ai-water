@@ -25,11 +25,26 @@ from app.ai.text2sql import Text2SQL
 from app.ai.text2sql.schema import load_schema
 from app.analytics.alarms import AlarmMonitor
 from app.analytics.statistics import PlantStatistics
-from app.api import (aeration, ai, alarms, chat, demo, devices, knowledge, meta, overview, plants, realtime, reports,
-                     vision, work_orders)
+from app.api import (
+    aeration,
+    ai,
+    alarms,
+    chat,
+    demo,
+    devices,
+    knowledge,
+    meta,
+    overview,
+    plants,
+    realtime,
+    reports,
+    vision,
+    work_orders,
+)
 from app.api import auth as auth_api
 from app.auth import AdminOnlyWrites
-from app.config import Settings, settings as default_settings
+from app.config import Settings
+from app.config import settings as default_settings
 from app.db_upgrade import upgrade
 from app.vision.service import VisionService
 

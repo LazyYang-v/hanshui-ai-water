@@ -199,6 +199,7 @@ class _Truncating:
 
     async def chat(self, messages, **kw):
         import asyncio
+
         from app.ai.gateway import ChatResult
         self.calls.append({"messages": messages, "thinking": kw.get("thinking")})
         await asyncio.sleep(self.delay_s)

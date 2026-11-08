@@ -13,7 +13,7 @@ import json
 import logging
 import os
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import numpy as np
@@ -195,7 +195,7 @@ def live(conn: psycopg.Connection, r: redis.Redis, sim: Simulator, code_by_id: d
         tick_wall = max(1.0, BASE_TICK_S / speed)
         dt = tick_wall * speed
         # 落后墙上时间（如刚回填完）时用大步长追上，单步最多 60 秒
-        lag = (datetime.now(timezone.utc) - clock).total_seconds()
+        lag = (datetime.now(UTC) - clock).total_seconds()
         if lag > dt:
             dt = min(lag, 60.0)
         snap = sim.step(clock, dt)
@@ -247,7 +247,7 @@ def run(backfill_days: int, backfill_step: float, speed: float, seed: int, do_re
     sim, id_by_code = load_simulator(conn, seed)
     code_by_id = {v: k for k, v in id_by_code.items()}
 
-    now = datetime.now(timezone.utc).replace(microsecond=0)
+    now = datetime.now(UTC).replace(microsecond=0)
     last = conn.execute("SELECT max(ts) FROM plant_reading").fetchone()[0]
     if last is None and backfill_days > 0:
         backfill(conn, sim, now, backfill_days, backfill_step, seed)

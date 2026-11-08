@@ -6,7 +6,13 @@ from datetime import datetime, timedelta
 
 from psycopg import AsyncConnection, sql
 
-from app.domain.metrics import DEVICE_METRICS, EFFLUENT_KEYS, PLANT_METRICS, Metric, worst
+from app.domain.metrics import (
+    DEVICE_METRICS,
+    EFFLUENT_KEYS,
+    PLANT_METRICS,
+    Metric,
+    worst,
+)
 
 STALE_AFTER = timedelta(minutes=10)
 

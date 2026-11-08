@@ -15,8 +15,8 @@ from psycopg.rows import dict_row
 from psycopg_pool import AsyncConnectionPool
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from app.domain.metrics import PLANT_METRICS
 from app.analytics.rules import BUCKET, LOCAL_TZ
+from app.domain.metrics import PLANT_METRICS
 
 Statistic = Literal['mean', 'instant_max', 'instant_min', 'bucket_mean_max', 'bucket_mean_min',
                     'exceed_hours', 'longest_exceed_hours', 'hours_with_exceed', 'rank', 'range', 'top']
@@ -165,13 +165,14 @@ def make_result(query: StatisticsQuery, start: datetime, end: datetime, plants: 
         # :g 的默认6位有效数字会把123.4567和123.4566显示成同一个值。
         return f'{round(value, 4):.4f}'.rstrip('0').rstrip('.') if round(value, 4) else '0'
 
-    def add(fid, statistic, value, text, plant=None, note=''):
+    def add(fid, statistic, value, text, plant=None, note='', subject=''):
         unit = ('名' if statistic == 'rank' else '个小时桶' if statistic == 'hours_with_exceed'
                 else '小时' if statistic in {'exceed_hours', 'longest_exceed_hours'}
                 else rank_unit if statistic in {'range', 'top'} else meta.unit)
         covered_codes = [plant] if plant is not None and statistic != 'rank' else coverage
         # note：覆盖说明（已含在 text 末尾）；多条事实合成一句时相同的说明只写一次
-        facts.append({'id': fid, 'statistic': statistic, 'value': value, 'text': text + note, 'note': note,
+        # subject：句首主语（厂站+指标），同一陈述里连续同主语的事实只写第一次
+        facts.append({'id': fid, 'statistic': statistic, 'value': value, 'text': text + note, 'note': note, 'subject': subject,
                       'metric': query.metric, 'plant': plant, 'unit': unit,
                       'aggregation': aggregations[statistic],
                       'coverage': {code: coverage[code] for code in covered_codes}})
@@ -205,7 +206,7 @@ def make_result(query: StatisticsQuery, start: datetime, end: datetime, plants: 
                         f"{'并列' if ties[v] > 1 else ''}第{ranks[v]}名（密集排名，本厂值{number(v)} {rank_unit}）")
                 v = ranks[v]
             if text:
-                add(f'{code}.{query.metric}.{stat}', stat, v, text, code, suffix)
+                add(f'{code}.{query.metric}.{stat}', stat, v, text, code, suffix, who)
     if set(query.statistics) & {'rank', 'range', 'top'}:
         if not comparable:
             warnings.append('厂站数据缺失或比较对象不足，不能生成跨厂排名、范围或最高值结论')

@@ -58,11 +58,19 @@ def conversation(turns: list[dict]) -> list[dict]:
 
 
 def statistic_sentence(facts: list[dict]) -> str:
-    """多条统计事实合成一句：覆盖说明相同时只在句末写一次（每条引用里仍保留完整文本）。"""
+    """多条统计事实合成一句（每条引用里仍保留完整文本）：
+    覆盖说明相同时只在句末写一次；紧接着的同主语事实省去主语（“……的最高值为”→“最高值为”）。"""
     notes = {f.get("note", "") for f in facts}
-    if len(facts) > 1 and len(notes) == 1 and (note := notes.pop()):
-        return "；".join(f["text"].removesuffix(note) for f in facts) + note
-    return "；".join(f["text"] for f in facts)
+    note = notes.pop() if len(facts) > 1 and len(notes) == 1 else ""
+    parts, last = [], None
+    for f in facts:
+        text = f["text"].removesuffix(note) if note else f["text"]
+        subject = f.get("subject") or ""
+        if subject and subject == last and text.startswith(subject):
+            text = text[len(subject):].removeprefix("的").lstrip("，")
+        parts.append(text)
+        last = subject or None
+    return "；".join(parts) + note
 
 
 def same_cell(actual, expected) -> bool:

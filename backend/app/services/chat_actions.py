@@ -36,6 +36,7 @@ class Scope:
     start: datetime | None = None
     end: datetime | None = None
     words: str = ""                 # 规划后问题与工具问题，去空白，用于指标相关性排序
+    asked: str = ""                 # 只含规划后问题：用户实际问到的指标排在工具顺带查询的指标之前
     alarm_ids: list[int] = field(default_factory=list)
 
 
@@ -54,6 +55,7 @@ def scope_from_result(result: dict, plants: list[dict], now: datetime) -> Scope:
     resolved = result.get("resolved_question", "") or ""
     texts = [resolved] + [t.get("question", "") for t in result.get("tool_calls", [])]
     scope.words = _norm(" ".join(texts))
+    scope.asked = _norm(resolved)
 
     starts: list[datetime] = []
     ends: list[datetime] = []
@@ -117,9 +119,18 @@ def relevance(alarm: dict, words: str) -> int:
     label, _ = metric_meta(alarm.get("metric"))
     if label and _label_key(label) and _label_key(label) in words:
         return 2
-    if alarm.get("device_id") and any(w in words for w in DEVICE_WORDS):
+    if (alarm.get("device_id") or alarm.get("device_code")) and any(w in words for w in DEVICE_WORDS):
         return 1
     return 0
+
+
+def turn_covers(turn: dict, alarm_id: int) -> bool:
+    """该轮回答是否针对这条告警：用户显式点名，或规划后问题问的正是它的指标（设备告警则问到设备）。
+    工具子问题里顺带查询的指标不算——那一轮的核查建议不是为它写的。"""
+    action = next((a for a in turn.get("actions", []) if a.get("alarm_id") == alarm_id), None)
+    if action is None:
+        return False
+    return action.get("matched_by") == "explicit" or relevance(action, _norm(turn.get("resolved_question") or "")) > 0
 
 
 def _action(a: dict, matched_by: str, open_wo: int | None) -> dict:
@@ -152,7 +163,8 @@ async def suggest_actions(conn: AsyncConnection, result: dict, now: datetime) ->
             ORDER BY a.ts DESC LIMIT 50""",
             (sorted(scope.plants), scope.end + MARGIN, scope.start - MARGIN))).fetchall()
         level = {"告警": 2, "预警": 1, "提示": 0}
-        rows.sort(key=lambda r: (relevance(r, scope.words), level.get(r["level"], 0), r["ts"]), reverse=True)
+        rows.sort(key=lambda r: (relevance(r, scope.asked), relevance(r, scope.words), level.get(r["level"], 0), r["ts"]),
+                  reverse=True)
         seen = {r["id"] for r, _ in picked}
         picked += [(r, "scope") for r in rows if r["id"] not in seen]
     picked = picked[:MAX_ACTIONS]

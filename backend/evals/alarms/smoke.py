@@ -33,6 +33,7 @@ SMOKE_PASSWORD = "smoke-admin"   # 临时进程专用，验收结束即销毁
 
 def create_smoke_app():
     import fakeredis
+
     from app.config import Settings
     from app.main import create_app
     server = fakeredis.FakeServer()

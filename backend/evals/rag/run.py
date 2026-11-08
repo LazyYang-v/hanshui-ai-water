@@ -11,8 +11,8 @@ import argparse
 import asyncio
 import hashlib
 import json
-import statistics
 import re
+import statistics
 from dataclasses import asdict
 from pathlib import Path
 

@@ -23,9 +23,18 @@ from app.ai.agent.sessions import SessionNotFound
 from app.analytics.rules import BUCKET, RULES
 from app.api.common import aware
 from app.deps import Conn, Now, Rds, sim_now
-from app.vision.alarms import KIND as VISION_KIND, VISION_RULE_IDS
-from app.services.ops import (ALARM_SELECT, WO_OPEN, WORK_ORDER_SELECT, alarm_out, get_alarm, metric_meta,
-                              work_order_out)
+from app.services.chat_actions import turn_covers
+from app.services.ops import (
+    ALARM_SELECT,
+    WO_OPEN,
+    WORK_ORDER_SELECT,
+    alarm_out,
+    get_alarm,
+    metric_meta,
+    work_order_out,
+)
+from app.vision.alarms import KIND as VISION_KIND
+from app.vision.alarms import VISION_RULE_IDS
 
 router = APIRouter(prefix="/api/alarms", tags=["告警与工单"])
 
@@ -245,7 +254,7 @@ def build_draft(alarm: dict, now: datetime, chat_turn: dict | None = None) -> di
         source = {"kind": "chat_answer", "session_id": chat_turn.get("session_id"), "run_id": chat_turn.get("run_id"),
                   "question": chat_turn.get("question"), "answered_at": chat_turn.get("now"),
                   "models": chat_turn.get("models", []),
-                  "note": "步骤来自本次对话的 AI 核查建议，针对的是提问而不专指本告警，请核对后派单"}
+                  "note": "步骤来自本次对话的 AI 核查建议（该轮问的正是本告警的指标），请核对后派单"}
     elif steps := _recommendations(advice):
         source = {"kind": "ai_advice", "advice_generated_at": advice.get("generated_at"),
                   "models": advice.get("models", [])}
@@ -261,13 +270,13 @@ def build_draft(alarm: dict, now: datetime, chat_turn: dict | None = None) -> di
 
 
 async def chat_turn_for(request: Request, chat: ChatRef, alarm_id: int) -> dict | None:
-    """该轮存在且给过这条告警的派单入口才采用；会话过期、Redis 故障时退回处置建议或模板，不影响派单。"""
+    """该轮给过这条告警的入口、且问的正是它（turn_covers）才采用；会话过期、Redis 故障时退回处置建议或模板，不影响派单。"""
     try:
         session = await request.app.state.agent_sessions.get(chat.session_id)
     except (SessionNotFound, RedisError, ValueError):
         return None
     turn = next((t for t in session.get("turns", []) if t.get("run_id") == chat.run_id), None)
-    if turn is None or alarm_id not in {a.get("alarm_id") for a in turn.get("actions", [])}:
+    if turn is None or not turn_covers(turn, alarm_id):
         return None
     return {**turn, "session_id": chat.session_id}
 

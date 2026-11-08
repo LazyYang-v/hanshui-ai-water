@@ -12,7 +12,13 @@ from pydantic import BaseModel, ConfigDict, Field
 from redis.exceptions import RedisError
 
 from app.ai.agent.service import Agent
-from app.ai.agent.sessions import SessionBusy, SessionExpired, SessionLease, SessionNotFound, SessionStore
+from app.ai.agent.sessions import (
+    SessionBusy,
+    SessionExpired,
+    SessionLease,
+    SessionNotFound,
+    SessionStore,
+)
 from app.deps import ReleasedNow
 from app.services.chat_actions import suggest_actions
 

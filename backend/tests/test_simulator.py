@@ -1,14 +1,13 @@
 """模拟器标定测试：保证数据在正常工况下合规，在各场景下呈现预期的异常特征。"""
 
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import pytest
 
 from simulator.engine import DeviceConfig, Simulator, plant_config
 from simulator.scenarios import Scenario, ScenarioBook
-
-from zoneinfo import ZoneInfo
 
 T0 = datetime(2026, 11, 1, tzinfo=ZoneInfo("Asia/Shanghai"))
 DT = 60

@@ -10,7 +10,7 @@ import asyncio
 import json
 import re
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
@@ -33,7 +33,7 @@ async def main():
     if path.exists():
         parser.error(f"记录已存在，请另用 label：{path}")
     path.parent.mkdir(exist_ok=True)
-    report = {"checked_at": datetime.now(timezone.utc).isoformat(), "question": QUESTION,
+    report = {"checked_at": datetime.now(UTC).isoformat(), "question": QUESTION,
               "note": "固定历史日期；同一运行服务连续请求，缓存和模型采样会影响耗时；小样本不报告P95。",
               "runs": []}
     async with httpx.AsyncClient(base_url=args.url, timeout=220, trust_env=False) as client:

@@ -2,14 +2,13 @@
 
 from dataclasses import asdict
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import psycopg
 import pytest
 
 from app.analytics.alarms import SignalHistory, load_signals, scan
 from app.analytics.rules import BUCKET, LOAD_METRICS, detect, load_episodes
-
-from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Asia/Shanghai")
 T0 = datetime(2028, 1, 8, 8, tzinfo=TZ)

@@ -25,10 +25,20 @@ from pathlib import Path
 
 import numpy as np
 
+from simulator.aeration import (
+    EVAL_DAY,
+    MOVE_BUDGET,
+    P01,
+    PARAMS_PATH,
+    PI,
+    SCENARIOS,
+    STRATEGIES,
+    HoltWinters,
+    Instruments,
+    Params,
+    simulate,
+)
 from simulator.model import diurnal
-
-from simulator.aeration import (EVAL_DAY, MOVE_BUDGET, P01, PARAMS_PATH, SCENARIOS, STRATEGIES, PI, HoltWinters,
-                                Instruments, Params, simulate)
 
 RESULTS = Path(__file__).resolve().parent / "results"
 CAL_SEEDS = (1, 2, 3, 4, 5)
