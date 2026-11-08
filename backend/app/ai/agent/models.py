@@ -10,6 +10,8 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from app.analytics.statistics import StatisticsQuery
 
+MAX_PLAN_REASON = 400
+
 
 class StrictModel(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True, str_strip_whitespace=True)
@@ -33,7 +35,16 @@ class Decision(StrictModel):
     action: Literal["tools", "answer", "refuse"]
     calls: list[ToolCall] = Field(max_length=3)
     # tools/answer 的空理由不承载事实；省略时补空，refuse仍在下方强制非空理由。
-    reason: str = Field(default="", max_length=400)
+    reason: str = Field(default="", max_length=MAX_PLAN_REASON)
+
+    @model_validator(mode="before")
+    @classmethod
+    def trim_reason(cls, data):
+        """tools/answer 的理由不展示、不承载事实，超长时截断而不整轮重写；拒答理由会展示给用户，仍须修复。"""
+        if (isinstance(data, dict) and data.get("action") in ("tools", "answer")
+                and isinstance(data.get("reason"), str) and len(data["reason"].strip()) > MAX_PLAN_REASON):
+            data = {**data, "reason": data["reason"].strip()[:MAX_PLAN_REASON - 1] + "…"}
+        return data
 
     @model_validator(mode="after")
     def consistent(self):
@@ -60,8 +71,10 @@ class KnowledgeRef(StrictModel):
 
 
 # 提示词的目标上限为每轮5条陈述、每条6个单元格和2段摘录；校验硬上限各留余量，
-# 模型多写一项时不必整轮重写。按硬上限估算最坏约 6×(8×25+3×60+150)≈3200 token，仍在回答预算内。
-MAX_CLAIMS, MAX_DATA_REFS, MAX_KNOWLEDGE_REFS = 6, 8, 3
+# 模型多写几项时不必整轮重写（每个引用仍逐项核对，放宽不降低证据要求）。
+# 单元格上限原为 8：2026-11-08 线上一轮因某条陈述引了 10 个单元格整轮重写，多花 4.5 s、1.2 万 token。
+# 生成长度另由 finish_reason 检查；按硬上限估算最坏约 6×(12×25+3×60+150)≈3800 token，仍在回答预算内。
+MAX_CLAIMS, MAX_DATA_REFS, MAX_KNOWLEDGE_REFS = 6, 12, 3
 
 
 class StatisticRef(StrictModel):

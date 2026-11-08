@@ -534,3 +534,27 @@ def test_prompts_limit_scope_to_listed_metrics_and_moment():
     assert "不调用plant_statistics" in PLAN_SYSTEM
     assert "陈述只引用这些指标和时刻的单元格" in ANSWER_SYSTEM
     assert "至少写一条hypothesis" in ANSWER_SYSTEM
+
+
+async def test_long_plan_reason_is_trimmed_but_refusal_reason_still_repaired():
+    """tools/answer 的理由不展示，超长直接截断，不再整轮重写；拒答理由会展示，仍走修复。"""
+    plan = decision([("sql_query", "黄官镇昨天氨氮和DO"), ("rag_search", "风机与氨氮的排查")], reason="理" * 600)
+    llm = scripted(plan, decision(reason="依" * 500), draft())
+    result = await Agent(llm, SQL(), Rag()).run(QUESTION, END)
+    assert result.ok and not result.validation_errors
+
+    long_refuse = decision(action="refuse", intent="unsupported", reason="不" * 500)
+    result = await Agent(scripted(long_refuse, decision(action="refuse", intent="unsupported", reason="不支持")),
+                         SQL(), Rag()).run(QUESTION, END)
+    assert result.refused and result.reason == "不支持" and len(result.validation_errors) == 1
+
+
+async def test_claim_may_cite_up_to_twelve_cells_without_repair():
+    rows = [[6.2 + k / 10, 0.7] for k in range(12)]
+    claim = {**draft()["claims"][0],
+             "data_refs": [{"call_id": "t1", "row": k, "column": 0, "value": rows[k][0]} for k in range(10)]}
+    llm = scripted(decision([("sql_query", "黄官镇昨天氨氮和DO"), ("rag_search", "风机与氨氮的排查")]), decision(),
+                   {"answerable": True, "claims": [claim], "reason": ""})
+    result = await Agent(llm, SQL(rows=rows), Rag()).run(QUESTION, END)
+    assert result.ok and not result.validation_errors
+    assert sum(c["kind"] == "data" for c in result.citations) == 10
