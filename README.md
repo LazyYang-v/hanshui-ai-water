@@ -6,8 +6,10 @@
 
 ![集控总览](docs/images/overview.png)
 
-| 告警与工单 | 运行日报 |
+| AI 助手：查询过程与逐条引用 | AI 助手：原因假设、核查建议与原文核对 |
 | --- | --- |
+| ![AI 助手查询过程](docs/images/ai-steps.png) | ![AI 助手引用核对](docs/images/ai-evidence.png) |
+| **告警与工单** | **运行日报** |
 | ![告警工单](docs/images/alarms.png) | ![报告中心](docs/images/reports.png) |
 | **智能曝气仿真** | **视觉巡检** |
 | ![智能曝气](docs/images/aeration.png) | ![视觉巡检](docs/images/vision.png) |

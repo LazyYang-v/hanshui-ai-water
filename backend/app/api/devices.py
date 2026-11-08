@@ -25,7 +25,7 @@ async def device_readings(
     try:
         interval, name = queries.pick_bucket(rng.start, rng.end, rng.bucket)
     except ValueError as e:
-        raise HTTPException(422, str(e))
+        raise HTTPException(422, str(e)) from e
     data = await queries.series(conn, "device_reading", "device_id", row["id"], ms, rng.start, rng.end, interval)
     return {"entity": row["code"], "bucket": name, "start": rng.start, "end": rng.end,
             "metrics": [m.info() for m in ms], **data}

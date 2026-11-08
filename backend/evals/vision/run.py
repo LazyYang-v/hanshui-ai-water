@@ -67,7 +67,8 @@ def iou_matrix(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     x2 = np.minimum(a[:, None, 2], b[None, :, 2])
     y2 = np.minimum(a[:, None, 3], b[None, :, 3])
     inter = np.clip(x2 - x1, 0, None) * np.clip(y2 - y1, 0, None)
-    area = lambda z: (z[:, 2] - z[:, 0]) * (z[:, 3] - z[:, 1])
+    def area(z):
+        return (z[:, 2] - z[:, 0]) * (z[:, 3] - z[:, 1])
     return inter / (area(a)[:, None] + area(b)[None, :] - inter + 1e-9)
 
 

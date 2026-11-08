@@ -32,7 +32,7 @@ async def send(redis, cmd: dict) -> str:
                             raise HTTPException(400, reply["message"])
                         return reply["message"]
         except TimeoutError:
-            raise HTTPException(504, "模拟器未及时响应")
+            raise HTTPException(504, "模拟器未及时响应") from None
     raise HTTPException(504, "模拟器未及时响应")
 
 

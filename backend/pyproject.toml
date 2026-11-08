@@ -27,6 +27,7 @@ dev = [
     "httpx>=0.28.1",
     "pytest>=8.3",
     "pytest-asyncio>=1.4.1.post1",
+    "ruff==0.17.4",
 ]
 vision = [
     "onnx>=1.23.2",
@@ -42,3 +43,17 @@ asyncio_default_fixture_loop_scope = "function"
 
 [tool.uv]
 package = false
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
+ignore = [
+    "B008",  # FastAPI 的 Query() 和 frozen dataclass 配置作默认参数是安全的
+    "B905",  # zip 的 strict 不强制，长度相等由各处的数据构造保证
+]
+
+[tool.ruff.lint.per-file-ignores]
+# 这些闭包都在定义它的那次循环内执行完，不会读到后续迭代的变量
+"app/analytics/rules.py" = ["B023"]
+"evals/rag/run.py" = ["B023"]
+"evals/vision/run.py" = ["B023"]
+"vision/floatwaste.py" = ["B023"]

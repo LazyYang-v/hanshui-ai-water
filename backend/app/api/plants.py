@@ -47,7 +47,7 @@ async def plant_readings(
     try:
         interval, name = queries.pick_bucket(rng.start, rng.end, rng.bucket)
     except ValueError as e:
-        raise HTTPException(422, str(e))
+        raise HTTPException(422, str(e)) from e
     data = await queries.series(conn, "plant_reading", "plant_id", plant["id"], ms, rng.start, rng.end, interval)
     return {"entity": plant["code"], "bucket": name, "start": rng.start, "end": rng.end,
             "metrics": [m.info() for m in ms], **data}
