@@ -1,0 +1,310 @@
+{
+ "database": "shuiwu_alarm_smoke",
+ "clock": "2026-11-07T08:30:00+08:00",
+ "checks": {
+  "nine_rules": true,
+  "three_derived_metrics": true,
+  "three_load_episodes": true,
+  "load_units_and_values": true,
+  "three_normal_buckets_recover": true,
+  "actual_detection_time": true,
+  "drafts_explain_load_verification": true,
+  "no_work_order_written": true,
+  "idempotent_scan": true
+ },
+ "responses": {
+  "first_scan": {
+   "start": "2026-11-07T05:30:00+08:00",
+   "end": "2026-11-07T08:30:00+08:00",
+   "episodes": 3,
+   "inserted": 3,
+   "updated": 0,
+   "recovered": 0,
+   "ms": 635.1
+  },
+  "alarms": [
+   {
+    "id": 3,
+    "ts": "2026-11-07T08:00:00+08:00",
+    "ended_at": "2026-11-07T08:15:00+08:00",
+    "active": false,
+    "duration_min": 15.0,
+    "plant": {
+     "id": 1,
+     "code": "P01",
+     "name": "南郑中心污水处理厂"
+    },
+    "device": null,
+    "level": "预警",
+    "kind": "进水负荷",
+    "rule": "inflow_load",
+    "metric": "nh3n_load_kgh",
+    "metric_label": "进水氨氮质量负荷",
+    "unit": "kg/h",
+    "value": 18.0,
+    "threshold": 15.0,
+    "peak": 18.0,
+    "peak_at": "2026-11-07T08:00:00+08:00",
+    "message": "进水氨氮质量负荷 18 kg/h，超过历史关注值 15 kg/h；浓度 18 mg/L 同时升高（浓度升高型负荷冲击），请核查进水来源与仪表",
+    "status": "未处理",
+    "detail": {
+     "unit": "kg/h",
+     "ratio": 1.8,
+     "pattern": "浓度升高型负荷冲击",
+     "last_seen": "2026-11-07T08:10:00+08:00",
+     "mad_sigma": 3.0,
+     "inflow_m3h": 1000.0,
+     "load_ratio": 1.5,
+     "on_buckets": 3,
+     "aggregation": "同采样流量×浓度÷1000 后取5分钟均值，单位kg/h",
+     "detected_at": "2026-11-07T08:30:00+08:00",
+     "off_buckets": 3,
+     "baseline_kgh": 10.0,
+     "inflow_ratio": 1.0,
+     "baseline_rule": "判定桶所在整点之前7天同钟点完整小时中位数及MAD；至少3小时",
+     "source_metric": "nh3n_in",
+     "threshold_kgh": 15.0,
+     "baseline_as_of": "2026-11-07T08:00:00+08:00",
+     "baseline_hours": 7,
+     "algorithm_version": "causal-hourly-v1",
+     "concentration_mgl": 18.0,
+     "concentration_ratio": 1.25,
+     "inflow_baseline_m3h": 1000.0,
+     "condition_confirmed_at": "2026-11-07T08:15:00+08:00",
+     "concentration_baseline_mgl": 10.0,
+     "concentration_threshold_mgl": 12.5
+    },
+    "updated_at": "2026-11-07T08:30:00+08:00",
+    "closed_at": null,
+    "close_note": null,
+    "advice_at": null
+   },
+   {
+    "id": 2,
+    "ts": "2026-11-07T08:00:00+08:00",
+    "ended_at": "2026-11-07T08:15:00+08:00",
+    "active": false,
+    "duration_min": 15.0,
+    "plant": {
+     "id": 1,
+     "code": "P01",
+     "name": "南郑中心污水处理厂"
+    },
+    "device": null,
+    "level": "预警",
+    "kind": "进水负荷",
+    "rule": "inflow_load",
+    "metric": "tn_load_kgh",
+    "metric_label": "进水总氮质量负荷",
+    "unit": "kg/h",
+    "value": 36.0,
+    "threshold": 30.0,
+    "peak": 36.0,
+    "peak_at": "2026-11-07T08:00:00+08:00",
+    "message": "进水总氮质量负荷 36 kg/h，超过历史关注值 30 kg/h；浓度 36 mg/L 同时升高（浓度升高型负荷冲击），请核查进水来源与仪表",
+    "status": "未处理",
+    "detail": {
+     "unit": "kg/h",
+     "ratio": 1.8,
+     "pattern": "浓度升高型负荷冲击",
+     "last_seen": "2026-11-07T08:10:00+08:00",
+     "mad_sigma": 3.0,
+     "inflow_m3h": 1000.0,
+     "load_ratio": 1.5,
+     "on_buckets": 3,
+     "aggregation": "同采样流量×浓度÷1000 后取5分钟均值，单位kg/h",
+     "detected_at": "2026-11-07T08:30:00+08:00",
+     "off_buckets": 3,
+     "baseline_kgh": 20.0,
+     "inflow_ratio": 1.0,
+     "baseline_rule": "判定桶所在整点之前7天同钟点完整小时中位数及MAD；至少3小时",
+     "source_metric": "tn_in",
+     "threshold_kgh": 30.0,
+     "baseline_as_of": "2026-11-07T08:00:00+08:00",
+     "baseline_hours": 7,
+     "algorithm_version": "causal-hourly-v1",
+     "concentration_mgl": 36.0,
+     "concentration_ratio": 1.25,
+     "inflow_baseline_m3h": 1000.0,
+     "condition_confirmed_at": "2026-11-07T08:15:00+08:00",
+     "concentration_baseline_mgl": 20.0,
+     "concentration_threshold_mgl": 25.0
+    },
+    "updated_at": "2026-11-07T08:30:00+08:00",
+    "closed_at": null,
+    "close_note": null,
+    "advice_at": null
+   },
+   {
+    "id": 1,
+    "ts": "2026-11-07T08:00:00+08:00",
+    "ended_at": "2026-11-07T08:15:00+08:00",
+    "active": false,
+    "duration_min": 15.0,
+    "plant": {
+     "id": 1,
+     "code": "P01",
+     "name": "南郑中心污水处理厂"
+    },
+    "device": null,
+    "level": "预警",
+    "kind": "进水负荷",
+    "rule": "inflow_load",
+    "metric": "cod_load_kgh",
+    "metric_label": "进水 COD质量负荷",
+    "unit": "kg/h",
+    "value": 180.0,
+    "threshold": 150.0,
+    "peak": 180.0,
+    "peak_at": "2026-11-07T08:00:00+08:00",
+    "message": "进水 COD质量负荷 180 kg/h，超过历史关注值 150 kg/h；浓度 180 mg/L 同时升高（浓度升高型负荷冲击），请核查进水来源与仪表",
+    "status": "未处理",
+    "detail": {
+     "unit": "kg/h",
+     "ratio": 1.8,
+     "pattern": "浓度升高型负荷冲击",
+     "last_seen": "2026-11-07T08:10:00+08:00",
+     "mad_sigma": 3.0,
+     "inflow_m3h": 1000.0,
+     "load_ratio": 1.5,
+     "on_buckets": 3,
+     "aggregation": "同采样流量×浓度÷1000 后取5分钟均值，单位kg/h",
+     "detected_at": "2026-11-07T08:30:00+08:00",
+     "off_buckets": 3,
+     "baseline_kgh": 100.0,
+     "inflow_ratio": 1.0,
+     "baseline_rule": "判定桶所在整点之前7天同钟点完整小时中位数及MAD；至少3小时",
+     "source_metric": "cod_in",
+     "threshold_kgh": 150.0,
+     "baseline_as_of": "2026-11-07T08:00:00+08:00",
+     "baseline_hours": 7,
+     "algorithm_version": "causal-hourly-v1",
+     "concentration_mgl": 180.0,
+     "concentration_ratio": 1.25,
+     "inflow_baseline_m3h": 1000.0,
+     "condition_confirmed_at": "2026-11-07T08:15:00+08:00",
+     "concentration_baseline_mgl": 100.0,
+     "concentration_threshold_mgl": 125.0
+    },
+    "updated_at": "2026-11-07T08:30:00+08:00",
+    "closed_at": null,
+    "close_note": null,
+    "advice_at": null
+   }
+  ],
+  "drafts": [
+   {
+    "draft_id": "05d43d5e1bd844b4a0b2f64cce4f272b",
+    "alarm_id": 3,
+    "plant_id": 1,
+    "title": "南郑中心污水处理厂 进水负荷（进水氨氮质量负荷）",
+    "steps": [
+     {
+      "text": "复核进水流量与对应污染物浓度，按同采样流量×浓度÷1000核算kg/h负荷",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "对照进出水、DO与曝气风量变化，区分浓度冲击与雨天稀释",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "必要时人工取样并核查上游来源，由有权限人员按规程处置",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "处置后跟踪进水氨氮质量负荷恢复情况，并在工单中记录处理结果",
+      "source": "template",
+      "citations": []
+     }
+    ],
+    "source": {
+     "kind": "template",
+     "note": "没有可用的 AI 核查建议，以下为默认步骤，不是 AI 建议"
+    },
+    "created_at": "2026-11-07T08:30:00+08:00",
+    "expires_in_s": 1800
+   },
+   {
+    "draft_id": "02a90a33605146c491b68c6028e78804",
+    "alarm_id": 2,
+    "plant_id": 1,
+    "title": "南郑中心污水处理厂 进水负荷（进水总氮质量负荷）",
+    "steps": [
+     {
+      "text": "复核进水流量与对应污染物浓度，按同采样流量×浓度÷1000核算kg/h负荷",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "对照进出水、DO与曝气风量变化，区分浓度冲击与雨天稀释",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "必要时人工取样并核查上游来源，由有权限人员按规程处置",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "处置后跟踪进水总氮质量负荷恢复情况，并在工单中记录处理结果",
+      "source": "template",
+      "citations": []
+     }
+    ],
+    "source": {
+     "kind": "template",
+     "note": "没有可用的 AI 核查建议，以下为默认步骤，不是 AI 建议"
+    },
+    "created_at": "2026-11-07T08:30:00+08:00",
+    "expires_in_s": 1800
+   },
+   {
+    "draft_id": "98f4c028ae3847b4a0493159936b8611",
+    "alarm_id": 1,
+    "plant_id": 1,
+    "title": "南郑中心污水处理厂 进水负荷（进水 COD质量负荷）",
+    "steps": [
+     {
+      "text": "复核进水流量与对应污染物浓度，按同采样流量×浓度÷1000核算kg/h负荷",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "对照进出水、DO与曝气风量变化，区分浓度冲击与雨天稀释",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "必要时人工取样并核查上游来源，由有权限人员按规程处置",
+      "source": "template",
+      "citations": []
+     },
+     {
+      "text": "处置后跟踪进水 COD质量负荷恢复情况，并在工单中记录处理结果",
+      "source": "template",
+      "citations": []
+     }
+    ],
+    "source": {
+     "kind": "template",
+     "note": "没有可用的 AI 核查建议，以下为默认步骤，不是 AI 建议"
+    },
+    "created_at": "2026-11-07T08:30:00+08:00",
+    "expires_in_s": 1800
+   }
+  ],
+  "again": {
+   "start": "2026-11-07T05:30:00+08:00",
+   "end": "2026-11-07T08:30:00+08:00",
+   "episodes": 3,
+   "inserted": 0,
+   "updated": 0,
+   "recovered": 0,
+   "ms": 263.5
+  }
+ },
+ "passed": true
+}

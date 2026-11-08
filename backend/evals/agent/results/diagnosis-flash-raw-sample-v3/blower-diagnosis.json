@@ -1,0 +1,81 @@
+{
+  "id": "blower-diagnosis",
+  "family": "blower_fault",
+  "mode": "diagnosis",
+  "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+  "status": "pending",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P06",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "nh3n_out": 17.0177,
+          "do_aerobic_1": 0.0316,
+          "air_flow_m3h": 0.0,
+          "blower_kw": 0.0
+        },
+        "units": {
+          "nh3n_out": "mg/L",
+          "do_aerobic_1": "mg/L",
+          "air_flow_m3h": "m³/h",
+          "blower_kw": "kW"
+        }
+      },
+      {
+        "entity": "P06-BL-1",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": 121,
+        "values": {
+          "running": false
+        },
+        "units": {
+          "running": "bool"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+    "session_id": "5a0f064580f541eb9c4d029ff37c839e"
+  }
+}

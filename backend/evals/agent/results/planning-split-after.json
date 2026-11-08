@@ -1,0 +1,147 @@
+[
+ {
+  "q": "高台镇昨天18点到20点好氧区DO为什么低？",
+  "ms": 9604,
+  "finish": "stop",
+  "prompt_tokens": 2082,
+  "completion_tokens": 1454,
+  "valid": false,
+  "error": "1 validation error for Decision\ncalls.0.parameters.plant\n  Value error, 厂站编码须为P01至P07或null [type=value_error, input_value='高台镇', input_type=str]\n    For further information visit https://errors.pydant",
+  "calls": []
+ },
+ {
+  "q": "黄官镇昨天为什么氨氮超标？",
+  "ms": 4040,
+  "finish": "stop",
+  "prompt_tokens": 2076,
+  "completion_tokens": 573,
+  "valid": true,
+  "calls": [
+   {
+    "tool": "plant_statistics",
+    "question": "黄官镇2026年11月7日出水氨氮超标统计"
+   },
+   {
+    "tool": "sql_query",
+    "question": "黄官镇2026年11月7日按小时的DO、进水量、风量及鼓风机运行采样占比、振动、电流；状态用运行采样占比（%），注明包含哪些设备，COUNT(*)是采样条数，不能当运行台数",
+    "t2s": {
+     "ms": 15684,
+     "ok": true,
+     "error": null,
+     "n_rows": 24,
+     "calls": [
+      [
+       "stop",
+       2171,
+       11292.5
+      ],
+      [
+       "stop",
+       831,
+       4163.7
+      ]
+     ],
+     "tokens": 8727
+    }
+   },
+   {
+    "tool": "rag_search",
+    "question": "污水处理厂出水氨氮超标与供氧不足的排查资料"
+   }
+  ]
+ },
+ {
+  "q": "梁山镇今天出水氨氮为什么升高？",
+  "ms": 29089,
+  "finish": "length",
+  "prompt_tokens": 2076,
+  "completion_tokens": 4000,
+  "valid": false,
+  "error": "1 validation error for Decision\n  Invalid JSON: EOF while parsing a value at line 1 column 0 [type=json_invalid, input_value='', input_type=str]\n    For further information visit https://errors.pydant",
+  "calls": []
+ },
+ {
+  "q": "南郑中心厂今天出水总磷为什么偏高？",
+  "ms": 27938,
+  "finish": "length",
+  "prompt_tokens": 2078,
+  "completion_tokens": 4000,
+  "valid": false,
+  "error": "1 validation error for Decision\n  Invalid JSON: EOF while parsing a value at line 1 column 0 [type=json_invalid, input_value='', input_type=str]\n    For further information visit https://errors.pydant",
+  "calls": []
+ },
+ {
+  "q": "新集镇昨天出水总氮为什么高？",
+  "ms": 12160,
+  "finish": "stop",
+  "prompt_tokens": 2076,
+  "completion_tokens": 1776,
+  "valid": true,
+  "calls": [
+   {
+    "tool": "sql_query",
+    "question": "新集镇2026-11-07全天按小时的出水总氮、好氧区DO（1#）、进水流量、曝气风量，以及鼓风机运行采样占比（%，按设备id注明包含哪些设备）、振动、电流；COUNT(*)为采样条数而非运行台数，结果按小时聚合，不超过30行",
+    "t2s": {
+     "ms": 30219,
+     "ok": true,
+     "error": null,
+     "n_rows": 24,
+     "calls": [
+      [
+       "length",
+       4000,
+       24467.5
+      ],
+      [
+       "stop",
+       581,
+       3302.3
+      ],
+      [
+       "stop",
+       536,
+       2382.3
+      ]
+     ],
+     "tokens": 13229
+    }
+   },
+   {
+    "tool": "rag_search",
+    "question": "出水总氮偏高的常见原因与排查方法（碳源不足、缺氧区DO、内回流比、进水总氮负荷冲击）"
+   }
+  ]
+ },
+ {
+  "q": "协税镇昨天下午鼓风机振动为什么大？",
+  "ms": 8541,
+  "finish": "stop",
+  "prompt_tokens": 2078,
+  "completion_tokens": 1136,
+  "valid": true,
+  "calls": [
+   {
+    "tool": "sql_query",
+    "question": "协税镇2026-11-07 12:00-18:00按小时统计鼓风机振动、电流及运行采样占比（按设备id注明设备范围，状态用运行采样占比%，COUNT(*)为采样条数），并给出曝气风量、好氧区DO、进水量",
+    "t2s": {
+     "ms": 16501,
+     "ok": true,
+     "error": null,
+     "n_rows": 7,
+     "calls": [
+      [
+       "stop",
+       3160,
+       16463.2
+      ]
+     ],
+     "tokens": 5558
+    }
+   },
+   {
+    "tool": "rag_search",
+    "question": "鼓风机振动偏大的常见原因及排查资料，包括机械、润滑、喘振、安装和负荷因素"
+   }
+  ]
+ }
+]

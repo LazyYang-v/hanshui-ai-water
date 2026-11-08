@@ -1,0 +1,2208 @@
+[
+ {
+  "seed": 1,
+  "step_s": 60.0,
+  "timing_s": {
+   "build": 25.8,
+   "load": 0.59,
+   "detect_full": 0.61
+  },
+  "cases": [
+   {
+    "case": "shock_load P04",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-08T02:00:00+08:00",
+    "minutes": 180,
+    "detected": true,
+    "first_rule": "effluent_trend:tn_out",
+    "latency_min": 30.0,
+    "hit_rules": [
+     "effluent_trend:cod_out@P04",
+     "effluent_trend:tn_out@P04"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P04"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "dosing_block P02",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-08T09:00:00+08:00",
+    "minutes": 360,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P02",
+     "effluent_exceed:tp_out@P02",
+     "effluent_trend:tp_out@P02"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P06",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-08T15:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P06",
+     "device_temp:temp_c@P06",
+     "device_vibration:vibration_mms@P06"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P06",
+     "dosing_anomaly:carbon_dose_kgh@P06",
+     "effluent_exceed:nh3n_out@P06",
+     "effluent_exceed:tn_out@P06",
+     "effluent_trend:tn_out@P06"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "pipe_leak P05",
+    "kind": "pipe_leak",
+    "negative": false,
+    "start": "2026-10-09T06:00:00+08:00",
+    "minutes": 600,
+    "detected": true,
+    "first_rule": "dosing_anomaly:carbon_dose_kgh",
+    "latency_min": 200.0,
+    "hit_rules": [
+     "dosing_anomaly:carbon_dose_kgh@P05"
+    ],
+    "other_rules": [
+     "effluent_trend:tn_out@P05"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P01",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-10T03:00:00+08:00",
+    "minutes": 120,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P01",
+     "device_temp:temp_c@P01",
+     "device_vibration:vibration_mms@P01"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P01",
+     "effluent_exceed:nh3n_out@P01"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "dosing_block P03",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-10T10:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P03",
+     "effluent_exceed:tp_out@P03",
+     "effluent_trend:tp_out@P03"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "shock_load P07",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-10T19:00:00+08:00",
+    "minutes": 180,
+    "detected": true,
+    "first_rule": "effluent_exceed:nh3n_out",
+    "latency_min": 20.0,
+    "hit_rules": [
+     "effluent_exceed:cod_out@P07",
+     "effluent_exceed:nh3n_out@P07",
+     "effluent_exceed:tn_out@P07",
+     "effluent_trend:cod_out@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P07",
+     "dosing_anomaly:carbon_dose_kgh@P07"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "storm 全区",
+    "kind": "storm",
+    "negative": false,
+    "start": "2026-10-11T14:00:00+08:00",
+    "minutes": 150,
+    "detected": true,
+    "first_rule": "inflow_surge:inflow_m3h",
+    "latency_min": 45.0,
+    "hit_rules": [
+     "inflow_surge:inflow_m3h@P03",
+     "inflow_surge:inflow_m3h@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P03",
+     "effluent_trend:ss_out@P03"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "小雨（阴性） 全区",
+    "kind": "storm",
+    "negative": true,
+    "start": "2026-10-12T10:00:00+08:00",
+    "minutes": 120,
+    "detected": false,
+    "first_rule": null,
+    "latency_min": null,
+    "hit_rules": [],
+    "other_rules": [],
+    "near_miss": null
+   }
+  ],
+  "alarms": [
+   {
+    "plant": "P04",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T02:05:00+08:00",
+    "end": "2026-10-08T02:30:00+08:00",
+    "peak": 0.5359,
+    "class": "secondary",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "好氧区 DO 0.54 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P04",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-08T02:20:00+08:00",
+    "end": "2026-10-08T03:05:00+08:00",
+    "peak": 13.124,
+    "class": "hit",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 1.49 mg/L，按线性趋势约 117 分钟后超过限值 15"
+   },
+   {
+    "plant": "P04",
+    "rule": "effluent_trend",
+    "metric": "cod_out",
+    "level": "预警",
+    "start": "2026-10-08T02:35:00+08:00",
+    "end": "2026-10-08T03:35:00+08:00",
+    "peak": 38.3474,
+    "class": "hit",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "出水 COD近 60 分钟每小时上升 9.71 mg/L，按线性趋势约 108 分钟后超过限值 50"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-08T09:15:00+08:00",
+    "end": "2026-10-08T09:35:00+08:00",
+    "peak": 0.4871,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.11 mg/L，按线性趋势约 72 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-08T09:35:00+08:00",
+    "end": "2026-10-08T15:10:00+08:00",
+    "peak": 0.6862,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷 0.53 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T10:50:00+08:00",
+    "end": "2026-10-09T00:15:00+08:00",
+    "peak": 2.7468,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 1.76 kg/h，为按进水负荷估算值 1.35 kg/h 的 1.3 倍"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 94.0,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 轴承温度 78.3 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 9.36,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 振动 4.98 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P06",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:05:00+08:00",
+    "peak": 0.0128,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "好氧区 DO 0.58 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-08T15:45:00+08:00",
+    "end": "2026-10-08T20:45:00+08:00",
+    "peak": 23.6896,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水氨氮 5.15 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-08T16:20:00+08:00",
+    "end": "2026-10-08T16:30:00+08:00",
+    "peak": 14.2966,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 2.18 mg/L，按线性趋势约 70 分钟后超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-08T16:30:00+08:00",
+    "end": "2026-10-08T21:00:00+08:00",
+    "peak": 24.6896,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮 15.33 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T20:05:00+08:00",
+    "end": "2026-10-09T03:45:00+08:00",
+    "peak": 3.4627,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "碳源投加量近 60 分钟均值 4.48 kg/h，为按进水负荷估算值 3.42 kg/h 的 1.31 倍"
+   },
+   {
+    "plant": "P05",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-09T06:40:00+08:00",
+    "end": "2026-10-09T07:05:00+08:00",
+    "peak": 12.3846,
+    "class": "secondary",
+    "cases": [
+     "pipe_leak P05"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 1.63 mg/L，按线性趋势约 103 分钟后超过限值 15"
+   },
+   {
+    "plant": "P05",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-09T09:05:00+08:00",
+    "end": "2026-10-09T19:55:00+08:00",
+    "peak": 1.9473,
+    "class": "hit",
+    "cases": [
+     "pipe_leak P05"
+    ],
+    "message": "碳源投加量近 60 分钟均值 3.41 kg/h，为按进水负荷估算值 2.6 kg/h 的 1.31 倍"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 93.4,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 轴承温度 77 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 9.39,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 振动 5.15 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-10T03:30:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P01",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-10T04:05:00+08:00",
+    "end": "2026-10-10T05:05:00+08:00",
+    "peak": 0.0361,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "好氧区 DO 0.88 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P01",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-10T04:50:00+08:00",
+    "end": "2026-10-10T05:35:00+08:00",
+    "peak": 8.6704,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "出水氨氮 6.48 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-10T10:15:00+08:00",
+    "end": "2026-10-10T10:25:00+08:00",
+    "peak": 0.4516,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.13 mg/L，按线性趋势约 54 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-10T10:25:00+08:00",
+    "end": "2026-10-10T14:20:00+08:00",
+    "peak": 0.693,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷 0.501 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-10T11:50:00+08:00",
+    "end": "2026-10-10T21:50:00+08:00",
+    "peak": 2.3526,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 3.99 kg/h，为按进水负荷估算值 3.03 kg/h 的 1.32 倍"
+   },
+   {
+    "plant": "P07",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-10T19:00:00+08:00",
+    "end": "2026-10-10T21:45:00+08:00",
+    "peak": 0.0069,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "好氧区 DO 0.6 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-10T19:10:00+08:00",
+    "end": "2026-10-10T23:55:00+08:00",
+    "peak": 36.0582,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水氨氮 5.82 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-10T19:25:00+08:00",
+    "end": "2026-10-11T00:35:00+08:00",
+    "peak": 37.0582,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水总氮 15.74 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_trend",
+    "metric": "cod_out",
+    "level": "预警",
+    "start": "2026-10-10T19:25:00+08:00",
+    "end": "2026-10-10T20:50:00+08:00",
+    "peak": 49.3198,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD近 60 分钟每小时上升 11.34 mg/L，按线性趋势约 88 分钟后超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "cod_out",
+    "level": "告警",
+    "start": "2026-10-10T20:50:00+08:00",
+    "end": "2026-10-10T21:45:00+08:00",
+    "peak": 51.5459,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD 50.73 mg/L，超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-10T23:05:00+08:00",
+    "end": "2026-10-11T07:20:00+08:00",
+    "peak": 3.239,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "碳源投加量近 60 分钟均值 4 kg/h，为按进水负荷估算值 2.8 kg/h 的 1.43 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-11T14:30:00+08:00",
+    "end": "2026-10-11T14:45:00+08:00",
+    "peak": 0.8592,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "好氧区 DO 0.87 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P03",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T14:30:00+08:00",
+    "end": "2026-10-11T16:30:00+08:00",
+    "peak": 404.6029,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 307 m³/h，为近 7 天同时段中位数 197 的 1.6 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "ss_out",
+    "level": "预警",
+    "start": "2026-10-11T15:00:00+08:00",
+    "end": "2026-10-11T16:25:00+08:00",
+    "peak": 9.1972,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "出水 SS近 60 分钟每小时上升 1.77 mg/L，按线性趋势约 107 分钟后超过限值 10"
+   },
+   {
+    "plant": "P07",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T15:40:00+08:00",
+    "end": "2026-10-11T16:00:00+08:00",
+    "peak": 117.5102,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 115 m³/h，为近 7 天同时段中位数 76 的 1.5 倍"
+   }
+  ],
+  "trend": {
+   "linear": {
+    "warnings": 8,
+    "useless": 4,
+    "exceeds": 8,
+    "covered": 4,
+    "lead_median_min": 15.0,
+    "leads": [
+     20.0,
+     10.0,
+     10.0,
+     85.0
+    ]
+   },
+   "fixed_80": {
+    "warnings": 16,
+    "useless": 11,
+    "exceeds": 8,
+    "covered": 5,
+    "lead_median_min": 15.0,
+    "leads": [
+     20.0,
+     15.0,
+     15.0,
+     10.0,
+     70.0
+    ]
+   }
+  },
+  "dosing": {
+   "load_model": {
+    "false": 0,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      200.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      125.0,
+      125.0
+     ]
+    }
+   },
+   "unit_60min_1.3x": {
+    "false": 104,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      380.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      125.0,
+      130.0
+     ]
+    }
+   },
+   "unit_180min_1.8x": {
+    "false": 1,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 0,
+     "latencies": []
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      290.0,
+      265.0
+     ]
+    }
+   }
+  },
+  "consistency": {
+   "full": 34,
+   "incremental": 34,
+   "missing": [],
+   "extra": [],
+   "field_diffs": [],
+   "scans": 1656,
+   "scan_ms_median": 13.1,
+   "catchup_ms": 141.9,
+   "revisions": []
+  }
+ },
+ {
+  "seed": 2,
+  "step_s": 60.0,
+  "timing_s": {
+   "build": 20.4,
+   "load": 0.42,
+   "detect_full": 0.61
+  },
+  "cases": [
+   {
+    "case": "shock_load P04",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-08T02:00:00+08:00",
+    "minutes": 180,
+    "detected": true,
+    "first_rule": "effluent_trend:cod_out",
+    "latency_min": 60.0,
+    "hit_rules": [
+     "effluent_trend:cod_out@P04",
+     "effluent_trend:tn_out@P04"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P04"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "dosing_block P02",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-08T09:00:00+08:00",
+    "minutes": 360,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P02",
+     "effluent_exceed:tp_out@P02",
+     "effluent_trend:tp_out@P02"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P06",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-08T15:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P06",
+     "device_temp:temp_c@P06",
+     "device_vibration:vibration_mms@P06"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P06",
+     "dosing_anomaly:carbon_dose_kgh@P06",
+     "effluent_exceed:nh3n_out@P06",
+     "effluent_exceed:tn_out@P06",
+     "effluent_trend:tn_out@P06"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "pipe_leak P05",
+    "kind": "pipe_leak",
+    "negative": false,
+    "start": "2026-10-09T06:00:00+08:00",
+    "minutes": 600,
+    "detected": true,
+    "first_rule": "dosing_anomaly:carbon_dose_kgh",
+    "latency_min": 210.0,
+    "hit_rules": [
+     "dosing_anomaly:carbon_dose_kgh@P05"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P01",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-10T03:00:00+08:00",
+    "minutes": 120,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P01",
+     "device_temp:temp_c@P01",
+     "device_vibration:vibration_mms@P01"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "dosing_block P03",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-10T10:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P03",
+     "effluent_exceed:tp_out@P03",
+     "effluent_trend:tp_out@P03"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "shock_load P07",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-10T19:00:00+08:00",
+    "minutes": 180,
+    "detected": true,
+    "first_rule": "effluent_exceed:nh3n_out",
+    "latency_min": 20.0,
+    "hit_rules": [
+     "effluent_exceed:cod_out@P07",
+     "effluent_exceed:nh3n_out@P07",
+     "effluent_exceed:tn_out@P07",
+     "effluent_trend:cod_out@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P07",
+     "dosing_anomaly:carbon_dose_kgh@P07"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "storm 全区",
+    "kind": "storm",
+    "negative": false,
+    "start": "2026-10-11T14:00:00+08:00",
+    "minutes": 150,
+    "detected": true,
+    "first_rule": "inflow_surge:inflow_m3h",
+    "latency_min": 45.0,
+    "hit_rules": [
+     "inflow_surge:inflow_m3h@P03",
+     "inflow_surge:inflow_m3h@P04",
+     "inflow_surge:inflow_m3h@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P03",
+     "effluent_trend:ss_out@P03"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "小雨（阴性） 全区",
+    "kind": "storm",
+    "negative": true,
+    "start": "2026-10-12T10:00:00+08:00",
+    "minutes": 120,
+    "detected": false,
+    "first_rule": null,
+    "latency_min": null,
+    "hit_rules": [],
+    "other_rules": [],
+    "near_miss": null
+   }
+  ],
+  "alarms": [
+   {
+    "plant": "P04",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T02:05:00+08:00",
+    "end": "2026-10-08T02:20:00+08:00",
+    "peak": 0.7102,
+    "class": "secondary",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "好氧区 DO 0.82 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P04",
+    "rule": "effluent_trend",
+    "metric": "cod_out",
+    "level": "预警",
+    "start": "2026-10-08T02:50:00+08:00",
+    "end": "2026-10-08T03:00:00+08:00",
+    "peak": 33.6759,
+    "class": "hit",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "出水 COD近 60 分钟每小时上升 9.03 mg/L，按线性趋势约 110 分钟后超过限值 50"
+   },
+   {
+    "plant": "P04",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-08T03:55:00+08:00",
+    "end": "2026-10-08T04:35:00+08:00",
+    "peak": 12.9078,
+    "class": "hit",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 1.65 mg/L，按线性趋势约 101 分钟后超过限值 15"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-08T09:15:00+08:00",
+    "end": "2026-10-08T09:35:00+08:00",
+    "peak": 0.4992,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.11 mg/L，按线性趋势约 71 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-08T09:35:00+08:00",
+    "end": "2026-10-08T15:05:00+08:00",
+    "peak": 0.6675,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷 0.52 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T10:55:00+08:00",
+    "end": "2026-10-09T00:10:00+08:00",
+    "peak": 2.7677,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 1.67 kg/h，为按进水负荷估算值 1.27 kg/h 的 1.32 倍"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 94.5,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 轴承温度 78.4 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 9.36,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 振动 5.15 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P06",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:10:00+08:00",
+    "peak": 0.0284,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "好氧区 DO 0.56 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-08T15:45:00+08:00",
+    "end": "2026-10-08T20:55:00+08:00",
+    "peak": 23.9553,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水氨氮 5.32 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-08T16:20:00+08:00",
+    "end": "2026-10-08T16:35:00+08:00",
+    "peak": 14.8754,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 2.12 mg/L，按线性趋势约 70 分钟后超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-08T16:35:00+08:00",
+    "end": "2026-10-08T21:10:00+08:00",
+    "peak": 24.9553,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮 15.53 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T20:10:00+08:00",
+    "end": "2026-10-09T04:35:00+08:00",
+    "peak": 3.6704,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "碳源投加量近 60 分钟均值 13.54 kg/h，为按进水负荷估算值 9.95 kg/h 的 1.36 倍"
+   },
+   {
+    "plant": "P05",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-09T09:15:00+08:00",
+    "end": "2026-10-09T20:30:00+08:00",
+    "peak": 1.8043,
+    "class": "hit",
+    "cases": [
+     "pipe_leak P05"
+    ],
+    "message": "碳源投加量近 60 分钟均值 1.75 kg/h，为按进水负荷估算值 1.27 kg/h 的 1.38 倍"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 92.8,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 轴承温度 76.2 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 9.23,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 振动 5.12 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-10T03:30:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-10T10:15:00+08:00",
+    "end": "2026-10-10T10:25:00+08:00",
+    "peak": 0.4758,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.13 mg/L，按线性趋势约 52 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-10T10:25:00+08:00",
+    "end": "2026-10-10T14:15:00+08:00",
+    "peak": 0.7049,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷 0.502 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-10T11:50:00+08:00",
+    "end": "2026-10-10T21:55:00+08:00",
+    "peak": 2.3779,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 4.21 kg/h，为按进水负荷估算值 3.17 kg/h 的 1.33 倍"
+   },
+   {
+    "plant": "P07",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-10T19:00:00+08:00",
+    "end": "2026-10-10T22:00:00+08:00",
+    "peak": 0.0248,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "好氧区 DO 0.84 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-10T19:10:00+08:00",
+    "end": "2026-10-11T00:10:00+08:00",
+    "peak": 38.8808,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水氨氮 5.53 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_trend",
+    "metric": "cod_out",
+    "level": "预警",
+    "start": "2026-10-10T19:20:00+08:00",
+    "end": "2026-10-10T21:00:00+08:00",
+    "peak": 49.0891,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD近 60 分钟每小时上升 9.34 mg/L，按线性趋势约 115 分钟后超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-10T19:30:00+08:00",
+    "end": "2026-10-11T00:50:00+08:00",
+    "peak": 39.8808,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水总氮 16.58 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "cod_out",
+    "level": "告警",
+    "start": "2026-10-10T21:00:00+08:00",
+    "end": "2026-10-10T22:10:00+08:00",
+    "peak": 53.8642,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD 50.21 mg/L，超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-11T00:40:00+08:00",
+    "end": "2026-10-11T07:15:00+08:00",
+    "peak": 3.8287,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "碳源投加量近 60 分钟均值 3.04 kg/h，为按进水负荷估算值 0.79 kg/h 的 3.83 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-11T14:25:00+08:00",
+    "end": "2026-10-11T14:35:00+08:00",
+    "peak": 0.9744,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "好氧区 DO 0.98 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P03",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T14:30:00+08:00",
+    "end": "2026-10-11T16:35:00+08:00",
+    "peak": 392.7018,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 296 m³/h，为近 7 天同时段中位数 194 的 1.5 倍"
+   },
+   {
+    "plant": "P07",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T14:45:00+08:00",
+    "end": "2026-10-11T16:20:00+08:00",
+    "peak": 126.6286,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 116 m³/h，为近 7 天同时段中位数 77 的 1.5 倍"
+   },
+   {
+    "plant": "P04",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T15:00:00+08:00",
+    "end": "2026-10-11T16:15:00+08:00",
+    "peak": 174.8399,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 168 m³/h，为近 7 天同时段中位数 110 的 1.5 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "ss_out",
+    "level": "预警",
+    "start": "2026-10-11T15:05:00+08:00",
+    "end": "2026-10-11T16:25:00+08:00",
+    "peak": 9.0509,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "出水 SS近 60 分钟每小时上升 1.9 mg/L，按线性趋势约 95 分钟后超过限值 10"
+   }
+  ],
+  "trend": {
+   "linear": {
+    "warnings": 7,
+    "useless": 3,
+    "exceeds": 7,
+    "covered": 4,
+    "lead_median_min": 17.5,
+    "leads": [
+     20.0,
+     15.0,
+     10.0,
+     100.0
+    ]
+   },
+   "fixed_80": {
+    "warnings": 16,
+    "useless": 11,
+    "exceeds": 7,
+    "covered": 5,
+    "lead_median_min": 20.0,
+    "leads": [
+     20.0,
+     25.0,
+     15.0,
+     10.0,
+     65.0
+    ]
+   }
+  },
+  "dosing": {
+   "load_model": {
+    "false": 0,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      210.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      130.0,
+      125.0
+     ]
+    }
+   },
+   "unit_60min_1.3x": {
+    "false": 123,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      475.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      145.0,
+      110.0
+     ]
+    }
+   },
+   "unit_180min_1.8x": {
+    "false": 4,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      585.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      275.0,
+      265.0
+     ]
+    }
+   }
+  },
+  "consistency": {
+   "full": 32,
+   "incremental": 32,
+   "missing": [],
+   "extra": [],
+   "field_diffs": [],
+   "scans": 1656,
+   "scan_ms_median": 12.9,
+   "catchup_ms": 152.2,
+   "revisions": []
+  }
+ },
+ {
+  "seed": 3,
+  "step_s": 60.0,
+  "timing_s": {
+   "build": 20.1,
+   "load": 0.4,
+   "detect_full": 0.55
+  },
+  "cases": [
+   {
+    "case": "shock_load P04",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-08T02:00:00+08:00",
+    "minutes": 180,
+    "detected": false,
+    "first_rule": null,
+    "latency_min": null,
+    "hit_rules": [],
+    "other_rules": [
+     "do_low:do_aerobic_1@P04"
+    ],
+    "near_miss": {
+     "effluent": [
+      {
+       "metric": "tn_out",
+       "peak": 11.67,
+       "ratio": 0.778,
+       "plant": "P04"
+      },
+      {
+       "metric": "cod_out",
+       "peak": 37.039,
+       "ratio": 0.741,
+       "plant": "P04"
+      },
+      {
+       "metric": "tp_out",
+       "peak": 0.315,
+       "ratio": 0.63,
+       "plant": "P04"
+      },
+      {
+       "metric": "ss_out",
+       "peak": 5.931,
+       "ratio": 0.593,
+       "plant": "P04"
+      },
+      {
+       "metric": "nh3n_out",
+       "peak": 1.324,
+       "ratio": 0.265,
+       "plant": "P04"
+      }
+     ],
+     "trend_eta_min": {
+      "minutes": 155,
+      "metric": "cod_out",
+      "plant": "P04"
+     }
+    }
+   },
+   {
+    "case": "dosing_block P02",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-08T09:00:00+08:00",
+    "minutes": 360,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P02",
+     "effluent_exceed:tp_out@P02",
+     "effluent_trend:tp_out@P02"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P06",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-08T15:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P06",
+     "device_temp:temp_c@P06",
+     "device_vibration:vibration_mms@P06"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P06",
+     "dosing_anomaly:carbon_dose_kgh@P06",
+     "effluent_exceed:nh3n_out@P06",
+     "effluent_exceed:tn_out@P06",
+     "effluent_trend:tn_out@P06"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "pipe_leak P05",
+    "kind": "pipe_leak",
+    "negative": false,
+    "start": "2026-10-09T06:00:00+08:00",
+    "minutes": 600,
+    "detected": true,
+    "first_rule": "dosing_anomaly:carbon_dose_kgh",
+    "latency_min": 200.0,
+    "hit_rules": [
+     "dosing_anomaly:carbon_dose_kgh@P05"
+    ],
+    "other_rules": [
+     "effluent_trend:tn_out@P05"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "blower_fault P01",
+    "kind": "blower_fault",
+    "negative": false,
+    "start": "2026-10-10T03:00:00+08:00",
+    "minutes": 120,
+    "detected": true,
+    "first_rule": "device_temp:temp_c",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "device_stop:running@P01",
+     "device_temp:temp_c@P01",
+     "device_vibration:vibration_mms@P01"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "dosing_block P03",
+    "kind": "dosing_block",
+    "negative": false,
+    "start": "2026-10-10T10:00:00+08:00",
+    "minutes": 240,
+    "detected": true,
+    "first_rule": "effluent_trend:tp_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "dosing_anomaly:pac_dose_kgh@P03",
+     "effluent_exceed:tp_out@P03",
+     "effluent_trend:tp_out@P03"
+    ],
+    "other_rules": [],
+    "near_miss": null
+   },
+   {
+    "case": "shock_load P07",
+    "kind": "shock_load",
+    "negative": false,
+    "start": "2026-10-10T19:00:00+08:00",
+    "minutes": 180,
+    "detected": true,
+    "first_rule": "effluent_exceed:nh3n_out",
+    "latency_min": 25.0,
+    "hit_rules": [
+     "effluent_exceed:cod_out@P07",
+     "effluent_exceed:nh3n_out@P07",
+     "effluent_exceed:tn_out@P07",
+     "effluent_trend:cod_out@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P07",
+     "dosing_anomaly:carbon_dose_kgh@P07"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "storm 全区",
+    "kind": "storm",
+    "negative": false,
+    "start": "2026-10-11T14:00:00+08:00",
+    "minutes": 150,
+    "detected": true,
+    "first_rule": "inflow_surge:inflow_m3h",
+    "latency_min": 45.0,
+    "hit_rules": [
+     "inflow_surge:inflow_m3h@P03",
+     "inflow_surge:inflow_m3h@P04",
+     "inflow_surge:inflow_m3h@P07"
+    ],
+    "other_rules": [
+     "do_low:do_aerobic_1@P03",
+     "effluent_trend:ss_out@P03"
+    ],
+    "near_miss": null
+   },
+   {
+    "case": "小雨（阴性） 全区",
+    "kind": "storm",
+    "negative": true,
+    "start": "2026-10-12T10:00:00+08:00",
+    "minutes": 120,
+    "detected": false,
+    "first_rule": null,
+    "latency_min": null,
+    "hit_rules": [],
+    "other_rules": [],
+    "near_miss": null
+   }
+  ],
+  "alarms": [
+   {
+    "plant": "P04",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T02:05:00+08:00",
+    "end": "2026-10-08T02:20:00+08:00",
+    "peak": 0.8592,
+    "class": "secondary",
+    "cases": [
+     "shock_load P04"
+    ],
+    "message": "好氧区 DO 0.89 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-08T09:15:00+08:00",
+    "end": "2026-10-08T09:35:00+08:00",
+    "peak": 0.4822,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.09 mg/L，按线性趋势约 87 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-08T09:35:00+08:00",
+    "end": "2026-10-08T15:05:00+08:00",
+    "peak": 0.7168,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "出水总磷 0.51 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P02",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T10:55:00+08:00",
+    "end": "2026-10-09T00:25:00+08:00",
+    "peak": 2.77,
+    "class": "hit",
+    "cases": [
+     "dosing_block P02"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 1.74 kg/h，为按进水负荷估算值 1.32 kg/h 的 1.32 倍"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 94.2,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 轴承温度 80 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-08T15:15:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": 9.18,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1 振动 5.18 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P06",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "P06-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P06",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-08T15:30:00+08:00",
+    "end": "2026-10-08T19:05:00+08:00",
+    "peak": 0.023,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "好氧区 DO 0.58 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-08T15:45:00+08:00",
+    "end": "2026-10-08T20:35:00+08:00",
+    "peak": 22.1252,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水氨氮 5.7 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-08T16:15:00+08:00",
+    "end": "2026-10-08T16:35:00+08:00",
+    "peak": 14.8603,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 2 mg/L，按线性趋势约 80 分钟后超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-08T16:35:00+08:00",
+    "end": "2026-10-08T20:55:00+08:00",
+    "peak": 23.1252,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "出水总氮 15.43 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P06",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-08T20:00:00+08:00",
+    "end": "2026-10-09T03:50:00+08:00",
+    "peak": 3.4072,
+    "class": "secondary",
+    "cases": [
+     "blower_fault P06"
+    ],
+    "message": "碳源投加量近 60 分钟均值 13.41 kg/h，为按进水负荷估算值 9.26 kg/h 的 1.45 倍"
+   },
+   {
+    "plant": "P05",
+    "rule": "effluent_trend",
+    "metric": "tn_out",
+    "level": "预警",
+    "start": "2026-10-09T07:30:00+08:00",
+    "end": "2026-10-09T07:45:00+08:00",
+    "peak": 12.7428,
+    "class": "secondary",
+    "cases": [
+     "pipe_leak P05"
+    ],
+    "message": "出水总氮近 60 分钟每小时上升 1.29 mg/L，按线性趋势约 108 分钟后超过限值 15"
+   },
+   {
+    "plant": "P05",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-09T09:05:00+08:00",
+    "end": "2026-10-09T19:40:00+08:00",
+    "peak": 2.0173,
+    "class": "hit",
+    "cases": [
+     "pipe_leak P05"
+    ],
+    "message": "碳源投加量近 60 分钟均值 6.43 kg/h，为按进水负荷估算值 4.87 kg/h 的 1.32 倍"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_temp",
+    "metric": "temp_c",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 94.6,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 轴承温度 76.4 ℃，超过关注值 75 ℃"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_vibration",
+    "metric": "vibration_mms",
+    "level": "告警",
+    "start": "2026-10-10T03:15:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": 9.08,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1 振动 5.34 mm/s，超过关注值 4.5"
+   },
+   {
+    "plant": "P01",
+    "rule": "device_stop",
+    "metric": "running",
+    "level": "告警",
+    "start": "2026-10-10T03:30:00+08:00",
+    "end": "2026-10-10T05:00:00+08:00",
+    "peak": null,
+    "class": "hit",
+    "cases": [
+     "blower_fault P01"
+    ],
+    "message": "P01-BL-1（鼓风机，非备用）停机"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "tp_out",
+    "level": "预警",
+    "start": "2026-10-10T10:15:00+08:00",
+    "end": "2026-10-10T10:30:00+08:00",
+    "peak": 0.4819,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷近 60 分钟每小时上升 0.11 mg/L，按线性趋势约 69 分钟后超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_exceed",
+    "metric": "tp_out",
+    "level": "告警",
+    "start": "2026-10-10T10:30:00+08:00",
+    "end": "2026-10-10T14:15:00+08:00",
+    "peak": 0.7116,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "出水总磷 0.51 mg/L，超过限值 0.5"
+   },
+   {
+    "plant": "P03",
+    "rule": "dosing_anomaly",
+    "metric": "pac_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-10T11:50:00+08:00",
+    "end": "2026-10-10T21:55:00+08:00",
+    "peak": 2.3692,
+    "class": "hit",
+    "cases": [
+     "dosing_block P03"
+    ],
+    "message": "PAC 投加量近 60 分钟均值 4.21 kg/h，为按进水负荷估算值 3.2 kg/h 的 1.31 倍"
+   },
+   {
+    "plant": "P07",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-10T19:00:00+08:00",
+    "end": "2026-10-10T22:00:00+08:00",
+    "peak": 0.0178,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "好氧区 DO 0.98 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "nh3n_out",
+    "level": "告警",
+    "start": "2026-10-10T19:15:00+08:00",
+    "end": "2026-10-11T00:20:00+08:00",
+    "peak": 34.2017,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水氨氮 7.34 mg/L，超过限值 5"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_trend",
+    "metric": "cod_out",
+    "level": "预警",
+    "start": "2026-10-10T19:25:00+08:00",
+    "end": "2026-10-10T20:35:00+08:00",
+    "peak": 49.1611,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD近 60 分钟每小时上升 11.79 mg/L，按线性趋势约 82 分钟后超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "tn_out",
+    "level": "告警",
+    "start": "2026-10-10T19:30:00+08:00",
+    "end": "2026-10-11T01:00:00+08:00",
+    "peak": 35.2017,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水总氮 16.2 mg/L，超过限值 15"
+   },
+   {
+    "plant": "P07",
+    "rule": "effluent_exceed",
+    "metric": "cod_out",
+    "level": "告警",
+    "start": "2026-10-10T20:35:00+08:00",
+    "end": "2026-10-10T22:05:00+08:00",
+    "peak": 52.8256,
+    "class": "hit",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "出水 COD 50.18 mg/L，超过限值 50"
+   },
+   {
+    "plant": "P07",
+    "rule": "dosing_anomaly",
+    "metric": "carbon_dose_kgh",
+    "level": "预警",
+    "start": "2026-10-10T23:35:00+08:00",
+    "end": "2026-10-11T07:25:00+08:00",
+    "peak": 3.5598,
+    "class": "secondary",
+    "cases": [
+     "shock_load P07"
+    ],
+    "message": "碳源投加量近 60 分钟均值 4.38 kg/h，为按进水负荷估算值 3.02 kg/h 的 1.45 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "do_low",
+    "metric": "do_aerobic_1",
+    "level": "告警",
+    "start": "2026-10-11T14:20:00+08:00",
+    "end": "2026-10-11T14:50:00+08:00",
+    "peak": 0.5629,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "好氧区 DO 0.999 mg/L，低于 1 mg/L"
+   },
+   {
+    "plant": "P03",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T14:30:00+08:00",
+    "end": "2026-10-11T16:40:00+08:00",
+    "peak": 404.6506,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 307 m³/h，为近 7 天同时段中位数 197 的 1.6 倍"
+   },
+   {
+    "plant": "P07",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T15:00:00+08:00",
+    "end": "2026-10-11T16:15:00+08:00",
+    "peak": 125.8171,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 114 m³/h，为近 7 天同时段中位数 76 的 1.5 倍"
+   },
+   {
+    "plant": "P03",
+    "rule": "effluent_trend",
+    "metric": "ss_out",
+    "level": "预警",
+    "start": "2026-10-11T15:05:00+08:00",
+    "end": "2026-10-11T16:30:00+08:00",
+    "peak": 9.1919,
+    "class": "secondary",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "出水 SS近 60 分钟每小时上升 2.08 mg/L，按线性趋势约 84 分钟后超过限值 10"
+   },
+   {
+    "plant": "P04",
+    "rule": "inflow_surge",
+    "metric": "inflow_m3h",
+    "level": "预警",
+    "start": "2026-10-11T15:30:00+08:00",
+    "end": "2026-10-11T16:00:00+08:00",
+    "peak": 173.0936,
+    "class": "hit",
+    "cases": [
+     "storm 全区"
+    ],
+    "message": "进水 171 m³/h，为近 7 天同时段中位数 114 的 1.5 倍"
+   }
+  ],
+  "trend": {
+   "linear": {
+    "warnings": 6,
+    "useless": 2,
+    "exceeds": 7,
+    "covered": 4,
+    "lead_median_min": 20.0,
+    "leads": [
+     20.0,
+     20.0,
+     15.0,
+     70.0
+    ]
+   },
+   "fixed_80": {
+    "warnings": 13,
+    "useless": 9,
+    "exceeds": 7,
+    "covered": 4,
+    "lead_median_min": 22.5,
+    "leads": [
+     20.0,
+     25.0,
+     15.0,
+     50.0
+    ]
+   }
+  },
+  "dosing": {
+   "load_model": {
+    "false": 0,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      200.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      130.0,
+      125.0
+     ]
+    }
+   },
+   "unit_60min_1.3x": {
+    "false": 140,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      95.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      125.0,
+      115.0
+     ]
+    }
+   },
+   "unit_180min_1.8x": {
+    "false": 1,
+    "pipe_leak": {
+     "cases": 1,
+     "detected": 1,
+     "latencies": [
+      275.0
+     ]
+    },
+    "dosing_block": {
+     "cases": 2,
+     "detected": 2,
+     "latencies": [
+      260.0,
+      280.0
+     ]
+    }
+   }
+  },
+  "consistency": {
+   "full": 31,
+   "incremental": 31,
+   "missing": [],
+   "extra": [],
+   "field_diffs": [],
+   "scans": 1656,
+   "scan_ms_median": 12.8,
+   "catchup_ms": 169.5,
+   "revisions": []
+  }
+ }
+]

@@ -1,0 +1,58 @@
+{
+ "url": "http://127.0.0.1:8012",
+ "requests_per_level": 200,
+ "machine_before": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 7.2,
+  "cpu": "Apple M3"
+ },
+ "levels": {
+  "1": {
+   "p50_ms": 99.3,
+   "p95_ms": 104.7,
+   "throughput_rps": 10.0,
+   "errors": 0,
+   "server_total_p50_ms": 91.5,
+   "queue_p50_ms": 0.0,
+   "queue_p95_ms": 0.0
+  },
+  "4": {
+   "p50_ms": 125.6,
+   "p95_ms": 151.6,
+   "throughput_rps": 31.0,
+   "errors": 0,
+   "server_total_p50_ms": 115.4,
+   "queue_p50_ms": 0.0,
+   "queue_p95_ms": 0.0
+  },
+  "8": {
+   "p50_ms": 268.7,
+   "p95_ms": 329.2,
+   "throughput_rps": 28.6,
+   "errors": 0,
+   "server_total_p50_ms": 248.3,
+   "queue_p50_ms": 114.7,
+   "queue_p95_ms": 141.7
+  },
+  "16": {
+   "p50_ms": 552.4,
+   "p95_ms": 626.1,
+   "throughput_rps": 28.4,
+   "errors": 0,
+   "server_total_p50_ms": 527.4,
+   "queue_p50_ms": 385.0,
+   "queue_p95_ms": 444.8
+  }
+ },
+ "serving": {
+  "concurrency": 4,
+  "intra_op_threads": 1
+ },
+ "machine_after": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 7.0,
+  "cpu": "Apple M3"
+ }
+}

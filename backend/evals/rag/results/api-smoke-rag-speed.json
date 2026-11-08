@@ -1,0 +1,880 @@
+{
+  "knowledge": {
+    "documents": 10,
+    "chunks": 35,
+    "fingerprint": "5fdab8671821d9134b7e45351520566913fb9e61aae9500742245fa27d0069da",
+    "dense_available": true,
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "dense_error": null,
+    "items": [
+      {
+        "id": "demo-metrics",
+        "title": "汉水智控 Demo 的数据口径与能力边界",
+        "source_type": "demo",
+        "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+        "source_url": null,
+        "chunks": 6,
+        "url": "/api/ai/knowledge/demo-metrics"
+      },
+      {
+        "id": "emergency-rain",
+        "title": "暴雨入流冲击的演示应急观察与恢复",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/emergency-rain"
+      },
+      {
+        "id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/equipment-blower"
+      },
+      {
+        "id": "equipment-dosing",
+        "title": "碳源与 PAC 投加设备的演示排查",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/equipment-dosing"
+      },
+      {
+        "id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/fault-ammonia"
+      },
+      {
+        "id": "fault-phosphorus",
+        "title": "总磷异常与 PAC 有效投加排查",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/fault-phosphorus"
+      },
+      {
+        "id": "fault-sludge",
+        "title": "污泥膨胀、流失与沉淀异常的演示辨析",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/fault-sludge"
+      },
+      {
+        "id": "process-a2o",
+        "title": "A2O 工艺分区与脱氮除磷演示要点",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/process-a2o"
+      },
+      {
+        "id": "process-ditch",
+        "title": "氧化沟循环流态与运行观察演示要点",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "chunks": 3,
+        "url": "/api/ai/knowledge/process-ditch"
+      },
+      {
+        "id": "reference-case",
+        "title": "用户提供的 AI 水务案例摘要",
+        "source_type": "reference",
+        "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+        "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+        "chunks": 5,
+        "url": "/api/ai/knowledge/reference-case"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "passed": true,
+      "expected_refusal": false,
+      "citations_verified": true,
+      "result": {
+        "question": "风机跳停、DO下降后，应该怎样排查氨氮升高？",
+        "ok": true,
+        "refused": false,
+        "answer": "先按时间对齐振动、轴承温度、设备状态、风量、好氧区DO与出水氨氮，确认是否形成“可用风量下降、DO下降、氨氮随后升高”的证据链。 [1]\n\n沿“设备状态、可用供气、好氧区DO、硝化、出水氨氮”顺序核查，对齐风量、鼓风机功率与进水负荷，判断风量是否确实下降。 [2]\n\n先核实氨氮数据口径：确认厂站、时间窗、单位、采样位置与连续性，比较在线趋势与人工复测，排除探头漂移或采样异常。 [3]\n\n同时保留替代原因：进水氮负荷增加、水温下降、停留时间缩短或污泥流失，需对照进水流量、氨氮、COD、MLSS与出水SS。 [4]",
+        "reason": null,
+        "error": null,
+        "citations": [
+          {
+            "number": 1,
+            "chunk_id": "fault-ammonia:ammonia-oxygen-evidence:1",
+            "document_id": "fault-ammonia",
+            "title": "出水氨氮异常的证据核查与原因假设",
+            "heading": "低溶解氧与鼓风机故障证据",
+            "quote": "排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 18,
+            "line_end": 20,
+            "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1"
+          },
+          {
+            "number": 2,
+            "chunk_id": "equipment-blower:blower-air-water-chain:1",
+            "document_id": "equipment-blower",
+            "title": "鼓风机状态核查与供氧故障演示要点",
+            "heading": "供气能力与水质响应链",
+            "quote": "应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 18,
+            "line_end": 20,
+            "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1"
+          },
+          {
+            "number": 3,
+            "chunk_id": "fault-ammonia:ammonia-check:1",
+            "document_id": "fault-ammonia",
+            "title": "出水氨氮异常的证据核查与原因假设",
+            "heading": "确认氨氮异常与数据口径",
+            "quote": "排查先确定厂站、时间窗、单位、采样位置和数据是否连续，比较在线趋势与人工复测",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 12,
+            "line_end": 14,
+            "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-check:1"
+          },
+          {
+            "number": 4,
+            "chunk_id": "fault-ammonia:ammonia-differential:1",
+            "document_id": "fault-ammonia",
+            "title": "出水氨氮异常的证据核查与原因假设",
+            "heading": "冲击负荷、低温与污泥流失鉴别",
+            "quote": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 24,
+            "line_end": 26,
+            "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1"
+          }
+        ],
+        "model": "deepseek-flash",
+        "prompt_tokens": 3489,
+        "completion_tokens": 504,
+        "llm_ms": 3292.0,
+        "generation_calls": [
+          {
+            "stage": "rerank",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1710,
+            "completion_tokens": 124,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 959.7,
+            "latency_ms": 959.6,
+            "total_latency_ms": 959.7,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 959.6,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1779,
+            "completion_tokens": 380,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 2332.3,
+            "latency_ms": 2332.2,
+            "total_latency_ms": 2332.3,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2332.2,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ]
+          }
+        ],
+        "total_ms": 3360.3,
+        "attempts": 1,
+        "validation_errors": [],
+        "retrieval": {
+          "hits": [
+            {
+              "id": "fault-ammonia:ammonia-oxygen-evidence:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "低溶解氧与鼓风机故障证据",
+              "text": "硝化需要氧，供氧不足会削弱氨氮氧化能力。本 Demo 的 `blower_fault` 场景让一号鼓风机振动、轴承温度先升高，随后按场景时序跳停并减少可用曝气能力；出水氨氮通过过程响应滞后变化。排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮，确认是否出现“可用风量下降、DO 下降、氨氮随后升高”的证据链。\n\n这条时序支持供氧不足假设，但振动与跳停的相关性不能证明某种机械损坏，也不能证明振动直接触发了真实保护动作。需另核查保护记录、检修检查和运行方式。若风量未降而 DO 下降，还应检查进水耗氧负荷和测量可靠性。建议先由人员确认故障状态与备用供氧条件，不能仅凭氨氮曲线自动提高风量设定，更不能屏蔽保护或反复强行重启设备。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1",
+              "score": 0.032787,
+              "lexical_score": 11.472,
+              "dense_score": 0.7635,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-blower:blower-air-water-chain:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "供气能力与水质响应链",
+              "text": "鼓风机故障对水质的影响，应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查。对齐曝气风量、鼓风机功率和进水负荷，判断风量变化是否确实发生，以及 DO 是否在相应时段下降。NH3-N 是氨氮，硝化受限可使其升高；总氮还受反硝化与碳源等因素影响，不能将所有氮指标异常都归因于风机。\n\n本 Demo 在跳停后扣减运行鼓风机数量，实际风量上限随可用台数变化，具体影响取决于配置和负荷。不能仅因设备清单存在备用机就宣称已经自动切换。水质有过程时滞，需比较停机前后连续趋势；若 DO 下降同时存在暴雨或浓度冲击，应保留耗氧增加等替代解释。功率下降在此可能意味着供氧损失，不能直接评价为节能。建议由人员核实供气能力，不输出固定增风比例或自动切换指令。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1",
+              "score": 0.032258,
+              "lexical_score": 9.4788,
+              "dense_score": 0.7598,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-blower:blower-fault-evidence:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "振动、温度与跳停的证据边界",
+              "text": "本 Demo 的 `blower_fault` 让一号鼓风机的振动、轴承温度逐渐升高，随后按场景时序进入跳停状态并损失可用曝气能力。这是人为设定的演示过程，不是真实故障记录，也不表示模型完成了机械故障诊断。观察应同时核对振动速度、轴承温度、运行电流、设备状态和事件时间，区分状态变化与传感器异常。\n\n振动和温度升高可以支持设备异常假设，但可能涉及多种机械、工况或测量因素；与跳停相邻也不能证明轴承损坏，更不能仅凭相关性断定振动触发了保护。真实因果判断需保护动作记录、检查和检修证据。项目指标目录中的振动、温度告警数值只是演示管理阈值，不能作为所有风机的通用设备标准。现场应依据具体机型、测点、安装状态及已确认的维护要求复核，不据此绕过保护或强制复位。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-fault-evidence:1",
+              "score": 0.03101,
+              "lexical_score": 6.8547,
+              "dense_score": 0.6642,
+              "relevance": 2
+            },
+            {
+              "id": "fault-ammonia:ammonia-check:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "确认氨氮异常与数据口径",
+              "text": "出水氨氮对应 `nh3n_out`，总氮对应 `tn_out`，二者不能混用。NH3-N 是本项目的氨氮指标；总氮还包括硝态氮、亚硝态氮和有机氮。总氮升高而氨氮稳定时，应考虑反硝化条件等原因，不能直接称为硝化失效。界面预警或告警来自项目指标配置，是否符合真实排放要求仍需核实适用条件，不能把演示告警当成正式达标判定。\n\n排查先确定厂站、时间窗、单位、采样位置和数据是否连续，比较在线趋势与人工复测，并检查探头维护、漂移或采样异常。随后对照进水氨氮及流量，区分负荷改变与去除能力下降。一个尖峰不足以建立稳定趋势；缺少复测时，应表述为“监测值异常，待核实”。本知识库用于组织核查证据，不能替代仪表校验或据此直接下发运行调整。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-check:1",
+              "score": 0.030777,
+              "lexical_score": 6.3616,
+              "dense_score": 0.6674,
+              "relevance": 2
+            },
+            {
+              "id": "fault-ammonia:ammonia-differential:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "冲击负荷、低温与污泥流失鉴别",
+              "text": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关。核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS。降雨后即使浓度被稀释，持续大流量仍可能冲走污泥、缩短停留时间，使硝化能力下降；这时 DO 恢复不保证氨氮同步恢复。总氮应另行分析，不能把氨氮与总氮的改善视为同一过程。\n\n本 Demo 的 `shock_load` 表示浓度冲击，只能提示负荷扰动，不能证明真实工业偷排或毒性来源。模型考虑水温影响，但没有完整的碱度、pH、毒性或菌群监测证据；需要现场检测才能判断这些因素。应保留多个原因假设，持续比较恢复趋势和复测结果。未经确认，不给出固定排泥量、碳源剂量或“若干小时必恢复”的承诺。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1",
+              "score": 0.03031,
+              "lexical_score": 6.5421,
+              "dense_score": 0.6556,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 59.5,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1710,
+          "completion_tokens": 124,
+          "llm_ms": 959.7,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1710,
+              "completion_tokens": 124,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 959.7,
+              "latency_ms": 959.6,
+              "total_latency_ms": 959.7,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 959.6,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1026.9,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": true,
+            "lexical_top": "fault-ammonia:ammonia-oxygen-evidence:1",
+            "term_coverage": 0.4667,
+            "lexical_margin": 1.2102774349166114
+          }
+        }
+      }
+    },
+    {
+      "passed": true,
+      "expected_refusal": false,
+      "citations_verified": true,
+      "result": {
+        "question": "参考案例的节电30.4%是这个Demo实测的成绩吗？",
+        "ok": true,
+        "refused": false,
+        "answer": "不是。参考案例的节电30.4%属于外部案例报道，不能作为本Demo的实测成绩。 [1]\n\n该30.4%是案例文章第3页报道的鼓风机电耗降低比例，知识库未对其进行独立审计。 [2][3]\n\n本Demo的模拟器、查询延迟、Text2SQL匹配率有自己的评测口径，不能套用案例节电比例。 [4]",
+        "reason": null,
+        "error": null,
+        "citations": [
+          {
+            "number": 1,
+            "chunk_id": "demo-metrics:capabilities:1",
+            "document_id": "demo-metrics",
+            "title": "汉水智控 Demo 的数据口径与能力边界",
+            "heading": "知识问答与查数的区别",
+            "quote": "参考案例 PDF 的节电和药耗收益属于外部案例报道，不能作为本项目实测成绩。",
+            "source_type": "demo",
+            "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 32,
+            "line_end": 32,
+            "url": "/api/ai/knowledge/chunks/demo-metrics:capabilities:1"
+          },
+          {
+            "number": 2,
+            "chunk_id": "reference-case:effects:1",
+            "document_id": "reference-case",
+            "title": "用户提供的 AI 水务案例摘要",
+            "heading": "原案例的阶段性收益",
+            "quote": "报道鼓风机电耗降低 30.4%、碳源和除磷剂药量减少 32%",
+            "source_type": "reference",
+            "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+            "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+            "source_page": 3,
+            "line_start": 33,
+            "line_end": 33,
+            "url": "/api/ai/knowledge/chunks/reference-case:effects:1"
+          },
+          {
+            "number": 3,
+            "chunk_id": "reference-case:effects:1",
+            "document_id": "reference-case",
+            "title": "用户提供的 AI 水务案例摘要",
+            "heading": "原案例的阶段性收益",
+            "quote": "这些是文章中的外部案例陈述，知识库未对其进行独立审计。",
+            "source_type": "reference",
+            "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+            "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+            "source_page": 3,
+            "line_start": 33,
+            "line_end": 33,
+            "url": "/api/ai/knowledge/chunks/reference-case:effects:1"
+          },
+          {
+            "number": 4,
+            "chunk_id": "reference-case:effects:1",
+            "document_id": "reference-case",
+            "title": "用户提供的 AI 水务案例摘要",
+            "heading": "原案例的阶段性收益",
+            "quote": "不能将案例节电比例、节省金额或真实水质达标率直接作为本 Demo 的效果。",
+            "source_type": "reference",
+            "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+            "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+            "source_page": 3,
+            "line_start": 33,
+            "line_end": 33,
+            "url": "/api/ai/knowledge/chunks/reference-case:effects:1"
+          }
+        ],
+        "model": "deepseek-flash",
+        "prompt_tokens": 2391,
+        "completion_tokens": 351,
+        "llm_ms": 2644.7,
+        "generation_calls": [
+          {
+            "stage": "rerank",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1190,
+            "completion_tokens": 97,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 1156.5,
+            "latency_ms": 1156.4,
+            "total_latency_ms": 1156.5,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1156.4,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1201,
+            "completion_tokens": 254,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 1488.2,
+            "latency_ms": 1488.2,
+            "total_latency_ms": 1488.2,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1488.2,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ]
+          }
+        ],
+        "total_ms": 2749.3,
+        "attempts": 1,
+        "validation_errors": [],
+        "retrieval": {
+          "hits": [
+            {
+              "id": "demo-metrics:capabilities:1",
+              "document_id": "demo-metrics",
+              "title": "汉水智控 Demo 的数据口径与能力边界",
+              "heading": "知识问答与查数的区别",
+              "text": "RAG 知识问答提供工艺解释、排查思路和有出处的文档摘要，不读取实时测点，也不执行设备控制。询问某厂今天氨氮多少、昨天处理多少水、某台风机何时跳停，应通过 Text2SQL 或业务 API 查数。原因诊断需要将时间序列证据与知识结合，并列出还缺少的现场核查信息，不能单靠知识文档断言某次异常的原因。Demo 所有运行数据由模拟器生成；参考案例 PDF 的节电和药耗收益属于外部案例报道，不能作为本项目实测成绩。知识库也不包含员工联系方式、电价合同或未来天气预报。",
+              "source_type": "demo",
+              "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 32,
+              "line_end": 32,
+              "url": "/api/ai/knowledge/chunks/demo-metrics:capabilities:1",
+              "score": 0.032522,
+              "lexical_score": 19.7033,
+              "dense_score": 0.5746,
+              "relevance": 3
+            },
+            {
+              "id": "reference-case:effects:1",
+              "document_id": "reference-case",
+              "title": "用户提供的 AI 水务案例摘要",
+              "heading": "原案例的阶段性收益",
+              "text": "PDF 第 3 页“已落地场景的阶段性成果”报道鼓风机电耗降低 30.4%、碳源和除磷剂药量减少 32%，年运营成本合计节省超过 300 万元；同时报告数据整合率由 35% 提升到 98%。这些是文章中的外部案例陈述，知识库未对其进行独立审计。本项目的模拟器、LLM 查询延迟、Text2SQL 结果匹配率有自己的测试和评测口径，不能将案例节电比例、节省金额或真实水质达标率直接作为本 Demo 的效果。",
+              "source_type": "reference",
+              "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+              "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+              "source_page": 3,
+              "line_start": 33,
+              "line_end": 33,
+              "url": "/api/ai/knowledge/chunks/reference-case:effects:1",
+              "score": 0.032522,
+              "lexical_score": 13.6749,
+              "dense_score": 0.6643,
+              "relevance": 3
+            },
+            {
+              "id": "reference-case:overview:1",
+              "document_id": "reference-case",
+              "title": "用户提供的 AI 水务案例摘要",
+              "heading": "案例背景与建设范围",
+              "text": "参考案例针对县域及中小污水厂的能耗高、管控分散、运维困难和数据碎片化问题，采用“1 中心厂 + N 集镇厂”的集中管理模式。文中说明项目在陕西水务集团某县级污水厂落地验证，日处理规模为 5 万吨。建设围绕工艺控制、集控、运行管理、设备管理、巡检和企业管理展开。这是外部项目介绍，不能推断本 Demo 已接入真实 PLC 或已经取得相同成果。",
+              "source_type": "reference",
+              "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+              "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+              "source_page": 1,
+              "line_start": 21,
+              "line_end": 21,
+              "url": "/api/ai/knowledge/chunks/reference-case:overview:1",
+              "score": 0.03125,
+              "lexical_score": 8.7847,
+              "dense_score": 0.5543,
+              "relevance": 2
+            },
+            {
+              "id": "reference-case:roadmap:1",
+              "document_id": "reference-case",
+              "title": "用户提供的 AI 水务案例摘要",
+              "heading": "已落地内容与长期目标的区分",
+              "text": "原文区分阶段性成果与全系统落地后的长期预期，长期预期涉及工艺能效进一步提升、无人机和视频巡检覆盖所有厂站、预测性维护覆盖关键设备，以及对接环保监管平台。引用案例时应说明数字是当前报道还是未来目标，不把预期当已实现。文章提出模块化部署、国产化适配和面向县域多厂站复制的思路；这些设计方向可以作为演示项目的需求参考，不能代替本地部署验收和实测。",
+              "source_type": "reference",
+              "source": "用户提供的《AI水务全场景_智能化管理体系建设.pdf》，信息化观察网，2026-02-27；完成单位为汉中未来智慧谷人工智能科技有限公司",
+              "source_url": "https://www.infoobs.com/case/20260227/1046.html",
+              "source_page": 4,
+              "line_start": 37,
+              "line_end": 37,
+              "url": "/api/ai/knowledge/chunks/reference-case:roadmap:1",
+              "score": 0.030536,
+              "lexical_score": 7.4586,
+              "dense_score": 0.5259,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 100.6,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1190,
+          "completion_tokens": 97,
+          "llm_ms": 1156.5,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1190,
+              "completion_tokens": 97,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1156.5,
+              "latency_ms": 1156.4,
+              "total_latency_ms": 1156.5,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1156.4,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1260.8,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "demo-metrics:capabilities:1",
+            "term_coverage": 0.5333,
+            "lexical_margin": 1.440837076216369
+          }
+        }
+      }
+    },
+    {
+      "passed": true,
+      "expected_refusal": true,
+      "citations_verified": true,
+      "result": {
+        "question": "黄官镇污水处理站站长的手机号码是多少？",
+        "ok": false,
+        "refused": true,
+        "answer": "",
+        "reason": "知识库中没有足以回答该问题的资料",
+        "error": null,
+        "citations": [],
+        "model": "deepseek-flash",
+        "prompt_tokens": 1433,
+        "completion_tokens": 114,
+        "llm_ms": 1294.9,
+        "generation_calls": [
+          {
+            "stage": "rerank",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1433,
+            "completion_tokens": 114,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 1294.9,
+            "latency_ms": 1294.8,
+            "total_latency_ms": 1294.9,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1294.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "thinking": false
+          }
+        ],
+        "total_ms": 1361.2,
+        "attempts": 0,
+        "validation_errors": [],
+        "retrieval": {
+          "hits": [],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 57.5,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1433,
+          "completion_tokens": 114,
+          "llm_ms": 1294.9,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1433,
+              "completion_tokens": 114,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1294.9,
+              "latency_ms": 1294.8,
+              "total_latency_ms": 1294.9,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1294.8,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1361.1,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "demo-metrics:capabilities:1",
+            "term_coverage": 0.1176,
+            "lexical_margin": 1.0381712764809643
+          }
+        }
+      }
+    },
+    {
+      "passed": true,
+      "expected_refusal": true,
+      "citations_verified": true,
+      "result": {
+        "question": "今天黄官镇出水氨氮的实时读数是多少？",
+        "ok": false,
+        "refused": true,
+        "answer": "",
+        "reason": "现有证据只有 Demo 数据口径说明，明确知识问答不读取实时测点，未包含黄官镇出水氨氮的实时读数；需通过 Text2SQL 或业务 API 查数接口获取。",
+        "error": null,
+        "citations": [],
+        "model": "deepseek-flash",
+        "prompt_tokens": 2215,
+        "completion_tokens": 177,
+        "llm_ms": 2510.1,
+        "generation_calls": [
+          {
+            "stage": "rerank",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1594,
+            "completion_tokens": 119,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 1377.0,
+            "latency_ms": 1377.0,
+            "total_latency_ms": 1377.0,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1377.0,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 621,
+            "completion_tokens": 58,
+            "from_cache": false,
+            "finish_reason": "stop",
+            "llm_ms": 1133.1,
+            "latency_ms": 1133.1,
+            "total_latency_ms": 1133.1,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1133.1,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ]
+          }
+        ],
+        "total_ms": 2615.8,
+        "attempts": 1,
+        "validation_errors": [],
+        "retrieval": {
+          "hits": [
+            {
+              "id": "demo-metrics:capabilities:1",
+              "document_id": "demo-metrics",
+              "title": "汉水智控 Demo 的数据口径与能力边界",
+              "heading": "知识问答与查数的区别",
+              "text": "RAG 知识问答提供工艺解释、排查思路和有出处的文档摘要，不读取实时测点，也不执行设备控制。询问某厂今天氨氮多少、昨天处理多少水、某台风机何时跳停，应通过 Text2SQL 或业务 API 查数。原因诊断需要将时间序列证据与知识结合，并列出还缺少的现场核查信息，不能单靠知识文档断言某次异常的原因。Demo 所有运行数据由模拟器生成；参考案例 PDF 的节电和药耗收益属于外部案例报道，不能作为本项目实测成绩。知识库也不包含员工联系方式、电价合同或未来天气预报。",
+              "source_type": "demo",
+              "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 32,
+              "line_end": 32,
+              "url": "/api/ai/knowledge/chunks/demo-metrics:capabilities:1",
+              "score": 0.029727,
+              "lexical_score": 11.7044,
+              "dense_score": 0.4872,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 104.4,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1594,
+          "completion_tokens": 119,
+          "llm_ms": 1377.0,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1594,
+              "completion_tokens": 119,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1377.0,
+              "latency_ms": 1377.0,
+              "total_latency_ms": 1377.0,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1377.0,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1482.3,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "demo-metrics:capabilities:1",
+            "term_coverage": 0.25,
+            "lexical_margin": 2.0729742484109765
+          }
+        }
+      }
+    }
+  ]
+}

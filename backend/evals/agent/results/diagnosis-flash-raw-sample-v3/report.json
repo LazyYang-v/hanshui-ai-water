@@ -1,0 +1,142 @@
+{
+  "label": "flash-raw-sample-v3",
+  "started_at": "2026-11-07T14:15:43.820670+00:00",
+  "clock": "2026-11-07T12:00:00+08:00",
+  "version": "diagnosis-v1",
+  "spec_sha256": "b3db64cb4ae049c0b55a776d46c6622b2b79638dcb19cf425c876a6f2b968382",
+  "database": "shuiwu_diagnosis_eval",
+  "selected_ids": [
+    "blower-data",
+    "blower-diagnosis",
+    "blower-followup-latest",
+    "blower-followup-duration",
+    "shock-data",
+    "shock-diagnosis",
+    "storm-data",
+    "storm-diagnosis",
+    "storm-followup",
+    "dosing-data",
+    "dosing-diagnosis",
+    "dosing-followup",
+    "pipe-data",
+    "pipe-diagnosis",
+    "normal-data",
+    "missing-history",
+    "missing-gap",
+    "missing-null-metric",
+    "statistics-peaks",
+    "statistics-duration",
+    "refuse-private",
+    "refuse-control"
+  ],
+  "request_count_note": "题数是Agent HTTP请求数；底层Flash调用因规划、Text2SQL与重试会更多",
+  "semantic_policy": "人工项未审核则semantic_pass=null；mechanical_pass不等于诊断准确率",
+  "cases": [
+    {
+      "id": "blower-data",
+      "status": "fail",
+      "file": "blower-data.json",
+      "mechanical_pass": false,
+      "semantic_pass": false,
+      "agent_http_requests": 1,
+      "failures": [
+        "data_scope_or_projection:1",
+        "data_scope_or_projection:2",
+        "data_scope_or_projection:3",
+        "data_scope_or_projection:4",
+        "data_scope_or_projection:5",
+        "data_scope_or_projection:6",
+        "data_scope_or_projection:7",
+        "data_scope_or_projection:8",
+        "data_scope_or_projection:9",
+        "data_scope_or_projection:10",
+        "data_scope_or_projection:11",
+        "missing_snapshot_metric:0:nh3n_out",
+        "missing_snapshot_metric:0:do_aerobic_1",
+        "missing_snapshot_metric:0:air_flow_m3h",
+        "missing_snapshot_metric:0:blower_kw",
+        "missing_snapshot_metric:1:running"
+      ],
+      "exception": null
+    }
+  ],
+  "preflight": {
+    "identity": {
+      "database": "shuiwu_diagnosis_eval",
+      "readonly_database": "shuiwu_diagnosis_eval",
+      "readonly_user": "text2sql_ro",
+      "readonly": true,
+      "redis_isolated": true,
+      "alarm_monitor_enabled": false,
+      "clock": "2026-11-07T12:00:00+08:00",
+      "manifest": {
+        "seed": 71,
+        "clock": "2026-11-07T12:00:00+08:00",
+        "version": "diagnosis-v1",
+        "signature": {
+          "weather": [
+            10081,
+            "2026-10-31T12:00:00+08:00",
+            "2026-11-07T12:00:00+08:00"
+          ],
+          "plant_reading": [
+            70447,
+            "2026-10-31T12:00:00+08:00",
+            "2026-11-07T12:00:00+08:00"
+          ],
+          "device_reading": [
+            573657,
+            "2026-10-31T12:00:00+08:00",
+            "2026-11-07T12:00:00+08:00"
+          ]
+        },
+        "case_count": 22,
+        "spec_sha256": "b3db64cb4ae049c0b55a776d46c6622b2b79638dcb19cf425c876a6f2b968382",
+        "history_days": 7,
+        "step_seconds": 60
+      }
+    },
+    "gateway": {
+      "available": true,
+      "mode": "live",
+      "cache_entries": 0,
+      "cache_hits": 0,
+      "requests": {
+        "calls": 0,
+        "successes": 0,
+        "errors": 0,
+        "cancelled": 0,
+        "total_latency_p50_ms": null,
+        "total_latency_p95_ms": null
+      },
+      "providers": {
+        "deepseek": {
+          "model": "deepseek-flash",
+          "calls": 0,
+          "errors": 0,
+          "retries": 0,
+          "cancelled": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "cache_hit_tokens": 0,
+          "latency_p50_ms": null,
+          "latency_p95_ms": null,
+          "attempt_latency_p50_ms": null,
+          "attempt_latency_p95_ms": null,
+          "ttft_p50_ms": null,
+          "ttft_p95_ms": null,
+          "circuit": "closed"
+        }
+      }
+    },
+    "dense_available": true
+  },
+  "summary": {
+    "completed": 1,
+    "agent_http_requests": 1,
+    "mechanical_pass": 0,
+    "semantic_pass": 0,
+    "needs_review": 0,
+    "failed": 1
+  }
+}

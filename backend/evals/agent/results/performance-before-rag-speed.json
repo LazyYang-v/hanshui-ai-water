@@ -1,0 +1,255 @@
+{
+  "checked_at": "2026-11-07T13:29:38.170908+00:00",
+  "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+  "note": "固定历史日期；同一运行服务连续请求，缓存和模型采样会影响耗时；小样本不报告P95。",
+  "runs": [
+    {
+      "client_ms": 6710.0,
+      "citations_verified": true,
+      "diagnosis_evidence_complete": false,
+      "device_counts_plausible": true,
+      "result": {
+        "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+        "now": "2026-11-07T21:29:31.557863+08:00",
+        "run_id": "075ef7caa305412ba76ad5d5ab954cdb",
+        "session_id": "c67deda3eac2489482dfa6d89f6fd89b",
+        "resolved_question": "",
+        "intent": null,
+        "ok": false,
+        "refused": false,
+        "answer": "",
+        "reason": null,
+        "error": "工具规划连续两次未通过校验",
+        "claims": [],
+        "citations": [],
+        "tool_calls": [],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1699,
+            "completion_tokens": 654,
+            "finish_reason": "stop",
+            "llm_ms": 4668.9,
+            "latency_ms": 4668.8,
+            "total_latency_ms": 4668.9,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 4668.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2071,
+            "completion_tokens": 421,
+            "finish_reason": "stop",
+            "llm_ms": 2009.5,
+            "latency_ms": 2009.5,
+            "total_latency_ms": 2009.5,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2009.5,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          }
+        ],
+        "prompt_tokens": 3770,
+        "completion_tokens": 1075,
+        "llm_ms": 6678.4,
+        "total_ms": 6701.5,
+        "planning_rounds": 1,
+        "validation_errors": [
+          "plan: calls.0: plant_statistics必须提供parameters；其他工具不得带parameters; reason: 缺少字段",
+          "plan: reason: 缺少字段"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "client_ms": 8374.3,
+      "citations_verified": true,
+      "diagnosis_evidence_complete": false,
+      "device_counts_plausible": true,
+      "result": {
+        "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+        "now": "2026-11-07T21:29:36.557863+08:00",
+        "run_id": "875503ab698b488392d3c661a8608fe1",
+        "session_id": "b7537b465f0d46fbbd29fe25a9b29380",
+        "resolved_question": "",
+        "intent": null,
+        "ok": false,
+        "refused": false,
+        "answer": "",
+        "reason": null,
+        "error": "工具规划连续两次未通过校验",
+        "claims": [],
+        "citations": [],
+        "tool_calls": [],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1699,
+            "completion_tokens": 1120,
+            "finish_reason": "stop",
+            "llm_ms": 6001.8,
+            "latency_ms": 6001.8,
+            "total_latency_ms": 6001.8,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 6001.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2482,
+            "completion_tokens": 402,
+            "finish_reason": "stop",
+            "llm_ms": 2362.9,
+            "latency_ms": 2362.9,
+            "total_latency_ms": 2362.9,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2362.9,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          }
+        ],
+        "prompt_tokens": 4181,
+        "completion_tokens": 1522,
+        "llm_ms": 8364.7,
+        "total_ms": 8367.9,
+        "planning_rounds": 1,
+        "validation_errors": [
+          "plan: JSON: 不是合法JSON",
+          "plan: calls.0: plant_statistics必须提供parameters；其他工具不得带parameters"
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "gateway_before": {
+    "available": true,
+    "mode": "live",
+    "cache_entries": 0,
+    "cache_hits": 0,
+    "requests": {
+      "calls": 0,
+      "successes": 0,
+      "errors": 0,
+      "cancelled": 0,
+      "total_latency_p50_ms": null,
+      "total_latency_p95_ms": null
+    },
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-flash",
+        "calls": 0,
+        "errors": 0,
+        "retries": 0,
+        "cancelled": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cache_hit_tokens": 0,
+        "latency_p50_ms": null,
+        "latency_p95_ms": null,
+        "attempt_latency_p50_ms": null,
+        "attempt_latency_p95_ms": null,
+        "ttft_p50_ms": null,
+        "ttft_p95_ms": null,
+        "circuit": "closed"
+      }
+    }
+  },
+  "blower_catalog": [
+    "P06-BL-1",
+    "P06-BL-2"
+  ],
+  "gateway_after": {
+    "available": true,
+    "mode": "live",
+    "cache_entries": 4,
+    "cache_hits": 0,
+    "requests": {
+      "calls": 4,
+      "successes": 4,
+      "errors": 0,
+      "cancelled": 0,
+      "total_latency_p50_ms": 4668.9,
+      "total_latency_p95_ms": 6001.8
+    },
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "errors": 0,
+        "retries": 0,
+        "cancelled": 0,
+        "prompt_tokens": 7951,
+        "completion_tokens": 2597,
+        "cache_hit_tokens": 5376,
+        "latency_p50_ms": 4668.8,
+        "latency_p95_ms": 6001.8,
+        "attempt_latency_p50_ms": 4668.8,
+        "attempt_latency_p95_ms": 6001.8,
+        "ttft_p50_ms": null,
+        "ttft_p95_ms": null,
+        "circuit": "closed"
+      }
+    }
+  }
+}

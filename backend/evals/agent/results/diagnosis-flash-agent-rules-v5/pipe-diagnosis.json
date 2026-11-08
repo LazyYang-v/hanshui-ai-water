@@ -1,0 +1,579 @@
+{
+  "id": "pipe-diagnosis",
+  "family": "pipe_leak",
+  "mode": "diagnosis",
+  "question": "新集镇P05在2026年11月6日16:00相较11月5日16:00的碳源投加、进水流量、出水总氮原始数据有什么线索？逐项查数引用并保留编码和时间，结合知识提出假设与核查建议。能仅凭这些数据确证碳源管道渗漏并定位具体位置吗？",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P05",
+        "at": "2026-11-06T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "carbon_dose_kgh": 14.9193,
+          "inflow_m3h": 111.3459,
+          "tn_out": 13.4557
+        },
+        "units": {
+          "carbon_dose_kgh": "kg/h",
+          "inflow_m3h": "m³/h",
+          "tn_out": "mg/L"
+        }
+      },
+      {
+        "entity": "P05",
+        "at": "2026-11-05T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "carbon_dose_kgh": 4.2615,
+          "inflow_m3h": 109.7595,
+          "tn_out": 11.0405
+        },
+        "units": {
+          "carbon_dose_kgh": "kg/h",
+          "inflow_m3h": "m³/h",
+          "tn_out": "mg/L"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "新集镇P05在2026年11月6日16:00相较11月5日16:00的碳源投加、进水流量、出水总氮原始数据有什么线索？逐项查数引用并保留编码和时间，结合知识提出假设与核查建议。能仅凭这些数据确证碳源管道渗漏并定位具体位置吗？"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "新集镇P05在2026年11月6日16:00相较11月5日16:00的碳源投加、进水流量、出水总氮原始数据有什么线索？逐项查数引用并保留编码和时间，结合知识提出假设与核查建议。能仅凭这些数据确证碳源管道渗漏并定位具体位置吗？",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "79d0ce015d7a44c6b689bea2337ef57c",
+    "session_id": "006989d244d6450fa337b5e31dfd36ba",
+    "resolved_question": "核查新集镇P05在2026年11月6日16:00相较2026年11月5日16:00的碳源投加量、进水流量、出水总氮原始数据线索，并结合知识判断能否确证碳源管道渗漏及定位具体位置",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "P05在2026-11-05T16:00:00+08:00碳源投加量4.2615 kg/h、进水流量109.7595 m³/h、出水总氮11.0405 mg/L。 [1][2][3][4][5]\n\nP05在2026-11-06T16:00:00+08:00碳源投加量14.9193 kg/h、进水流量111.3459 m³/h、出水总氮13.4557 mg/L；该时刻出水总氮未超过15 mg/L阈值。 [6][7][8][9][10]\n\n原因假设（待核查）：碳源投加量明显上升而出水总氮改善有限，可能提示碳源有效送达生化池的比例不足（如管道渗漏），但需排除负荷增加等其他解释。 [3][8][10][11]\n\n核查建议：建议对齐碳源投加量、总氮、氨氮、进水COD与流量，排查负荷增加等其他解释；确认渗漏需储罐物料核算、管路检查和末端计量，不能仅凭上述瞬时数据确证或定位泄漏点。 [12]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "P05在2026-11-05T16:00:00+08:00碳源投加量4.2615 kg/h、进水流量109.7595 m³/h、出水总氮11.0405 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P05在2026-11-06T16:00:00+08:00碳源投加量14.9193 kg/h、进水流量111.3459 m³/h、出水总氮13.4557 mg/L；该时刻出水总氮未超过15 mg/L阈值。",
+        "citation_numbers": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "hypothesis",
+        "text": "碳源投加量明显上升而出水总氮改善有限，可能提示碳源有效送达生化池的比例不足（如管道渗漏），但需排除负荷增加等其他解释。",
+        "citation_numbers": [
+          3,
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "建议对齐碳源投加量、总氮、氨氮、进水COD与流量，排查负荷增加等其他解释；确认渗漏需储罐物料核算、管路检查和末端计量，不能仅凭上述瞬时数据确证或定位泄漏点。",
+        "citation_numbers": [
+          12
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P05",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-05T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "碳源投加量_kgh",
+        "value": 4.2615,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "进水流量_m3h",
+        "value": 109.7595,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "出水总氮_mgl",
+        "value": 11.0405,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P05",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-06T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "碳源投加量_kgh",
+        "value": 14.9193,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "进水流量_m3h",
+        "value": 111.3459,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "出水总氮_mgl",
+        "value": 13.4557,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 11,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-dosing:dosing-carbon-leak:1",
+        "quote": "可出现“碳源药耗上升但总氮改善有限”的组合",
+        "document_id": "equipment-dosing",
+        "title": "碳源与 PAC 投加设备的演示排查",
+        "heading": "碳源管道渗漏与药耗异常",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-carbon-leak:1"
+      },
+      {
+        "number": 12,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-dosing:dosing-carbon-leak:1",
+        "quote": "确认渗漏仍需储罐物料核算、管路检查和末端计量",
+        "document_id": "equipment-dosing",
+        "title": "碳源与 PAC 投加设备的演示排查",
+        "heading": "碳源管道渗漏与药耗异常",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-carbon-leak:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "新集镇P05在2026-11-05 16:00与2026-11-06 16:00两个时刻的碳源投加量、进水流量、出水总氮原始采样值，逐项保留厂站编码、指标编码和时间",
+        "status": "ok",
+        "output": {
+          "question": "新集镇P05在2026-11-05 16:00与2026-11-06 16:00两个时刻的碳源投加量、进水流量、出水总氮原始采样值，逐项保留厂站编码、指标编码和时间",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.carbon_dose_kgh AS 碳源投加量_kgh, r.inflow_m3h AS 进水流量_m3h, r.tn_out AS 出水总氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P05' AND r.ts IN ('2026-11-05 16:00:00+08', '2026-11-06 16:00:00+08') ORDER BY r.ts LIMIT 200",
+          "explanation": "按指定两个精确时刻在原始表 plant_reading 中筛选 P05 的碳源投加量、进水流量、出水总氮，并以指标编码作为列名、保留实际采样时间与厂站编码。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "碳源投加量_kgh",
+            "进水流量_m3h",
+            "出水总氮_mgl"
+          ],
+          "rows": [
+            [
+              "P05",
+              "2026-11-05T16:00:00+08:00",
+              4.2615,
+              109.7595,
+              11.0405
+            ],
+            [
+              "P05",
+              "2026-11-06T16:00:00+08:00",
+              14.9193,
+              111.3459,
+              13.4557
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.carbon_dose_kgh AS 碳源投加量_kgh, r.inflow_m3h AS 进水流量_m3h, r.tn_out AS 出水总氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P05' AND r.ts IN ('2026-11-05 16:00:00+08', '2026-11-06 16:00:00+08') ORDER BY r.ts LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 1932,
+          "completion_tokens": 535,
+          "llm_ms": 3432.3,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1932,
+              "completion_tokens": 535,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 3432.3,
+              "latency_ms": 3432.3,
+              "total_latency_ms": 3432.3,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 3432.3,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 3443.5,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "昨天各厂碳源投加总量"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 3443.6,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "rag_search",
+        "question": "碳源投加管道渗漏的常见征兆、排查方法和核查建议；仅凭碳源投加量、进水流量、出水总氮的瞬时原始数据能否确证渗漏并定位具体泄漏点",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "equipment-dosing:dosing-carbon-leak:1",
+              "document_id": "equipment-dosing",
+              "title": "碳源与 PAC 投加设备的演示排查",
+              "heading": "碳源管道渗漏与药耗异常",
+              "text": "`pipe_leak` 在本 Demo 专指碳源投加管道渗漏，不是污水主管漏损，也不是 PAC 管路堵塞。场景降低碳源实际进入生化池的比例；反硝化可利用碳量减少后，总氮可能偏离目标，反馈控制会尝试提高投加量。因此可出现“碳源药耗上升但总氮改善有限”的组合，其程度取决于原有碳源需求、负荷和控制上限。\n\n排查应对齐碳源投加量、总氮、氨氮、进水 COD 与流量，检查是否存在负荷增加等其他解释。高药耗与高总氮只能支持有效送达不足假设，确认渗漏仍需储罐物料核算、管路检查和末端计量。模型中的有效比例是场景参数，并非在线测漏结果。人员应先定位并按适用规程隔离渗漏，核实计量与送达后再评估恢复；不得靠持续提高碳源设定量掩盖泄漏，也不能把该场景直接解释为除磷剂短缺。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-carbon-leak:1",
+              "score": 0.032787,
+              "lexical_score": 35.377,
+              "dense_score": 0.8211,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-dosing:dosing-purpose-metering:1",
+              "document_id": "equipment-dosing",
+              "title": "碳源与 PAC 投加设备的演示排查",
+              "heading": "药剂用途、计量与有效送达",
+              "text": "碳源和 PAC 的处理目标不同。外加碳源为缺氧反硝化提供可利用有机物，主要关联总氮去除；PAC 即聚合氯化铝，用于混凝及化学除磷，主要关联总磷去除。氨氮先经硝化转为氧化态氮，不能把加碳直接等同于消除氨氮，也不能用 PAC 代替碳源。识别药耗异常时，必须先确认药剂种类、投加位置与对应水质目标。\n\n本 Demo 的碳源和 PAC 投加字段单位均为 kg/h，数值表示模型控制计算的投加量；实际有效量还受到场景设定的送达比例影响。药耗高不等于入池有效量高。比较时应核对水量、污染负荷、药液浓度和有效成分口径，并对照仓储消耗及末端计量；后两者需另取现场证据。没有药剂性质与计量校核，不能从模拟药量推出通用剂量，也不应将不同药剂的公斤数直接当作效果对比。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-purpose-metering:1",
+              "score": 0.029762,
+              "lexical_score": 8.1206,
+              "dense_score": 0.6679,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 29.1,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1787,
+          "completion_tokens": 123,
+          "llm_ms": 1221.6,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1787,
+              "completion_tokens": 123,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1221.6,
+              "latency_ms": 1221.6,
+              "total_latency_ms": 1221.6,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1221.6,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1251.4,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": true,
+            "lexical_top": "equipment-dosing:dosing-carbon-leak:1",
+            "term_coverage": 0.2857,
+            "lexical_margin": 1.9553400819856745
+          }
+        },
+        "error": null,
+        "total_ms": 1251.5,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2057,
+        "completion_tokens": 623,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 4959.3,
+        "latency_ms": 4959.2,
+        "total_latency_ms": 4959.3,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 4959.2,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3004,
+        "completion_tokens": 85,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 896.6,
+        "latency_ms": 896.6,
+        "total_latency_ms": 896.6,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 896.6,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2442,
+        "completion_tokens": 669,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 3074.9,
+        "latency_ms": 3074.9,
+        "total_latency_ms": 3074.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 3074.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 11222,
+    "completion_tokens": 2035,
+    "llm_ms": 13584.7,
+    "total_ms": 12382.8,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "药耗增加而流量接近可提示投加效率异常，渗漏/堵塞/计量误差均需排查，不能确证渗漏或具体位置。"
+      },
+      {
+        "status": "pending",
+        "item": "核查实际投加、储罐液位、泄漏点与在线仪表，不宣称执行控制。"
+      }
+    ]
+  },
+  "elapsed_ms": 12448.9
+}

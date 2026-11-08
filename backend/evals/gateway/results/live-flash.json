@@ -1,0 +1,121 @@
+{
+ "generated_at": "2026-11-08T04:48:30",
+ "machine_before": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 4.4,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": null
+ },
+ "model": [
+  "deepseek-flash"
+ ],
+ "prompt": "用一句话（不超过40字）说明污水处理厂曝气池溶解氧偏低可能的一个原因。编号{i}。",
+ "n": 100,
+ "concurrency": 50,
+ "thinking": "off",
+ "max_tokens": 120,
+ "stream": {
+  "wall_s": 4.1,
+  "ok": 100,
+  "errors": {},
+  "finish": {
+   "stop": 100
+  },
+  "ttft_ms": {
+   "n": 100,
+   "p50": 928.1,
+   "p95": 1538.6,
+   "p99": 1783.5,
+   "max": 1879.4
+  },
+  "total_ms": {
+   "n": 100,
+   "p50": 1329.2,
+   "p95": 2041.2,
+   "p99": 2392.7,
+   "max": 4055.3
+  },
+  "tokens": {
+   "prompt": 2700,
+   "completion": 2245,
+   "retries": 0
+  }
+ },
+ "chat": {
+  "wall_s": 3.2,
+  "ok": 100,
+  "errors": {},
+  "finish": {
+   "stop": 100
+  },
+  "latency_ms": {
+   "n": 100,
+   "p50": 1289.8,
+   "p95": 1631.5,
+   "p99": 1910.4,
+   "max": 2115.2
+  },
+  "tokens": {
+   "prompt": 2800,
+   "completion": 2430,
+   "retries": 0
+  },
+  "samples": [
+   "编号10022：曝气池溶解氧偏低可能因曝气设备供氧不足或进水有机负荷过高。",
+   "编号10005：进水有机负荷突然升高，微生物耗氧速率超过供氧能力，导致溶解氧偏低。",
+   "编号10038：进水有机负荷突增，微生物耗氧速率超过供氧能力，导致溶解氧偏低。"
+  ]
+ },
+ "gateway": {
+  "mode": "live",
+  "cache_entries": 0,
+  "cache_hits": 0,
+  "requests": {
+   "calls": 200,
+   "successes": 200,
+   "errors": 0,
+   "cancelled": 0,
+   "total_latency_p50_ms": 1299.6,
+   "total_latency_p95_ms": 1941.2
+  },
+  "providers": {
+   "deepseek": {
+    "model": "deepseek-flash",
+    "calls": 200,
+    "errors": 0,
+    "retries": 0,
+    "cancelled": 0,
+    "rate_limited": 0,
+    "prompt_tokens": 5500,
+    "completion_tokens": 4675,
+    "cache_hit_tokens": 0,
+    "latency_p50_ms": 1299.5,
+    "latency_p95_ms": 1941.2,
+    "attempt_latency_p50_ms": 1299.5,
+    "attempt_latency_p95_ms": 1941.2,
+    "ttft_p50_ms": 928.1,
+    "ttft_p95_ms": 1589.7,
+    "queue_p50_ms": null,
+    "queue_p95_ms": null,
+    "window_failure_rate": 0.0,
+    "circuit": "closed",
+    "times_opened": 0,
+    "inflight": 0
+   }
+  }
+ },
+ "machine_after": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 4.0,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": null
+ }
+}

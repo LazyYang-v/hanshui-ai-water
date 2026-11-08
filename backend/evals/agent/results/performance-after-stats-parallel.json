@@ -1,0 +1,3068 @@
+{
+  "checked_at": "2026-11-07T12:01:09.143535+00:00",
+  "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+  "note": "固定历史日期；同一运行服务连续请求，缓存和模型采样会影响耗时；小样本不报告P95。",
+  "runs": [
+    {
+      "client_ms": 74338.2,
+      "citations_verified": true,
+      "result": {
+        "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+        "now": "2026-11-07T20:01:01.174802+08:00",
+        "run_id": "6a4a64cc054942d5b94e641b0ea9bf8a",
+        "session_id": "dd4ae82740c047908544da48759d91be",
+        "resolved_question": "核查黄官镇厂（P06）2026年11月6日00:00至24:00出水氨氮是否超标，并结合同时段好氧区DO、进水流量及鼓风机状态/振动/电流分析可能原因，给出核查建议。",
+        "intent": "diagnosis",
+        "ok": true,
+        "refused": false,
+        "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶。 [1][2][3][4]\n\n按小时聚合的DO、进水流量与鼓风机状态表仅返回表头行，无任何小时数据，无法据此分析同时段DO、流量与鼓风机状态。 [5]\n\n进水氨氮、COD、总氮、MLSS与出水SS查询同样只返回表头，进水负荷冲击与污泥流失方向缺乏数据。 [6]\n\n核查建议：建议按“设备状态—可用供气—好氧区DO—硝化—出水氨氮”顺序对齐风量、功率、DO与氨氮时序，确认是否存在供氧下降后氨氮升高的证据链。 [7]\n\n核查建议：同时应核查进水流量与浓度负荷、MLSS与出水SS，保留负荷冲击、停留时间缩短等替代解释；DO恢复不保证氨氮同步恢复。 [8]",
+        "reason": null,
+        "error": null,
+        "claims": [
+          {
+            "kind": "statistic",
+            "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶。",
+            "citation_numbers": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "kind": "fact",
+            "text": "按小时聚合的DO、进水流量与鼓风机状态表仅返回表头行，无任何小时数据，无法据此分析同时段DO、流量与鼓风机状态。",
+            "citation_numbers": [
+              5
+            ]
+          },
+          {
+            "kind": "fact",
+            "text": "进水氨氮、COD、总氮、MLSS与出水SS查询同样只返回表头，进水负荷冲击与污泥流失方向缺乏数据。",
+            "citation_numbers": [
+              6
+            ]
+          },
+          {
+            "kind": "recommendation",
+            "text": "建议按“设备状态—可用供气—好氧区DO—硝化—出水氨氮”顺序对齐风量、功率、DO与氨氮时序，确认是否存在供氧下降后氨氮升高的证据链。",
+            "citation_numbers": [
+              7
+            ]
+          },
+          {
+            "kind": "recommendation",
+            "text": "同时应核查进水流量与浓度负荷、MLSS与出水SS，保留负荷冲击、停留时间缩短等替代解释；DO恢复不保证氨氮同步恢复。",
+            "citation_numbers": [
+              8
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.exceed_hours",
+            "value": 2.5,
+            "statistic": "exceed_hours",
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 2,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.longest_exceed_hours",
+            "value": 2.5,
+            "statistic": "longest_exceed_hours",
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 3,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.instant_max",
+            "value": 17.3209,
+            "statistic": "instant_max",
+            "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 4,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.bucket_mean_max",
+            "value": 16.7281,
+            "statistic": "bucket_mean_max",
+            "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 5,
+            "kind": "data",
+            "call_id": "t2",
+            "row": 1,
+            "column": 0,
+            "column_name": "时间",
+            "value": "时间",
+            "now": "2026-11-07T20:01:01.174802+08:00",
+            "source": "模拟运行数据库"
+          },
+          {
+            "number": 6,
+            "kind": "data",
+            "call_id": "t5",
+            "row": 1,
+            "column": 0,
+            "column_name": "时间",
+            "value": "时间",
+            "now": "2026-11-07T20:01:01.174802+08:00",
+            "source": "模拟运行数据库"
+          },
+          {
+            "number": 7,
+            "kind": "knowledge",
+            "call_id": "t3",
+            "chunk_id": "equipment-blower:blower-air-water-chain:1",
+            "quote": "应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查",
+            "document_id": "equipment-blower",
+            "title": "鼓风机状态核查与供氧故障演示要点",
+            "heading": "供气能力与水质响应链",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 18,
+            "line_end": 20,
+            "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1"
+          },
+          {
+            "number": 8,
+            "kind": "knowledge",
+            "call_id": "t3",
+            "chunk_id": "fault-ammonia:ammonia-differential:1",
+            "quote": "核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS",
+            "document_id": "fault-ammonia",
+            "title": "出水氨氮异常的证据核查与原因假设",
+            "heading": "冲击负荷、低温与污泥流失鉴别",
+            "source_type": "demo",
+            "source": "项目自编演示知识，不是真实厂站规程。",
+            "source_url": null,
+            "source_page": null,
+            "line_start": 24,
+            "line_end": 26,
+            "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1"
+          }
+        ],
+        "tool_calls": [
+          {
+            "id": "t1",
+            "tool": "plant_statistics",
+            "question": "黄官镇P06在2026年11月6日00:00至2026年11月7日00:00的出水氨氮统计，包括超标小时数、最长连续超标时长、瞬时最大值和小时均值最大值",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "nh3n_out",
+                "label": "出水氨氮",
+                "unit": "mg/L",
+                "group": "出水",
+                "limit": 5,
+                "lower_is_bad": false
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P06.nh3n_out.exceed_hours",
+                  "statistic": "exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.longest_exceed_hours",
+                  "statistic": "longest_exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.instant_max",
+                  "statistic": "instant_max",
+                  "value": 17.3209,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.bucket_mean_max",
+                  "statistic": "bucket_mean_max",
+                  "value": 16.7281,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.7808,
+                    "instant_max": 17.3209,
+                    "instant_min": 0.1104,
+                    "bucket_mean_max": 16.7281,
+                    "bucket_mean_min": 0.1215,
+                    "exceed_hours": 2.5,
+                    "longest_exceed_hours": 2.5,
+                    "hours_with_exceed": 4
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 27.2,
+            "queue_ms": 0.1
+          },
+          {
+            "id": "t2",
+            "tool": "sql_query",
+            "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的出水氨氮、好氧区DO（1#和2#）、进水流量，以及鼓风机运行状态、振动、电流和功率，合并为一张不超过30行的证据表",
+            "status": "ok",
+            "output": {
+              "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的出水氨氮、好氧区DO（1#和2#）、进水流量，以及鼓风机运行状态、振动、电流和功率，合并为一张不超过30行的证据表",
+              "ok": true,
+              "refused": false,
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "sql": "WITH pr AS (SELECT DATE_TRUNC('HOUR', ts) AS hour, CAST(AVG(nh3n_out) AS DECIMAL) AS nh3n_out, CAST(AVG(do_aerobic_1) AS DECIMAL) AS do1, CAST(AVG(do_aerobic_2) AS DECIMAL) AS do2, CAST(AVG(inflow_m3h) AS DECIMAL) AS inflow, CAST(AVG(blower_kw) AS DECIMAL) AS blower_kw FROM plant_reading WHERE plant_id = 6 AND ts >= '2026-11-06 00:00:00+08' AND ts < '2026-11-07 00:00:00+08' GROUP BY 1), bl AS (SELECT DATE_TRUNC('HOUR', r.ts) AS hour, COUNT(*) FILTER(WHERE r.running) AS run_cnt, CAST(AVG(r.current_a) FILTER(WHERE r.running) AS DECIMAL) AS current_a, CAST(MAX(r.vibration_mms) AS DECIMAL) AS vib_max FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.plant_id = 6 AND d.kind = '鼓风机' AND r.ts >= '2026-11-06 00:00:00+08' AND r.ts < '2026-11-07 00:00:00+08' GROUP BY 1) SELECT pr.hour AS 时间, ROUND(pr.nh3n_out, 2) AS 出水氨氮_mgL, ROUND(pr.do1, 2) AS 好氧区1号DO_mgL, ROUND(pr.do2, 2) AS 好氧区2号DO_mgL, ROUND(pr.inflow) AS 进水流量_m3h, ROUND(pr.blower_kw, 1) AS 鼓风机功率_kW, bl.run_cnt AS 运行鼓风机台数, ROUND(bl.current_a, 1) AS 平均电流_A, ROUND(bl.vib_max, 2) AS 最大振动_mms FROM pr LEFT JOIN bl ON bl.hour = pr.hour ORDER BY pr.hour LIMIT 30",
+              "explanation": "以 plant_reading 按小时聚合 P06 的出水氨氮、1#/2# 好氧区 DO、进水流量与鼓风机功率，再按小时关联 device_reading 汇总鼓风机运行台数、平均电流和最大振动，合并为 24 行证据表。",
+              "columns": [
+                "时间",
+                "出水氨氮_mgl",
+                "好氧区1号do_mgl",
+                "好氧区2号do_mgl",
+                "进水流量_m3h",
+                "鼓风机功率_kw",
+                "运行鼓风机台数",
+                "平均电流_a",
+                "最大振动_mms"
+              ],
+              "rows": [
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧区1号do_mgl",
+                  "好氧区2号do_mgl",
+                  "进水流量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mms"
+                ]
+              ],
+              "truncated": false,
+              "error": null,
+              "attempts": [
+                {
+                  "sql": "WITH pr AS (SELECT DATE_TRUNC('HOUR', ts) AS hour, CAST(AVG(nh3n_out) AS DECIMAL) AS nh3n_out, CAST(AVG(do_aerobic_1) AS DECIMAL) AS do1, CAST(AVG(do_aerobic_2) AS DECIMAL) AS do2, CAST(AVG(inflow_m3h) AS DECIMAL) AS inflow, CAST(AVG(blower_kw) AS DECIMAL) AS blower_kw FROM plant_reading WHERE plant_id = 6 AND ts >= '2026-11-06 00:00:00+08' AND ts < '2026-11-07 00:00:00+08' GROUP BY 1), bl AS (SELECT DATE_TRUNC('HOUR', r.ts) AS hour, COUNT(*) FILTER(WHERE r.running) AS run_cnt, CAST(AVG(r.current_a) FILTER(WHERE r.running) AS DECIMAL) AS current_a, CAST(MAX(r.vibration_mms) AS DECIMAL) AS vib_max FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.plant_id = 6 AND d.kind = '鼓风机' AND r.ts >= '2026-11-06 00:00:00+08' AND r.ts < '2026-11-07 00:00:00+08' GROUP BY 1) SELECT pr.hour AS 时间, ROUND(pr.nh3n_out, 2) AS 出水氨氮_mgL, ROUND(pr.do1, 2) AS 好氧区1号DO_mgL, ROUND(pr.do2, 2) AS 好氧区2号DO_mgL, ROUND(pr.inflow) AS 进水流量_m3h, ROUND(pr.blower_kw, 1) AS 鼓风机功率_kW, bl.run_cnt AS 运行鼓风机台数, ROUND(bl.current_a, 1) AS 平均电流_A, ROUND(bl.vib_max, 2) AS 最大振动_mms FROM pr LEFT JOIN bl ON bl.hour = pr.hour ORDER BY pr.hour LIMIT 30",
+                  "error": null
+                }
+              ],
+              "prompt_tokens": 2181,
+              "completion_tokens": 1514,
+              "llm_ms": 8648.9,
+              "generation_calls": [
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2181,
+                  "completion_tokens": 1514,
+                  "finish_reason": "stop",
+                  "llm_ms": 8648.9,
+                  "latency_ms": 8648.7,
+                  "total_latency_ms": 8648.9,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 8648.7,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ],
+              "total_ms": 8712.2,
+              "examples_used": [
+                "最近24小时高台镇好氧区DO每小时的均值",
+                "每台运行中的鼓风机今天的平均电流",
+                "中心厂过去24小时进水流量最大的时刻和流量"
+              ],
+              "tables_used": [
+                "plant",
+                "plant_reading",
+                "plant_reading_1h",
+                "device",
+                "device_reading"
+              ]
+            },
+            "error": null,
+            "total_ms": 8712.5,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t3",
+            "tool": "rag_search",
+            "question": "污水处理厂出水氨氮超标时，如何结合好氧区DO、进水流量和鼓风机状态、振动、电流排查原因，有哪些核查步骤和处置建议",
+            "status": "ok",
+            "output": {
+              "hits": [
+                {
+                  "id": "fault-ammonia:ammonia-oxygen-evidence:1",
+                  "document_id": "fault-ammonia",
+                  "title": "出水氨氮异常的证据核查与原因假设",
+                  "heading": "低溶解氧与鼓风机故障证据",
+                  "text": "硝化需要氧，供氧不足会削弱氨氮氧化能力。本 Demo 的 `blower_fault` 场景让一号鼓风机振动、轴承温度先升高，随后按场景时序跳停并减少可用曝气能力；出水氨氮通过过程响应滞后变化。排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮，确认是否出现“可用风量下降、DO 下降、氨氮随后升高”的证据链。\n\n这条时序支持供氧不足假设，但振动与跳停的相关性不能证明某种机械损坏，也不能证明振动直接触发了真实保护动作。需另核查保护记录、检修检查和运行方式。若风量未降而 DO 下降，还应检查进水耗氧负荷和测量可靠性。建议先由人员确认故障状态与备用供氧条件，不能仅凭氨氮曲线自动提高风量设定，更不能屏蔽保护或反复强行重启设备。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 18,
+                  "line_end": 20,
+                  "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1",
+                  "score": 0.032787,
+                  "lexical_score": 23.286,
+                  "dense_score": 0.7685,
+                  "relevance": null
+                },
+                {
+                  "id": "equipment-blower:blower-air-water-chain:1",
+                  "document_id": "equipment-blower",
+                  "title": "鼓风机状态核查与供氧故障演示要点",
+                  "heading": "供气能力与水质响应链",
+                  "text": "鼓风机故障对水质的影响，应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查。对齐曝气风量、鼓风机功率和进水负荷，判断风量变化是否确实发生，以及 DO 是否在相应时段下降。NH3-N 是氨氮，硝化受限可使其升高；总氮还受反硝化与碳源等因素影响，不能将所有氮指标异常都归因于风机。\n\n本 Demo 在跳停后扣减运行鼓风机数量，实际风量上限随可用台数变化，具体影响取决于配置和负荷。不能仅因设备清单存在备用机就宣称已经自动切换。水质有过程时滞，需比较停机前后连续趋势；若 DO 下降同时存在暴雨或浓度冲击，应保留耗氧增加等替代解释。功率下降在此可能意味着供氧损失，不能直接评价为节能。建议由人员核实供气能力，不输出固定增风比例或自动切换指令。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 18,
+                  "line_end": 20,
+                  "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1",
+                  "score": 0.032002,
+                  "lexical_score": 18.8062,
+                  "dense_score": 0.7311,
+                  "relevance": null
+                },
+                {
+                  "id": "equipment-blower:blower-maintenance-boundary:1",
+                  "document_id": "equipment-blower",
+                  "title": "鼓风机状态核查与供氧故障演示要点",
+                  "heading": "检查、隔离与恢复验证",
+                  "text": "对疑似故障鼓风机，应先核实告警与保护记录、设备状态及现场检查条件，再由有权限人员依适用规程安排隔离和检修。检查可关注振动测点、连接与基础、润滑状态、进排气通路等，但这些只是待核实项目，不是针对某型号的厂家拆检步骤。本 Demo 没有轴承频谱、润滑检测或故障拆解证据，不能据趋势图指定更换零件。\n\n备用设备投入前需核实可用性、联锁、供气路径与操作权限；异常机组不应以反复复位代替原因确认。恢复后应观察设备状态、振动与温度趋势、风量、DO 及出水氨氮，区分供气恢复与生化恢复。某个采样点正常不足以结束观察，具体观察时长由实际设备及工况确定。演示知识不承诺固定时间恢复，也不提供未经核实的风量设定、厂家保养周期或自动控制操作。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1",
+                  "score": 0.030579,
+                  "lexical_score": 18.6421,
+                  "dense_score": 0.6799,
+                  "relevance": null
+                },
+                {
+                  "id": "process-a2o:a2o-load-response:1",
+                  "document_id": "process-a2o",
+                  "title": "A2O 工艺分区与脱氮除磷演示要点",
+                  "heading": "负荷、时滞与运行建议边界",
+                  "text": "判断进水冲击应同时看流量与浓度。流量以 m³/h、浓度以 mg/L 表示时，两者相乘再除以一千可得到相应污染物负荷的 kg/h 数值。浓度下降不代表进入系统的污染物总量必然减少；水量增加还会缩短水力停留时间。核查进水 COD、氨氮、总氮与流量的同步变化，再比较曝气风量、好氧区 DO、污泥浓度和出水趋势，可避免把所有异常归为曝气不足。\n\n本 Demo 用简化氧平衡、风量反馈控制及出水响应时滞展示这些关系，不是完整的 A2O 机理模型。风量升高可能只是对耗氧负荷的补偿，DO 恢复也不意味着出水立即恢复。应比较异常前后连续时间窗，保留其他原因假设；模型目标值和界面告警线仅用于演示，不可直接作为现场风量、回流量或药剂投加的自动调节指令。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/process-a2o:a2o-load-response:1",
+                  "score": 0.029877,
+                  "lexical_score": 11.2763,
+                  "dense_score": 0.6959,
+                  "relevance": null
+                },
+                {
+                  "id": "fault-ammonia:ammonia-differential:1",
+                  "document_id": "fault-ammonia",
+                  "title": "出水氨氮异常的证据核查与原因假设",
+                  "heading": "冲击负荷、低温与污泥流失鉴别",
+                  "text": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关。核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS。降雨后即使浓度被稀释，持续大流量仍可能冲走污泥、缩短停留时间，使硝化能力下降；这时 DO 恢复不保证氨氮同步恢复。总氮应另行分析，不能把氨氮与总氮的改善视为同一过程。\n\n本 Demo 的 `shock_load` 表示浓度冲击，只能提示负荷扰动，不能证明真实工业偷排或毒性来源。模型考虑水温影响，但没有完整的碱度、pH、毒性或菌群监测证据；需要现场检测才能判断这些因素。应保留多个原因假设，持续比较恢复趋势和复测结果。未经确认，不给出固定排泥量、碳源剂量或“若干小时必恢复”的承诺。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1",
+                  "score": 0.02971,
+                  "lexical_score": 10.895,
+                  "dense_score": 0.728,
+                  "relevance": null
+                }
+              ],
+              "mode": "hybrid",
+              "requested_mode": "hybrid",
+              "retrieval_ms": 47.9,
+              "warnings": [
+                "重排失败，保留检索排序（JSONDecodeError）"
+              ],
+              "reranked": false,
+              "prompt_tokens": 2276,
+              "completion_tokens": 4000,
+              "llm_ms": 31606.0,
+              "model": "deepseek-flash",
+              "generation_calls": [
+                {
+                  "stage": "rerank",
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2276,
+                  "completion_tokens": 4000,
+                  "finish_reason": "length",
+                  "llm_ms": 31606.0,
+                  "latency_ms": 31605.8,
+                  "total_latency_ms": 31606.0,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 31605.8,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ]
+            },
+            "error": null,
+            "total_ms": 31655.3,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t4",
+            "tool": "sql_query",
+            "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的出水氨氮、好氧区1#和2#DO、进水流量、曝气风量、鼓风机功率、运行鼓风机台数、平均电流、最大振动和轴承温度，输出为一张不超过30行的证据表",
+            "status": "ok",
+            "output": {
+              "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的出水氨氮、好氧区1#和2#DO、进水流量、曝气风量、鼓风机功率、运行鼓风机台数、平均电流、最大振动和轴承温度，输出为一张不超过30行的证据表",
+              "ok": true,
+              "refused": false,
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "sql": "WITH bounds AS (SELECT CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AS t_start, CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) AS t_end), hours AS (SELECT GENERATE_SERIES((SELECT t_start FROM bounds), (SELECT t_end FROM bounds) - INTERVAL '1 HOUR', INTERVAL '1 HOUR') AS hour), p AS (SELECT id FROM plant WHERE code = 'P06'), pr AS (SELECT hour, AVG(nh3n_out) AS nh3n_out, AVG(do_aerobic_1) AS do1, AVG(inflow_m3h) AS inflow, AVG(air_flow_m3h) AS air, AVG(blower_kw) AS kw FROM plant_reading_1h WHERE plant_id = (SELECT id FROM p) AND hour >= (SELECT t_start FROM bounds) AND hour < (SELECT t_end FROM bounds) GROUP BY hour), raw AS (SELECT TIME_BUCKET('1 hour', ts) AS hour, AVG(do_aerobic_2) AS do2 FROM plant_reading WHERE plant_id = (SELECT id FROM p) AND ts >= (SELECT t_start FROM bounds) AND ts < (SELECT t_end FROM bounds) GROUP BY 1), dev AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, COUNT(DISTINCT d.id) FILTER(WHERE r.running) AS run_cnt, AVG(r.current_a) FILTER(WHERE r.running) AS cur, MAX(r.vibration_mms) AS vib, MAX(r.temp_c) AS temp FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.plant_id = (SELECT id FROM p) AND d.kind = '鼓风机' AND r.ts >= (SELECT t_start FROM bounds) AND r.ts < (SELECT t_end FROM bounds) GROUP BY 1) SELECT h.hour AS 时间, ROUND(CAST(pr.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(pr.do1 AS DECIMAL), 2) AS 好氧1_DO, ROUND(CAST(raw.do2 AS DECIMAL), 2) AS 好氧2_DO, ROUND(CAST(pr.inflow AS DECIMAL), 1) AS 进水流量_m3h, ROUND(CAST(pr.air AS DECIMAL), 1) AS 曝气风量_m3h, ROUND(CAST(pr.kw AS DECIMAL), 1) AS 鼓风机功率_kW, dev.run_cnt AS 运行鼓风机台数, ROUND(CAST(dev.cur AS DECIMAL), 1) AS 平均电流_A, ROUND(CAST(dev.vib AS DECIMAL), 2) AS 最大振动_mm_s, ROUND(CAST(dev.temp AS DECIMAL), 1) AS 最高轴承温度_C FROM hours AS h LEFT JOIN pr ON pr.hour = h.hour LEFT JOIN raw ON raw.hour = h.hour LEFT JOIN dev ON dev.hour = h.hour ORDER BY h.hour LIMIT 200",
+              "explanation": "以P06黄官镇11月6日0时至7日0时的24个整点为骨架，小时均值取自plant_reading_1h（出水氨氮、好氧1#DO、进水流量、曝气风量、鼓风机功率），好氧2#DO取自分钟级plant_reading按小时聚合，运行鼓风机台数/平均电流/最大振动/最高轴承温度由device_reading关联鼓风机设备按小时汇总，左连接输出不超过30行。",
+              "columns": [
+                "时间",
+                "出水氨氮_mgl",
+                "好氧1_do",
+                "好氧2_do",
+                "进水流量_m3h",
+                "曝气风量_m3h",
+                "鼓风机功率_kw",
+                "运行鼓风机台数",
+                "平均电流_a",
+                "最大振动_mm_s",
+                "最高轴承温度_c"
+              ],
+              "rows": [
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ],
+                [
+                  "时间",
+                  "出水氨氮_mgl",
+                  "好氧1_do",
+                  "好氧2_do",
+                  "进水流量_m3h",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "运行鼓风机台数",
+                  "平均电流_a",
+                  "最大振动_mm_s",
+                  "最高轴承温度_c"
+                ]
+              ],
+              "truncated": false,
+              "error": null,
+              "attempts": [
+                {
+                  "sql": null,
+                  "error": "输出不是合法 JSON 对象（必须含字符串 sql 和 explanation）"
+                },
+                {
+                  "sql": "WITH bounds AS (SELECT CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AS t_start, CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) AS t_end), hours AS (SELECT GENERATE_SERIES((SELECT t_start FROM bounds), (SELECT t_end FROM bounds) - INTERVAL '1 HOUR', INTERVAL '1 HOUR') AS hour), p AS (SELECT id FROM plant WHERE code = 'P06'), pr AS (SELECT hour, AVG(nh3n_out) AS nh3n_out, AVG(do_aerobic_1) AS do1, AVG(inflow_m3h) AS inflow, AVG(air_flow_m3h) AS air, AVG(blower_kw) AS kw FROM plant_reading_1h WHERE plant_id = (SELECT id FROM p) AND hour >= (SELECT t_start FROM bounds) AND hour < (SELECT t_end FROM bounds) GROUP BY hour), raw AS (SELECT TIME_BUCKET('1 hour', ts) AS hour, AVG(do_aerobic_2) AS do2 FROM plant_reading WHERE plant_id = (SELECT id FROM p) AND ts >= (SELECT t_start FROM bounds) AND ts < (SELECT t_end FROM bounds) GROUP BY 1), dev AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, COUNT(DISTINCT d.id) FILTER(WHERE r.running) AS run_cnt, AVG(r.current_a) FILTER(WHERE r.running) AS cur, MAX(r.vibration_mms) AS vib, MAX(r.temp_c) AS temp FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.plant_id = (SELECT id FROM p) AND d.kind = '鼓风机' AND r.ts >= (SELECT t_start FROM bounds) AND r.ts < (SELECT t_end FROM bounds) GROUP BY 1) SELECT h.hour AS 时间, ROUND(CAST(pr.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(pr.do1 AS DECIMAL), 2) AS 好氧1_DO, ROUND(CAST(raw.do2 AS DECIMAL), 2) AS 好氧2_DO, ROUND(CAST(pr.inflow AS DECIMAL), 1) AS 进水流量_m3h, ROUND(CAST(pr.air AS DECIMAL), 1) AS 曝气风量_m3h, ROUND(CAST(pr.kw AS DECIMAL), 1) AS 鼓风机功率_kW, dev.run_cnt AS 运行鼓风机台数, ROUND(CAST(dev.cur AS DECIMAL), 1) AS 平均电流_A, ROUND(CAST(dev.vib AS DECIMAL), 2) AS 最大振动_mm_s, ROUND(CAST(dev.temp AS DECIMAL), 1) AS 最高轴承温度_C FROM hours AS h LEFT JOIN pr ON pr.hour = h.hour LEFT JOIN raw ON raw.hour = h.hour LEFT JOIN dev ON dev.hour = h.hour ORDER BY h.hour LIMIT 200",
+                  "error": null
+                }
+              ],
+              "prompt_tokens": 4856,
+              "completion_tokens": 5494,
+              "llm_ms": 31415.7,
+              "generation_calls": [
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2222,
+                  "completion_tokens": 4000,
+                  "finish_reason": "length",
+                  "llm_ms": 23521.4,
+                  "latency_ms": 23521.3,
+                  "total_latency_ms": 23521.4,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 23521.3,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                },
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2634,
+                  "completion_tokens": 1494,
+                  "finish_reason": "stop",
+                  "llm_ms": 7894.3,
+                  "latency_ms": 7894.3,
+                  "total_latency_ms": 7894.3,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 7894.3,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ],
+              "total_ms": 31484.3,
+              "examples_used": [
+                "每台运行中的鼓风机今天的平均电流",
+                "中心厂1号鼓风机最近一小时的振动和温度变化",
+                "中心厂过去24小时进水流量最大的时刻和流量"
+              ],
+              "tables_used": [
+                "plant",
+                "plant_reading",
+                "plant_reading_1h",
+                "device",
+                "device_reading"
+              ]
+            },
+            "error": null,
+            "total_ms": 31484.6,
+            "queue_ms": 0.1
+          },
+          {
+            "id": "t5",
+            "tool": "sql_query",
+            "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的进水氨氮、进水COD、进水总氮、MLSS和出水SS，用于判断进水负荷冲击与污泥流失，输出不超过30行",
+            "status": "ok",
+            "output": {
+              "question": "查询黄官镇P06在2026年11月6日00:00至2026年11月7日00:00按小时聚合的进水氨氮、进水COD、进水总氮、MLSS和出水SS，用于判断进水负荷冲击与污泥流失，输出不超过30行",
+              "ok": true,
+              "refused": false,
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "sql": "WITH m AS (SELECT DATE_TRUNC('HOUR', ts) AS hour, plant_id, AVG(mlss) AS mlss FROM plant_reading WHERE plant_id = 6 AND ts >= '2026-11-06 00:00:00+08' AND ts < '2026-11-07 00:00:00+08' GROUP BY 1, 2) SELECT h.hour AS 时间, ROUND(CAST(h.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL, ROUND(CAST(h.cod_in AS DECIMAL), 1) AS 进水COD_mgL, ROUND(CAST(h.tn_in AS DECIMAL), 2) AS 进水总氮_mgL, ROUND(CAST(m.mlss AS DECIMAL), 0) AS MLSS_mgL, ROUND(CAST(h.ss_out AS DECIMAL), 2) AS 出水SS_mgL FROM plant_reading_1h AS h JOIN plant AS p ON p.id = h.plant_id LEFT JOIN m ON m.hour = h.hour AND m.plant_id = h.plant_id WHERE p.code = 'P06' AND h.hour >= '2026-11-06 00:00:00+08' AND h.hour < '2026-11-07 00:00:00+08' ORDER BY h.hour LIMIT 30",
+              "explanation": "按小时取P06在11月6日全天的进水氨氮、COD、总氮和出水SS小时均值，MLSS因不在1h视图中而从原始表按小时聚合后再关联，共24行。",
+              "columns": [
+                "时间",
+                "进水氨氮_mgl",
+                "进水cod_mgl",
+                "进水总氮_mgl",
+                "mlss_mgl",
+                "出水ss_mgl"
+              ],
+              "rows": [
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "mlss_mgl",
+                  "出水ss_mgl"
+                ]
+              ],
+              "truncated": false,
+              "error": null,
+              "attempts": [
+                {
+                  "sql": "WITH m AS (SELECT DATE_TRUNC('HOUR', ts) AS hour, plant_id, AVG(mlss) AS mlss FROM plant_reading WHERE plant_id = 6 AND ts >= '2026-11-06 00:00:00+08' AND ts < '2026-11-07 00:00:00+08' GROUP BY 1, 2) SELECT h.hour AS 时间, ROUND(CAST(h.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL, ROUND(CAST(h.cod_in AS DECIMAL), 1) AS 进水COD_mgL, ROUND(CAST(h.tn_in AS DECIMAL), 2) AS 进水总氮_mgL, ROUND(CAST(m.mlss AS DECIMAL), 0) AS MLSS_mgL, ROUND(CAST(h.ss_out AS DECIMAL), 2) AS 出水SS_mgL FROM plant_reading_1h AS h JOIN plant AS p ON p.id = h.plant_id LEFT JOIN m ON m.hour = h.hour AND m.plant_id = h.plant_id WHERE p.code = 'P06' AND h.hour >= '2026-11-06 00:00:00+08' AND h.hour < '2026-11-07 00:00:00+08' ORDER BY h.hour LIMIT 30",
+                  "error": null
+                }
+              ],
+              "prompt_tokens": 1888,
+              "completion_tokens": 800,
+              "llm_ms": 4757.8,
+              "generation_calls": [
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 1888,
+                  "completion_tokens": 800,
+                  "finish_reason": "stop",
+                  "llm_ms": 4757.8,
+                  "latency_ms": 4757.8,
+                  "total_latency_ms": 4757.8,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 4757.8,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ],
+              "total_ms": 4776.6,
+              "examples_used": [
+                "中心厂过去24小时进水流量最大的时刻和流量",
+                "氧化沟工艺的厂站今天出水COD平均多少？",
+                "过去3天各厂出水总氮超标的小时数"
+              ],
+              "tables_used": [
+                "plant",
+                "plant_reading",
+                "plant_reading_1h"
+              ]
+            },
+            "error": null,
+            "total_ms": 4776.7,
+            "queue_ms": 0.0
+          }
+        ],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1604,
+            "completion_tokens": 543,
+            "finish_reason": "stop",
+            "llm_ms": 3841.2,
+            "latency_ms": 3841.0,
+            "total_latency_ms": 3841.2,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 3841.0,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 6018,
+            "completion_tokens": 312,
+            "finish_reason": "stop",
+            "llm_ms": 2360.5,
+            "latency_ms": 2360.5,
+            "total_latency_ms": 2360.5,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2360.5,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 9332,
+            "completion_tokens": 486,
+            "finish_reason": "stop",
+            "llm_ms": 4903.1,
+            "latency_ms": 4903.0,
+            "total_latency_ms": 4903.1,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 4903.0,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          }
+        ],
+        "prompt_tokens": 28155,
+        "completion_tokens": 13149,
+        "llm_ms": 87533.2,
+        "total_ms": 74283.9,
+        "planning_rounds": 2,
+        "validation_errors": [],
+        "warnings": [
+          "t3：重排失败，保留检索排序（JSONDecodeError）",
+          "已达到规划或工具调用上限，按现有证据作答"
+        ]
+      }
+    },
+    {
+      "client_ms": 65006.6,
+      "citations_verified": true,
+      "result": {
+        "question": "黄官镇2026年11月6日是否有氨氮超标？请结合当时的DO、进水量和鼓风机状态分析可能原因，并给出核查建议。",
+        "now": "2026-11-07T20:02:16.174802+08:00",
+        "run_id": "b64d14ba28574aafa3223c519c22128f",
+        "session_id": "2df17b64299c40699e6a84732f4287b3",
+        "resolved_question": "核查黄官镇厂（P06）在2026年11月6日00:00至2026年11月7日00:00期间出水氨氮是否超标，并结合同期好氧区DO、进水流量及鼓风机状态/振动/电流分析可能原因，给出核查建议。",
+        "intent": "diagnosis",
+        "ok": false,
+        "refused": false,
+        "answer": "",
+        "reason": null,
+        "error": "回答连续两次未通过证据校验",
+        "claims": [],
+        "citations": [],
+        "tool_calls": [
+          {
+            "id": "t1",
+            "tool": "plant_statistics",
+            "question": "黄官镇P06在2026年11月6日00:00至2026年11月7日00:00的出水氨氮超标统计",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "nh3n_out",
+                "label": "出水氨氮",
+                "unit": "mg/L",
+                "group": "出水",
+                "limit": 5,
+                "lower_is_bad": false
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P06.nh3n_out.exceed_hours",
+                  "statistic": "exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.longest_exceed_hours",
+                  "statistic": "longest_exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.hours_with_exceed",
+                  "statistic": "hours_with_exceed",
+                  "value": 4,
+                  "text": "黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "个小时桶",
+                  "aggregation": "统计时段内曾有原始采样超标的北京时间小时桶数，不代表持续异常小时数",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.instant_max",
+                  "statistic": "instant_max",
+                  "value": 17.3209,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.bucket_mean_max",
+                  "statistic": "bucket_mean_max",
+                  "value": 16.7281,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 1.7808,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值的时段平均值为1.7808 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.7808,
+                    "instant_max": 17.3209,
+                    "instant_min": 0.1104,
+                    "bucket_mean_max": 16.7281,
+                    "bucket_mean_min": 0.1215,
+                    "exceed_hours": 2.5,
+                    "longest_exceed_hours": 2.5,
+                    "hours_with_exceed": 4
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 21.8,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t2",
+            "tool": "sql_query",
+            "question": "查询黄官镇厂P06在2026年11月6日00:00至2026年11月7日00:00按小时的好氧区DO（1#、2#）、进水流量、鼓风机运行状态、振动和电流，合并为一张不超过24行的证据表",
+            "status": "ok",
+            "output": {
+              "question": "查询黄官镇厂P06在2026年11月6日00:00至2026年11月7日00:00按小时的好氧区DO（1#、2#）、进水流量、鼓风机运行状态、振动和电流，合并为一张不超过24行的证据表",
+              "ok": true,
+              "refused": false,
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "sql": "WITH hrs AS (SELECT GENERATE_SERIES(CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ), CAST('2026-11-06 23:00:00+08' AS TIMESTAMPTZ), INTERVAL '1 HOUR') AS hour), p6 AS (SELECT id FROM plant WHERE code = 'P06'), h1 AS (SELECT h.hour, AVG(h.do_aerobic_1) AS do1, AVG(h.inflow_m3h) AS inflow FROM plant_reading_1h AS h JOIN p6 ON p6.id = h.plant_id WHERE h.hour >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND h.hour < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY h.hour), raw AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, AVG(r.do_aerobic_2) AS do2, AVG(r.inflow_m3h) AS inflow FROM plant_reading AS r JOIN p6 ON p6.id = r.plant_id WHERE r.ts >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND r.ts < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY 1), bl AS (SELECT TIME_BUCKET('1 hour', dr.ts) AS hour, BOOL_OR(dr.running) AS running, AVG(dr.current_a) AS current_a, AVG(dr.vibration_mms) AS vib, MAX(dr.vibration_mms) AS vib_max FROM device_reading AS dr JOIN device AS d ON d.id = dr.device_id JOIN p6 ON p6.id = d.plant_id WHERE d.kind = '鼓风机' AND dr.ts >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND dr.ts < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY 1) SELECT hrs.hour AS \"时间\", ROUND(CAST(h1.do1 AS DECIMAL), 2) AS \"好氧区1#DO_mg_L\", ROUND(CAST(raw.do2 AS DECIMAL), 2) AS \"好氧区2#DO_mg_L\", ROUND(CAST(COALESCE(h1.inflow, raw.inflow) AS DECIMAL), 1) AS \"进水流量_m3h\", CASE WHEN bl.running IS NULL THEN NULL WHEN bl.running THEN '运行' ELSE '未运行' END AS \"鼓风机状态\", ROUND(CAST(bl.current_a AS DECIMAL), 1) AS \"鼓风机电流_A\", ROUND(CAST(bl.vib AS DECIMAL), 2) AS \"振动均值_mm_s\", ROUND(CAST(bl.vib_max AS DECIMAL), 2) AS \"振动最大_mm_s\" FROM hrs LEFT JOIN h1 ON h1.hour = hrs.hour LEFT JOIN raw ON raw.hour = hrs.hour LEFT JOIN bl ON bl.hour = hrs.hour ORDER BY hrs.hour LIMIT 200",
+              "explanation": "以 11月6日 0-23 点的 24 个整点小时序列为主表，左连接小时聚合表取 1#DO 与进水流量、原始表按小时聚合取 2#DO、鼓风机设备监测按小时聚合取运行状态/电流/振动，合并成不超过 24 行的证据表。",
+              "columns": [
+                "时间",
+                "好氧区1#DO_mg_L",
+                "好氧区2#DO_mg_L",
+                "进水流量_m3h",
+                "鼓风机状态",
+                "鼓风机电流_A",
+                "振动均值_mm_s",
+                "振动最大_mm_s"
+              ],
+              "rows": [
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ],
+                [
+                  "时间",
+                  "好氧区1#DO_mg_L",
+                  "好氧区2#DO_mg_L",
+                  "进水流量_m3h",
+                  "鼓风机状态",
+                  "鼓风机电流_A",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s"
+                ]
+              ],
+              "truncated": false,
+              "error": null,
+              "attempts": [
+                {
+                  "sql": "WITH hrs AS (SELECT GENERATE_SERIES(CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ), CAST('2026-11-06 23:00:00+08' AS TIMESTAMPTZ), INTERVAL '1 HOUR') AS hour), p6 AS (SELECT id FROM plant WHERE code = 'P06'), h1 AS (SELECT h.hour, AVG(h.do_aerobic_1) AS do1, AVG(h.inflow_m3h) AS inflow FROM plant_reading_1h AS h JOIN p6 ON p6.id = h.plant_id WHERE h.hour >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND h.hour < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY h.hour), raw AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, AVG(r.do_aerobic_2) AS do2, AVG(r.inflow_m3h) AS inflow FROM plant_reading AS r JOIN p6 ON p6.id = r.plant_id WHERE r.ts >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND r.ts < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY 1), bl AS (SELECT TIME_BUCKET('1 hour', dr.ts) AS hour, BOOL_OR(dr.running) AS running, AVG(dr.current_a) AS current_a, AVG(dr.vibration_mms) AS vib, MAX(dr.vibration_mms) AS vib_max FROM device_reading AS dr JOIN device AS d ON d.id = dr.device_id JOIN p6 ON p6.id = d.plant_id WHERE d.kind = '鼓风机' AND dr.ts >= CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AND dr.ts < CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) GROUP BY 1) SELECT hrs.hour AS \"时间\", ROUND(CAST(h1.do1 AS DECIMAL), 2) AS \"好氧区1#DO_mg_L\", ROUND(CAST(raw.do2 AS DECIMAL), 2) AS \"好氧区2#DO_mg_L\", ROUND(CAST(COALESCE(h1.inflow, raw.inflow) AS DECIMAL), 1) AS \"进水流量_m3h\", CASE WHEN bl.running IS NULL THEN NULL WHEN bl.running THEN '运行' ELSE '未运行' END AS \"鼓风机状态\", ROUND(CAST(bl.current_a AS DECIMAL), 1) AS \"鼓风机电流_A\", ROUND(CAST(bl.vib AS DECIMAL), 2) AS \"振动均值_mm_s\", ROUND(CAST(bl.vib_max AS DECIMAL), 2) AS \"振动最大_mm_s\" FROM hrs LEFT JOIN h1 ON h1.hour = hrs.hour LEFT JOIN raw ON raw.hour = hrs.hour LEFT JOIN bl ON bl.hour = hrs.hour ORDER BY hrs.hour LIMIT 200",
+                  "error": null
+                }
+              ],
+              "prompt_tokens": 2205,
+              "completion_tokens": 2077,
+              "llm_ms": 11944.8,
+              "generation_calls": [
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2205,
+                  "completion_tokens": 2077,
+                  "finish_reason": "stop",
+                  "llm_ms": 11944.8,
+                  "latency_ms": 11944.7,
+                  "total_latency_ms": 11944.8,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 11944.7,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ],
+              "total_ms": 11959.7,
+              "examples_used": [
+                "最近24小时高台镇好氧区DO每小时的均值",
+                "中心厂1号鼓风机最近一小时的振动和温度变化",
+                "中心厂过去24小时进水流量最大的时刻和流量"
+              ],
+              "tables_used": [
+                "plant",
+                "plant_reading",
+                "plant_reading_1h",
+                "device",
+                "device_reading"
+              ]
+            },
+            "error": null,
+            "total_ms": 11959.8,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t3",
+            "tool": "rag_search",
+            "question": "污水处理厂出水氨氮超标排查资料：好氧区DO不足、进水流量/负荷冲击、鼓风机及曝气系统异常的状态、振动、电流核查要点",
+            "status": "ok",
+            "output": {
+              "hits": [
+                {
+                  "id": "fault-ammonia:ammonia-oxygen-evidence:1",
+                  "document_id": "fault-ammonia",
+                  "title": "出水氨氮异常的证据核查与原因假设",
+                  "heading": "低溶解氧与鼓风机故障证据",
+                  "text": "硝化需要氧，供氧不足会削弱氨氮氧化能力。本 Demo 的 `blower_fault` 场景让一号鼓风机振动、轴承温度先升高，随后按场景时序跳停并减少可用曝气能力；出水氨氮通过过程响应滞后变化。排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮，确认是否出现“可用风量下降、DO 下降、氨氮随后升高”的证据链。\n\n这条时序支持供氧不足假设，但振动与跳停的相关性不能证明某种机械损坏，也不能证明振动直接触发了真实保护动作。需另核查保护记录、检修检查和运行方式。若风量未降而 DO 下降，还应检查进水耗氧负荷和测量可靠性。建议先由人员确认故障状态与备用供氧条件，不能仅凭氨氮曲线自动提高风量设定，更不能屏蔽保护或反复强行重启设备。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 18,
+                  "line_end": 20,
+                  "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1",
+                  "score": 0.032787,
+                  "lexical_score": 25.4877,
+                  "dense_score": 0.7628,
+                  "relevance": null
+                },
+                {
+                  "id": "equipment-blower:blower-air-water-chain:1",
+                  "document_id": "equipment-blower",
+                  "title": "鼓风机状态核查与供氧故障演示要点",
+                  "heading": "供气能力与水质响应链",
+                  "text": "鼓风机故障对水质的影响，应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查。对齐曝气风量、鼓风机功率和进水负荷，判断风量变化是否确实发生，以及 DO 是否在相应时段下降。NH3-N 是氨氮，硝化受限可使其升高；总氮还受反硝化与碳源等因素影响，不能将所有氮指标异常都归因于风机。\n\n本 Demo 在跳停后扣减运行鼓风机数量，实际风量上限随可用台数变化，具体影响取决于配置和负荷。不能仅因设备清单存在备用机就宣称已经自动切换。水质有过程时滞，需比较停机前后连续趋势；若 DO 下降同时存在暴雨或浓度冲击，应保留耗氧增加等替代解释。功率下降在此可能意味着供氧损失，不能直接评价为节能。建议由人员核实供气能力，不输出固定增风比例或自动切换指令。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 18,
+                  "line_end": 20,
+                  "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1",
+                  "score": 0.031754,
+                  "lexical_score": 19.4152,
+                  "dense_score": 0.7237,
+                  "relevance": null
+                },
+                {
+                  "id": "process-a2o:a2o-load-response:1",
+                  "document_id": "process-a2o",
+                  "title": "A2O 工艺分区与脱氮除磷演示要点",
+                  "heading": "负荷、时滞与运行建议边界",
+                  "text": "判断进水冲击应同时看流量与浓度。流量以 m³/h、浓度以 mg/L 表示时，两者相乘再除以一千可得到相应污染物负荷的 kg/h 数值。浓度下降不代表进入系统的污染物总量必然减少；水量增加还会缩短水力停留时间。核查进水 COD、氨氮、总氮与流量的同步变化，再比较曝气风量、好氧区 DO、污泥浓度和出水趋势，可避免把所有异常归为曝气不足。\n\n本 Demo 用简化氧平衡、风量反馈控制及出水响应时滞展示这些关系，不是完整的 A2O 机理模型。风量升高可能只是对耗氧负荷的补偿，DO 恢复也不意味着出水立即恢复。应比较异常前后连续时间窗，保留其他原因假设；模型目标值和界面告警线仅用于演示，不可直接作为现场风量、回流量或药剂投加的自动调节指令。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/process-a2o:a2o-load-response:1",
+                  "score": 0.030536,
+                  "lexical_score": 16.2682,
+                  "dense_score": 0.6948,
+                  "relevance": null
+                },
+                {
+                  "id": "fault-ammonia:ammonia-differential:1",
+                  "document_id": "fault-ammonia",
+                  "title": "出水氨氮异常的证据核查与原因假设",
+                  "heading": "冲击负荷、低温与污泥流失鉴别",
+                  "text": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关。核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS。降雨后即使浓度被稀释，持续大流量仍可能冲走污泥、缩短停留时间，使硝化能力下降；这时 DO 恢复不保证氨氮同步恢复。总氮应另行分析，不能把氨氮与总氮的改善视为同一过程。\n\n本 Demo 的 `shock_load` 表示浓度冲击，只能提示负荷扰动，不能证明真实工业偷排或毒性来源。模型考虑水温影响，但没有完整的碱度、pH、毒性或菌群监测证据；需要现场检测才能判断这些因素。应保留多个原因假设，持续比较恢复趋势和复测结果。未经确认，不给出固定排泥量、碳源剂量或“若干小时必恢复”的承诺。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1",
+                  "score": 0.030366,
+                  "lexical_score": 14.0277,
+                  "dense_score": 0.7413,
+                  "relevance": null
+                },
+                {
+                  "id": "process-ditch:ditch-operation-review:1",
+                  "document_id": "process-ditch",
+                  "title": "氧化沟循环流态与运行观察演示要点",
+                  "heading": "能耗观察与恢复判断",
+                  "text": "氧化沟运行分析应把曝气供氧、循环混合和能耗放在同一工况下比较。单看鼓风机功率下降，可能把设备停机或供氧能力损失误判为节能；单看风量上升，也可能忽略进水负荷增加。可在相近水量、进水负荷与出水目标下，对照风量、鼓风机功率、好氧区 DO、氨氮和总氮趋势，并检查设备运行状态。\n\n本 Demo 以统一的简化模型表示 A2O 与氧化沟厂站，没有模拟转碟、转刷或独立推流机的专属性能，因此不能据此提出真实设备改造结论。异常解除后，需要等待水质响应、确认污泥保持和沉淀稳定，再评价恢复效果；单个正常采样点不足以证明恢复。备用设备投入、曝气设定或回流调整均须核实设备可用性、现场流程和操作权限，演示知识只提供排查依据，不输出未经验证的自动控制参数。",
+                  "source_type": "demo",
+                  "source": "项目自编演示知识，不是真实厂站规程。",
+                  "source_url": null,
+                  "source_page": null,
+                  "line_start": 24,
+                  "line_end": 26,
+                  "url": "/api/ai/knowledge/chunks/process-ditch:ditch-operation-review:1",
+                  "score": 0.030331,
+                  "lexical_score": 16.5604,
+                  "dense_score": 0.6767,
+                  "relevance": null
+                }
+              ],
+              "mode": "hybrid",
+              "requested_mode": "hybrid",
+              "retrieval_ms": 43.9,
+              "warnings": [
+                "重排失败，保留检索排序（JSONDecodeError）"
+              ],
+              "reranked": false,
+              "prompt_tokens": 2277,
+              "completion_tokens": 4000,
+              "llm_ms": 32875.9,
+              "model": "deepseek-flash",
+              "generation_calls": [
+                {
+                  "stage": "rerank",
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2277,
+                  "completion_tokens": 4000,
+                  "finish_reason": "length",
+                  "llm_ms": 32875.9,
+                  "latency_ms": 32875.7,
+                  "total_latency_ms": 32875.9,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 32875.7,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ]
+            },
+            "error": null,
+            "total_ms": 32921.0,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t4",
+            "tool": "sql_query",
+            "question": "查询黄官镇厂P06在2026年11月6日00:00至2026年11月7日00:00按小时统计的进水氨氮、进水COD、进水总氮、进水流量、好氧区1#和2#DO、曝气风量、鼓风机功率、鼓风机运行状态、鼓风机电流、鼓风机振动均值与最大值、出水氨氮，合并为一张不超过24行的证据表",
+            "status": "ok",
+            "output": {
+              "question": "查询黄官镇厂P06在2026年11月6日00:00至2026年11月7日00:00按小时统计的进水氨氮、进水COD、进水总氮、进水流量、好氧区1#和2#DO、曝气风量、鼓风机功率、鼓风机运行状态、鼓风机电流、鼓风机振动均值与最大值、出水氨氮，合并为一张不超过24行的证据表",
+              "ok": true,
+              "refused": false,
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "sql": "WITH bounds AS (SELECT CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AS t0, CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) AS t1), p AS (SELECT id FROM plant WHERE code = 'P06'), hours AS (SELECT GENERATE_SERIES(t0, t1 - INTERVAL '1 HOUR', INTERVAL '1 HOUR') AS hour FROM bounds), h1 AS (SELECT hour, nh3n_in, cod_in, tn_in, inflow_m3h, blower_kw, nh3n_out FROM plant_reading_1h, bounds, p WHERE plant_id = p.id AND hour >= t0 AND hour < t1), raw AS (SELECT TIME_BUCKET('1 hour', ts) AS hour, AVG(do_aerobic_1) AS do1, AVG(do_aerobic_2) AS do2, AVG(air_flow_m3h) AS air FROM plant_reading, bounds, p WHERE plant_id = p.id AND ts >= t0 AND ts < t1 GROUP BY 1), bl AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, AVG(r.current_a) AS cur, AVG(r.vibration_mms) AS vib_avg, MAX(r.vibration_mms) AS vib_max, BOOL_OR(r.running) AS running FROM device_reading AS r JOIN device AS d ON d.id = r.device_id JOIN p ON p.id = d.plant_id, bounds WHERE d.kind = '鼓风机' AND r.ts >= t0 AND r.ts < t1 GROUP BY 1) SELECT TO_CHAR(h.hour AT TIME ZONE 'Asia/Shanghai', 'MM-DD HH24:00') AS 时间, ROUND(CAST(a.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL, ROUND(CAST(a.cod_in AS DECIMAL), 1) AS 进水COD_mgL, ROUND(CAST(a.tn_in AS DECIMAL), 2) AS 进水总氮_mgL, ROUND(CAST(a.inflow_m3h AS DECIMAL), 1) AS 进水流量_m3h, ROUND(CAST(b.do1 AS DECIMAL), 2) AS 好氧1_DO_mgL, ROUND(CAST(b.do2 AS DECIMAL), 2) AS 好氧2_DO_mgL, ROUND(CAST(b.air AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(a.blower_kw AS DECIMAL), 1) AS 鼓风机功率_kW, CASE WHEN c.running THEN '运行' WHEN c.running IS FALSE THEN '停机' END AS 鼓风机运行状态, ROUND(CAST(c.cur AS DECIMAL), 1) AS 鼓风机电流_A, ROUND(CAST(c.vib_avg AS DECIMAL), 2) AS 振动均值_mm_s, ROUND(CAST(c.vib_max AS DECIMAL), 2) AS 振动最大_mm_s, ROUND(CAST(a.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL FROM hours AS h LEFT JOIN h1 AS a ON a.hour = h.hour LEFT JOIN raw AS b ON b.hour = h.hour LEFT JOIN bl AS c ON c.hour = h.hour ORDER BY h.hour LIMIT 200",
+              "explanation": "以 2026-11-06 00:00 至 2026-11-07 00:00 的 24 个整点为主时间轴，进水氨氮/COD/总氮/流量/鼓风机功率/出水氨氮取自小时聚合表，2 号好氧区 DO 与曝气风量只能从原始表按时桶求均值，鼓风机电流/振动/运行状态按 device_reading 关联鼓风机设备按时桶聚合后左连接，共 24 行。",
+              "columns": [
+                "时间",
+                "进水氨氮_mgl",
+                "进水cod_mgl",
+                "进水总氮_mgl",
+                "进水流量_m3h",
+                "好氧1_do_mgl",
+                "好氧2_do_mgl",
+                "曝气风量_m3h",
+                "鼓风机功率_kw",
+                "鼓风机运行状态",
+                "鼓风机电流_a",
+                "振动均值_mm_s",
+                "振动最大_mm_s",
+                "出水氨氮_mgl"
+              ],
+              "rows": [
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ],
+                [
+                  "时间",
+                  "进水氨氮_mgl",
+                  "进水cod_mgl",
+                  "进水总氮_mgl",
+                  "进水流量_m3h",
+                  "好氧1_do_mgl",
+                  "好氧2_do_mgl",
+                  "曝气风量_m3h",
+                  "鼓风机功率_kw",
+                  "鼓风机运行状态",
+                  "鼓风机电流_a",
+                  "振动均值_mm_s",
+                  "振动最大_mm_s",
+                  "出水氨氮_mgl"
+                ]
+              ],
+              "truncated": false,
+              "error": null,
+              "attempts": [
+                {
+                  "sql": "WITH bounds AS (SELECT CAST('2026-11-06 00:00:00+08' AS TIMESTAMPTZ) AS t0, CAST('2026-11-07 00:00:00+08' AS TIMESTAMPTZ) AS t1), p AS (SELECT id FROM plant WHERE code = 'P06'), hours AS (SELECT GENERATE_SERIES(t0, t1 - INTERVAL '1 HOUR', INTERVAL '1 HOUR') AS hour FROM bounds), h1 AS (SELECT hour, nh3n_in, cod_in, tn_in, inflow_m3h, blower_kw, nh3n_out FROM plant_reading_1h, bounds, p WHERE plant_id = p.id AND hour >= t0 AND hour < t1), raw AS (SELECT TIME_BUCKET('1 hour', ts) AS hour, AVG(do_aerobic_1) AS do1, AVG(do_aerobic_2) AS do2, AVG(air_flow_m3h) AS air FROM plant_reading, bounds, p WHERE plant_id = p.id AND ts >= t0 AND ts < t1 GROUP BY 1), bl AS (SELECT TIME_BUCKET('1 hour', r.ts) AS hour, AVG(r.current_a) AS cur, AVG(r.vibration_mms) AS vib_avg, MAX(r.vibration_mms) AS vib_max, BOOL_OR(r.running) AS running FROM device_reading AS r JOIN device AS d ON d.id = r.device_id JOIN p ON p.id = d.plant_id, bounds WHERE d.kind = '鼓风机' AND r.ts >= t0 AND r.ts < t1 GROUP BY 1) SELECT TO_CHAR(h.hour AT TIME ZONE 'Asia/Shanghai', 'MM-DD HH24:00') AS 时间, ROUND(CAST(a.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL, ROUND(CAST(a.cod_in AS DECIMAL), 1) AS 进水COD_mgL, ROUND(CAST(a.tn_in AS DECIMAL), 2) AS 进水总氮_mgL, ROUND(CAST(a.inflow_m3h AS DECIMAL), 1) AS 进水流量_m3h, ROUND(CAST(b.do1 AS DECIMAL), 2) AS 好氧1_DO_mgL, ROUND(CAST(b.do2 AS DECIMAL), 2) AS 好氧2_DO_mgL, ROUND(CAST(b.air AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(a.blower_kw AS DECIMAL), 1) AS 鼓风机功率_kW, CASE WHEN c.running THEN '运行' WHEN c.running IS FALSE THEN '停机' END AS 鼓风机运行状态, ROUND(CAST(c.cur AS DECIMAL), 1) AS 鼓风机电流_A, ROUND(CAST(c.vib_avg AS DECIMAL), 2) AS 振动均值_mm_s, ROUND(CAST(c.vib_max AS DECIMAL), 2) AS 振动最大_mm_s, ROUND(CAST(a.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL FROM hours AS h LEFT JOIN h1 AS a ON a.hour = h.hour LEFT JOIN raw AS b ON b.hour = h.hour LEFT JOIN bl AS c ON c.hour = h.hour ORDER BY h.hour LIMIT 200",
+                  "error": null
+                }
+              ],
+              "prompt_tokens": 2235,
+              "completion_tokens": 2952,
+              "llm_ms": 16296.3,
+              "generation_calls": [
+                {
+                  "model": "deepseek-flash",
+                  "provider": "deepseek",
+                  "prompt_tokens": 2235,
+                  "completion_tokens": 2952,
+                  "finish_reason": "stop",
+                  "llm_ms": 16296.3,
+                  "latency_ms": 16296.2,
+                  "total_latency_ms": 16296.3,
+                  "status": "success",
+                  "error_type": null,
+                  "attempt_history": [
+                    {
+                      "provider": "deepseek",
+                      "attempt": 1,
+                      "status": "success",
+                      "latency_ms": 16296.2,
+                      "wait_ms": 0.0,
+                      "error_type": null,
+                      "status_code": null
+                    }
+                  ]
+                }
+              ],
+              "total_ms": 16387.6,
+              "examples_used": [
+                "每台运行中的鼓风机今天的平均电流",
+                "中心厂过去24小时进水流量最大的时刻和流量",
+                "中心厂1号鼓风机最近一小时的振动和温度变化"
+              ],
+              "tables_used": [
+                "plant",
+                "plant_reading",
+                "plant_reading_1h",
+                "device",
+                "device_reading"
+              ]
+            },
+            "error": null,
+            "total_ms": 16387.8,
+            "queue_ms": 0.0
+          },
+          {
+            "id": "t5",
+            "tool": "plant_statistics",
+            "question": "黄官镇P06在2026年11月6日00:00至2026年11月7日00:00好氧区1#DO低于1.0 mg/L的累计时长与最长连续时长",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "do_aerobic_1",
+                "label": "好氧区 DO（1#）",
+                "unit": "mg/L",
+                "group": "工艺",
+                "limit": 1.0,
+                "lower_is_bad": true
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P06.do_aerobic_1.exceed_hours",
+                  "statistic": "exceed_hours",
+                  "value": 1.5833333333333333,
+                  "text": "黄官镇污水处理站（P06）好氧区 DO（1#）按5分钟均值统计，累计低于下限时长为1.5833小时（95分钟，19个5分钟桶；阈值1 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "do_aerobic_1",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值低于下限即累计5分钟；缺失不补零，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.do_aerobic_1.longest_exceed_hours",
+                  "statistic": "longest_exceed_hours",
+                  "value": 1.5833333333333333,
+                  "text": "黄官镇污水处理站（P06）好氧区 DO（1#）按5分钟均值统计，已观测的最长连续低于下限时长为1.5833小时（95分钟，19个5分钟桶；阈值1 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "do_aerobic_1",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值低于下限的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.do_aerobic_1.instant_min",
+                  "statistic": "instant_min",
+                  "value": 0.0,
+                  "text": "黄官镇污水处理站（P06）好氧区 DO（1#）的原始采样瞬时最小值为0 mg/L；有效288/288个5分钟桶",
+                  "metric": "do_aerobic_1",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最小值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.do_aerobic_1.bucket_mean_min",
+                  "statistic": "bucket_mean_min",
+                  "value": 0.0294,
+                  "text": "黄官镇污水处理站（P06）好氧区 DO（1#）的5分钟均值最小值为0.0294 mg/L；有效288/288个5分钟桶",
+                  "metric": "do_aerobic_1",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最小值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.872,
+                    "instant_max": 2.4463,
+                    "instant_min": 0.0,
+                    "bucket_mean_max": 2.3475,
+                    "bucket_mean_min": 0.0294,
+                    "exceed_hours": 1.5833333333333333,
+                    "longest_exceed_hours": 1.5833333333333333,
+                    "hours_with_exceed": 3
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"do_aerobic_1\")::float8 AS mean, max(\"do_aerobic_1\")::float8 AS raw_max,\n                   min(\"do_aerobic_1\")::float8 AS raw_min, count(\"do_aerobic_1\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 24.7,
+            "queue_ms": 0.0
+          }
+        ],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1604,
+            "completion_tokens": 833,
+            "finish_reason": "stop",
+            "llm_ms": 6363.7,
+            "latency_ms": 6363.7,
+            "total_latency_ms": 6363.7,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 6363.7,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 6226,
+            "completion_tokens": 406,
+            "finish_reason": "stop",
+            "llm_ms": 2766.7,
+            "latency_ms": 2766.6,
+            "total_latency_ms": 2766.7,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2766.6,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 9940,
+            "completion_tokens": 581,
+            "finish_reason": "stop",
+            "llm_ms": 3654.4,
+            "latency_ms": 3654.3,
+            "total_latency_ms": 3654.4,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 3654.3,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 10592,
+            "completion_tokens": 563,
+            "finish_reason": "stop",
+            "llm_ms": 2868.1,
+            "latency_ms": 2868.0,
+            "total_latency_ms": 2868.1,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 2868.0,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          }
+        ],
+        "prompt_tokens": 35079,
+        "completion_tokens": 11412,
+        "llm_ms": 76769.9,
+        "total_ms": 64990.5,
+        "planning_rounds": 2,
+        "validation_errors": [
+          "answer: 数据引用不是本轮成功的查数调用",
+          "answer: 原因假设必须同时引用数据与知识"
+        ],
+        "warnings": [
+          "t3：重排失败，保留检索排序（JSONDecodeError）",
+          "已达到规划或工具调用上限，按现有证据作答"
+        ]
+      }
+    }
+  ],
+  "gateway_before": {
+    "available": true,
+    "mode": "live",
+    "cache_entries": 0,
+    "cache_hits": 0,
+    "requests": {
+      "calls": 0,
+      "successes": 0,
+      "errors": 0,
+      "cancelled": 0,
+      "total_latency_p50_ms": null,
+      "total_latency_p95_ms": null
+    },
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-flash",
+        "calls": 0,
+        "errors": 0,
+        "retries": 0,
+        "cancelled": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cache_hit_tokens": 0,
+        "latency_p50_ms": null,
+        "latency_p95_ms": null,
+        "attempt_latency_p50_ms": null,
+        "attempt_latency_p95_ms": null,
+        "ttft_p50_ms": null,
+        "ttft_p95_ms": null,
+        "circuit": "closed"
+      }
+    }
+  },
+  "gateway_after": {
+    "available": true,
+    "mode": "live",
+    "cache_entries": 15,
+    "cache_hits": 0,
+    "requests": {
+      "calls": 15,
+      "successes": 15,
+      "errors": 0,
+      "cancelled": 0,
+      "total_latency_p50_ms": 6363.7,
+      "total_latency_p95_ms": 32875.9
+    },
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-flash",
+        "calls": 15,
+        "errors": 0,
+        "retries": 0,
+        "cancelled": 0,
+        "prompt_tokens": 63234,
+        "completion_tokens": 24561,
+        "cache_hit_tokens": 19200,
+        "latency_p50_ms": 6363.7,
+        "latency_p95_ms": 32875.7,
+        "attempt_latency_p50_ms": 6363.7,
+        "attempt_latency_p95_ms": 32875.7,
+        "ttft_p50_ms": null,
+        "ttft_p95_ms": null,
+        "circuit": "closed"
+      }
+    }
+  }
+}

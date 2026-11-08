@@ -1,0 +1,76 @@
+{
+ "fixed_air_frac": 1.307,
+ "pi": {
+  "kp": 0.5,
+  "ki": 4.8
+ },
+ "ff": {
+  "a": 0.067,
+  "b": 0.9305
+ },
+ "ff_pi": {
+  "kp": 0.5,
+  "ki": 0.3,
+  "filter_min": 5.0
+ },
+ "hw": {
+  "alpha": 0.4,
+  "gamma": 0.2,
+  "horizon_min": 0.0,
+  "filter_min": 10.0,
+  "kp": 0.5,
+  "ki": 1.2
+ },
+ "meta": {
+  "calibrated_at": "2026-11-08T05:01:51",
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "scenario": "dry",
+  "setpoint": 2.0,
+  "plant": "P01",
+  "ff_fit": {
+   "r2": 0.9252,
+   "n_blocks": 720,
+   "pi_air_quantiles": {
+    "p50": 1.0035,
+    "p75": 1.1285,
+    "p95": 1.307
+   }
+  },
+  "move_budget": 0.5,
+  "selected": {
+   "pi": {
+    "kp": 0.5,
+    "ki": 4.8,
+    "do_mae": 0.0664,
+    "air_moves_per_h": 0.4987,
+    "kwh": 5126.1
+   },
+   "ff_pi": {
+    "kp": 0.5,
+    "ki": 0.3,
+    "filter_min": 5.0,
+    "do_mae": 0.0649,
+    "air_moves_per_h": 0.4748,
+    "kwh": 5125.7
+   },
+   "ff_hw_pi": {
+    "alpha": 0.4,
+    "gamma": 0.2,
+    "horizon_min": 0.0,
+    "filter_min": 10.0,
+    "kp": 0.5,
+    "ki": 1.2,
+    "do_mae": 0.0816,
+    "air_moves_per_h": 0.4237,
+    "kwh": 5127.2
+   }
+  },
+  "fixed_rule": "整定后 PI 在校准日风量的 95% 分位"
+ }
+}

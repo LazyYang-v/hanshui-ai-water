@@ -1,0 +1,261 @@
+{
+  "id": "missing-gap",
+  "family": "missing",
+  "mode": "missing",
+  "question": "牟家坝P07在2026年11月7日08:00至10:00的出水氨氮是否正常？请用固定统计mean核实覆盖；无有效采样须说明缺失，不能把缺口当正常。",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [],
+    "valid_samples": 0,
+    "statistics": {
+      "period": {
+        "requested_start": "2026-11-07T08:00:00+08:00",
+        "requested_end": "2026-11-07T10:00:00+08:00",
+        "start": "2026-11-07T08:00:00+08:00",
+        "end": "2026-11-07T10:00:00+08:00",
+        "timezone": "Asia/Shanghai"
+      },
+      "metric": {
+        "key": "nh3n_out",
+        "label": "出水氨氮",
+        "unit": "mg/L",
+        "group": "出水",
+        "limit": 5,
+        "lower_is_bad": false
+      },
+      "bucket_minutes": 5,
+      "ranking_precision": 4,
+      "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+      "facts": [],
+      "warnings": [
+        "P07没有有效数据，不能解释为零、达标或无超标"
+      ],
+      "plants": [
+        {
+          "code": "P07",
+          "name": "牟家坝镇污水处理站",
+          "summary": {
+            "expected_buckets": 24,
+            "observed_buckets": 0,
+            "missing_buckets": 24,
+            "coverage": 0.0,
+            "mean": null,
+            "instant_max": null,
+            "instant_min": null,
+            "bucket_mean_max": null,
+            "bucket_mean_min": null,
+            "exceed_hours": null,
+            "longest_exceed_hours": null,
+            "hours_with_exceed": null
+          }
+        }
+      ],
+      "period_text": "2026-11-07 08:00至2026-11-07 10:00（北京时间）",
+      "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+      "params": {
+        "start": "2026-11-07T08:00:00+08:00",
+        "end": "2026-11-07T10:00:00+08:00"
+      }
+    },
+    "statistics_database_verified": true
+  },
+  "request": {
+    "question": "牟家坝P07在2026年11月7日08:00至10:00的出水氨氮是否正常？请用固定统计mean核实覆盖；无有效采样须说明缺失，不能把缺口当正常。"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "牟家坝P07在2026年11月7日08:00至10:00的出水氨氮是否正常？请用固定统计mean核实覆盖；无有效采样须说明缺失，不能把缺口当正常。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "12bde5176129483b8ba38274ba160bda",
+    "session_id": "4b9eb23d975342c8823fdd047b74b16e",
+    "resolved_question": "牟家坝P07在2026年11月7日08:00至10:00的出水氨氮均值、峰值及有效采样覆盖情况，判断是否正常",
+    "intent": "data",
+    "ok": false,
+    "refused": true,
+    "answer": "",
+    "reason": "本轮没有可引用的数据或知识证据，无法作答",
+    "error": null,
+    "claims": [],
+    "citations": [],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "plant_statistics",
+        "question": "牟家坝P07指定时间窗出水氨氮均值、峰值与覆盖情况",
+        "status": "empty",
+        "output": {
+          "period": {
+            "requested_start": "2026-11-07T08:00:00+08:00",
+            "requested_end": "2026-11-07T10:00:00+08:00",
+            "start": "2026-11-07T08:00:00+08:00",
+            "end": "2026-11-07T10:00:00+08:00",
+            "timezone": "Asia/Shanghai"
+          },
+          "metric": {
+            "key": "nh3n_out",
+            "label": "出水氨氮",
+            "unit": "mg/L",
+            "group": "出水",
+            "limit": 5,
+            "lower_is_bad": false
+          },
+          "bucket_minutes": 5,
+          "ranking_precision": 4,
+          "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+          "facts": [],
+          "warnings": [
+            "P07没有有效数据，不能解释为零、达标或无超标"
+          ],
+          "plants": [
+            {
+              "code": "P07",
+              "name": "牟家坝镇污水处理站",
+              "summary": {
+                "expected_buckets": 24,
+                "observed_buckets": 0,
+                "missing_buckets": 24,
+                "coverage": 0.0,
+                "mean": null,
+                "instant_max": null,
+                "instant_min": null,
+                "bucket_mean_max": null,
+                "bucket_mean_min": null,
+                "exceed_hours": null,
+                "longest_exceed_hours": null,
+                "hours_with_exceed": null
+              }
+            }
+          ],
+          "period_text": "2026-11-07 08:00至2026-11-07 10:00（北京时间）",
+          "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+          "params": {
+            "start": "2026-11-07T08:00:00+08:00",
+            "end": "2026-11-07T10:00:00+08:00"
+          }
+        },
+        "error": null,
+        "total_ms": 50.6,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1960,
+        "completion_tokens": 1099,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 8013.9,
+        "latency_ms": 8013.9,
+        "total_latency_ms": 8013.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 8013.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2233,
+        "completion_tokens": 61,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 857.6,
+        "latency_ms": 857.5,
+        "total_latency_ms": 857.6,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 857.5,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 4193,
+    "completion_tokens": 1160,
+    "llm_ms": 8871.5,
+    "total_ms": 8934.7,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": [
+      "t1：P07没有有效数据，不能解释为零、达标或无超标"
+    ]
+  },
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "人为删除的两小时全量采样缺口，不等同停机或已恢复。"
+      }
+    ]
+  },
+  "elapsed_ms": 9598.1
+}

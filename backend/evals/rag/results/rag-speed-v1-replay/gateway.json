@@ -1,0 +1,14 @@
+{
+  "mode": "replay",
+  "cache_entries": 0,
+  "cache_hits": 0,
+  "requests": {
+    "calls": 0,
+    "successes": 0,
+    "errors": 0,
+    "cancelled": 0,
+    "total_latency_p50_ms": null,
+    "total_latency_p95_ms": null
+  },
+  "providers": {}
+}

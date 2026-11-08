@@ -1,0 +1,323 @@
+{
+  "captured_at": "2026-11-07T19:23:04.714434+08:00",
+  "source": "本地 API；所有运行读数均为模拟数据",
+  "health": {
+    "status": "ok",
+    "db": "ok",
+    "redis": "ok",
+    "simulator": "ok"
+  },
+  "clock": {
+    "now": "2026-11-07T19:22:56.174802+08:00",
+    "wall": "2026-11-07T19:23:04.679704+08:00",
+    "ahead_s": -8.5,
+    "speed": 1.0
+  },
+  "monitor": {
+    "running": true,
+    "scans": 157,
+    "interval_s": 10.0,
+    "window_h": 3.0,
+    "last": {
+      "start": "2026-11-07T16:22:51.174802+08:00",
+      "end": "2026-11-07T19:22:51.174802+08:00",
+      "episodes": 5,
+      "inserted": 0,
+      "updated": 0,
+      "recovered": 0,
+      "ms": 87.0
+    },
+    "last_error": null,
+    "bucket_min": 5.0,
+    "rules": [
+      {
+        "id": "effluent_exceed",
+        "kind": "水质超标",
+        "level": "告警",
+        "on_buckets": 2,
+        "off_buckets": 3
+      },
+      {
+        "id": "effluent_trend",
+        "kind": "水质预警",
+        "level": "预警",
+        "on_buckets": 2,
+        "off_buckets": 3
+      },
+      {
+        "id": "do_low",
+        "kind": "工艺异常",
+        "level": "告警",
+        "on_buckets": 2,
+        "off_buckets": 3
+      },
+      {
+        "id": "inflow_surge",
+        "kind": "进水冲击",
+        "level": "预警",
+        "on_buckets": 3,
+        "off_buckets": 3
+      },
+      {
+        "id": "dosing_anomaly",
+        "kind": "药耗异常",
+        "level": "预警",
+        "on_buckets": 3,
+        "off_buckets": 6
+      },
+      {
+        "id": "device_vibration",
+        "kind": "设备异常",
+        "level": "预警",
+        "on_buckets": 2,
+        "off_buckets": 3
+      },
+      {
+        "id": "device_temp",
+        "kind": "设备异常",
+        "level": "预警",
+        "on_buckets": 2,
+        "off_buckets": 3
+      },
+      {
+        "id": "device_stop",
+        "kind": "设备异常",
+        "level": "告警",
+        "on_buckets": 1,
+        "off_buckets": 1
+      }
+    ]
+  },
+  "p04_alarms": {
+    "total": 5,
+    "limit": 20,
+    "offset": 0,
+    "summary": {
+      "total": 5,
+      "active": 1,
+      "by_level": {
+        "告警": 5,
+        "预警": 0,
+        "提示": 0
+      },
+      "by_status": {
+        "未处理": 5,
+        "处理中": 0,
+        "已关闭": 0
+      }
+    },
+    "items": [
+      {
+        "id": 26,
+        "ts": "2026-11-07T18:50:00+08:00",
+        "ended_at": null,
+        "active": true,
+        "duration_min": 32.9,
+        "plant": {
+          "id": 4,
+          "code": "P04",
+          "name": "高台镇污水处理站"
+        },
+        "device": null,
+        "level": "告警",
+        "kind": "水质超标",
+        "rule": "effluent_exceed",
+        "metric": "nh3n_out",
+        "metric_label": "出水氨氮",
+        "unit": "mg/L",
+        "value": 6.460605,
+        "threshold": 5.0,
+        "peak": 8.341,
+        "peak_at": "2026-11-07T19:00:00+08:00",
+        "message": "出水氨氮 6.46 mg/L，超过限值 5",
+        "status": "未处理",
+        "detail": {
+          "unit": "mg/L",
+          "last_seen": "2026-11-07T19:15:00+08:00"
+        },
+        "updated_at": "2026-11-07T19:20:01.174802+08:00",
+        "closed_at": null,
+        "close_note": null,
+        "advice_at": null
+      },
+      {
+        "id": 25,
+        "ts": "2026-11-07T18:35:00+08:00",
+        "ended_at": "2026-11-07T19:05:00+08:00",
+        "active": false,
+        "duration_min": 30.0,
+        "plant": {
+          "id": 4,
+          "code": "P04",
+          "name": "高台镇污水处理站"
+        },
+        "device": null,
+        "level": "告警",
+        "kind": "工艺异常",
+        "rule": "do_low",
+        "metric": "do_aerobic_1",
+        "metric_label": "好氧区 DO（1#）",
+        "unit": "mg/L",
+        "value": 0.051571667,
+        "threshold": 1.0,
+        "peak": 0.0487,
+        "peak_at": "2026-11-07T18:45:00+08:00",
+        "message": "好氧区 DO 0.05 mg/L，低于 1 mg/L",
+        "status": "未处理",
+        "detail": {
+          "unit": "mg/L",
+          "last_seen": "2026-11-07T19:00:00+08:00"
+        },
+        "updated_at": "2026-11-07T19:20:01.174802+08:00",
+        "closed_at": null,
+        "close_note": null,
+        "advice_at": null
+      },
+      {
+        "id": 24,
+        "ts": "2026-11-07T18:35:00+08:00",
+        "ended_at": "2026-11-07T19:00:00+08:00",
+        "active": false,
+        "duration_min": 25.0,
+        "plant": {
+          "id": 4,
+          "code": "P04",
+          "name": "高台镇污水处理站"
+        },
+        "device": {
+          "id": 81,
+          "code": "P04-BL-1",
+          "kind": "鼓风机"
+        },
+        "level": "告警",
+        "kind": "设备异常",
+        "rule": "device_stop",
+        "metric": "running",
+        "metric_label": "运行状态",
+        "unit": "",
+        "value": 0.0,
+        "threshold": null,
+        "peak": null,
+        "peak_at": null,
+        "message": "P04-BL-1（鼓风机，非备用）停机",
+        "status": "未处理",
+        "detail": {
+          "unit": "",
+          "last_seen": "2026-11-07T18:55:00+08:00"
+        },
+        "updated_at": "2026-11-07T19:05:01.162528+08:00",
+        "closed_at": null,
+        "close_note": null,
+        "advice_at": null
+      },
+      {
+        "id": 23,
+        "ts": "2026-11-07T18:15:00+08:00",
+        "ended_at": "2026-11-07T19:00:00+08:00",
+        "active": false,
+        "duration_min": 45.0,
+        "plant": {
+          "id": 4,
+          "code": "P04",
+          "name": "高台镇污水处理站"
+        },
+        "device": {
+          "id": 81,
+          "code": "P04-BL-1",
+          "kind": "鼓风机"
+        },
+        "level": "告警",
+        "kind": "设备异常",
+        "rule": "device_vibration",
+        "metric": "vibration_mms",
+        "metric_label": "振动速度",
+        "unit": "mm/s",
+        "value": 5.0,
+        "threshold": 4.5,
+        "peak": 9.22,
+        "peak_at": "2026-11-07T18:30:00+08:00",
+        "message": "P04-BL-1 振动 5 mm/s，超过关注值 4.5",
+        "status": "未处理",
+        "detail": {
+          "unit": "mm/s",
+          "last_seen": "2026-11-07T18:30:00+08:00"
+        },
+        "updated_at": "2026-11-07T19:15:06.162528+08:00",
+        "closed_at": null,
+        "close_note": null,
+        "advice_at": null
+      },
+      {
+        "id": 22,
+        "ts": "2026-11-07T18:15:00+08:00",
+        "ended_at": "2026-11-07T19:00:00+08:00",
+        "active": false,
+        "duration_min": 45.0,
+        "plant": {
+          "id": 4,
+          "code": "P04",
+          "name": "高台镇污水处理站"
+        },
+        "device": {
+          "id": 81,
+          "code": "P04-BL-1",
+          "kind": "鼓风机"
+        },
+        "level": "告警",
+        "kind": "设备异常",
+        "rule": "device_temp",
+        "metric": "temp_c",
+        "metric_label": "轴承温度",
+        "unit": "℃",
+        "value": 78.6,
+        "threshold": 75.0,
+        "peak": 96.3,
+        "peak_at": "2026-11-07T18:30:00+08:00",
+        "message": "P04-BL-1 轴承温度 78.6 ℃，超过关注值 75 ℃",
+        "status": "未处理",
+        "detail": {
+          "unit": "℃",
+          "last_seen": "2026-11-07T18:30:00+08:00"
+        },
+        "updated_at": "2026-11-07T19:15:06.162528+08:00",
+        "closed_at": null,
+        "close_note": null,
+        "advice_at": null
+      }
+    ]
+  },
+  "p04": {
+    "code": "P04",
+    "name": "高台镇污水处理站",
+    "status": "alarm",
+    "latest_ts": "2026-11-07T19:22:56.174802+08:00",
+    "latest": {
+      "inflow_m3h": 132.512,
+      "cod_in": 229.054,
+      "nh3n_in": 27.795,
+      "tn_in": 40.829,
+      "tp_in": 3.797,
+      "cod_out": 27.758,
+      "nh3n_out": 6.23,
+      "tn_out": 11.076,
+      "tp_out": 0.285,
+      "ss_out": 5.476,
+      "do_aerobic_1": 1.934,
+      "do_aerobic_2": 2.244,
+      "air_flow_m3h": 867.739,
+      "mlss": 3460.941,
+      "blower_kw": 15.393,
+      "carbon_dose_kgh": 5.622,
+      "pac_dose_kgh": 1.839
+    }
+  },
+  "work_orders": {
+    "total": 0,
+    "counts": {
+      "待处理": 0,
+      "处理中": 0,
+      "已关闭": 0
+    }
+  },
+  "active_scenarios": []
+}

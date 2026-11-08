@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "dataset_sha256": "4a10274619682e21fc973ff349d0eb883f674ed25156563232768ffcb407a460",
+    "prompt_sha256": "44e0ac0ac7b644c4bcde37f110ac9fe4ecc73170844972bbc3a7cd57d5b95342",
+    "examples_sha256": "f5d3e8cff3bc8b106c7d779f05d837e4b224f01eed14dba3214661876bbfc89d",
+    "schema_sha256": "4971ffbeeed8f02f1dae54a6564c3f43193c40f87cc5e57440460c2279a6be76",
+    "max_tokens": 4000,
+    "now": "2026-11-05T12:00:00+08:00",
+    "seed": 7,
+    "days": 7,
+    "step_s": 60.0,
+    "fingerprint": "ebcf2a528b536727",
+    "model_requested": "deepseek-flash",
+    "provider": "deepseek",
+    "mode": "replay",
+    "concurrency": 4,
+    "generated_at": "2026-11-07T22:31:04.269116+08:00",
+    "configs": {
+      "full": {
+        "use_fewshot": true,
+        "fewshot_k": 3,
+        "prune_schema": true,
+        "max_repairs": 2,
+        "max_tokens": 4000
+      }
+    },
+    "models_returned": [
+      "deepseek-flash"
+    ],
+    "label": "raw-sample-v1-guard"
+  },
+  "summaries": {
+    "full": {
+      "n": 64,
+      "correct": 63,
+      "ex": 0.984375,
+      "ex_answerable": 0.9833333333333333,
+      "false_refusal": 0,
+      "repair_rate": 0.015625,
+      "repair_success": 1.0,
+      "lat_p50": 2168.85,
+      "lat_p95": 5314.4,
+      "tokens": 2312.953125,
+      "prompt_tokens": 1973.28125,
+      "by_cat": {
+        "基础信息": 1.0,
+        "实时值": 1.0,
+        "统计汇总": 1.0,
+        "时间序列": 1.0,
+        "排序TopN": 1.0,
+        "达标超标": 1.0,
+        "设备": 1.0,
+        "事件追溯": 0.8333333333333334,
+        "复合计算": 1.0,
+        "拒答": 1.0
+      }
+    }
+  }
+}

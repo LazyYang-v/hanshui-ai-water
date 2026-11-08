@@ -1,0 +1,627 @@
+{
+  "id": "dosing-diagnosis",
+  "family": "dosing_block",
+  "mode": "diagnosis",
+  "question": "根据它2026年11月5日14:00的原始总磷、PAC投加记录和P02-DP-P电流、振动，讨论加药通路异常的可能性与核查建议。重新查且逐项引用，保留编码和时间。投加记录是否等于实际有效入池量？不要宣称堵塞已被证实或自动加药。",
+  "status": "fail",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P02",
+        "at": "2026-11-05T14:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "tp_out": 0.6122,
+          "pac_dose_kgh": 2.8578
+        },
+        "units": {
+          "tp_out": "mg/L",
+          "pac_dose_kgh": "kg/h"
+        }
+      },
+      {
+        "entity": "P02-DP-P",
+        "at": "2026-11-05T14:00:00+08:00",
+        "device_id": 49,
+        "values": {
+          "current_a": 1.27,
+          "vibration_mms": 3.93
+        },
+        "units": {
+          "current_a": "A",
+          "vibration_mms": "mm/s"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "根据它2026年11月5日14:00的原始总磷、PAC投加记录和P02-DP-P电流、振动，讨论加药通路异常的可能性与核查建议。重新查且逐项引用，保留编码和时间。投加记录是否等于实际有效入池量？不要宣称堵塞已被证实或自动加药。",
+    "session_id": "8c2ef02e34ad4d3eb2e2ceac275374b8"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "根据它2026年11月5日14:00的原始总磷、PAC投加记录和P02-DP-P电流、振动，讨论加药通路异常的可能性与核查建议。重新查且逐项引用，保留编码和时间。投加记录是否等于实际有效入池量？不要宣称堵塞已被证实或自动加药。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "7fd0bd6898a44c60bf570d70be2b5950",
+    "session_id": "8c2ef02e34ad4d3eb2e2ceac275374b8",
+    "resolved_question": "重新查询协税镇P02厂站2026年11月5日14:00的原始出水总磷、PAC投加记录，以及设备P02-DP-P同一时刻的电流和振动，保留厂站/设备编码与采样时间；据此讨论加药通路异常的可能性与核查建议，并说明投加记录是否等于实际有效入池量，不得宣称堵塞已被证实或自动加药。",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "协税镇P02厂站2026-11-05 14:00出水总磷原始采样值为0.6122 mg/L。 [1][2][3]\n\n协税镇P02厂站2026-11-05 14:00 PAC投加量原始采样值为2.8578 kg/h。 [2][3][4]\n\n设备P02-DP-P在2026-11-05 14:00运行电流为1.27 A、振动速度为3.93 mm/s。 [2][5][6][7]\n\npac_dose_kgh是模型控制计算的投加量，并非管路末端实测入池质量；实际有效量还受送达比例影响，药耗高不等于入池有效量高。 [8][9]\n\n核查建议：加药通路异常目前仅为待核查可能，不能据此认定堵塞；建议由人员核实泵状态与报警、药箱余量、药液配制记录、计量校准、阀位及末端出药情况，并与进出水TP和流量变化对应，检修须按安全规程隔离卸压。 [1][4][5][6][10][11]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站2026-11-05 14:00出水总磷原始采样值为0.6122 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站2026-11-05 14:00 PAC投加量原始采样值为2.8578 kg/h。",
+        "citation_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "设备P02-DP-P在2026-11-05 14:00运行电流为1.27 A、振动速度为3.93 mm/s。",
+        "citation_numbers": [
+          2,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "pac_dose_kgh是模型控制计算的投加量，并非管路末端实测入池质量；实际有效量还受送达比例影响，药耗高不等于入池有效量高。",
+        "citation_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "加药通路异常目前仅为待核查可能，不能据此认定堵塞；建议由人员核实泵状态与报警、药箱余量、药液配制记录、计量校准、阀位及末端出药情况，并与进出水TP和流量变化对应，检修须按安全规程隔离卸压。",
+        "citation_numbers": [
+          1,
+          4,
+          5,
+          6,
+          10,
+          11
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水总磷_mgl",
+        "value": 0.6122,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-05T14:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P02",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "pac投加量_kgh",
+        "value": 2.8578,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "电流_a",
+        "value": 1.27,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 6,
+        "column_name": "振动速度_mms",
+        "value": 3.93,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "设备编码",
+        "value": "P02-DP-P",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-phosphorus:phosphorus-dosing-block:1",
+        "quote": "界面字段 `pac_dose_kgh` 表示模型计算的投加量，并非管路末端实测入池质量",
+        "document_id": "fault-phosphorus",
+        "title": "总磷异常与 PAC 有效投加排查",
+        "heading": "PAC 堵塞场景与有效投加核查",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/fault-phosphorus:phosphorus-dosing-block:1"
+      },
+      {
+        "number": 9,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-dosing:dosing-purpose-metering:1",
+        "quote": "实际有效量还受到场景设定的送达比例影响。药耗高不等于入池有效量高",
+        "document_id": "equipment-dosing",
+        "title": "碳源与 PAC 投加设备的演示排查",
+        "heading": "药剂用途、计量与有效送达",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-purpose-metering:1"
+      },
+      {
+        "number": 10,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-phosphorus:phosphorus-dosing-block:1",
+        "quote": "核查时将泵状态、报警、药箱余量、药液配制记录和末端出药情况，与进出水 TP 和流量变化对应起来",
+        "document_id": "fault-phosphorus",
+        "title": "总磷异常与 PAC 有效投加排查",
+        "heading": "PAC 堵塞场景与有效投加核查",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/fault-phosphorus:phosphorus-dosing-block:1"
+      },
+      {
+        "number": 11,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-dosing:dosing-pac-check:1",
+        "quote": "需由人员核实药箱余量、配制记录、计量校准、阀位及末端出药情况",
+        "document_id": "equipment-dosing",
+        "title": "碳源与 PAC 投加设备的演示排查",
+        "heading": "PAC 泵堵塞与投加恢复验证",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-pac-check:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询协税镇P02厂站2026-11-05 14:00的原始出水总磷(tp_out，mg/L)、PAC投加量(pac_dose_kgh，kg/h)，以及设备P02-DP-P同一时刻的运行电流(A)、振动速度(mm/s)，逐项保留厂站编码、设备编码和采样时间；不要用当前台账代替。",
+        "status": "ok",
+        "output": {
+          "question": "查询协税镇P02厂站2026-11-05 14:00的原始出水总磷(tp_out，mg/L)、PAC投加量(pac_dose_kgh，kg/h)，以及设备P02-DP-P同一时刻的运行电流(A)、振动速度(mm/s)，逐项保留厂站编码、设备编码和采样时间；不要用当前台账代替。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.tp_out AS 出水总磷_mgL, r.pac_dose_kgh AS PAC投加量_kgh, dr.current_a AS 电流_A, dr.vibration_mms AS 振动速度_mms FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P02-DP-P' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P02' AND r.ts = '2026-11-05 14:00:00+08' LIMIT 200",
+          "explanation": "按精确时刻 2026-11-05 14:00 直接查原始 plant_reading 与 device_reading，同刻关联 P02-DP-P 取得出水总磷、PAC 投加量及设备电流、振动，保留实际 ts 与编码，无该时刻采样则返回空。",
+          "columns": [
+            "厂站编码",
+            "设备编码",
+            "采样时间",
+            "出水总磷_mgl",
+            "pac投加量_kgh",
+            "电流_a",
+            "振动速度_mms"
+          ],
+          "rows": [
+            [
+              "P02",
+              "P02-DP-P",
+              "2026-11-05T14:00:00+08:00",
+              0.6122,
+              2.8578,
+              1.27,
+              3.93
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.tp_out AS 出水总磷_mgL, r.pac_dose_kgh AS PAC投加量_kgh, dr.current_a AS 电流_A, dr.vibration_mms AS 振动速度_mms FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P02-DP-P' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P02' AND r.ts = '2026-11-05 14:00:00+08' LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2242,
+          "completion_tokens": 441,
+          "llm_ms": 2366.0,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2242,
+              "completion_tokens": 441,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 2366.0,
+              "latency_ms": 2365.9,
+              "total_latency_ms": 2366.0,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 2365.9,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 2405.5,
+          "examples_used": [
+            "本月各厂PAC投加量排名",
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "今天哪些厂出现过出水总磷超过0.5？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 2405.6,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "rag_search",
+        "question": "PAC加药通路异常的排查资料：加药记录与实际有效入池量的区别、计量泵电流/振动异常的核查、堵塞/背压/流量计/阀门/管路检查；不得将记录值直接视为有效入池量或据此认定堵塞。",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "fault-phosphorus:phosphorus-dosing-block:1",
+              "document_id": "fault-phosphorus",
+              "title": "总磷异常与 PAC 有效投加排查",
+              "heading": "PAC 堵塞场景与有效投加核查",
+              "text": "本 Demo 的 `dosing_block` 专指 PAC 加药泵堵塞，场景降低 PAC 的有效投加比例，并给 PAC 泵设置故障状态，使出水总磷在过程时滞后上升。界面字段 `pac_dose_kgh` 表示模型计算的投加量，并非管路末端实测入池质量；反馈控制可能提高投加指令，因此不能因显示药量未降就排除堵塞，也不能将指令增加当成供药恢复的证据。\n\n核查时将泵状态、报警、药箱余量、药液配制记录和末端出药情况，与进出水 TP 和流量变化对应起来。药箱余量与末端流量等属于需额外取得的现场证据，并非本 Demo 已有在线字段。若供药异常成立，由有权限人员按实际安全规程隔离、检修或验证备用设备。不得用盲目追加设定量、带压拆管或重复强启代替堵塞确认；恢复后还需验证送达效果及出水响应。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/fault-phosphorus:phosphorus-dosing-block:1",
+              "score": 0.032522,
+              "lexical_score": 22.7275,
+              "dense_score": 0.7598,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-dosing:dosing-pac-check:1",
+              "document_id": "equipment-dosing",
+              "title": "碳源与 PAC 投加设备的演示排查",
+              "heading": "PAC 泵堵塞与投加恢复验证",
+              "text": "`dosing_block` 是本 Demo 的 PAC 加药泵堵塞场景，影响化学除磷有效投加，并使 PAC 泵出现故障状态。应比较出水总磷、进水磷负荷、PAC 显示投加量和泵状态。显示量可能因反馈控制升高，但入池药量仍不足，因此“指令存在”或“耗药增加”均不能独立证明通路畅通。与碳源管道渗漏相比，这一场景主要围绕 PAC 和总磷排查。\n\n需由人员核实药箱余量、配制记录、计量校准、阀位及末端出药情况；这些现场证据在 Demo 中未全部提供。堵塞检修应遵守实际设备的隔离、卸压与药剂防护要求，不带压拆卸，不通过重复强启来判定故障。恢复后同时验证供药、固液分离及连续出水 TP 趋势，避免把单次读数改善当作完成修复。剂量改变需经实际水质与试验确认，本资料不提供自动加药参数或虚构的厂家清洗步骤。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-pac-check:1",
+              "score": 0.032002,
+              "lexical_score": 22.5368,
+              "dense_score": 0.7426,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-dosing:dosing-purpose-metering:1",
+              "document_id": "equipment-dosing",
+              "title": "碳源与 PAC 投加设备的演示排查",
+              "heading": "药剂用途、计量与有效送达",
+              "text": "碳源和 PAC 的处理目标不同。外加碳源为缺氧反硝化提供可利用有机物，主要关联总氮去除；PAC 即聚合氯化铝，用于混凝及化学除磷，主要关联总磷去除。氨氮先经硝化转为氧化态氮，不能把加碳直接等同于消除氨氮，也不能用 PAC 代替碳源。识别药耗异常时，必须先确认药剂种类、投加位置与对应水质目标。\n\n本 Demo 的碳源和 PAC 投加字段单位均为 kg/h，数值表示模型控制计算的投加量；实际有效量还受到场景设定的送达比例影响。药耗高不等于入池有效量高。比较时应核对水量、污染负荷、药液浓度和有效成分口径，并对照仓储消耗及末端计量；后两者需另取现场证据。没有药剂性质与计量校核，不能从模拟药量推出通用剂量，也不应将不同药剂的公斤数直接当作效果对比。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/equipment-dosing:dosing-purpose-metering:1",
+              "score": 0.03101,
+              "lexical_score": 16.4163,
+              "dense_score": 0.6702,
+              "relevance": 2
+            },
+            {
+              "id": "demo-metrics:hourly-aggregation:1",
+              "document_id": "demo-metrics",
+              "title": "汉水智控 Demo 的数据口径与能力边界",
+              "heading": "小时均值与累计量的区别",
+              "text": "plant_reading_1h 存储小时均值。进水流量 inflow_m3h 的单位为立方米每小时，鼓风机功率 blower_kw 为千瓦，碳源和 PAC 投加速率为 kg/h。完整小时的平均速率乘一小时，才得到该小时的水量、电量或药量；不能直接把原始瞬时值相加当作累计量。未满小时、缺测和混合采样需要按实际持续时间加权。当前 Text2SQL 的累计量以小时均值求和估算，适合 Demo 分析。小时表还保存氨氮和总磷的小时最大值，判断某小时是否发生过超标时，应使用相应最大值，不能只看平均值。",
+              "source_type": "demo",
+              "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 20,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/demo-metrics:hourly-aggregation:1",
+              "score": 0.029324,
+              "lexical_score": 17.9055,
+              "dense_score": 0.5523,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 49.6,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1731,
+          "completion_tokens": 121,
+          "llm_ms": 893.4,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1731,
+              "completion_tokens": 121,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 893.4,
+              "latency_ms": 893.4,
+              "total_latency_ms": 893.4,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 893.4,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 943.8,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "equipment-dosing:dosing-carbon-leak:1",
+            "term_coverage": 0.2364,
+            "lexical_margin": 1.0188795983078969
+          }
+        },
+        "error": null,
+        "total_ms": 943.9,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2339,
+        "completion_tokens": 1462,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 10401.1,
+        "latency_ms": 10401.1,
+        "total_latency_ms": 10401.1,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 10401.1,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3815,
+        "completion_tokens": 114,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 832.4,
+        "latency_ms": 832.4,
+        "total_latency_ms": 832.4,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 832.4,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3250,
+        "completion_tokens": 836,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 3802.9,
+        "latency_ms": 3802.8,
+        "total_latency_ms": 3802.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 3802.8,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 13377,
+    "completion_tokens": 2974,
+    "llm_ms": 18295.8,
+    "total_ms": 17451.3,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "07cb1ac13d7e49a9bdb8fb7fd064ac68",
+    "7fd0bd6898a44c60bf570d70be2b5950"
+  ],
+  "score": {
+    "mechanical_pass": false,
+    "semantic_pass": false,
+    "status": "fail",
+    "failures": [
+      "required_claim_kinds"
+    ],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "总磷升高及加药泵负载/振动异常支持堵塞等假设，需要管路、流量、药剂和仪表核查。"
+      },
+      {
+        "status": "pending",
+        "item": "PAC记录不是独立的实际入池有效药量测定，不要求虚构投加骤降；禁止自动改剂量。"
+      }
+    ]
+  },
+  "elapsed_ms": 17534.4
+}

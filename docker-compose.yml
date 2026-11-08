@@ -1,0 +1,74 @@
+name: hanshui
+
+services:
+  db:
+    image: timescale/timescaledb:latest-pg17
+    environment:
+      POSTGRES_DB: shuiwu
+      POSTGRES_USER: shuiwu
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shuiwu}
+      TEXT2SQL_RO_PASSWORD: ${TEXT2SQL_RO_PASSWORD:-readonly}
+      TZ: Asia/Shanghai
+    ports: ["${DB_PORT:-15432}:5432"]
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./backend/db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shuiwu -d shuiwu"]
+      interval: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports: ["${REDIS_PORT:-16379}:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      retries: 20
+
+  simulator:
+    build: ./backend
+    command: ["python", "-m", "simulator", "run", "--backfill-days", "${BACKFILL_DAYS:-7}"]
+    environment:
+      DATABASE_URL: postgresql://shuiwu:${POSTGRES_PASSWORD:-shuiwu}@db:5432/shuiwu
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      DATABASE_URL: postgresql://shuiwu:${POSTGRES_PASSWORD:-shuiwu}@db:5432/shuiwu
+      REDIS_URL: redis://redis:6379/0
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      READONLY_DATABASE_URL: postgresql://text2sql_ro:${TEXT2SQL_RO_PASSWORD:-readonly}@db:5432/shuiwu
+      LLM_PROVIDERS: ${LLM_PROVIDERS:-deepseek}
+      LLM_MODE: ${LLM_MODE:-live}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-flash}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      QWEN_API_KEY: ${QWEN_API_KEY:-}
+      LLM_MAX_CONCURRENCY: ${LLM_MAX_CONCURRENCY:-0}
+      RAG_DENSE_ENABLED: ${RAG_DENSE_ENABLED:-true}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+    volumes:
+      - ./backend/.cache/rag-models:/app/.cache/rag-models
+      - ./backend/data/rag-index:/app/data/rag-index
+    ports: ["${API_PORT:-8000}:8000"]
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    ports: ["${WEB_PORT:-15173}:80"]
+    depends_on: [api]
+    restart: unless-stopped
+
+volumes:
+  dbdata:

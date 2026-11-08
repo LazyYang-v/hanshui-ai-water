@@ -1,0 +1,635 @@
+{
+ "generated_at": "2026-11-08T04:22:52",
+ "machine_before": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 3.5,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": "127.0.0.1,localhost"
+ },
+ "overhead": {
+  "gateway_c1": {
+   "n": 40,
+   "concurrency": 1,
+   "ok": 40,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 2.0,
+   "latency_ms": {
+    "n": 40,
+    "p50": 504.1,
+    "p95": 514.3,
+    "p99": 534.1,
+    "max": 534.1
+   },
+   "overhead_ms": {
+    "n": 40,
+    "p50": 2.8,
+    "p95": 10.4,
+    "p99": 33.2,
+    "max": 33.2
+   },
+   "attempts": {
+    "1": 40
+   },
+   "retry_wait_ms": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "max": null
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:ok": 40
+   },
+   "providers": {
+    "primary": 40
+   }
+  },
+  "raw_c1": {
+   "n": 40,
+   "concurrency": 1,
+   "status": {
+    "200": 40
+   },
+   "throughput_rps": 2.0,
+   "overhead_ms": {
+    "n": 40,
+    "p50": 2.7,
+    "p95": 3.5,
+    "p99": 4.9,
+    "max": 4.9
+   }
+  },
+  "gateway_c10": {
+   "n": 500,
+   "concurrency": 10,
+   "ok": 500,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 19.7,
+   "latency_ms": {
+    "n": 500,
+    "p50": 504.7,
+    "p95": 513.6,
+    "p99": 521.2,
+    "max": 528.9
+   },
+   "overhead_ms": {
+    "n": 500,
+    "p50": 4.2,
+    "p95": 12.7,
+    "p99": 20.8,
+    "max": 28.5
+   },
+   "attempts": {
+    "1": 500
+   },
+   "retry_wait_ms": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "max": null
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:ok": 500
+   },
+   "providers": {
+    "primary": 500
+   }
+  },
+  "raw_c10": {
+   "n": 500,
+   "concurrency": 10,
+   "status": {
+    "200": 500
+   },
+   "throughput_rps": 19.8,
+   "overhead_ms": {
+    "n": 500,
+    "p50": 3.6,
+    "p95": 11.8,
+    "p99": 19.6,
+    "max": 30.6
+   }
+  },
+  "gateway_c50": {
+   "n": 500,
+   "concurrency": 50,
+   "ok": 500,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 93.8,
+   "latency_ms": {
+    "n": 500,
+    "p50": 526.0,
+    "p95": 556.4,
+    "p99": 562.2,
+    "max": 569.9
+   },
+   "overhead_ms": {
+    "n": 500,
+    "p50": 25.7,
+    "p95": 55.5,
+    "p99": 59.5,
+    "max": 69.1
+   },
+   "attempts": {
+    "1": 500
+   },
+   "retry_wait_ms": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "max": null
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:ok": 500
+   },
+   "providers": {
+    "primary": 500
+   }
+  },
+  "raw_c50": {
+   "n": 500,
+   "concurrency": 50,
+   "status": {
+    "200": 500
+   },
+   "throughput_rps": 94.1,
+   "overhead_ms": {
+    "n": 500,
+    "p50": 21.9,
+    "p95": 43.9,
+    "p99": 52.5,
+    "max": 54.0
+   }
+  },
+  "gateway_c100": {
+   "n": 500,
+   "concurrency": 100,
+   "ok": 500,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 174.2,
+   "latency_ms": {
+    "n": 500,
+    "p50": 564.6,
+    "p95": 571.0,
+    "p99": 575.6,
+    "max": 581.4
+   },
+   "overhead_ms": {
+    "n": 500,
+    "p50": 63.0,
+    "p95": 70.2,
+    "p99": 74.5,
+    "max": 80.0
+   },
+   "attempts": {
+    "1": 500
+   },
+   "retry_wait_ms": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "max": null
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:ok": 500
+   },
+   "providers": {
+    "primary": 500
+   }
+  },
+  "raw_c100": {
+   "n": 500,
+   "concurrency": 100,
+   "status": {
+    "200": 500
+   },
+   "throughput_rps": 178.2,
+   "overhead_ms": {
+    "n": 500,
+    "p50": 51.9,
+    "p95": 60.8,
+    "p99": 62.9,
+    "max": 68.6
+   }
+  }
+ },
+ "ratelimit": {
+  "retry_after_1": {
+   "n": 300,
+   "concurrency": 50,
+   "ok": 22,
+   "errors": {
+    "所有厂商均不可用": 278
+   },
+   "success_rate": 0.0733,
+   "throughput_rps": 176.5,
+   "latency_ms": {
+    "n": 22,
+    "p50": 524.6,
+    "p95": 1660.2,
+    "p99": 1696.9,
+    "max": 1696.9
+   },
+   "overhead_ms": {
+    "n": 22,
+    "p50": 21.0,
+    "p95": 1159.4,
+    "p99": 1196.6,
+    "max": 1196.6
+   },
+   "attempts": {
+    "1": 20,
+    "2": 2
+   },
+   "retry_wait_ms": {
+    "n": 2,
+    "p50": 1136.4,
+    "p95": 1173.6,
+    "p99": 1173.6,
+    "max": 1173.6
+   },
+   "queue_ms": null,
+   "failed_latency_ms": {
+    "n": 278,
+    "p50": 0.0,
+    "p95": 18.9,
+    "p99": 19.2,
+    "max": 19.2
+   },
+   "attempt_outcomes": {
+    "primary:429": 30,
+    "primary:ok": 22
+   },
+   "providers": {
+    "primary": 22
+   },
+   "server": {
+    "requests": 52,
+    "ok": 22,
+    "429": 30,
+    "503": 0,
+    "inflight": 0,
+    "max_inflight": 20
+   },
+   "gateway": {
+    "primary": {
+     "calls": 52,
+     "errors": 30,
+     "rate_limited": null,
+     "retries": 2,
+     "circuit": "open",
+     "times_opened": null,
+     "queue_p95_ms": null
+    }
+   }
+  },
+  "no_retry_after": {
+   "n": 300,
+   "concurrency": 50,
+   "ok": 22,
+   "errors": {
+    "所有厂商均不可用": 278
+   },
+   "success_rate": 0.0733,
+   "throughput_rps": 283.4,
+   "latency_ms": {
+    "n": 22,
+    "p50": 520.5,
+    "p95": 1052.9,
+    "p99": 1054.2,
+    "max": 1054.2
+   },
+   "overhead_ms": {
+    "n": 22,
+    "p50": 19.7,
+    "p95": 550.3,
+    "p99": 553.7,
+    "max": 553.7
+   },
+   "attempts": {
+    "1": 20,
+    "2": 2
+   },
+   "retry_wait_ms": {
+    "n": 2,
+    "p50": 529.8,
+    "p95": 534.1,
+    "p99": 534.1,
+    "max": 534.1
+   },
+   "queue_ms": null,
+   "failed_latency_ms": {
+    "n": 278,
+    "p50": 0.0,
+    "p95": 15.6,
+    "p99": 16.2,
+    "max": 16.6
+   },
+   "attempt_outcomes": {
+    "primary:429": 30,
+    "primary:ok": 22
+   },
+   "providers": {
+    "primary": 22
+   },
+   "server": {
+    "requests": 52,
+    "ok": 22,
+    "429": 30,
+    "503": 0,
+    "inflight": 0,
+    "max_inflight": 20
+   },
+   "gateway": {
+    "primary": {
+     "calls": 52,
+     "errors": 30,
+     "rate_limited": null,
+     "retries": 2,
+     "circuit": "open",
+     "times_opened": null,
+     "queue_p95_ms": null
+    }
+   }
+  }
+ },
+ "fallback": {
+  "n": 300,
+  "concurrency": 50,
+  "ok": 300,
+  "errors": {},
+  "success_rate": 1.0,
+  "throughput_rps": 61.3,
+  "latency_ms": {
+   "n": 300,
+   "p50": 825.6,
+   "p95": 838.1,
+   "p99": 839.9,
+   "max": 842.9
+  },
+  "overhead_ms": {
+   "n": 300,
+   "p50": 27.1,
+   "p95": 40.8,
+   "p99": 43.6,
+   "max": 242.0
+  },
+  "attempts": {
+   "1": 291,
+   "2": 9
+  },
+  "retry_wait_ms": {
+   "n": 2,
+   "p50": 216.7,
+   "p95": 224.0,
+   "p99": 224.0,
+   "max": 224.0
+  },
+  "queue_ms": null,
+  "failed_latency_ms": null,
+  "attempt_outcomes": {
+   "primary:503": 9,
+   "primary:ok": 43,
+   "secondary:ok": 257
+  },
+  "providers": {
+   "primary": 43,
+   "secondary": 257
+  },
+  "gateway": {
+   "primary": {
+    "calls": 52,
+    "errors": 9,
+    "rate_limited": null,
+    "retries": 2,
+    "circuit": "open",
+    "times_opened": null,
+    "queue_p95_ms": null
+   },
+   "secondary": {
+    "calls": 257,
+    "errors": 0,
+    "rate_limited": null,
+    "retries": 0,
+    "circuit": "closed",
+    "times_opened": null,
+    "queue_p95_ms": null
+   }
+  }
+ },
+ "stream": {
+  "c1": {
+   "n": 30,
+   "concurrency": 1,
+   "ok": 30,
+   "errors": {},
+   "throughput_rps": 0.4,
+   "ttft_ms": {
+    "n": 30,
+    "p50": 381.5,
+    "p95": 547.4,
+    "p99": 587.2,
+    "max": 587.2
+   },
+   "ttft_overhead_ms": {
+    "n": 30,
+    "p50": 2.6,
+    "p95": 3.8,
+    "p99": 6.3,
+    "max": 6.3
+   },
+   "total_ms": {
+    "n": 30,
+    "p50": 2510.4,
+    "p95": 2662.1,
+    "p99": 2688.3,
+    "max": 2688.3
+   }
+  },
+  "c50": {
+   "n": 300,
+   "concurrency": 50,
+   "ok": 300,
+   "errors": {},
+   "throughput_rps": 18.9,
+   "ttft_ms": {
+    "n": 300,
+    "p50": 425.2,
+    "p95": 658.1,
+    "p99": 860.0,
+    "max": 1038.4
+   },
+   "ttft_overhead_ms": {
+    "n": 300,
+    "p50": 2.1,
+    "p95": 17.6,
+    "p99": 18.2,
+    "max": 18.5
+   },
+   "total_ms": {
+    "n": 300,
+    "p50": 2526.0,
+    "p95": 2773.3,
+    "p99": 2951.8,
+    "max": 3136.9
+   }
+  }
+ },
+ "outage": {
+  "fast_503": {
+   "n": 300,
+   "concurrency": 50,
+   "ok": 300,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 91.3,
+   "latency_ms": {
+    "n": 300,
+    "p50": 523.0,
+    "p95": 551.2,
+    "p99": 552.9,
+    "max": 755.6
+   },
+   "overhead_ms": {
+    "n": 300,
+    "p50": 23.2,
+    "p95": 50.8,
+    "p99": 52.4,
+    "max": 253.6
+   },
+   "attempts": {
+    "2": 48,
+    "3": 2,
+    "1": 250
+   },
+   "retry_wait_ms": {
+    "n": 2,
+    "p50": 229.4,
+    "p95": 232.8,
+    "p99": 232.8,
+    "max": 232.8
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:503": 52,
+    "secondary:ok": 300
+   },
+   "providers": {
+    "secondary": 300
+   },
+   "gateway": {
+    "primary": {
+     "calls": 52,
+     "errors": 52,
+     "rate_limited": null,
+     "retries": 2,
+     "circuit": "open",
+     "times_opened": null,
+     "queue_p95_ms": null
+    },
+    "secondary": {
+     "calls": 300,
+     "errors": 0,
+     "rate_limited": null,
+     "retries": 0,
+     "circuit": "closed",
+     "times_opened": null,
+     "queue_p95_ms": null
+    }
+   }
+  },
+  "hang": {
+   "n": 300,
+   "concurrency": 50,
+   "ok": 300,
+   "errors": {},
+   "success_rate": 1.0,
+   "throughput_rps": 51.8,
+   "latency_ms": {
+    "n": 300,
+    "p50": 533.4,
+    "p95": 2583.6,
+    "p99": 2585.4,
+    "max": 4754.9
+   },
+   "overhead_ms": {
+    "n": 300,
+    "p50": 33.1,
+    "p95": 2080.1,
+    "p99": 2081.5,
+    "max": 4254.8
+   },
+   "attempts": {
+    "2": 48,
+    "1": 250,
+    "3": 2
+   },
+   "retry_wait_ms": {
+    "n": 2,
+    "p50": 225.1,
+    "p95": 229.9,
+    "p99": 229.9,
+    "max": 229.9
+   },
+   "queue_ms": null,
+   "failed_latency_ms": null,
+   "attempt_outcomes": {
+    "primary:ReadTimeout": 52,
+    "secondary:ok": 300
+   },
+   "providers": {
+    "secondary": 300
+   },
+   "gateway": {
+    "primary": {
+     "calls": 52,
+     "errors": 52,
+     "rate_limited": null,
+     "retries": 2,
+     "circuit": "open",
+     "times_opened": null,
+     "queue_p95_ms": null
+    },
+    "secondary": {
+     "calls": 300,
+     "errors": 0,
+     "rate_limited": null,
+     "retries": 0,
+     "circuit": "closed",
+     "times_opened": null,
+     "queue_p95_ms": null
+    }
+   }
+  }
+ },
+ "machine_after": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 4.0,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": "127.0.0.1,localhost"
+ }
+}

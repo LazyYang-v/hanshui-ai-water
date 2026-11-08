@@ -1,0 +1,93 @@
+{
+ "name": "shuiwu-inspect-yolo11n-e2_mixed",
+ "task": "detect",
+ "classes": [
+  "floating_debris",
+  "leak"
+ ],
+ "class_labels": {
+  "floating_debris": "漂浮物",
+  "leak": "渗漏"
+ },
+ "imgsz": 640,
+ "conf": 0.25,
+ "iou": 0.5,
+ "experiment": "e2_mixed",
+ "training": {
+  "exp": "e2_mixed",
+  "epochs": 20,
+  "imgsz": 640,
+  "batch": 16,
+  "device": "mps",
+  "seed": 0,
+  "train_dirs": [
+   "data/vision/synth/images/train",
+   "data/vision/floatwaste/images/train"
+  ],
+  "minutes": 114.3,
+  "machine": "macOS-26.0.1-arm64-arm-64bit"
+ },
+ "license": {
+  "framework": "Ultralytics YOLO（AGPL-3.0）。作品展示与学习可用；闭源商用分发须开源整个作品或购买 Ultralytics 商业授权",
+  "weights": "由 Ultralytics yolo11n.pt（COCO 预训练）微调，权重同受 AGPL-3.0 约束",
+  "data": "合成数据由本仓库 vision/synth.py 生成；真实漂浮物图片来自 FloatWaste（OliviaWuYJ/sc-floatwaste，CC BY 4.0，DOI 10.5281/zenodo.21934286），子集经缩放与类别合并"
+ },
+ "limitations": [
+  "渗漏（leak）只有程序合成数据，没有真实管廊图片验证，真实场景效果未知",
+  "漂浮物真实验证集是 FloatWaste 的河道/排水沟图片，不是污水厂池面；厂内摄像头需另行采集标注",
+  "合成 test 与训练同一生成器，指标偏乐观，只说明模型学会了生成器定义的视觉线索"
+ ],
+ "metrics": {
+  "synth_test": {
+   "images": 300,
+   "boxes": 825,
+   "floating_debris": {
+    "gt": 659,
+    "ap50": 0.9405542093694058,
+    "ap50_95": 0.7590104614273634,
+    "alarm_conf": 0.45,
+    "precision": 0.988155668358714,
+    "recall": 0.8861911987860395,
+    "image_hit_rate": 1.0,
+    "images_with_target": 148,
+    "image_false_alarm_rate": 0.0,
+    "images_without_target": 152
+   },
+   "leak": {
+    "gt": 166,
+    "ap50": 0.9856579630347535,
+    "ap50_95": 0.897672998237856,
+    "alarm_conf": 0.5,
+    "precision": 0.975609756097561,
+    "recall": 0.963855421686747,
+    "image_hit_rate": 1.0,
+    "images_with_target": 118,
+    "image_false_alarm_rate": 0.0,
+    "images_without_target": 182
+   }
+  },
+  "real_val": {
+   "images": 203,
+   "boxes": 787,
+   "floating_debris": {
+    "gt": 787,
+    "ap50": 0.6064841942320086,
+    "ap50_95": 0.39164162370779965,
+    "alarm_conf": 0.45,
+    "precision": 0.7945492662473794,
+    "recall": 0.4815756035578145,
+    "image_hit_rate": 0.8080808080808081,
+    "images_with_target": 198,
+    "image_false_alarm_rate": 0.4,
+    "images_without_target": 5
+   },
+   "leak": {
+    "gt": 0,
+    "false_alarm_images": 0,
+    "images": 203,
+    "alarm_conf": 0.5
+   }
+  }
+ },
+ "metrics_source": "evals/vision/results/pipeline-e2_mixed.json"
+}

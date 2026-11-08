@@ -1,0 +1,108 @@
+{
+ "generated_at": "2026-11-08T04:39:53",
+ "machine_before": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 3.7,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": null
+ },
+ "model": [
+  "deepseek-flash"
+ ],
+ "prompt": "用一句话（不超过40字）说明污水处理厂曝气池溶解氧偏低可能的一个原因。编号{i}。",
+ "n": 100,
+ "concurrency": 50,
+ "stream": {
+  "wall_s": 12.5,
+  "ok": 100,
+  "errors": {},
+  "ttft_ms": {
+   "n": 22,
+   "p50": 2902.7,
+   "p95": 3866.4,
+   "p99": 6888.8,
+   "max": 6888.8
+  },
+  "total_ms": {
+   "n": 100,
+   "p50": 2853.2,
+   "p95": 4823.9,
+   "p99": 7069.9,
+   "max": 10254.2
+  },
+  "tokens": {
+   "prompt": 5300,
+   "completion": 11868,
+   "retries": 0
+  }
+ },
+ "chat": {
+  "wall_s": 7.0,
+  "ok": 100,
+  "errors": {},
+  "latency_ms": {
+   "n": 100,
+   "p50": 1845.9,
+   "p95": 2595.0,
+   "p99": 5021.0,
+   "max": 5048.5
+  },
+  "tokens": {
+   "prompt": 5400,
+   "completion": 12000,
+   "retries": 0
+  }
+ },
+ "gateway": {
+  "mode": "live",
+  "cache_entries": 0,
+  "cache_hits": 0,
+  "requests": {
+   "calls": 200,
+   "successes": 200,
+   "errors": 0,
+   "cancelled": 0,
+   "total_latency_p50_ms": 2229.9,
+   "total_latency_p95_ms": 4877.3
+  },
+  "providers": {
+   "deepseek": {
+    "model": "deepseek-flash",
+    "calls": 200,
+    "errors": 0,
+    "retries": 0,
+    "cancelled": 0,
+    "rate_limited": 0,
+    "prompt_tokens": 10700,
+    "completion_tokens": 23868,
+    "cache_hit_tokens": 0,
+    "latency_p50_ms": 2229.9,
+    "latency_p95_ms": 4877.3,
+    "attempt_latency_p50_ms": 2229.9,
+    "attempt_latency_p95_ms": 4877.3,
+    "ttft_p50_ms": 2968.2,
+    "ttft_p95_ms": 3866.4,
+    "queue_p50_ms": null,
+    "queue_p95_ms": null,
+    "window_failure_rate": 0.0,
+    "circuit": "closed",
+    "times_opened": 0,
+    "inflight": 0
+   }
+  }
+ },
+ "machine_after": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 5.9,
+  "proxy_env": [
+   "HTTPS_PROXY",
+   "HTTP_PROXY"
+  ],
+  "no_proxy": null
+ }
+}

@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-11-07T13:53:25.476002+00:00",
+  "documents": 10,
+  "chunks": 35,
+  "fingerprint": "5fdab8671821d9134b7e45351520566913fb9e61aae9500742245fa27d0069da",
+  "dense_available": true,
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "dense_error": null,
+  "mode": "replay",
+  "model": "deepseek-flash",
+  "concurrency": 3,
+  "configs": {
+    "legacy": {
+      "candidates": 8,
+      "max_tokens": 4000,
+      "thinking": null,
+      "timeout_s": 120,
+      "skip_simple": false,
+      "cache_size": 0,
+      "cache_ttl_s": 600.0
+    },
+    "optimized": {
+      "candidates": 6,
+      "max_tokens": 1200,
+      "thinking": false,
+      "timeout_s": 8.0,
+      "skip_simple": true,
+      "cache_size": 128,
+      "cache_ttl_s": 600.0
+    }
+  },
+  "dataset_sha256": "ad54c79ba12a9363f965dd50955d3ec6fa27d851016138984802c8cd28fa3e76",
+  "rerank_prompt_sha256": "95205c39e9b08752e77096f560191bf3dbaf32ad3d042bd37cf1fd1b97ab4c54",
+  "note": "同题成对请求，交替先后顺序；并发数固定。冷请求含检索、等待和全部重排尝试。缓存命中单列。小规模开发集；超时仍计入质量与耗时，不能只统计成功重排。"
+}

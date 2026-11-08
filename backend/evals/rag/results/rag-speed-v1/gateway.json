@@ -1,0 +1,32 @@
+{
+  "mode": "record",
+  "cache_entries": 0,
+  "cache_hits": 0,
+  "requests": {
+    "calls": 67,
+    "successes": 67,
+    "errors": 0,
+    "cancelled": 0,
+    "total_latency_p50_ms": 2003.2,
+    "total_latency_p95_ms": 15048.8
+  },
+  "providers": {
+    "deepseek": {
+      "model": "deepseek-flash",
+      "calls": 67,
+      "errors": 0,
+      "retries": 0,
+      "cancelled": 0,
+      "prompt_tokens": 126108,
+      "completion_tokens": 56775,
+      "cache_hit_tokens": 44160,
+      "latency_p50_ms": 2003.2,
+      "latency_p95_ms": 15048.7,
+      "attempt_latency_p50_ms": 2003.2,
+      "attempt_latency_p95_ms": 15048.7,
+      "ttft_p50_ms": null,
+      "ttft_p95_ms": null,
+      "circuit": "closed"
+    }
+  }
+}

@@ -1,0 +1,160 @@
+# Text2SQL few-shot 示例库。按问题相似度挑选 3 条放进提示词。
+# 注意：不得与评测集（evals/text2sql/dataset.yaml）的问题重复，避免评测泄漏。
+# SQL 中的 now() 会被替换为演示时钟；会话时区为 Asia/Shanghai，date_trunc('day', ...) 即北京时间自然日。
+
+- q: 各厂站最新的出水氨氮和总磷是多少？
+  sql: |
+    SELECT DISTINCT ON (p.id) p.code AS 厂站编码, p.name AS 厂站, r.ts AS 采样时间,
+           r.nh3n_out AS 出水氨氮_mgL, r.tp_out AS 出水总磷_mgL
+    FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+    WHERE r.ts > now() - interval '30 minutes'
+    ORDER BY p.id, r.ts DESC
+
+- q: 梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流
+  sql: |
+    SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间,
+           r.cod_out AS 出水COD_mgL, r.tn_out AS 出水总氮_mgL,
+           dr.running AS 运行状态, dr.current_a AS 电流_A
+    FROM plant_reading r
+    JOIN plant p ON p.id = r.plant_id
+    JOIN device d ON d.plant_id = p.id AND d.code = 'P03-BL-1'
+    LEFT JOIN device_reading dr ON dr.device_id = d.id AND dr.ts = r.ts
+    WHERE p.code = 'P03'
+      AND r.ts IN ('2026-11-01 09:30:00+08', '2026-11-02 09:30:00+08')
+    ORDER BY r.ts
+
+- q: 南郑中心污水处理厂今天处理了多少水？
+  sql: |
+    SELECT round(sum(h.inflow_m3h)::numeric) AS 处理水量_m3
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE p.code = 'P01' AND h.hour >= date_trunc('day', now())
+
+- q: 过去7天每天全区的处理水量
+  sql: |
+    SELECT date_trunc('day', h.hour)::date AS 日期, round(sum(h.inflow_m3h)::numeric) AS 处理水量_m3
+    FROM plant_reading_1h h
+    WHERE h.hour >= date_trunc('day', now()) - interval '7 days' AND h.hour < date_trunc('day', now())
+    GROUP BY 1 ORDER BY 1
+
+- q: 最近24小时高台镇好氧区DO每小时的均值
+  sql: |
+    SELECT h.hour AS 时间, round(h.do_aerobic_1::numeric, 2) AS 好氧区DO
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE p.name LIKE '%高台%' AND h.hour >= now() - interval '24 hours'
+    ORDER BY h.hour
+
+- q: 本周哪个厂的吨水曝气电耗最高？
+  sql: |
+    SELECT p.name AS 厂站, round((sum(h.blower_kw) / sum(h.inflow_m3h))::numeric, 4) AS 吨水曝气电耗_kWh
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('week', now())
+    GROUP BY p.name ORDER BY 2 DESC LIMIT 1
+
+- q: 过去3天各厂出水总氮超标的小时数
+  sql: |
+    SELECT p.name AS 厂站, count(*) FILTER (WHERE h.tn_out > 15) AS 总氮超标小时数
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '3 days'
+    GROUP BY p.id, p.name ORDER BY p.id
+
+- q: 昨天各厂碳源投加总量
+  sql: |
+    SELECT p.name AS 厂站, round(sum(h.carbon_dose_kgh)::numeric, 1) AS 碳源投加量_kg
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) - interval '1 day' AND h.hour < date_trunc('day', now())
+    GROUP BY p.id, p.name ORDER BY p.id
+
+- q: 中心厂1号鼓风机最近一小时的振动和温度变化
+  sql: |
+    SELECT time_bucket('5 minutes', r.ts) AS 时间,
+           round(avg(r.vibration_mms)::numeric, 2) AS 振动_mm_s, round(avg(r.temp_c)::numeric, 1) AS 温度
+    FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.code = 'P01-BL-1' AND r.ts >= now() - interval '1 hour'
+    GROUP BY 1 ORDER BY 1
+
+- q: 现在有哪些设备处于故障或检修状态？
+  sql: |
+    SELECT p.name AS 厂站, d.code AS 设备编码, d.kind AS 类型, d.status AS 状态
+    FROM device d JOIN plant p ON p.id = d.plant_id
+    WHERE d.status IN ('故障', '检修')
+    ORDER BY d.code
+
+- q: 最近一周降雨强度最大是什么时候？
+  sql: |
+    SELECT ts AS 时间, rain_mm_h AS 降雨强度_mm_h
+    FROM weather
+    WHERE ts >= now() - interval '7 days'
+    ORDER BY rain_mm_h DESC LIMIT 1
+
+- q: 各厂站的设计规模和处理工艺
+  sql: |
+    SELECT name AS 厂站, kind AS 类型, process AS 工艺, capacity_m3d AS 设计规模_m3_d
+    FROM plant ORDER BY id
+
+- q: 氧化沟工艺的厂站今天出水COD平均多少？
+  sql: |
+    SELECT p.name AS 厂站, round(avg(h.cod_out)::numeric, 1) AS 出水COD
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE p.process = '氧化沟' AND h.hour >= date_trunc('day', now())
+    GROUP BY p.id, p.name ORDER BY p.id
+
+- q: 中心厂过去24小时进水流量最大的时刻和流量
+  sql: |
+    SELECT r.ts AS 采样时间, r.inflow_m3h AS 进水流量_m3h
+    FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+    WHERE p.code = 'P01' AND r.ts >= now() - interval '24 hours'
+    ORDER BY r.inflow_m3h DESC LIMIT 1
+
+- q: 过去7天各厂出水达标率（按小时统计）
+  sql: |
+    SELECT p.name AS 厂站,
+           round(avg((h.cod_out <= 50 AND h.nh3n_out_max <= 5 AND h.tn_out <= 15
+                      AND h.tp_out_max <= 0.5 AND h.ss_out <= 10)::int)::numeric * 100, 2) AS 达标率_百分比
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days'
+    GROUP BY p.id, p.name ORDER BY p.id
+
+- q: 每台运行中的鼓风机今天的平均电流
+  sql: |
+    SELECT d.code AS 设备编码, round(avg(r.current_a)::numeric, 1) AS 平均电流_A
+    FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.kind = '鼓风机' AND r.running AND r.ts >= date_trunc('day', now())
+    GROUP BY d.code ORDER BY d.code
+
+- q: 过去7天每天有多少个小时在下雨？
+  sql: |
+    SELECT date_trunc('day', t)::date AS 日期, count(*) FILTER (WHERE rain > 0.1) AS 降雨小时数
+    FROM (
+        SELECT time_bucket('1 hour', ts) AS t, avg(rain_mm_h) AS rain
+        FROM weather WHERE ts >= date_trunc('day', now()) - interval '7 days' GROUP BY 1
+    ) x
+    GROUP BY 1 ORDER BY 1
+
+- q: 新集镇最近6小时氨氮和DO的15分钟均值
+  sql: |
+    SELECT time_bucket('15 minutes', r.ts) AS 时间,
+           round(avg(r.nh3n_out)::numeric, 2) AS 出水氨氮, round(avg(r.do_aerobic_1)::numeric, 2) AS 好氧区DO
+    FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+    WHERE p.name LIKE '%新集%' AND r.ts >= now() - interval '6 hours'
+    GROUP BY 1 ORDER BY 1
+
+- q: 本月各厂PAC投加量排名
+  sql: |
+    SELECT p.name AS 厂站, round(sum(h.pac_dose_kgh)::numeric, 1) AS PAC投加量_kg
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('month', now())
+    GROUP BY p.name ORDER BY 2 DESC
+
+- q: 今天哪些厂出现过出水总磷超过0.5？
+  sql: |
+    SELECT p.name AS 厂站, count(*) AS 超标小时数, round(max(h.tp_out_max)::numeric, 3) AS 最高总磷
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) AND h.tp_out_max > 0.5
+    GROUP BY p.id, p.name ORDER BY p.id
+
+- q: 过去24小时各厂COD平均去除率
+  sql: |
+    SELECT p.name AS 厂站, round((1 - avg(h.cod_out) / avg(h.cod_in))::numeric * 100, 1) AS COD去除率_百分比
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '24 hours'
+    GROUP BY p.id, p.name ORDER BY p.id

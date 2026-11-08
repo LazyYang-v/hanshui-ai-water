@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "documents": 10,
+    "chunks": 33,
+    "fingerprint": "1f0ede3e7086f49e",
+    "dense_available": true,
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "dense_error": null,
+    "mode": "replay",
+    "reranker": "deepseek-flash",
+    "top_k": 5,
+    "candidates": 8,
+    "dataset_sha256": "ad54c79ba12a9363f965dd50955d3ec6fa27d851016138984802c8cd28fa3e76"
+  },
+  "summaries": {
+    "bm25": {
+      "questions": 30,
+      "recall_at_5": 1.0,
+      "hit_at_5": 1,
+      "mrr_at_5": 0.8916666666666667,
+      "p50_ms": 0.4,
+      "p95_ms": 1.9,
+      "mean_tokens": 0
+    },
+    "dense": {
+      "questions": 30,
+      "recall_at_5": 1.0,
+      "hit_at_5": 1,
+      "mrr_at_5": 0.8083333333333333,
+      "p50_ms": 70.4,
+      "p95_ms": 123.3,
+      "mean_tokens": 0
+    },
+    "hybrid": {
+      "questions": 30,
+      "recall_at_5": 1.0,
+      "hit_at_5": 1,
+      "mrr_at_5": 0.9166666666666666,
+      "p50_ms": 61.3,
+      "p95_ms": 227.3,
+      "mean_tokens": 0
+    },
+    "hybrid_rerank": {
+      "questions": 30,
+      "recall_at_5": 1.0,
+      "hit_at_5": 1,
+      "mrr_at_5": 0.9833333333333333,
+      "p50_ms": 7556.550000000001,
+      "p95_ms": 15284.2,
+      "mean_tokens": 3449.176470588235
+    }
+  }
+}

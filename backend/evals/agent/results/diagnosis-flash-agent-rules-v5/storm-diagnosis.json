@@ -1,0 +1,706 @@
+{
+  "id": "storm-diagnosis",
+  "family": "storm",
+  "mode": "diagnosis",
+  "question": "那它11月3日16:00浓度比11月2日16:00低，能否据此认定进水质量负荷下降或排除进水风险？重查两次原始进水流量、COD、氨氮及11月3日16:00雨强，逐项引用并保留编码和时间，结合知识讨论暴雨稀释的待核查假设和建议。",
+  "status": "fail",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P03",
+        "at": "2026-11-03T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 458.3333,
+          "cod_in": 109.7143,
+          "nh3n_in": 12.8107
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      },
+      {
+        "entity": "P03",
+        "at": "2026-11-02T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 190.888,
+          "cod_in": 259.1063,
+          "nh3n_in": 31.8045
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      },
+      {
+        "entity": "weather",
+        "at": "2026-11-03T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "rain_mm_h": 18.0
+        },
+        "units": {
+          "rain_mm_h": "mm/h"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "那它11月3日16:00浓度比11月2日16:00低，能否据此认定进水质量负荷下降或排除进水风险？重查两次原始进水流量、COD、氨氮及11月3日16:00雨强，逐项引用并保留编码和时间，结合知识讨论暴雨稀释的待核查假设和建议。",
+    "session_id": "197b2b63f9a34f8787a749237488f944"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "那它11月3日16:00浓度比11月2日16:00低，能否据此认定进水质量负荷下降或排除进水风险？重查两次原始进水流量、COD、氨氮及11月3日16:00雨强，逐项引用并保留编码和时间，结合知识讨论暴雨稀释的待核查假设和建议。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "caa1450b5cf441498b1319a6b35911bd",
+    "session_id": "197b2b63f9a34f8787a749237488f944",
+    "resolved_question": "核查梁山镇P03在2026-11-02T16:00:00+08:00与2026-11-03T16:00:00+08:00的原始进水流量、进水COD、进水氨氮，以及2026-11-03T16:00:00+08:00区域雨强；逐项引用并保留厂站编码和原始采样时间，流量单位m³/h、浓度单位mg/L、雨强单位mm/h。结合资料讨论：11月3日16:00浓度低于11月2日16:00，能否据此认定进水质量负荷下降或排除进水风险，并评估暴雨稀释假设及建议。",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "P03在2026-11-02T16:00:00+08:00进水流量190.888 m³/h、COD 259.1063 mg/L、氨氮31.8045 mg/L，区域雨强0.0 mm/h。 [1][2][3][4][5][6]\n\nP03在2026-11-03T16:00:00+08:00进水流量458.3333 m³/h、COD 109.7143 mg/L、氨氮12.8107 mg/L，区域雨强18.0 mm/h。 [7][8][9][10][11][12]\n\n11月3日16:00浓度低于11月2日16:00，但流量明显更高；污染物负荷应结合流量与浓度判断，浓度下降不保证负荷降低，不能据此认定进水质量负荷下降或排除进水风险。 [3][9][13]\n\n原因假设（待核查）：11月3日16:00雨强18.0 mm/h且流量升高、COD与氨氮浓度下降，可能为雨水混入稀释；但初期冲刷与稀释可先后或共同作用，需连续数据核查。 [9][10][11][12][14]\n\n核查建议：建议补充降雨过程及进水流量、COD、氨氮、总氮、总磷的连续变化并考虑管网时滞，安排人工核查和取样；不根据单个浓度低值直接减少曝气或药剂投加。 [15]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "P03在2026-11-02T16:00:00+08:00进水流量190.888 m³/h、COD 259.1063 mg/L、氨氮31.8045 mg/L，区域雨强0.0 mm/h。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P03在2026-11-03T16:00:00+08:00进水流量458.3333 m³/h、COD 109.7143 mg/L、氨氮12.8107 mg/L，区域雨强18.0 mm/h。",
+        "citation_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "11月3日16:00浓度低于11月2日16:00，但流量明显更高；污染物负荷应结合流量与浓度判断，浓度下降不保证负荷降低，不能据此认定进水质量负荷下降或排除进水风险。",
+        "citation_numbers": [
+          3,
+          9,
+          13
+        ]
+      },
+      {
+        "kind": "hypothesis",
+        "text": "11月3日16:00雨强18.0 mm/h且流量升高、COD与氨氮浓度下降，可能为雨水混入稀释；但初期冲刷与稀释可先后或共同作用，需连续数据核查。",
+        "citation_numbers": [
+          9,
+          10,
+          11,
+          12,
+          14
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "建议补充降雨过程及进水流量、COD、氨氮、总氮、总磷的连续变化并考虑管网时滞，安排人工核查和取样；不根据单个浓度低值直接减少曝气或药剂投加。",
+        "citation_numbers": [
+          15
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P03",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-02T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 190.888,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 259.1063,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 31.8045,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "区域雨强_mmh",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P03",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-03T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 458.3333,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 109.7143,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 11,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 12.8107,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 12,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 5,
+        "column_name": "区域雨强_mmh",
+        "value": 18.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 13,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "emergency-rain:rain-inflow-flush:1",
+        "quote": "污染物负荷应结合流量与浓度判断，浓度下降不保证负荷降低。",
+        "document_id": "emergency-rain",
+        "title": "暴雨入流冲击的演示应急观察与恢复",
+        "heading": "暴雨入流、稀释与初期冲刷",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/emergency-rain:rain-inflow-flush:1"
+      },
+      {
+        "number": 14,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "emergency-rain:rain-inflow-flush:1",
+        "quote": "初期冲刷与稀释可以先后或共同作用，不能把暴雨简单解释为水质必然变清。",
+        "document_id": "emergency-rain",
+        "title": "暴雨入流冲击的演示应急观察与恢复",
+        "heading": "暴雨入流、稀释与初期冲刷",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/emergency-rain:rain-inflow-flush:1"
+      },
+      {
+        "number": 15,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "emergency-rain:rain-inflow-flush:1",
+        "quote": "证据应包括降雨过程、进水流量、COD、氨氮、总氮和总磷的连续变化，并考虑管网响应时滞。",
+        "document_id": "emergency-rain",
+        "title": "暴雨入流冲击的演示应急观察与恢复",
+        "heading": "暴雨入流、稀释与初期冲刷",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/emergency-rain:rain-inflow-flush:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询梁山镇P03在2026-11-02T16:00:00+08:00和2026-11-03T16:00:00+08:00的原始进水流量、进水COD、进水氨氮，以及2026-11-03T16:00:00+08:00的区域雨强；结果逐项列出并保留厂站编码P03和原始采样时间，流量单位m³/h、浓度单位mg/L、雨强单位mm/h。",
+        "status": "ok",
+        "output": {
+          "question": "查询梁山镇P03在2026-11-02T16:00:00+08:00和2026-11-03T16:00:00+08:00的原始进水流量、进水COD、进水氨氮，以及2026-11-03T16:00:00+08:00的区域雨强；结果逐项列出并保留厂站编码P03和原始采样时间，流量单位m³/h、浓度单位mg/L、雨强单位mm/h。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.inflow_m3h AS 进水流量_m3h, r.cod_in AS 进水COD_mgL, r.nh3n_in AS 进水氨氮_mgL, w.rain_mm_h AS 区域雨强_mmh FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id LEFT JOIN weather AS w ON w.ts = r.ts WHERE p.code = 'P03' AND r.ts IN ('2026-11-02 16:00:00+08', '2026-11-03 16:00:00+08') ORDER BY r.ts LIMIT 200",
+          "explanation": "从原始表 plant_reading 中按精确采样时刻筛选 P03 的进水流量、COD、氨氮，并用相同时刻关联 weather 取区域雨强，逐时刻按宽表列出。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "进水流量_m3h",
+            "进水cod_mgl",
+            "进水氨氮_mgl",
+            "区域雨强_mmh"
+          ],
+          "rows": [
+            [
+              "P03",
+              "2026-11-02T16:00:00+08:00",
+              190.888,
+              259.1063,
+              31.8045,
+              0.0
+            ],
+            [
+              "P03",
+              "2026-11-03T16:00:00+08:00",
+              458.3333,
+              109.7143,
+              12.8107,
+              18.0
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.inflow_m3h AS 进水流量_m3h, r.cod_in AS 进水COD_mgL, r.nh3n_in AS 进水氨氮_mgL, w.rain_mm_h AS 区域雨强_mmh FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id LEFT JOIN weather AS w ON w.ts = r.ts WHERE p.code = 'P03' AND r.ts IN ('2026-11-02 16:00:00+08', '2026-11-03 16:00:00+08') ORDER BY r.ts LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2014,
+          "completion_tokens": 515,
+          "llm_ms": 3127.0,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2014,
+              "completion_tokens": 515,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 3127.0,
+              "latency_ms": 3126.9,
+              "total_latency_ms": 3127.0,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 3126.9,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 3149.0,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "氧化沟工艺的厂站今天出水COD平均多少？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "weather"
+          ]
+        },
+        "error": null,
+        "total_ms": 3149.2,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "rag_search",
+        "question": "暴雨稀释导致进水COD和氨氮浓度下降时，能否据此认定进水质量负荷下降或排除进水风险？污水处理厂进水负荷核算与暴雨稀释排查要点。",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "emergency-rain:rain-inflow-flush:1",
+              "document_id": "emergency-rain",
+              "title": "暴雨入流冲击的演示应急观察与恢复",
+              "heading": "暴雨入流、稀释与初期冲刷",
+              "text": "本 Demo 的 `storm` 表示区域降雨，经入流入渗作用抬高厂站进水量；雨污混接和入渗程度不同，厂站响应也可能不同，不能以同一场雨推定各站冲击一致。旱天积存在管道中的沉积物可在降雨初期被冲刷，导致进水污染物浓度短时抬升；随后雨水混入可能使浓度降低。初期冲刷与稀释可以先后或共同作用，不能把暴雨简单解释为水质必然变清。\n\n证据应包括降雨过程、进水流量、COD、氨氮、总氮和总磷的连续变化，并考虑管网响应时滞。污染物负荷应结合流量与浓度判断，浓度下降不保证负荷降低。场景只提供简化雨水响应，不证明具体雨污混接点、工业排放来源或真实积水位置。发现疑似异常后应安排人工核查和取样，不根据单个浓度低值直接减少曝气或药剂投加。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/emergency-rain:rain-inflow-flush:1",
+              "score": 0.032522,
+              "lexical_score": 21.6222,
+              "dense_score": 0.7631,
+              "relevance": 3
+            },
+            {
+              "id": "demo-metrics:influent-load:1",
+              "document_id": "demo-metrics",
+              "title": "汉水智控 Demo 的数据口径与能力边界",
+              "heading": "进水污染负荷预警",
+              "text": "COD、总氮和氨氮的质量负荷按同一采样的流量（m³/h）×浓度（mg/L）÷1000计算为kg/h，然后取5分钟均值；流量均值乘浓度均值在两者相关时会产生不同结果。派生指标分别为 cod_load_kgh、tn_load_kgh、nh3n_load_kgh，原始 cod_in、tn_in、nh3n_in 仍为mg/L。inflow_load告警中的触发值、阈值和峰值均为kg/h。\n\n判断桶使用其所在整点以前7天同一北京时间钟点的完整小时历史，至少3个小时样本。默认质量负荷需同时超过历史中位数的1.5倍及中位数加3倍稳健标准差，浓度需同时超过中位数的1.25倍及同一稳健界限；稳健标准差为1.4826×MAD。连续3个有效异常桶确认，3个有效正常桶恢复，缺失不计数也不中断。这是Demo运行关注阈值，不是进水或出水排放标准。质量负荷与浓度同时升高提示核查进水来源和仪表；仅雨天水量增加、浓度稀释不直接判作浓度型污染冲击，实际雨天也可能伴随初期冲刷，应结合流量、浓度、雨量及出水、DO变化核查。不能仅凭告警断定上游偷排或已造成出水超标。",
+              "source_type": "demo",
+              "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/demo-metrics:influent-load:1",
+              "score": 0.030415,
+              "lexical_score": 18.9283,
+              "dense_score": 0.6511,
+              "relevance": 3
+            },
+            {
+              "id": "fault-ammonia:ammonia-differential:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "冲击负荷、低温与污泥流失鉴别",
+              "text": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关。核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS。降雨后即使浓度被稀释，持续大流量仍可能冲走污泥、缩短停留时间，使硝化能力下降；这时 DO 恢复不保证氨氮同步恢复。总氮应另行分析，不能把氨氮与总氮的改善视为同一过程。\n\n本 Demo 的 `shock_load` 表示浓度冲击，只能提示负荷扰动，不能证明真实工业偷排或毒性来源。模型考虑水温影响，但没有完整的碱度、pH、毒性或菌群监测证据；需要现场检测才能判断这些因素。应保留多个原因假设，持续比较恢复趋势和复测结果。未经确认，不给出固定排泥量、碳源剂量或“若干小时必恢复”的承诺。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1",
+              "score": 0.032018,
+              "lexical_score": 12.8643,
+              "dense_score": 0.7712,
+              "relevance": 2
+            },
+            {
+              "id": "emergency-rain:rain-recovery-review:1",
+              "document_id": "emergency-rain",
+              "title": "暴雨入流冲击的演示应急观察与恢复",
+              "heading": "雨后恢复与事件复核",
+              "text": "雨停后入流入渗可能继续影响进水，生物处理和出水指标也有响应时滞。雨量下降或流量回到日常范围，不代表污泥存量、硝化能力和沉淀效果已经恢复。应把降雨前、过程中和雨后的连续趋势放在同一时间轴，比较流量、MLSS、出水 SS、DO、氨氮、总氮和总磷；若 DO 恢复而氨氮仍高，应继续核查污泥流失、停留时间及负荷变化。\n\n本 Demo 让污泥浓度在冲击减弱后逐步恢复，但这只是教学用简化机制，不能据此承诺真实系统恢复所需小时数。雨后复核应补充人工采样、设备巡检和药剂送达证据，记录哪些现象已证实、哪些原因仍为假设，避免把模拟注入事件写成真实事故。恢复原运行安排前应由人员结合实际工况确认；单点达标或告警消失不足以证明应急处置已完成。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/emergency-rain:rain-recovery-review:1",
+              "score": 0.031025,
+              "lexical_score": 11.6417,
+              "dense_score": 0.7353,
+              "relevance": 2
+            },
+            {
+              "id": "fault-sludge:sludge-washout:1",
+              "document_id": "fault-sludge",
+              "title": "污泥膨胀、流失与沉淀异常的演示辨析",
+              "heading": "暴雨污泥流失与硝化受损",
+              "text": "持续大流量可能增加沉淀系统固体负荷并使污泥被水流带走。与污泥膨胀强调沉降性质变化不同，污泥流失强调系统固体存量减少，两者可能并存，但不能互作同义词。本 Demo 的暴雨场景会提高进水流量；当水力冲击持续时，模型降低 MLSS，同时令出水 SS 随流量冲击升高，并通过污泥量减少削弱硝化。\n\n可按时间比较降雨、进水流量、MLSS、出水 SS、DO 和氨氮：大流量先出现，随后污泥浓度下降且氨氮恢复缓慢，可支持流失假设。模型并未建立完整的二沉池固体质量平衡，真实系统还需泥层、回流和排泥记录佐证。流量回落不代表污泥量立即补足，单次 MLSS 回升也可能来自取样差异。应由人员核查污泥保持条件并跟踪复测，不根据模拟曲线直接给出回流比或停止排泥的指令。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/fault-sludge:sludge-washout:1",
+              "score": 0.031025,
+              "lexical_score": 13.3333,
+              "dense_score": 0.6767,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 37.2,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1790,
+          "completion_tokens": 121,
+          "llm_ms": 1111.0,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1790,
+              "completion_tokens": 121,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1111.0,
+              "latency_ms": 1111.0,
+              "total_latency_ms": 1111.0,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1111.0,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1149.6,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "emergency-rain:rain-inflow-flush:1",
+            "term_coverage": 0.2609,
+            "lexical_margin": 1.1423213867050335
+          }
+        },
+        "error": null,
+        "total_ms": 1149.8,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2422,
+        "completion_tokens": 904,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 8379.0,
+        "latency_ms": 8379.0,
+        "total_latency_ms": 8379.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 8379.0,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 4330,
+        "completion_tokens": 169,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 1183.5,
+        "latency_ms": 1183.5,
+        "total_latency_ms": 1183.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 1183.5,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3768,
+        "completion_tokens": 906,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 4343.9,
+        "latency_ms": 4343.9,
+        "total_latency_ms": 4343.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 4343.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 14324,
+    "completion_tokens": 2615,
+    "llm_ms": 18144.4,
+    "total_ms": 17066.3,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "74a1a52587fc4d2b9ab58ad1ca3764fb",
+    "caa1450b5cf441498b1319a6b35911bd"
+  ],
+  "score": {
+    "mechanical_pass": false,
+    "semantic_pass": false,
+    "status": "fail",
+    "failures": [
+      "unexpected_metric:rain_mm_h"
+    ],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "不能把浓度下降等同质量负荷下降；Q×C/1000后本例COD、氨氮质量负荷并未随浓度同比下降。"
+      },
+      {
+        "status": "pending",
+        "item": "雨污混接/入渗和稀释是相容假设，不能仅凭区域雨量证明具体管段。"
+      }
+    ]
+  },
+  "elapsed_ms": 17190.1
+}

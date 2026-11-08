@@ -1,0 +1,693 @@
+{
+  "id": "shock-diagnosis",
+  "family": "shock_load",
+  "mode": "diagnosis",
+  "question": "高台镇P04在2026年11月4日10:00相较11月3日10:00是否出现进水冲击的迹象？请查两个原始采样的进水流量、COD和氨氮，保留厂站编码与时间并逐项引用，结合知识给假设和核查建议。仅有厂内采样能否认定某企业偷排？",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P04",
+        "at": "2026-11-04T10:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 152.2211,
+          "cod_in": 482.8707,
+          "nh3n_in": 64.4753
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      },
+      {
+        "entity": "P04",
+        "at": "2026-11-03T10:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 150.8577,
+          "cod_in": 219.9381,
+          "nh3n_in": 30.5141
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "高台镇P04在2026年11月4日10:00相较11月3日10:00是否出现进水冲击的迹象？请查两个原始采样的进水流量、COD和氨氮，保留厂站编码与时间并逐项引用，结合知识给假设和核查建议。仅有厂内采样能否认定某企业偷排？"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "高台镇P04在2026年11月4日10:00相较11月3日10:00是否出现进水冲击的迹象？请查两个原始采样的进水流量、COD和氨氮，保留厂站编码与时间并逐项引用，结合知识给假设和核查建议。仅有厂内采样能否认定某企业偷排？",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "7c8ea8cf5a2146b5b4e530ef342a3352",
+    "session_id": "3850c6f64b0d4e3ba2dd433b2c221ccc",
+    "resolved_question": "高台镇P04（厂站编码P04）2026-11-04 10:00 对比 2026-11-03 10:00 的进水原始采样，核查进水流量、进水COD、进水氨氮是否出现进水冲击迹象；逐项保留厂站编码与采样时间引用，结合资料给出假设与核查建议，并说明仅凭厂内采样能否认定企业偷排。",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "P04在2026-11-03T10:00进水流量150.86 m³/h、进水COD 219.94 mg/L、进水氨氮30.51 mg/L。 [1][2][3][4][5]\n\nP04在2026-11-04T10:00进水流量152.22 m³/h、进水COD 482.87 mg/L、进水氨氮64.48 mg/L；流量基本持平，COD与氨氮明显抬升。 [6][7][8][9][10]\n\n原因假设（待核查）：进水COD与氨氮同步升高而流量未增，提示存在浓度型进水冲击，需核查上游来水来源及仪表；单点采样不足以定性。 [9][10][11][12]\n\n核查建议：建议先核实采样位置、单位与数据连续性，比较在线趋势与人工复测，并检查探头漂移或采样异常；一个尖峰不足以建立稳定趋势。 [13]\n\n核查建议：仅凭厂内进水采样不能认定企业偷排，需补充外部取证与现场检测；应保留多个原因假设并持续比较恢复趋势。 [14][15]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "P04在2026-11-03T10:00进水流量150.86 m³/h、进水COD 219.94 mg/L、进水氨氮30.51 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P04在2026-11-04T10:00进水流量152.22 m³/h、进水COD 482.87 mg/L、进水氨氮64.48 mg/L；流量基本持平，COD与氨氮明显抬升。",
+        "citation_numbers": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "hypothesis",
+        "text": "进水COD与氨氮同步升高而流量未增，提示存在浓度型进水冲击，需核查上游来水来源及仪表；单点采样不足以定性。",
+        "citation_numbers": [
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "建议先核实采样位置、单位与数据连续性，比较在线趋势与人工复测，并检查探头漂移或采样异常；一个尖峰不足以建立稳定趋势。",
+        "citation_numbers": [
+          13
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "仅凭厂内进水采样不能认定企业偷排，需补充外部取证与现场检测；应保留多个原因假设并持续比较恢复趋势。",
+        "citation_numbers": [
+          14,
+          15
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P04",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-03T10:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 150.86,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 219.94,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 30.51,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P04",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-04T10:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 152.22,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 482.87,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 64.48,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 11,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "demo-metrics:influent-load:1",
+        "quote": "质量负荷与浓度同时升高提示核查进水来源和仪表",
+        "document_id": "demo-metrics",
+        "title": "汉水智控 Demo 的数据口径与能力边界",
+        "heading": "进水污染负荷预警",
+        "source_type": "demo",
+        "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/demo-metrics:influent-load:1"
+      },
+      {
+        "number": 12,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-ammonia:ammonia-differential:1",
+        "quote": "只能提示负荷扰动，不能证明真实工业偷排或毒性来源",
+        "document_id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "heading": "冲击负荷、低温与污泥流失鉴别",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1"
+      },
+      {
+        "number": 13,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-ammonia:ammonia-check:1",
+        "quote": "排查先确定厂站、时间窗、单位、采样位置和数据是否连续，比较在线趋势与人工复测",
+        "document_id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "heading": "确认氨氮异常与数据口径",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-check:1"
+      },
+      {
+        "number": 14,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "demo-metrics:influent-load:1",
+        "quote": "不能仅凭告警断定上游偷排或已造成出水超标",
+        "document_id": "demo-metrics",
+        "title": "汉水智控 Demo 的数据口径与能力边界",
+        "heading": "进水污染负荷预警",
+        "source_type": "demo",
+        "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/demo-metrics:influent-load:1"
+      },
+      {
+        "number": 15,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-ammonia:ammonia-differential:1",
+        "quote": "需要现场检测才能判断这些因素",
+        "document_id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "heading": "冲击负荷、低温与污泥流失鉴别",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询高台镇P04在2026-11-03 10:00和2026-11-04 10:00两个时刻的原始进水采样记录，返回厂站编码、采样时间、进水流量(inflow_m3h)、进水COD(cod_in)、进水氨氮(nh3n_in)，逐条列出原始采样值，不做小时聚合。",
+        "status": "ok",
+        "output": {
+          "question": "查询高台镇P04在2026-11-03 10:00和2026-11-04 10:00两个时刻的原始进水采样记录，返回厂站编码、采样时间、进水流量(inflow_m3h)、进水COD(cod_in)、进水氨氮(nh3n_in)，逐条列出原始采样值，不做小时聚合。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, ROUND(CAST(r.inflow_m3h AS DECIMAL), 2) AS 进水流量_m3h, ROUND(CAST(r.cod_in AS DECIMAL), 2) AS 进水COD_mgL, ROUND(CAST(r.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P04' AND r.ts IN (CAST('2026-11-03 10:00:00+08' AS TIMESTAMPTZ), CAST('2026-11-04 10:00:00+08' AS TIMESTAMPTZ)) ORDER BY r.ts LIMIT 200",
+          "explanation": "按厂站编码 P04 精确筛选两个指定时刻的原始采样记录，直接返回进水流量、COD 和氨氮原始值，未做小时聚合。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "进水流量_m3h",
+            "进水cod_mgl",
+            "进水氨氮_mgl"
+          ],
+          "rows": [
+            [
+              "P04",
+              "2026-11-03T10:00:00+08:00",
+              150.86,
+              219.94,
+              30.51
+            ],
+            [
+              "P04",
+              "2026-11-04T10:00:00+08:00",
+              152.22,
+              482.87,
+              64.48
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, ROUND(CAST(r.inflow_m3h AS DECIMAL), 2) AS 进水流量_m3h, ROUND(CAST(r.cod_in AS DECIMAL), 2) AS 进水COD_mgL, ROUND(CAST(r.nh3n_in AS DECIMAL), 2) AS 进水氨氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P04' AND r.ts IN (CAST('2026-11-03 10:00:00+08' AS TIMESTAMPTZ), CAST('2026-11-04 10:00:00+08' AS TIMESTAMPTZ)) ORDER BY r.ts LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 1912,
+          "completion_tokens": 631,
+          "llm_ms": 3884.4,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1912,
+              "completion_tokens": 631,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 3884.4,
+              "latency_ms": 3884.4,
+              "total_latency_ms": 3884.4,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 3884.4,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 3895.8,
+          "examples_used": [
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "氧化沟工艺的厂站今天出水COD平均多少？",
+            "过去24小时各厂COD平均去除率"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h"
+          ]
+        },
+        "error": null,
+        "total_ms": 3895.9,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "rag_search",
+        "question": "进水冲击的识别指标与排查假设（进水流量、COD、氨氮突变），以及仅凭厂内进水采样能否认定企业偷排、还需哪些外部取证或核查建议",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "demo-metrics:influent-load:1",
+              "document_id": "demo-metrics",
+              "title": "汉水智控 Demo 的数据口径与能力边界",
+              "heading": "进水污染负荷预警",
+              "text": "COD、总氮和氨氮的质量负荷按同一采样的流量（m³/h）×浓度（mg/L）÷1000计算为kg/h，然后取5分钟均值；流量均值乘浓度均值在两者相关时会产生不同结果。派生指标分别为 cod_load_kgh、tn_load_kgh、nh3n_load_kgh，原始 cod_in、tn_in、nh3n_in 仍为mg/L。inflow_load告警中的触发值、阈值和峰值均为kg/h。\n\n判断桶使用其所在整点以前7天同一北京时间钟点的完整小时历史，至少3个小时样本。默认质量负荷需同时超过历史中位数的1.5倍及中位数加3倍稳健标准差，浓度需同时超过中位数的1.25倍及同一稳健界限；稳健标准差为1.4826×MAD。连续3个有效异常桶确认，3个有效正常桶恢复，缺失不计数也不中断。这是Demo运行关注阈值，不是进水或出水排放标准。质量负荷与浓度同时升高提示核查进水来源和仪表；仅雨天水量增加、浓度稀释不直接判作浓度型污染冲击，实际雨天也可能伴随初期冲刷，应结合流量、浓度、雨量及出水、DO变化核查。不能仅凭告警断定上游偷排或已造成出水超标。",
+              "source_type": "demo",
+              "source": "项目自编演示知识；依据 backend/app/domain/metrics.py、simulator/runner.py 和 DESIGN.md 的当前实现",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/demo-metrics:influent-load:1",
+              "score": 0.031025,
+              "lexical_score": 12.3674,
+              "dense_score": 0.6407,
+              "relevance": 3
+            },
+            {
+              "id": "fault-ammonia:ammonia-differential:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "冲击负荷、低温与污泥流失鉴别",
+              "text": "氨氮升高还可能与进水氮负荷增加、水温下降、停留时间缩短或污泥流失有关。核查进水流量乘以进水氨氮浓度所代表的负荷，并对照进水 COD、MLSS 与出水 SS。降雨后即使浓度被稀释，持续大流量仍可能冲走污泥、缩短停留时间，使硝化能力下降；这时 DO 恢复不保证氨氮同步恢复。总氮应另行分析，不能把氨氮与总氮的改善视为同一过程。\n\n本 Demo 的 `shock_load` 表示浓度冲击，只能提示负荷扰动，不能证明真实工业偷排或毒性来源。模型考虑水温影响，但没有完整的碱度、pH、毒性或菌群监测证据；需要现场检测才能判断这些因素。应保留多个原因假设，持续比较恢复趋势和复测结果。未经确认，不给出固定排泥量、碳源剂量或“若干小时必恢复”的承诺。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-differential:1",
+              "score": 0.032522,
+              "lexical_score": 15.8206,
+              "dense_score": 0.6762,
+              "relevance": 2
+            },
+            {
+              "id": "emergency-rain:rain-high-flow-response:1",
+              "document_id": "emergency-rain",
+              "title": "暴雨入流冲击的演示应急观察与恢复",
+              "heading": "大流量期间的核查与处置边界",
+              "text": "持续大流量会缩短水力停留时间，增加固液分离压力，并可能造成污泥流失。应联合观察进水流量、MLSS、出水 SS、好氧区 DO 和出水氨氮：流量抬升后污泥浓度下降、出水悬浮物增加，是需要检查污泥保持的信号。初期冲刷还可能增加耗氧需求，不能因为进水被稀释就认定曝气负担一定减轻。总氮和总磷也应持续跟踪，分别核查碳源与 PAC 的有效送达。\n\n应由值守人员核实水位、泵组、供电、沉淀与回流状态，按本站已批准预案评估调蓄和设备安排；水位和调蓄能力不是本 Demo 已提供的证据。模拟器中的水量截断与污泥流失参数仅用于生成曲线，不是实际设施安全上限。本资料不授权开闸外排、旁路排放或越过设备联锁，也不提供统一增风、加药或回流比例；现场行动须依据实际设施与操作权限。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/emergency-rain:rain-high-flow-response:1",
+              "score": 0.031319,
+              "lexical_score": 10.4967,
+              "dense_score": 0.6828,
+              "relevance": 2
+            },
+            {
+              "id": "emergency-rain:rain-recovery-review:1",
+              "document_id": "emergency-rain",
+              "title": "暴雨入流冲击的演示应急观察与恢复",
+              "heading": "雨后恢复与事件复核",
+              "text": "雨停后入流入渗可能继续影响进水，生物处理和出水指标也有响应时滞。雨量下降或流量回到日常范围，不代表污泥存量、硝化能力和沉淀效果已经恢复。应把降雨前、过程中和雨后的连续趋势放在同一时间轴，比较流量、MLSS、出水 SS、DO、氨氮、总氮和总磷；若 DO 恢复而氨氮仍高，应继续核查污泥流失、停留时间及负荷变化。\n\n本 Demo 让污泥浓度在冲击减弱后逐步恢复，但这只是教学用简化机制，不能据此承诺真实系统恢复所需小时数。雨后复核应补充人工采样、设备巡检和药剂送达证据，记录哪些现象已证实、哪些原因仍为假设，避免把模拟注入事件写成真实事故。恢复原运行安排前应由人员结合实际工况确认；单点达标或告警消失不足以证明应急处置已完成。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/emergency-rain:rain-recovery-review:1",
+              "score": 0.030835,
+              "lexical_score": 14.988,
+              "dense_score": 0.6296,
+              "relevance": 2
+            },
+            {
+              "id": "fault-ammonia:ammonia-check:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "确认氨氮异常与数据口径",
+              "text": "出水氨氮对应 `nh3n_out`，总氮对应 `tn_out`，二者不能混用。NH3-N 是本项目的氨氮指标；总氮还包括硝态氮、亚硝态氮和有机氮。总氮升高而氨氮稳定时，应考虑反硝化条件等原因，不能直接称为硝化失效。界面预警或告警来自项目指标配置，是否符合真实排放要求仍需核实适用条件，不能把演示告警当成正式达标判定。\n\n排查先确定厂站、时间窗、单位、采样位置和数据是否连续，比较在线趋势与人工复测，并检查探头维护、漂移或采样异常。随后对照进水氨氮及流量，区分负荷改变与去除能力下降。一个尖峰不足以建立稳定趋势；缺少复测时，应表述为“监测值异常，待核实”。本知识库用于组织核查证据，不能替代仪表校验或据此直接下发运行调整。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-check:1",
+              "score": 0.030366,
+              "lexical_score": 9.4744,
+              "dense_score": 0.6751,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 27.2,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1795,
+          "completion_tokens": 120,
+          "llm_ms": 1072.6,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1795,
+              "completion_tokens": 120,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1072.6,
+              "latency_ms": 1072.5,
+              "total_latency_ms": 1072.6,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1072.5,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1100.8,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "fault-ammonia:ammonia-differential:1",
+            "term_coverage": 0.2128,
+            "lexical_margin": 1.0555492898875642
+          }
+        },
+        "error": null,
+        "total_ms": 1100.9,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1987,
+        "completion_tokens": 756,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 4465.7,
+        "latency_ms": 4465.6,
+        "total_latency_ms": 4465.7,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 4465.6,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3790,
+        "completion_tokens": 115,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 1306.0,
+        "latency_ms": 1306.0,
+        "total_latency_ms": 1306.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 1306.0,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3225,
+        "completion_tokens": 776,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 3442.0,
+        "latency_ms": 3441.9,
+        "total_latency_ms": 3442.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 3441.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 12709,
+    "completion_tokens": 2398,
+    "llm_ms": 14170.7,
+    "total_ms": 13120.8,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "浓度显著上升而流量接近，支持冲击负荷假设；质量负荷如另行计算须使用Q×C/1000 kg/h。"
+      },
+      {
+        "status": "pending",
+        "item": "不能认定企业偷排、精确污染源或已经证实唯一因果，需要上游采样与溯源。"
+      }
+    ]
+  },
+  "elapsed_ms": 13246.7
+}

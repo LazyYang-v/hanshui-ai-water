@@ -1,0 +1,479 @@
+{
+  "id": "blower-data",
+  "family": "blower_fault",
+  "mode": "data",
+  "question": "黄官镇P06在2026年11月6日18:00的原始采样，出水氨氮、1号DO、曝气风量、鼓风机功率及P06-BL-1运行布尔值各是多少？请引用每个数值，同一结果行保留厂站编码、设备编码和采样时间，分别写清mg/L、m³/h、kW；不要用小时均值或当前台账代替历史采样。",
+  "status": "fail",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P06",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "nh3n_out": 17.0177,
+          "do_aerobic_1": 0.0316,
+          "air_flow_m3h": 0.0,
+          "blower_kw": 0.0
+        },
+        "units": {
+          "nh3n_out": "mg/L",
+          "do_aerobic_1": "mg/L",
+          "air_flow_m3h": "m³/h",
+          "blower_kw": "kW"
+        }
+      },
+      {
+        "entity": "P06-BL-1",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": 121,
+        "values": {
+          "running": false
+        },
+        "units": {
+          "running": "bool"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "黄官镇P06在2026年11月6日18:00的原始采样，出水氨氮、1号DO、曝气风量、鼓风机功率及P06-BL-1运行布尔值各是多少？请引用每个数值，同一结果行保留厂站编码、设备编码和采样时间，分别写清mg/L、m³/h、kW；不要用小时均值或当前台账代替历史采样。"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "黄官镇P06在2026年11月6日18:00的原始采样，出水氨氮、1号DO、曝气风量、鼓风机功率及P06-BL-1运行布尔值各是多少？请引用每个数值，同一结果行保留厂站编码、设备编码和采样时间，分别写清mg/L、m³/h、kW；不要用小时均值或当前台账代替历史采样。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "e40d4a6c3ce34bf8986ebe9b9f70094e",
+    "session_id": "5a0f064580f541eb9c4d029ff37c839e",
+    "resolved_question": "查询黄官镇 P06 厂在 2026-11-06 18:00:00 这一时刻的原始采样读数：出水氨氮（mg/L）、好氧区 1# DO（mg/L）、曝气风量（m³/h）、鼓风机功率（kW）以及设备 P06-BL-1 的运行布尔值；结果需保留厂站编码、设备编码与采样时间，不得用小时均值或当前台账替代。",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "黄官镇P06厂2026-11-06T18:00:00+08:00原始采样：出水氨氮17.018 mg/L，好氧区1# DO 0.032 mg/L。 [1][2][3][4]\n\n同一采样时刻曝气风量0.0 m³/h、鼓风机功率0.0 kW，鼓风机设备编码P06-BL-1。 [5][6][7]\n\nP06-BL-1在2026-11-06T18:00:00+08:00的运行状态布尔值为false（未运行）。 [5][8][9]\n\n该行标记出水水质数据缺失=false、设备数据缺失=false，即上述指标均有原始采样记录。 [10][11]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "黄官镇P06厂2026-11-06T18:00:00+08:00原始采样：出水氨氮17.018 mg/L，好氧区1# DO 0.032 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "同一采样时刻曝气风量0.0 m³/h、鼓风机功率0.0 kW，鼓风机设备编码P06-BL-1。",
+        "citation_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P06-BL-1在2026-11-06T18:00:00+08:00的运行状态布尔值为false（未运行）。",
+        "citation_numbers": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "该行标记出水水质数据缺失=false、设备数据缺失=false，即上述指标均有原始采样记录。",
+        "citation_numbers": [
+          10,
+          11
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P06",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-06T18:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水氨氮_mgl",
+        "value": 17.018,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "好氧区1号do_mgl",
+        "value": 0.032,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "鼓风机设备编码",
+        "value": "P06-BL-1",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "曝气风量_m3h",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 6,
+        "column_name": "鼓风机功率_kw",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 7,
+        "column_name": "设备采样时间",
+        "value": "2026-11-06T18:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 8,
+        "column_name": "鼓风机运行状态_bool",
+        "value": false,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 9,
+        "column_name": "出水水质数据缺失",
+        "value": false,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 11,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 10,
+        "column_name": "设备数据缺失",
+        "value": false,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询黄官镇 P06 厂 2026-11-06 18:00:00 这一采样时刻的原始采样值（精确到该时刻，取该时刻最近一条原始采样，不要小时均值、不要日均值、不要当前台账）：该厂出水氨氮（mg/L）、好氧区1#溶解氧 DO（mg/L）、曝气风量（m³/h）、鼓风机功率（kW），以及设备编码 P06-BL-1 的运行状态布尔值（running true/false）。请把上述各项对齐成同一结果行输出，每行必须保留厂站编码（P06）、对应设备编码（出水氨氮/DO/风量/功率如有仪表编码也一并给出，P06-BL-1 必须给出）以及采样时间戳，并注明各数值单位。若某指标在该时刻无原始采样，请明确标注缺失而非填0。",
+        "status": "ok",
+        "output": {
+          "question": "查询黄官镇 P06 厂 2026-11-06 18:00:00 这一采样时刻的原始采样值（精确到该时刻，取该时刻最近一条原始采样，不要小时均值、不要日均值、不要当前台账）：该厂出水氨氮（mg/L）、好氧区1#溶解氧 DO（mg/L）、曝气风量（m³/h）、鼓风机功率（kW），以及设备编码 P06-BL-1 的运行状态布尔值（running true/false）。请把上述各项对齐成同一结果行输出，每行必须保留厂站编码（P06）、对应设备编码（出水氨氮/DO/风量/功率如有仪表编码也一并给出，P06-BL-1 必须给出）以及采样时间戳，并注明各数值单位。若某指标在该时刻无原始采样，请明确标注缺失而非填0。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "WITH target AS (SELECT CAST('2026-11-06 18:00:00+08' AS TIMESTAMPTZ) AS ts) SELECT p.code AS 厂站编码, 'P06-BL-1' AS 鼓风机设备编码, r.ts AS 采样时间, ROUND(CAST(r.nh3n_out AS DECIMAL), 3) AS 出水氨氮_mgL, ROUND(CAST(r.do_aerobic_1 AS DECIMAL), 3) AS 好氧区1号DO_mgL, ROUND(CAST(r.air_flow_m3h AS DECIMAL), 1) AS 曝气风量_m3h, ROUND(CAST(r.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, dr.ts AS 设备采样时间, dr.running AS 鼓风机运行状态_bool, (r.ts IS NULL) AS 出水水质数据缺失, (dr.ts IS NULL) AS 设备数据缺失 FROM plant AS p CROSS JOIN target AS t LEFT JOIN LATERAL (SELECT pr.* FROM plant_reading AS pr WHERE pr.plant_id = p.id ORDER BY ABS(EXTRACT(EPOCH FROM (pr.ts - t.ts))) LIMIT 1) AS r ON TRUE LEFT JOIN LATERAL (SELECT dvr.* FROM device_reading AS dvr JOIN device AS d ON d.id = dvr.device_id WHERE d.code = 'P06-BL-1' ORDER BY ABS(EXTRACT(EPOCH FROM (dvr.ts - t.ts))) LIMIT 1) AS dr ON TRUE WHERE p.code = 'P06' LIMIT 200",
+          "explanation": "以 P06 厂在 2026-11-06 18:00:00+08 为目标时刻，用 LATERAL 分别取原始表 plant_reading 中距该时刻最近的一条采样（出水氨氮、好氧区1号DO、曝气风量、鼓风机功率），以及设备 P06-BL-1 在 device_reading 中最近的运行状态，对齐为同一行并保留实际采样时间戳；无采样时相应列为 NULL 并以缺失标志提示，不填 0。plant_reading 无仪表编码字段，故仅给出设备编码 P06-BL-1。",
+          "columns": [
+            "厂站编码",
+            "鼓风机设备编码",
+            "采样时间",
+            "出水氨氮_mgl",
+            "好氧区1号do_mgl",
+            "曝气风量_m3h",
+            "鼓风机功率_kw",
+            "设备采样时间",
+            "鼓风机运行状态_bool",
+            "出水水质数据缺失",
+            "设备数据缺失"
+          ],
+          "rows": [
+            [
+              "P06",
+              "P06-BL-1",
+              "2026-11-06T18:00:00+08:00",
+              17.018,
+              0.032,
+              0.0,
+              0.0,
+              "2026-11-06T18:00:00+08:00",
+              false,
+              false,
+              false
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "WITH target AS (SELECT CAST('2026-11-06 18:00:00+08' AS TIMESTAMPTZ) AS ts) SELECT p.code AS 厂站编码, 'P06-BL-1' AS 鼓风机设备编码, r.ts AS 采样时间, ROUND(CAST(r.nh3n_out AS DECIMAL), 3) AS 出水氨氮_mgL, ROUND(CAST(r.do_aerobic_1 AS DECIMAL), 3) AS 好氧区1号DO_mgL, ROUND(CAST(r.air_flow_m3h AS DECIMAL), 1) AS 曝气风量_m3h, ROUND(CAST(r.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, dr.ts AS 设备采样时间, dr.running AS 鼓风机运行状态_bool, (r.ts IS NULL) AS 出水水质数据缺失, (dr.ts IS NULL) AS 设备数据缺失 FROM plant AS p CROSS JOIN target AS t LEFT JOIN LATERAL (SELECT pr.* FROM plant_reading AS pr WHERE pr.plant_id = p.id ORDER BY ABS(EXTRACT(EPOCH FROM (pr.ts - t.ts))) LIMIT 1) AS r ON TRUE LEFT JOIN LATERAL (SELECT dvr.* FROM device_reading AS dvr JOIN device AS d ON d.id = dvr.device_id WHERE d.code = 'P06-BL-1' ORDER BY ABS(EXTRACT(EPOCH FROM (dvr.ts - t.ts))) LIMIT 1) AS dr ON TRUE WHERE p.code = 'P06' LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2640,
+          "completion_tokens": 1585,
+          "llm_ms": 9124.5,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2640,
+              "completion_tokens": 1585,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 9124.5,
+              "latency_ms": 9124.5,
+              "total_latency_ms": 9124.5,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 9124.5,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 9265.6,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "最近24小时高台镇好氧区DO每小时的均值",
+            "新集镇最近6小时氨氮和DO的15分钟均值"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 9266.0,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2003,
+        "completion_tokens": 775,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 5433.7,
+        "latency_ms": 5433.7,
+        "total_latency_ms": 5433.7,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 5433.7,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2591,
+        "completion_tokens": 123,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 1106.9,
+        "latency_ms": 1106.8,
+        "total_latency_ms": 1106.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 1106.8,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2026,
+        "completion_tokens": 494,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2518.2,
+        "latency_ms": 2518.2,
+        "total_latency_ms": 2518.2,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2518.2,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 9260,
+    "completion_tokens": 2977,
+    "llm_ms": 18183.3,
+    "total_ms": 18351.2,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "e40d4a6c3ce34bf8986ebe9b9f70094e"
+  ],
+  "score": {
+    "mechanical_pass": false,
+    "semantic_pass": false,
+    "status": "fail",
+    "failures": [
+      "data_scope_or_projection:1",
+      "data_scope_or_projection:2",
+      "data_scope_or_projection:3",
+      "data_scope_or_projection:4",
+      "data_scope_or_projection:5",
+      "data_scope_or_projection:6",
+      "data_scope_or_projection:7",
+      "data_scope_or_projection:8",
+      "data_scope_or_projection:9",
+      "data_scope_or_projection:10",
+      "data_scope_or_projection:11",
+      "missing_snapshot_metric:0:nh3n_out",
+      "missing_snapshot_metric:0:do_aerobic_1",
+      "missing_snapshot_metric:0:air_flow_m3h",
+      "missing_snapshot_metric:0:blower_kw",
+      "missing_snapshot_metric:1:running"
+    ],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "检查每个读数在正文中的指标对应关系及中文单位，不能只以引用单元格正确视作表述正确。"
+      }
+    ]
+  },
+  "elapsed_ms": 18507.1
+}

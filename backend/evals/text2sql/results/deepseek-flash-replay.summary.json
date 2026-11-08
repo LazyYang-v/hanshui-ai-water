@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "dataset_sha256": "4a10274619682e21fc973ff349d0eb883f674ed25156563232768ffcb407a460",
+    "prompt_sha256": "10fea2034cd8b1c2aea9b45b1c2b43497ed68b08f0b5f68639988337fd814c57",
+    "examples_sha256": "5a6daf17daa8ef07e5114ae096fa4f11c426d85ef0966ccf3b6fe3da60bbe39d",
+    "schema_sha256": "4971ffbeeed8f02f1dae54a6564c3f43193c40f87cc5e57440460c2279a6be76",
+    "max_tokens": 4000,
+    "now": "2026-11-05T12:00:00+08:00",
+    "seed": 7,
+    "days": 7,
+    "step_s": 60.0,
+    "fingerprint": "55cfcc853c25d2a3",
+    "model_requested": "deepseek-flash",
+    "provider": "deepseek",
+    "mode": "replay",
+    "concurrency": 4,
+    "generated_at": "2026-11-07T05:28:32.925450+08:00",
+    "configs": {
+      "full": {
+        "use_fewshot": true,
+        "fewshot_k": 3,
+        "prune_schema": true,
+        "max_repairs": 2,
+        "max_tokens": 4000
+      },
+      "no_fewshot": {
+        "use_fewshot": false,
+        "fewshot_k": 3,
+        "prune_schema": true,
+        "max_repairs": 2,
+        "max_tokens": 4000
+      },
+      "no_prune": {
+        "use_fewshot": true,
+        "fewshot_k": 3,
+        "prune_schema": false,
+        "max_repairs": 2,
+        "max_tokens": 4000
+      },
+      "no_repair": {
+        "use_fewshot": true,
+        "fewshot_k": 3,
+        "prune_schema": true,
+        "max_repairs": 0,
+        "max_tokens": 4000
+      },
+      "bare": {
+        "use_fewshot": false,
+        "fewshot_k": 3,
+        "prune_schema": false,
+        "max_repairs": 0,
+        "max_tokens": 4000
+      }
+    },
+    "models_returned": [
+      "deepseek-flash"
+    ]
+  },
+  "summaries": {
+    "full": {
+      "n": 64,
+      "correct": 61,
+      "ex": 0.953125,
+      "ex_answerable": 0.95,
+      "false_refusal": 0,
+      "repair_rate": 0.015625,
+      "repair_success": 1.0,
+      "lat_p50": 1543.5500000000002,
+      "lat_p95": 5786.8,
+      "tokens": 2082.953125,
+      "prompt_tokens": 1775.296875,
+      "by_cat": {
+        "基础信息": 0.875,
+        "实时值": 0.8,
+        "统计汇总": 1.0,
+        "时间序列": 1.0,
+        "排序TopN": 1.0,
+        "达标超标": 1.0,
+        "设备": 1.0,
+        "事件追溯": 0.8333333333333334,
+        "复合计算": 1.0,
+        "拒答": 1.0
+      }
+    },
+    "no_fewshot": {
+      "n": 64,
+      "correct": 61,
+      "ex": 0.953125,
+      "ex_answerable": 0.95,
+      "false_refusal": 0,
+      "repair_rate": 0.0,
+      "repair_success": 0.0,
+      "lat_p50": 2238.2,
+      "lat_p95": 4754.9,
+      "tokens": 1825.515625,
+      "prompt_tokens": 1454.078125,
+      "by_cat": {
+        "基础信息": 1.0,
+        "实时值": 1.0,
+        "统计汇总": 1.0,
+        "时间序列": 0.75,
+        "排序TopN": 0.8333333333333334,
+        "达标超标": 1.0,
+        "设备": 1.0,
+        "事件追溯": 0.8333333333333334,
+        "复合计算": 1.0,
+        "拒答": 1.0
+      }
+    },
+    "no_prune": {
+      "n": 64,
+      "correct": 63,
+      "ex": 0.984375,
+      "ex_answerable": 0.9833333333333333,
+      "false_refusal": 0,
+      "repair_rate": 0.0,
+      "repair_success": 0.0,
+      "lat_p50": 1686.75,
+      "lat_p95": 4980.7,
+      "tokens": 2450.328125,
+      "prompt_tokens": 2170.609375,
+      "by_cat": {
+        "基础信息": 0.875,
+        "实时值": 1.0,
+        "统计汇总": 1.0,
+        "时间序列": 1.0,
+        "排序TopN": 1.0,
+        "达标超标": 1.0,
+        "设备": 1.0,
+        "事件追溯": 1.0,
+        "复合计算": 1.0,
+        "拒答": 1.0
+      }
+    },
+    "no_repair": {
+      "n": 64,
+      "correct": 60,
+      "ex": 0.9375,
+      "ex_answerable": 0.9333333333333333,
+      "false_refusal": 0,
+      "repair_rate": 0.0,
+      "repair_success": 0.0,
+      "lat_p50": 1847.65,
+      "lat_p95": 5140.4,
+      "tokens": 2038.90625,
+      "prompt_tokens": 1736.390625,
+      "by_cat": {
+        "基础信息": 1.0,
+        "实时值": 0.8,
+        "统计汇总": 0.9166666666666666,
+        "时间序列": 1.0,
+        "排序TopN": 1.0,
+        "达标超标": 1.0,
+        "设备": 1.0,
+        "事件追溯": 0.6666666666666666,
+        "复合计算": 1.0,
+        "拒答": 1.0
+      }
+    },
+    "bare": {
+      "n": 64,
+      "correct": 58,
+      "ex": 0.90625,
+      "ex_answerable": 0.9,
+      "false_refusal": 0,
+      "repair_rate": 0.0,
+      "repair_success": 0.0,
+      "lat_p50": 2369.15,
+      "lat_p95": 7857.5,
+      "tokens": 2298.734375,
+      "prompt_tokens": 1888.296875,
+      "by_cat": {
+        "基础信息": 0.875,
+        "实时值": 0.8,
+        "统计汇总": 1.0,
+        "时间序列": 0.75,
+        "排序TopN": 1.0,
+        "达标超标": 1.0,
+        "设备": 0.8571428571428571,
+        "事件追溯": 0.8333333333333334,
+        "复合计算": 0.8333333333333334,
+        "拒答": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,676 @@
+{
+  "id": "blower-diagnosis",
+  "family": "blower_fault",
+  "mode": "diagnosis",
+  "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P06",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "nh3n_out": 17.0177,
+          "do_aerobic_1": 0.0316,
+          "air_flow_m3h": 0.0,
+          "blower_kw": 0.0
+        },
+        "units": {
+          "nh3n_out": "mg/L",
+          "do_aerobic_1": "mg/L",
+          "air_flow_m3h": "m³/h",
+          "blower_kw": "kW"
+        }
+      },
+      {
+        "entity": "P06-BL-1",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": 121,
+        "values": {
+          "running": false
+        },
+        "units": {
+          "running": "bool"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+    "session_id": "7d2699d127b7461e893586fbaad8ab0b"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "be5c6259829f45c4aee5095553080bb6",
+    "session_id": "7d2699d127b7461e893586fbaad8ab0b",
+    "resolved_question": "复核黄官镇P06在2026年11月6日18:00的原始采样（出水氨氮、1号好氧区DO、曝气风量、鼓风机功率、P06-BL-1运行状态），并据此分析可能原因和提出不涉及设备控制的现场核查建议。",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "黄官镇P06在2026-11-06T18:00:00+08:00的原始采样行中，设备编码为P06-BL-1，出水氨氮为17.0177 mg/L。 [1][2][3][4]\n\n同一采样时刻，好氧区1号DO为0.0316 mg/L，曝气风量为0.0 m³/h，鼓风机功率为0.0 kW，P06-BL-1运行状态为false。 [5][6][7][8]\n\n原因假设（待核查）：待核查：P06-BL-1停机、风量与功率为0，可能造成供氧不足，进而使好氧区DO极低并削弱硝化，出水氨氮升高；需按设备状态、风量、DO、氨氮的顺序核对时序。 [4][5][6][8][9][10]\n\n核查建议：建议由有权限人员核实P06-BL-1告警与保护记录、设备状态及现场检查条件，并确认备用供氧设备可用性、联锁与供气路径；不以反复复位代替原因确认。 [8][11][12]\n\n核查建议：恢复后应连续观察设备状态、风量、DO及出水氨氮趋势，区分供气恢复与生化恢复；单个正常采样点不足以证明恢复。 [13]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "黄官镇P06在2026-11-06T18:00:00+08:00的原始采样行中，设备编码为P06-BL-1，出水氨氮为17.0177 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "同一采样时刻，好氧区1号DO为0.0316 mg/L，曝气风量为0.0 m³/h，鼓风机功率为0.0 kW，P06-BL-1运行状态为false。",
+        "citation_numbers": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "hypothesis",
+        "text": "待核查：P06-BL-1停机、风量与功率为0，可能造成供氧不足，进而使好氧区DO极低并削弱硝化，出水氨氮升高；需按设备状态、风量、DO、氨氮的顺序核对时序。",
+        "citation_numbers": [
+          4,
+          5,
+          6,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "建议由有权限人员核实P06-BL-1告警与保护记录、设备状态及现场检查条件，并确认备用供氧设备可用性、联锁与供气路径；不以反复复位代替原因确认。",
+        "citation_numbers": [
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "恢复后应连续观察设备状态、风量、DO及出水氨氮趋势，区分供气恢复与生化恢复；单个正常采样点不足以证明恢复。",
+        "citation_numbers": [
+          13
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P06",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "设备编码",
+        "value": "P06-BL-1",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-06T18:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水氨氮_mgl",
+        "value": 17.0177,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "好氧区1号do_mgl",
+        "value": 0.0316,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "曝气风量_m3h",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 6,
+        "column_name": "鼓风机功率_kw",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 7,
+        "column_name": "bl1运行状态",
+        "value": false,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-blower:blower-air-water-chain:1",
+        "quote": "应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "供气能力与水质响应链",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1"
+      },
+      {
+        "number": 10,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "fault-ammonia:ammonia-oxygen-evidence:1",
+        "quote": "硝化需要氧，供氧不足会削弱氨氮氧化能力",
+        "document_id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "heading": "低溶解氧与鼓风机故障证据",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1"
+      },
+      {
+        "number": 11,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-blower:blower-maintenance-boundary:1",
+        "quote": "应先核实告警与保护记录、设备状态及现场检查条件",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "检查、隔离与恢复验证",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1"
+      },
+      {
+        "number": 12,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-blower:blower-maintenance-boundary:1",
+        "quote": "备用设备投入前需核实可用性、联锁、供气路径与操作权限",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "检查、隔离与恢复验证",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1"
+      },
+      {
+        "number": 13,
+        "kind": "knowledge",
+        "call_id": "t2",
+        "chunk_id": "equipment-blower:blower-maintenance-boundary:1",
+        "quote": "恢复后应观察设备状态、振动与温度趋势、风量、DO 及出水氨氮，区分供气恢复与生化恢复",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "检查、隔离与恢复验证",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询黄官镇P06在2026-11-06T18:00:00+08:00的原始采样行，返回同一结果行中的厂站编码、设备编码和采样时间，以及出水氨氮（mg/L）、1号好氧区DO（mg/L）、曝气风量（m³/h）、鼓风机功率（kW）和P06-BL-1运行状态布尔值；不要使用小时均值或当前台账，不要追加其他指标或时间窗。",
+        "status": "ok",
+        "output": {
+          "question": "查询黄官镇P06在2026-11-06T18:00:00+08:00的原始采样行，返回同一结果行中的厂站编码、设备编码和采样时间，以及出水氨氮（mg/L）、1号好氧区DO（mg/L）、曝气风量（m³/h）、鼓风机功率（kW）和P06-BL-1运行状态布尔值；不要使用小时均值或当前台账，不要追加其他指标或时间窗。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.nh3n_out AS 出水氨氮_mgL, r.do_aerobic_1 AS 好氧区1号DO_mgL, r.air_flow_m3h AS 曝气风量_m3h, r.blower_kw AS 鼓风机功率_kW, dr.running AS BL1运行状态 FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P06-BL-1' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P06' AND r.ts = '2026-11-06 18:00:00+08' ORDER BY r.ts LIMIT 200",
+          "explanation": "按精确时间点等值筛选 P06 原始采样行，直接宽表输出出水氨氮、DO、风量、鼓风机功率，并左连同一时刻 P06-BL-1 的设备读数取运行状态，无该时刻采样则为空。",
+          "columns": [
+            "厂站编码",
+            "设备编码",
+            "采样时间",
+            "出水氨氮_mgl",
+            "好氧区1号do_mgl",
+            "曝气风量_m3h",
+            "鼓风机功率_kw",
+            "bl1运行状态"
+          ],
+          "rows": [
+            [
+              "P06",
+              "P06-BL-1",
+              "2026-11-06T18:00:00+08:00",
+              17.0177,
+              0.0316,
+              0.0,
+              0.0,
+              false
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.nh3n_out AS 出水氨氮_mgL, r.do_aerobic_1 AS 好氧区1号DO_mgL, r.air_flow_m3h AS 曝气风量_m3h, r.blower_kw AS 鼓风机功率_kW, dr.running AS BL1运行状态 FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P06-BL-1' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P06' AND r.ts = '2026-11-06 18:00:00+08' ORDER BY r.ts LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2518,
+          "completion_tokens": 390,
+          "llm_ms": 2441.6,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2518,
+              "completion_tokens": 390,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 2441.6,
+              "latency_ms": 2441.6,
+              "total_latency_ms": 2441.6,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 2441.6,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 2463.6,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "最近24小时高台镇好氧区DO每小时的均值",
+            "每台运行中的鼓风机今天的平均电流"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 2463.8,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "rag_search",
+        "question": "曝气风量和鼓风机功率为0、P06-BL-1运行状态为停机时，好氧区DO极低并出水氨氮升高的可能原因与现场核查建议（不涉及设备控制）",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "equipment-blower:blower-air-water-chain:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "供气能力与水质响应链",
+              "text": "鼓风机故障对水质的影响，应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查。对齐曝气风量、鼓风机功率和进水负荷，判断风量变化是否确实发生，以及 DO 是否在相应时段下降。NH3-N 是氨氮，硝化受限可使其升高；总氮还受反硝化与碳源等因素影响，不能将所有氮指标异常都归因于风机。\n\n本 Demo 在跳停后扣减运行鼓风机数量，实际风量上限随可用台数变化，具体影响取决于配置和负荷。不能仅因设备清单存在备用机就宣称已经自动切换。水质有过程时滞，需比较停机前后连续趋势；若 DO 下降同时存在暴雨或浓度冲击，应保留耗氧增加等替代解释。功率下降在此可能意味着供氧损失，不能直接评价为节能。建议由人员核实供气能力，不输出固定增风比例或自动切换指令。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1",
+              "score": 0.032787,
+              "lexical_score": 33.949,
+              "dense_score": 0.8563,
+              "relevance": 3
+            },
+            {
+              "id": "fault-ammonia:ammonia-oxygen-evidence:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "低溶解氧与鼓风机故障证据",
+              "text": "硝化需要氧，供氧不足会削弱氨氮氧化能力。本 Demo 的 `blower_fault` 场景让一号鼓风机振动、轴承温度先升高，随后按场景时序跳停并减少可用曝气能力；出水氨氮通过过程响应滞后变化。排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮，确认是否出现“可用风量下降、DO 下降、氨氮随后升高”的证据链。\n\n这条时序支持供氧不足假设，但振动与跳停的相关性不能证明某种机械损坏，也不能证明振动直接触发了真实保护动作。需另核查保护记录、检修检查和运行方式。若风量未降而 DO 下降，还应检查进水耗氧负荷和测量可靠性。建议先由人员确认故障状态与备用供氧条件，不能仅凭氨氮曲线自动提高风量设定，更不能屏蔽保护或反复强行重启设备。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1",
+              "score": 0.032002,
+              "lexical_score": 25.3803,
+              "dense_score": 0.8179,
+              "relevance": 3
+            },
+            {
+              "id": "process-ditch:ditch-operation-review:1",
+              "document_id": "process-ditch",
+              "title": "氧化沟循环流态与运行观察演示要点",
+              "heading": "能耗观察与恢复判断",
+              "text": "氧化沟运行分析应把曝气供氧、循环混合和能耗放在同一工况下比较。单看鼓风机功率下降，可能把设备停机或供氧能力损失误判为节能；单看风量上升，也可能忽略进水负荷增加。可在相近水量、进水负荷与出水目标下，对照风量、鼓风机功率、好氧区 DO、氨氮和总氮趋势，并检查设备运行状态。\n\n本 Demo 以统一的简化模型表示 A2O 与氧化沟厂站，没有模拟转碟、转刷或独立推流机的专属性能，因此不能据此提出真实设备改造结论。异常解除后，需要等待水质响应、确认污泥保持和沉淀稳定，再评价恢复效果；单个正常采样点不足以证明恢复。备用设备投入、曝气设定或回流调整均须核实设备可用性、现场流程和操作权限，演示知识只提供排查依据，不输出未经验证的自动控制参数。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/process-ditch:ditch-operation-review:1",
+              "score": 0.031514,
+              "lexical_score": 30.9347,
+              "dense_score": 0.7549,
+              "relevance": 2
+            },
+            {
+              "id": "equipment-blower:blower-maintenance-boundary:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "检查、隔离与恢复验证",
+              "text": "对疑似故障鼓风机，应先核实告警与保护记录、设备状态及现场检查条件，再由有权限人员依适用规程安排隔离和检修。检查可关注振动测点、连接与基础、润滑状态、进排气通路等，但这些只是待核实项目，不是针对某型号的厂家拆检步骤。本 Demo 没有轴承频谱、润滑检测或故障拆解证据，不能据趋势图指定更换零件。\n\n备用设备投入前需核实可用性、联锁、供气路径与操作权限；异常机组不应以反复复位代替原因确认。恢复后应观察设备状态、振动与温度趋势、风量、DO 及出水氨氮，区分供气恢复与生化恢复。某个采样点正常不足以结束观察，具体观察时长由实际设备及工况确定。演示知识不承诺固定时间恢复，也不提供未经核实的风量设定、厂家保养周期或自动控制操作。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1",
+              "score": 0.03101,
+              "lexical_score": 17.0689,
+              "dense_score": 0.7788,
+              "relevance": 2
+            },
+            {
+              "id": "equipment-blower:blower-fault-evidence:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "振动、温度与跳停的证据边界",
+              "text": "本 Demo 的 `blower_fault` 让一号鼓风机的振动、轴承温度逐渐升高，随后按场景时序进入跳停状态并损失可用曝气能力。这是人为设定的演示过程，不是真实故障记录，也不表示模型完成了机械故障诊断。观察应同时核对振动速度、轴承温度、运行电流、设备状态和事件时间，区分状态变化与传感器异常。\n\n振动和温度升高可以支持设备异常假设，但可能涉及多种机械、工况或测量因素；与跳停相邻也不能证明轴承损坏，更不能仅凭相关性断定振动触发了保护。真实因果判断需保护动作记录、检查和检修证据。项目指标目录中的振动、温度告警数值只是演示管理阈值，不能作为所有风机的通用设备标准。现场应依据具体机型、测点、安装状态及已确认的维护要求复核，不据此绕过保护或强制复位。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-fault-evidence:1",
+              "score": 0.030798,
+              "lexical_score": 14.9477,
+              "dense_score": 0.794,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 29.3,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1740,
+          "completion_tokens": 122,
+          "llm_ms": 1319.7,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1740,
+              "completion_tokens": 122,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1319.7,
+              "latency_ms": 1319.7,
+              "total_latency_ms": 1319.7,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1319.7,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 1350.0,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": true,
+            "lexical_top": "equipment-blower:blower-air-water-chain:1",
+            "term_coverage": 0.4375,
+            "lexical_margin": 1.0974397959126556
+          }
+        },
+        "error": null,
+        "total_ms": 1350.1,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2420,
+        "completion_tokens": 808,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 5185.4,
+        "latency_ms": 5185.3,
+        "total_latency_ms": 5185.4,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 5185.3,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 4193,
+        "completion_tokens": 91,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 731.4,
+        "latency_ms": 731.4,
+        "total_latency_ms": 731.4,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 731.4,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3631,
+        "completion_tokens": 862,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 3929.4,
+        "latency_ms": 3929.3,
+        "total_latency_ms": 3929.4,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 3929.3,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 14502,
+    "completion_tokens": 2273,
+    "llm_ms": 13607.5,
+    "total_ms": 12323.9,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "da696b3006e2460f96d7e192fa5830ca",
+    "be5c6259829f45c4aee5095553080bb6"
+  ],
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "应把鼓风机跳停、供气下降、低DO与氨氮升高作为相容证据；因果仍是待核查假设。"
+      },
+      {
+        "status": "pending",
+        "item": "核查联锁、供电、备用机与仪表；建议不能宣称已完成调频或启动。"
+      }
+    ]
+  },
+  "elapsed_ms": 12400.0
+}

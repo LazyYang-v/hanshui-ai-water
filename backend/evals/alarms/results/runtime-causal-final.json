@@ -1,0 +1,343 @@
+{
+ "health": {
+  "status": "ok",
+  "db": "ok",
+  "redis": "ok",
+  "simulator": "ok"
+ },
+ "monitor": {
+  "running": true,
+  "scans": 29,
+  "interval_s": 10.0,
+  "window_h": 3.0,
+  "last": {
+   "start": "2026-11-07T18:20:01.557863+08:00",
+   "end": "2026-11-07T21:20:01.557863+08:00",
+   "episodes": 5,
+   "inserted": 0,
+   "updated": 0,
+   "recovered": 0,
+   "ms": 160.1
+  },
+  "last_error": null,
+  "bucket_min": 5.0,
+  "rules": [
+   {
+    "id": "effluent_exceed",
+    "kind": "水质超标",
+    "level": "告警",
+    "on_buckets": 2,
+    "off_buckets": 3
+   },
+   {
+    "id": "effluent_trend",
+    "kind": "水质预警",
+    "level": "预警",
+    "on_buckets": 2,
+    "off_buckets": 3
+   },
+   {
+    "id": "do_low",
+    "kind": "工艺异常",
+    "level": "告警",
+    "on_buckets": 2,
+    "off_buckets": 3
+   },
+   {
+    "id": "inflow_surge",
+    "kind": "进水冲击",
+    "level": "预警",
+    "on_buckets": 3,
+    "off_buckets": 3
+   },
+   {
+    "id": "inflow_load",
+    "kind": "进水负荷",
+    "level": "预警",
+    "on_buckets": 3,
+    "off_buckets": 3
+   },
+   {
+    "id": "dosing_anomaly",
+    "kind": "药耗异常",
+    "level": "预警",
+    "on_buckets": 3,
+    "off_buckets": 6
+   },
+   {
+    "id": "device_vibration",
+    "kind": "设备异常",
+    "level": "预警",
+    "on_buckets": 2,
+    "off_buckets": 3
+   },
+   {
+    "id": "device_temp",
+    "kind": "设备异常",
+    "level": "预警",
+    "on_buckets": 2,
+    "off_buckets": 3
+   },
+   {
+    "id": "device_stop",
+    "kind": "设备异常",
+    "level": "告警",
+    "on_buckets": 1,
+    "off_buckets": 1
+   }
+  ]
+ },
+ "metrics": {
+  "plant": [
+   {
+    "key": "inflow_m3h",
+    "label": "进水流量",
+    "unit": "m³/h",
+    "group": "进水",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "cod_in",
+    "label": "进水 COD",
+    "unit": "mg/L",
+    "group": "进水",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "nh3n_in",
+    "label": "进水氨氮",
+    "unit": "mg/L",
+    "group": "进水",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "tn_in",
+    "label": "进水总氮",
+    "unit": "mg/L",
+    "group": "进水",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "tp_in",
+    "label": "进水总磷",
+    "unit": "mg/L",
+    "group": "进水",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "cod_out",
+    "label": "出水 COD",
+    "unit": "mg/L",
+    "group": "出水",
+    "limit": 50.0,
+    "lower_is_bad": false
+   },
+   {
+    "key": "nh3n_out",
+    "label": "出水氨氮",
+    "unit": "mg/L",
+    "group": "出水",
+    "limit": 5.0,
+    "lower_is_bad": false
+   },
+   {
+    "key": "tn_out",
+    "label": "出水总氮",
+    "unit": "mg/L",
+    "group": "出水",
+    "limit": 15.0,
+    "lower_is_bad": false
+   },
+   {
+    "key": "tp_out",
+    "label": "出水总磷",
+    "unit": "mg/L",
+    "group": "出水",
+    "limit": 0.5,
+    "lower_is_bad": false
+   },
+   {
+    "key": "ss_out",
+    "label": "出水 SS",
+    "unit": "mg/L",
+    "group": "出水",
+    "limit": 10.0,
+    "lower_is_bad": false
+   },
+   {
+    "key": "do_aerobic_1",
+    "label": "好氧区 DO（1#）",
+    "unit": "mg/L",
+    "group": "工艺",
+    "limit": 1.0,
+    "lower_is_bad": true
+   },
+   {
+    "key": "do_aerobic_2",
+    "label": "好氧区 DO（2#）",
+    "unit": "mg/L",
+    "group": "工艺",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "air_flow_m3h",
+    "label": "曝气风量",
+    "unit": "m³/h",
+    "group": "工艺",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "mlss",
+    "label": "污泥浓度 MLSS",
+    "unit": "mg/L",
+    "group": "工艺",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "blower_kw",
+    "label": "鼓风机功率",
+    "unit": "kW",
+    "group": "能耗药耗",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "carbon_dose_kgh",
+    "label": "碳源投加量",
+    "unit": "kg/h",
+    "group": "能耗药耗",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "pac_dose_kgh",
+    "label": "PAC 投加量",
+    "unit": "kg/h",
+    "group": "能耗药耗",
+    "limit": null,
+    "lower_is_bad": false
+   }
+  ],
+  "device": [
+   {
+    "key": "current_a",
+    "label": "运行电流",
+    "unit": "A",
+    "group": "设备",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "vibration_mms",
+    "label": "振动速度",
+    "unit": "mm/s",
+    "group": "设备",
+    "limit": 7.1,
+    "lower_is_bad": false
+   },
+   {
+    "key": "temp_c",
+    "label": "轴承温度",
+    "unit": "℃",
+    "group": "设备",
+    "limit": 80.0,
+    "lower_is_bad": false
+   }
+  ],
+  "derived": [
+   {
+    "key": "cod_load_kgh",
+    "label": "进水 COD质量负荷",
+    "unit": "kg/h",
+    "group": "进水负荷",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "tn_load_kgh",
+    "label": "进水总氮质量负荷",
+    "unit": "kg/h",
+    "group": "进水负荷",
+    "limit": null,
+    "lower_is_bad": false
+   },
+   {
+    "key": "nh3n_load_kgh",
+    "label": "进水氨氮质量负荷",
+    "unit": "kg/h",
+    "group": "进水负荷",
+    "limit": null,
+    "lower_is_bad": false
+   }
+  ]
+ },
+ "clock": {
+  "now": "2026-11-07T21:20:11.557863+08:00",
+  "wall": "2026-11-07T21:20:19.634724+08:00",
+  "ahead_s": -8.1,
+  "speed": 1.0
+ },
+ "work_orders": {
+  "total": 0,
+  "limit": 1,
+  "offset": 0,
+  "counts": {
+   "待处理": 0,
+   "处理中": 0,
+   "已关闭": 0
+  },
+  "items": []
+ },
+ "gateway": {
+  "available": true,
+  "mode": "live",
+  "cache_entries": 0,
+  "cache_hits": 0,
+  "requests": {
+   "calls": 0,
+   "successes": 0,
+   "errors": 0,
+   "cancelled": 0,
+   "total_latency_p50_ms": null,
+   "total_latency_p95_ms": null
+  },
+  "providers": {
+   "deepseek": {
+    "model": "deepseek-flash",
+    "calls": 0,
+    "errors": 0,
+    "retries": 0,
+    "cancelled": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "cache_hit_tokens": 0,
+    "latency_p50_ms": null,
+    "latency_p95_ms": null,
+    "attempt_latency_p50_ms": null,
+    "attempt_latency_p95_ms": null,
+    "ttft_p50_ms": null,
+    "ttft_p95_ms": null,
+    "circuit": "closed"
+   }
+  }
+ },
+ "checked_at": "2026-11-07T21:20:19.661102+08:00",
+ "sha256": {
+  "app/analytics/rules.py": "5964bb5bd16a92d75d5a0be78f22f41b7f8841961bbcb93df7ddab9508ad636e",
+  "app/analytics/alarms.py": "148e5871514eaf15a3b915745b70544a8b5efffea6c3ae28c720c161ecad8956",
+  "app/domain/metrics.py": "29a3b64ff9acf362d098daaf98bae428aa0d8bf7666cd6b016cad69185d297e1",
+  "app/ai/advisor.py": "b6bb2b4f8545fe030e20c0878809fca25621d5a731481921ac3e6cf1930187af",
+  "app/services/ops.py": "fcae78043bd9011eab688ab589b6d62e7a71df9803c3c05664c4cca088d7769d",
+  "app/api/alarms.py": "4d8b802f43f11d3bc4bf5026f206cc63c03caea1b496dfe77704c573ae29ec82",
+  "app/api/meta.py": "5514b6016f49df2f4e8af194fd480cef28fe8678ac3bbd3e01f1a62e92870dee",
+  "knowledge/demo-metrics.md": "9dad6aa38385c592abe033676a829b22f209c28d0deb4ea2a0e5fc9a902f12ca"
+ }
+}

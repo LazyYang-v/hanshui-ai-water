@@ -1,0 +1,432 @@
+{
+  "id": "blower-followup-duration",
+  "family": "followup",
+  "mode": "statistics",
+  "question": "那它昨天2026年11月6日00:00至11月7日00:00的出水氨氮，按5分钟均值累计超标和最长连续超标各多长？请分别引用服务端固定统计，不用小时桶数代替时长。",
+  "status": "pass",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [],
+    "valid_samples": 1440,
+    "statistics": {
+      "period": {
+        "requested_start": "2026-11-06T00:00:00+08:00",
+        "requested_end": "2026-11-07T00:00:00+08:00",
+        "start": "2026-11-06T00:00:00+08:00",
+        "end": "2026-11-07T00:00:00+08:00",
+        "timezone": "Asia/Shanghai"
+      },
+      "metric": {
+        "key": "nh3n_out",
+        "label": "出水氨氮",
+        "unit": "mg/L",
+        "group": "出水",
+        "limit": 5,
+        "lower_is_bad": false
+      },
+      "bucket_minutes": 5,
+      "ranking_precision": 4,
+      "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+      "facts": [
+        {
+          "id": "P06.nh3n_out.exceed_hours",
+          "statistic": "exceed_hours",
+          "value": 7.166666666666667,
+          "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+          "metric": "nh3n_out",
+          "plant": "P06",
+          "unit": "小时",
+          "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+          "coverage": {
+            "P06": {
+              "expected_buckets": 288,
+              "observed_buckets": 288,
+              "missing_buckets": 0,
+              "coverage": 1.0
+            }
+          }
+        },
+        {
+          "id": "P06.nh3n_out.longest_exceed_hours",
+          "statistic": "longest_exceed_hours",
+          "value": 7.166666666666667,
+          "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+          "metric": "nh3n_out",
+          "plant": "P06",
+          "unit": "小时",
+          "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+          "coverage": {
+            "P06": {
+              "expected_buckets": 288,
+              "observed_buckets": 288,
+              "missing_buckets": 0,
+              "coverage": 1.0
+            }
+          }
+        }
+      ],
+      "warnings": [],
+      "plants": [
+        {
+          "code": "P06",
+          "name": "黄官镇污水处理站",
+          "summary": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0,
+            "mean": 6.3721,
+            "instant_max": 25.4893,
+            "instant_min": 0.1155,
+            "bucket_mean_max": 24.3531,
+            "bucket_mean_min": 0.1206,
+            "exceed_hours": 7.166666666666667,
+            "longest_exceed_hours": 7.166666666666667,
+            "hours_with_exceed": 8
+          }
+        }
+      ],
+      "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+      "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+      "params": {
+        "start": "2026-11-06T00:00:00+08:00",
+        "end": "2026-11-07T00:00:00+08:00"
+      }
+    },
+    "statistics_database_verified": true
+  },
+  "request": {
+    "question": "那它昨天2026年11月6日00:00至11月7日00:00的出水氨氮，按5分钟均值累计超标和最长连续超标各多长？请分别引用服务端固定统计，不用小时桶数代替时长。",
+    "session_id": "8b5cd16d18f34e998bc0e7c0921a644a"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "那它昨天2026年11月6日00:00至11月7日00:00的出水氨氮，按5分钟均值累计超标和最长连续超标各多长？请分别引用服务端固定统计，不用小时桶数代替时长。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "ff945af5d772414588f7f82f45fb7b69",
+    "session_id": "8b5cd16d18f34e998bc0e7c0921a644a",
+    "resolved_question": "查询黄官镇P06厂站2026年11月6日00:00至11月7日00:00出水氨氮按5分钟均值统计的累计超标时长和最长连续超标时长，引用服务端固定统计。",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶。 [1]\n\n统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶。 [2]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "statistic",
+        "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶。",
+        "citation_numbers": [
+          1
+        ]
+      },
+      {
+        "kind": "statistic",
+        "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶。",
+        "citation_numbers": [
+          2
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "statistic",
+        "call_id": "t1",
+        "fact_id": "P06.nh3n_out.exceed_hours",
+        "value": 7.166666666666667,
+        "statistic": "exceed_hours",
+        "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "小时",
+        "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      },
+      {
+        "number": 2,
+        "kind": "statistic",
+        "call_id": "t1",
+        "fact_id": "P06.nh3n_out.longest_exceed_hours",
+        "value": 7.166666666666667,
+        "statistic": "longest_exceed_hours",
+        "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "小时",
+        "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "plant_statistics",
+        "question": "黄官镇P06厂站2026年11月6日00:00至11月7日00:00出水氨氮按5分钟均值的累计超标时长和最长连续超标时长",
+        "status": "ok",
+        "output": {
+          "period": {
+            "requested_start": "2026-11-06T00:00:00+08:00",
+            "requested_end": "2026-11-07T00:00:00+08:00",
+            "start": "2026-11-06T00:00:00+08:00",
+            "end": "2026-11-07T00:00:00+08:00",
+            "timezone": "Asia/Shanghai"
+          },
+          "metric": {
+            "key": "nh3n_out",
+            "label": "出水氨氮",
+            "unit": "mg/L",
+            "group": "出水",
+            "limit": 5,
+            "lower_is_bad": false
+          },
+          "bucket_minutes": 5,
+          "ranking_precision": 4,
+          "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+          "facts": [
+            {
+              "id": "P06.nh3n_out.exceed_hours",
+              "statistic": "exceed_hours",
+              "value": 7.166666666666667,
+              "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "小时",
+              "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            },
+            {
+              "id": "P06.nh3n_out.longest_exceed_hours",
+              "statistic": "longest_exceed_hours",
+              "value": 7.166666666666667,
+              "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "小时",
+              "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            }
+          ],
+          "warnings": [],
+          "plants": [
+            {
+              "code": "P06",
+              "name": "黄官镇污水处理站",
+              "summary": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0,
+                "mean": 6.3721,
+                "instant_max": 25.4893,
+                "instant_min": 0.1155,
+                "bucket_mean_max": 24.3531,
+                "bucket_mean_min": 0.1206,
+                "exceed_hours": 7.166666666666667,
+                "longest_exceed_hours": 7.166666666666667,
+                "hours_with_exceed": 8
+              }
+            }
+          ],
+          "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+          "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+          "params": {
+            "start": "2026-11-06T00:00:00+08:00",
+            "end": "2026-11-07T00:00:00+08:00"
+          }
+        },
+        "error": null,
+        "total_ms": 23.3,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3254,
+        "completion_tokens": 413,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2598.5,
+        "latency_ms": 2598.5,
+        "total_latency_ms": 2598.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2598.5,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3951,
+        "completion_tokens": 75,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 955.6,
+        "latency_ms": 955.6,
+        "total_latency_ms": 955.6,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 955.6,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3386,
+        "completion_tokens": 91,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 890.1,
+        "latency_ms": 890.0,
+        "total_latency_ms": 890.1,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 890.0,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 10591,
+    "completion_tokens": 579,
+    "llm_ms": 4444.2,
+    "total_ms": 4476.5,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "d0d6a0ba026a4b42a118bbba3143ed0e",
+    "a49408e2016f48daadb66035d280c723",
+    "911eb534b8e34b9fa0483e1ec2b9f593",
+    "ff945af5d772414588f7f82f45fb7b69"
+  ],
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": true,
+    "status": "pass",
+    "failures": [],
+    "manual_review": []
+  },
+  "elapsed_ms": 4567.0
+}

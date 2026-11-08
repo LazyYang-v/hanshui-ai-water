@@ -1,0 +1,170 @@
+{
+ "model": "data/vision/runs/e1_synth/weights/best.onnx",
+ "model_sha256": "365e2efbc37f7667c7352af9494031272df5e34d2add45cca73129148179979f",
+ "imgsz": 640,
+ "generated_at": "2026-11-08T03:47:21",
+ "sets": {
+  "synth_test": {
+   "images": 300,
+   "boxes": 825,
+   "floating_debris": {
+    "gt": 659,
+    "ap50": 0.9431848570739509,
+    "ap50_95": 0.7706833641324925,
+    "alarm_conf": 0.45,
+    "precision": 0.9867109634551495,
+    "recall": 0.9013657056145675,
+    "image_hit_rate": 1.0,
+    "images_with_target": 148,
+    "image_false_alarm_rate": 0.0,
+    "images_without_target": 152
+   },
+   "leak": {
+    "gt": 166,
+    "ap50": 0.9856939059246755,
+    "ap50_95": 0.9031900632197637,
+    "alarm_conf": 0.5,
+    "precision": 0.9875,
+    "recall": 0.9518072289156626,
+    "image_hit_rate": 0.9915254237288136,
+    "images_with_target": 118,
+    "image_false_alarm_rate": 0.0,
+    "images_without_target": 182
+   },
+   "negative_slices": {
+    "distractor=bubbles": {
+     "negative_images": 7,
+     "false_alarm_images": 0
+    },
+    "distractor=cast_shadow": {
+     "negative_images": 6,
+     "false_alarm_images": 0
+    },
+    "distractor=dirt": {
+     "negative_images": 6,
+     "false_alarm_images": 0
+    },
+    "distractor=dry_mark": {
+     "negative_images": 4,
+     "false_alarm_images": 0
+    },
+    "distractor=far_wall": {
+     "negative_images": 18,
+     "false_alarm_images": 0
+    },
+    "distractor=floor_glare": {
+     "negative_images": 10,
+     "false_alarm_images": 0
+    },
+    "distractor=foam_patch": {
+     "negative_images": 8,
+     "false_alarm_images": 0
+    },
+    "distractor=glare": {
+     "negative_images": 15,
+     "false_alarm_images": 0
+    },
+    "distractor=leaves": {
+     "negative_images": 20,
+     "false_alarm_images": 0
+    },
+    "distractor=near_walkway": {
+     "negative_images": 6,
+     "false_alarm_images": 0
+    },
+    "distractor=paint": {
+     "negative_images": 7,
+     "false_alarm_images": 0
+    },
+    "distractor=pipe_shadow": {
+     "negative_images": 13,
+     "false_alarm_images": 0
+    },
+    "distractor=railing": {
+     "negative_images": 13,
+     "false_alarm_images": 0
+    },
+    "distractor=ripple": {
+     "negative_images": 11,
+     "false_alarm_images": 0
+    },
+    "distractor=rust": {
+     "negative_images": 7,
+     "false_alarm_images": 0
+    },
+    "distractor=scum": {
+     "negative_images": 8,
+     "false_alarm_images": 0
+    },
+    "scene=gallery": {
+     "negative_images": 13,
+     "false_alarm_images": 0
+    },
+    "scene=pool": {
+     "negative_images": 21,
+     "false_alarm_images": 0
+    }
+   }
+  },
+  "real_val": {
+   "images": 203,
+   "boxes": 787,
+   "floating_debris": {
+    "gt": 787,
+    "ap50": 0.22867707983499114,
+    "ap50_95": 0.139504757894437,
+    "alarm_conf": 0.45,
+    "precision": 0.3409378960709759,
+    "recall": 0.3418043202033037,
+    "image_hit_rate": 0.9292929292929293,
+    "images_with_target": 198,
+    "image_false_alarm_rate": 1.0,
+    "images_without_target": 5
+   },
+   "leak": {
+    "gt": 0,
+    "false_alarm_images": 0,
+    "images": 203,
+    "alarm_conf": 0.5
+   },
+   "breakdown": {
+    "alarm_conf": 0.45,
+    "by_region": {
+     "Hobart": {
+      "gt": 219,
+      "precision": 0.3547,
+      "recall": 0.5799
+     },
+     "Indonesia": {
+      "gt": 488,
+      "precision": 0.4236,
+      "recall": 0.1988
+     },
+     "NSW": {
+      "gt": 80,
+      "precision": 0.2228,
+      "recall": 0.5625
+     }
+    },
+    "recall_by_size": {
+     "<16px": {
+      "gt": 357,
+      "recall": 0.1709
+     },
+     "16-32px": {
+      "gt": 262,
+      "recall": 0.5038
+     },
+     "32-64px": {
+      "gt": 125,
+      "recall": 0.464
+     },
+     ">=64px": {
+      "gt": 43,
+      "recall": 0.4186
+     }
+    }
+   }
+  }
+ }
+}

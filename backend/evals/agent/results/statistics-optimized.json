@@ -1,0 +1,2203 @@
+{
+  "checked_at": "2026-11-07T12:09:21.383216+00:00",
+  "cases": [
+    {
+      "case": "duration",
+      "question": "黄官镇2026年11月6日出水氨氮按5分钟均值统计，累计超标多长时间、最长连续超标多长时间？另外有几个小时桶内曾出现超标原始采样？请分别引用固定统计，不把小时桶数量当作连续时长。",
+      "passed": true,
+      "citations_verified": true,
+      "statistics_matched": true,
+      "reference": {
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "metric": {
+          "key": "nh3n_out",
+          "label": "出水氨氮",
+          "unit": "mg/L",
+          "group": "出水",
+          "limit": 5,
+          "lower_is_bad": false
+        },
+        "bucket_minutes": 5,
+        "ranking_precision": 4,
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "facts": [
+          {
+            "id": "P06.nh3n_out.exceed_hours",
+            "statistic": "exceed_hours",
+            "value": 2.5,
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          },
+          {
+            "id": "P06.nh3n_out.longest_exceed_hours",
+            "statistic": "longest_exceed_hours",
+            "value": 2.5,
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          },
+          {
+            "id": "P06.nh3n_out.hours_with_exceed",
+            "statistic": "hours_with_exceed",
+            "value": 4,
+            "text": "黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "个小时桶",
+            "aggregation": "统计时段内曾有原始采样超标的北京时间小时桶数，不代表持续异常小时数",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          }
+        ],
+        "warnings": [],
+        "plants": [
+          {
+            "code": "P06",
+            "name": "黄官镇污水处理站",
+            "summary": {
+              "expected_buckets": 288,
+              "observed_buckets": 288,
+              "missing_buckets": 0,
+              "coverage": 1.0,
+              "mean": 1.7808,
+              "instant_max": 17.3209,
+              "instant_min": 0.1104,
+              "bucket_mean_max": 16.7281,
+              "bucket_mean_min": 0.1215,
+              "exceed_hours": 2.5,
+              "longest_exceed_hours": 2.5,
+              "hours_with_exceed": 4
+            }
+          }
+        ],
+        "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+        "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+        "params": {
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00"
+        }
+      },
+      "result": {
+        "question": "黄官镇2026年11月6日出水氨氮按5分钟均值统计，累计超标多长时间、最长连续超标多长时间？另外有几个小时桶内曾出现超标原始采样？请分别引用固定统计，不把小时桶数量当作连续时长。",
+        "now": "2026-11-07T20:09:16.174802+08:00",
+        "run_id": "4c6c560f53ad427a8ecd768e905052f5",
+        "session_id": "c9ec9d2d14684978b053b8efe72915a8",
+        "resolved_question": "查询黄官镇（P06）2026年11月6日00:00至2026年11月7日00:00出水氨氮（nh3n_out，阈值5 mg/L）的固定统计：按5分钟均值统计的累计超标时长、最长连续超标时长，以及原始采样曾出现超标的小时桶数量；不得把小时桶数量当作连续超标时长。",
+        "intent": "data",
+        "ok": true,
+        "refused": false,
+        "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶。 [1][2][3]",
+        "reason": null,
+        "error": null,
+        "claims": [
+          {
+            "kind": "statistic",
+            "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶。",
+            "citation_numbers": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.exceed_hours",
+            "value": 2.5,
+            "statistic": "exceed_hours",
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 2,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.longest_exceed_hours",
+            "value": 2.5,
+            "statistic": "longest_exceed_hours",
+            "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "小时",
+            "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 3,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.hours_with_exceed",
+            "value": 4,
+            "statistic": "hours_with_exceed",
+            "text": "黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "个小时桶",
+            "aggregation": "统计时段内曾有原始采样超标的北京时间小时桶数，不代表持续异常小时数",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          }
+        ],
+        "tool_calls": [
+          {
+            "id": "t1",
+            "tool": "plant_statistics",
+            "question": "黄官镇P06在2026年11月6日全天出水氨氮按5分钟均值统计的累计超标时长、最长连续超标时长，以及原始采样曾出现超标的小时桶数量",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "nh3n_out",
+                "label": "出水氨氮",
+                "unit": "mg/L",
+                "group": "出水",
+                "limit": 5,
+                "lower_is_bad": false
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P06.nh3n_out.exceed_hours",
+                  "statistic": "exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.longest_exceed_hours",
+                  "statistic": "longest_exceed_hours",
+                  "value": 2.5,
+                  "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为2.5小时（150分钟，30个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "小时",
+                  "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.hours_with_exceed",
+                  "statistic": "hours_with_exceed",
+                  "value": 4,
+                  "text": "黄官镇污水处理站（P06）出水氨氮有4个小时桶内曾出现超标的原始采样值，不能据此当作连续4小时超标；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "个小时桶",
+                  "aggregation": "统计时段内曾有原始采样超标的北京时间小时桶数，不代表持续异常小时数",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.7808,
+                    "instant_max": 17.3209,
+                    "instant_min": 0.1104,
+                    "bucket_mean_max": 16.7281,
+                    "bucket_mean_min": 0.1215,
+                    "exceed_hours": 2.5,
+                    "longest_exceed_hours": 2.5,
+                    "hours_with_exceed": 4
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 24.4,
+            "queue_ms": 2.7
+          }
+        ],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1623,
+            "completion_tokens": 636,
+            "finish_reason": "stop",
+            "llm_ms": 5087.1,
+            "latency_ms": 5086.9,
+            "total_latency_ms": 5087.1,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 5086.9,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2515,
+            "completion_tokens": 191,
+            "finish_reason": "stop",
+            "llm_ms": 1565.3,
+            "latency_ms": 1565.3,
+            "total_latency_ms": 1565.3,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1565.3,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2246,
+            "completion_tokens": 99,
+            "finish_reason": "stop",
+            "llm_ms": 925.2,
+            "latency_ms": 925.2,
+            "total_latency_ms": 925.2,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 925.2,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          }
+        ],
+        "prompt_tokens": 6384,
+        "completion_tokens": 926,
+        "llm_ms": 7577.6,
+        "total_ms": 7623.7,
+        "planning_rounds": 2,
+        "validation_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "peaks",
+      "question": "黄官镇2026年11月6日出水氨氮的原始采样瞬时最大值与5分钟均值最大值分别是多少？请区分口径。",
+      "passed": true,
+      "citations_verified": true,
+      "statistics_matched": true,
+      "reference": {
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "metric": {
+          "key": "nh3n_out",
+          "label": "出水氨氮",
+          "unit": "mg/L",
+          "group": "出水",
+          "limit": 5,
+          "lower_is_bad": false
+        },
+        "bucket_minutes": 5,
+        "ranking_precision": 4,
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "facts": [
+          {
+            "id": "P06.nh3n_out.instant_max",
+            "statistic": "instant_max",
+            "value": 17.3209,
+            "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "mg/L",
+            "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          },
+          {
+            "id": "P06.nh3n_out.bucket_mean_max",
+            "statistic": "bucket_mean_max",
+            "value": 16.7281,
+            "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "mg/L",
+            "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          }
+        ],
+        "warnings": [],
+        "plants": [
+          {
+            "code": "P06",
+            "name": "黄官镇污水处理站",
+            "summary": {
+              "expected_buckets": 288,
+              "observed_buckets": 288,
+              "missing_buckets": 0,
+              "coverage": 1.0,
+              "mean": 1.7808,
+              "instant_max": 17.3209,
+              "instant_min": 0.1104,
+              "bucket_mean_max": 16.7281,
+              "bucket_mean_min": 0.1215,
+              "exceed_hours": 2.5,
+              "longest_exceed_hours": 2.5,
+              "hours_with_exceed": 4
+            }
+          }
+        ],
+        "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+        "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+        "params": {
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00"
+        }
+      },
+      "result": {
+        "question": "黄官镇2026年11月6日出水氨氮的原始采样瞬时最大值与5分钟均值最大值分别是多少？请区分口径。",
+        "now": "2026-11-07T20:09:21.174802+08:00",
+        "run_id": "e9fcc56f46964b028291baff5ac223a2",
+        "session_id": "beee2c7a9f8d4dfcacc9e54bdb77f78a",
+        "resolved_question": "黄官镇（P06）2026年11月6日00:00至2026年11月7日00:00出水氨氮的原始采样瞬时最大值与5分钟均值最大值分别是多少？请区分口径。",
+        "intent": "data",
+        "ok": true,
+        "refused": false,
+        "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶。 [1][2]",
+        "reason": null,
+        "error": null,
+        "claims": [
+          {
+            "kind": "statistic",
+            "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶。",
+            "citation_numbers": [
+              1,
+              2
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.instant_max",
+            "value": 17.3209,
+            "statistic": "instant_max",
+            "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 2,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.bucket_mean_max",
+            "value": 16.7281,
+            "statistic": "bucket_mean_max",
+            "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          }
+        ],
+        "tool_calls": [
+          {
+            "id": "t1",
+            "tool": "plant_statistics",
+            "question": "黄官镇P06在2026-11-06T00:00:00+08:00至2026-11-07T00:00:00+08:00出水氨氮的瞬时最大值和5分钟均值最大值",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "nh3n_out",
+                "label": "出水氨氮",
+                "unit": "mg/L",
+                "group": "出水",
+                "limit": 5,
+                "lower_is_bad": false
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P06.nh3n_out.instant_max",
+                  "statistic": "instant_max",
+                  "value": 17.3209,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为17.3209 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.bucket_mean_max",
+                  "statistic": "bucket_mean_max",
+                  "value": 16.7281,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为16.7281 mg/L；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.7808,
+                    "instant_max": 17.3209,
+                    "instant_min": 0.1104,
+                    "bucket_mean_max": 16.7281,
+                    "bucket_mean_min": 0.1215,
+                    "exceed_hours": 2.5,
+                    "longest_exceed_hours": 2.5,
+                    "hours_with_exceed": 4
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 13.9,
+            "queue_ms": 0.0
+          }
+        ],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1599,
+            "completion_tokens": 437,
+            "finish_reason": "stop",
+            "llm_ms": 3169.6,
+            "latency_ms": 3169.5,
+            "total_latency_ms": 3169.6,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 3169.5,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2226,
+            "completion_tokens": 164,
+            "finish_reason": "stop",
+            "llm_ms": 1396.4,
+            "latency_ms": 1396.3,
+            "total_latency_ms": 1396.4,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1396.3,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1957,
+            "completion_tokens": 112,
+            "finish_reason": "stop",
+            "llm_ms": 1358.6,
+            "latency_ms": 1358.5,
+            "total_latency_ms": 1358.6,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1358.5,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 2137,
+            "completion_tokens": 72,
+            "finish_reason": "stop",
+            "llm_ms": 818.6,
+            "latency_ms": 818.6,
+            "total_latency_ms": 818.6,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 818.6,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          }
+        ],
+        "prompt_tokens": 7919,
+        "completion_tokens": 785,
+        "llm_ms": 6743.2,
+        "total_ms": 6764.6,
+        "planning_rounds": 2,
+        "validation_errors": [
+          "answer: 每条陈述必须有本轮证据"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "case": "ranking",
+      "question": "2026年11月6日，按5分钟均值等权计算各厂站出水氨氮的时段平均值。黄官镇在全区降序密集排名第几？全区这个平均值的范围和最高的厂站分别是什么？",
+      "passed": true,
+      "citations_verified": true,
+      "statistics_matched": true,
+      "reference": {
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "metric": {
+          "key": "nh3n_out",
+          "label": "出水氨氮",
+          "unit": "mg/L",
+          "group": "出水",
+          "limit": 5,
+          "lower_is_bad": false
+        },
+        "bucket_minutes": 5,
+        "ranking_precision": 4,
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "facts": [
+          {
+            "id": "P06.nh3n_out.rank",
+            "statistic": "rank",
+            "value": 1,
+            "text": "黄官镇污水处理站（P06）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第1名（密集排名，本厂值1.7808 mg/L）；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "plant": "P06",
+            "unit": "名",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          },
+          {
+            "id": "plants.nh3n_out.mean.range",
+            "statistic": "range",
+            "value": {
+              "min": 0.471,
+              "max": 1.7808
+            },
+            "text": "7座覆盖完整的厂站中，出水氨氮的5分钟均值的时段平均值范围为0.471至1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+            "metric": "nh3n_out",
+            "plant": null,
+            "unit": "mg/L",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最小和最大值",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          },
+          {
+            "id": "plants.nh3n_out.mean.top",
+            "statistic": "top",
+            "value": 1.7808,
+            "text": "出水氨氮按5分钟均值的时段平均值比较，最高为黄官镇污水处理站（P06），值为1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+            "metric": "nh3n_out",
+            "plant": null,
+            "unit": "mg/L",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最高值及所有并列厂站",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            }
+          }
+        ],
+        "warnings": [],
+        "plants": [
+          {
+            "code": "P06",
+            "name": "黄官镇污水处理站",
+            "summary": {
+              "expected_buckets": 288,
+              "observed_buckets": 288,
+              "missing_buckets": 0,
+              "coverage": 1.0,
+              "mean": 1.7808,
+              "instant_max": 17.3209,
+              "instant_min": 0.1104,
+              "bucket_mean_max": 16.7281,
+              "bucket_mean_min": 0.1215,
+              "exceed_hours": 2.5,
+              "longest_exceed_hours": 2.5,
+              "hours_with_exceed": 4
+            }
+          }
+        ],
+        "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+        "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+        "params": {
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00"
+        }
+      },
+      "result": {
+        "question": "2026年11月6日，按5分钟均值等权计算各厂站出水氨氮的时段平均值。黄官镇在全区降序密集排名第几？全区这个平均值的范围和最高的厂站分别是什么？",
+        "now": "2026-11-07T20:09:26.174802+08:00",
+        "run_id": "dd5dc76bdd4f4838a1c02b731b970822",
+        "session_id": "a216aab79c594042b9d0b0abd7162890",
+        "resolved_question": "2026年11月6日00:00至2026年11月7日00:00（北京时间），按5分钟均值等权计算各厂站出水氨氮（nh3n_out）的时段平均值；求黄官镇在全区降序密集排名第几，以及全区这些平均值的范围和最高厂站。",
+        "intent": "data",
+        "ok": true,
+        "refused": false,
+        "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第1名（密集排名，本厂值1.7808 mg/L）；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值的时段平均值为1.7808 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶。 [1][2]\n\n统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：7座覆盖完整的厂站中，出水氨氮的5分钟均值的时段平均值范围为0.471至1.7808 mg/L；各厂均有288/288个有效5分钟桶；出水氨氮按5分钟均值的时段平均值比较，最高为黄官镇污水处理站（P06），值为1.7808 mg/L；各厂均有288/288个有效5分钟桶。 [3][4]",
+        "reason": null,
+        "error": null,
+        "claims": [
+          {
+            "kind": "statistic",
+            "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第1名（密集排名，本厂值1.7808 mg/L）；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值的时段平均值为1.7808 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶。",
+            "citation_numbers": [
+              1,
+              2
+            ]
+          },
+          {
+            "kind": "statistic",
+            "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：7座覆盖完整的厂站中，出水氨氮的5分钟均值的时段平均值范围为0.471至1.7808 mg/L；各厂均有288/288个有效5分钟桶；出水氨氮按5分钟均值的时段平均值比较，最高为黄官镇污水处理站（P06），值为1.7808 mg/L；各厂均有288/288个有效5分钟桶。",
+            "citation_numbers": [
+              3,
+              4
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.rank",
+            "value": 1,
+            "statistic": "rank",
+            "text": "黄官镇污水处理站（P06）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第1名（密集排名，本厂值1.7808 mg/L）；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "名",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 2,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "P06.nh3n_out.mean",
+            "value": 1.7808,
+            "statistic": "mean",
+            "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值的时段平均值为1.7808 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+            "coverage": {
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 3,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "plants.nh3n_out.mean.range",
+            "value": {
+              "min": 0.471,
+              "max": 1.7808
+            },
+            "statistic": "range",
+            "text": "7座覆盖完整的厂站中，出水氨氮的5分钟均值的时段平均值范围为0.471至1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最小和最大值",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          },
+          {
+            "number": 4,
+            "kind": "statistic",
+            "call_id": "t1",
+            "fact_id": "plants.nh3n_out.mean.top",
+            "value": 1.7808,
+            "statistic": "top",
+            "text": "出水氨氮按5分钟均值的时段平均值比较，最高为黄官镇污水处理站（P06），值为1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+            "metric": "nh3n_out",
+            "unit": "mg/L",
+            "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最高值及所有并列厂站",
+            "coverage": {
+              "P01": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P02": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P03": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P04": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P05": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P06": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              },
+              "P07": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0
+              }
+            },
+            "period": {
+              "requested_start": "2026-11-06T00:00:00+08:00",
+              "requested_end": "2026-11-07T00:00:00+08:00",
+              "start": "2026-11-06T00:00:00+08:00",
+              "end": "2026-11-07T00:00:00+08:00",
+              "timezone": "Asia/Shanghai"
+            },
+            "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+            "source": "服务端固定只读统计"
+          }
+        ],
+        "tool_calls": [
+          {
+            "id": "t1",
+            "tool": "plant_statistics",
+            "question": "2026-11-06T00:00:00+08:00 至 2026-11-07T00:00:00+08:00 全区各厂站出水氨氮按5分钟均值等权计算的时段平均值；给出黄官镇降序密集排名、全区平均值范围和最高厂站",
+            "status": "ok",
+            "output": {
+              "period": {
+                "requested_start": "2026-11-06T00:00:00+08:00",
+                "requested_end": "2026-11-07T00:00:00+08:00",
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00",
+                "timezone": "Asia/Shanghai"
+              },
+              "metric": {
+                "key": "nh3n_out",
+                "label": "出水氨氮",
+                "unit": "mg/L",
+                "group": "出水",
+                "limit": 5,
+                "lower_is_bad": false
+              },
+              "bucket_minutes": 5,
+              "ranking_precision": 4,
+              "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+              "facts": [
+                {
+                  "id": "P01.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.6261,
+                  "text": "南郑中心污水处理厂（P01）出水氨氮的5分钟均值的时段平均值为0.6261 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P01",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P01.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 3,
+                  "text": "南郑中心污水处理厂（P01）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第3名（密集排名，本厂值0.6261 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P01",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P02.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.4879,
+                  "text": "协税镇污水处理站（P02）出水氨氮的5分钟均值的时段平均值为0.4879 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P02",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P02.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 6,
+                  "text": "协税镇污水处理站（P02）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第6名（密集排名，本厂值0.4879 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P02",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P03.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.5644,
+                  "text": "梁山镇污水处理站（P03）出水氨氮的5分钟均值的时段平均值为0.5644 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P03",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P03.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 4,
+                  "text": "梁山镇污水处理站（P03）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第4名（密集排名，本厂值0.5644 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P03",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P04.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.471,
+                  "text": "高台镇污水处理站（P04）出水氨氮的5分钟均值的时段平均值为0.471 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P04",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P04.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 7,
+                  "text": "高台镇污水处理站（P04）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第7名（密集排名，本厂值0.471 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P04",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P05.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.5117,
+                  "text": "新集镇污水处理站（P05）出水氨氮的5分钟均值的时段平均值为0.5117 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P05",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P05.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 5,
+                  "text": "新集镇污水处理站（P05）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第5名（密集排名，本厂值0.5117 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P05",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 1.7808,
+                  "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值的时段平均值为1.7808 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P06.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 1,
+                  "text": "黄官镇污水处理站（P06）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第1名（密集排名，本厂值1.7808 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P06",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P07.nh3n_out.mean",
+                  "statistic": "mean",
+                  "value": 0.6327,
+                  "text": "牟家坝镇污水处理站（P07）出水氨氮的5分钟均值的时段平均值为0.6327 mg/L（有效5分钟桶等权，不按采样数加权）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P07",
+                  "unit": "mg/L",
+                  "aggregation": "完整5分钟桶内对有效采样求均值，再对有效桶等权平均，不按各桶采样数加权",
+                  "coverage": {
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "P07.nh3n_out.rank",
+                  "statistic": "rank",
+                  "value": 2,
+                  "text": "牟家坝镇污水处理站（P07）出水氨氮在覆盖完整的7座厂站中，按5分钟均值的时段平均值降序第2名（密集排名，本厂值0.6327 mg/L）；有效288/288个5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": "P07",
+                  "unit": "名",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，降序密集排名",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "plants.nh3n_out.mean.range",
+                  "statistic": "range",
+                  "value": {
+                    "min": 0.471,
+                    "max": 1.7808
+                  },
+                  "text": "7座覆盖完整的厂站中，出水氨氮的5分钟均值的时段平均值范围为0.471至1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": null,
+                  "unit": "mg/L",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最小和最大值",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                },
+                {
+                  "id": "plants.nh3n_out.mean.top",
+                  "statistic": "top",
+                  "value": 1.7808,
+                  "text": "出水氨氮按5分钟均值的时段平均值比较，最高为黄官镇污水处理站（P06），值为1.7808 mg/L；各厂均有288/288个有效5分钟桶",
+                  "metric": "nh3n_out",
+                  "plant": null,
+                  "unit": "mg/L",
+                  "aggregation": "同一时段覆盖完整的至少两座厂站，按5分钟均值的时段平均值显示到小数点后4位比较，取最高值及所有并列厂站",
+                  "coverage": {
+                    "P01": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P02": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P03": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P04": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P05": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P06": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    },
+                    "P07": {
+                      "expected_buckets": 288,
+                      "observed_buckets": 288,
+                      "missing_buckets": 0,
+                      "coverage": 1.0
+                    }
+                  }
+                }
+              ],
+              "warnings": [],
+              "plants": [
+                {
+                  "code": "P01",
+                  "name": "南郑中心污水处理厂",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.6261,
+                    "instant_max": 1.4272,
+                    "instant_min": 0.1526,
+                    "bucket_mean_max": 1.3761,
+                    "bucket_mean_min": 0.1607,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                },
+                {
+                  "code": "P02",
+                  "name": "协税镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.4879,
+                    "instant_max": 0.9434,
+                    "instant_min": 0.1698,
+                    "bucket_mean_max": 0.8802,
+                    "bucket_mean_min": 0.1763,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                },
+                {
+                  "code": "P03",
+                  "name": "梁山镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.5644,
+                    "instant_max": 1.1922,
+                    "instant_min": 0.1559,
+                    "bucket_mean_max": 1.1278,
+                    "bucket_mean_min": 0.1625,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                },
+                {
+                  "code": "P04",
+                  "name": "高台镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.471,
+                    "instant_max": 0.9714,
+                    "instant_min": 0.0775,
+                    "bucket_mean_max": 0.9318,
+                    "bucket_mean_min": 0.0814,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                },
+                {
+                  "code": "P05",
+                  "name": "新集镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.5117,
+                    "instant_max": 1.1018,
+                    "instant_min": 0.2072,
+                    "bucket_mean_max": 1.0568,
+                    "bucket_mean_min": 0.2168,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                },
+                {
+                  "code": "P06",
+                  "name": "黄官镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 1.7808,
+                    "instant_max": 17.3209,
+                    "instant_min": 0.1104,
+                    "bucket_mean_max": 16.7281,
+                    "bucket_mean_min": 0.1215,
+                    "exceed_hours": 2.5,
+                    "longest_exceed_hours": 2.5,
+                    "hours_with_exceed": 4
+                  }
+                },
+                {
+                  "code": "P07",
+                  "name": "牟家坝镇污水处理站",
+                  "summary": {
+                    "expected_buckets": 288,
+                    "observed_buckets": 288,
+                    "missing_buckets": 0,
+                    "coverage": 1.0,
+                    "mean": 0.6327,
+                    "instant_max": 1.3972,
+                    "instant_min": 0.1654,
+                    "bucket_mean_max": 1.3516,
+                    "bucket_mean_min": 0.1745,
+                    "exceed_hours": 0.0,
+                    "longest_exceed_hours": 0.0,
+                    "hours_with_exceed": 0
+                  }
+                }
+              ],
+              "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+              "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+              "params": {
+                "start": "2026-11-06T00:00:00+08:00",
+                "end": "2026-11-07T00:00:00+08:00"
+              }
+            },
+            "error": null,
+            "total_ms": 13.1,
+            "queue_ms": 0.0
+          }
+        ],
+        "models": [
+          "deepseek-flash"
+        ],
+        "generation_calls": [
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 1617,
+            "completion_tokens": 1022,
+            "finish_reason": "stop",
+            "llm_ms": 6902.8,
+            "latency_ms": 6902.8,
+            "total_latency_ms": 6902.8,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 6902.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 1,
+            "thinking": null
+          },
+          {
+            "stage": "plan",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 7082,
+            "completion_tokens": 170,
+            "finish_reason": "stop",
+            "llm_ms": 1619.0,
+            "latency_ms": 1618.9,
+            "total_latency_ms": 1619.0,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1618.9,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 6813,
+            "completion_tokens": 161,
+            "finish_reason": "stop",
+            "llm_ms": 1224.9,
+            "latency_ms": 1224.8,
+            "total_latency_ms": 1224.9,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 1224.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          },
+          {
+            "stage": "answer",
+            "model": "deepseek-flash",
+            "provider": "deepseek",
+            "prompt_tokens": 7042,
+            "completion_tokens": 122,
+            "finish_reason": "stop",
+            "llm_ms": 920.8,
+            "latency_ms": 920.8,
+            "total_latency_ms": 920.8,
+            "status": "success",
+            "error_type": null,
+            "attempt_history": [
+              {
+                "provider": "deepseek",
+                "attempt": 1,
+                "status": "success",
+                "latency_ms": 920.8,
+                "wait_ms": 0.0,
+                "error_type": null,
+                "status_code": null
+              }
+            ],
+            "round": 2,
+            "thinking": false
+          }
+        ],
+        "prompt_tokens": 22554,
+        "completion_tokens": 1475,
+        "llm_ms": 10667.5,
+        "total_ms": 10689.9,
+        "planning_rounds": 2,
+        "validation_errors": [
+          "answer: 每条陈述必须有本轮证据"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

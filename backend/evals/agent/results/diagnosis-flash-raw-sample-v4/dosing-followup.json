@@ -1,0 +1,401 @@
+{
+  "id": "dosing-followup",
+  "family": "followup",
+  "mode": "data",
+  "question": "那它前一天同一时刻的出水总磷和PAC投加原始值是多少？请保留厂站编码与采样时间、引用两项数值并写清mg/L和kg/h。",
+  "status": "fail",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P02",
+        "at": "2026-11-04T14:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "tp_out": 0.2938,
+          "pac_dose_kgh": 1.1952
+        },
+        "units": {
+          "tp_out": "mg/L",
+          "pac_dose_kgh": "kg/h"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "那它前一天同一时刻的出水总磷和PAC投加原始值是多少？请保留厂站编码与采样时间、引用两项数值并写清mg/L和kg/h。",
+    "session_id": "8c2ef02e34ad4d3eb2e2ceac275374b8"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "那它前一天同一时刻的出水总磷和PAC投加原始值是多少？请保留厂站编码与采样时间、引用两项数值并写清mg/L和kg/h。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "ffeefa5ec32a4e49b8f9074d61c0e73e",
+    "session_id": "8c2ef02e34ad4d3eb2e2ceac275374b8",
+    "resolved_question": "查询协税镇P02厂站2026年11月4日14:00的出水总磷原始采样值和PAC投加量原始采样值，保留厂站编码与采样时间，单位分别为mg/L和kg/h。",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "协税镇P02厂站2026-11-04 14:00出水总磷原始采样值为0.2938 mg/L。 [1][2][3][4]\n\n协税镇P02厂站2026-11-04 14:00 PAC投加量原始采样值为1.1952 kg/h。 [5][6][7][8]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站2026-11-04 14:00出水总磷原始采样值为0.2938 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站2026-11-04 14:00 PAC投加量原始采样值为1.1952 kg/h。",
+        "citation_numbers": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P02",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-04T14:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "数值",
+        "value": 0.2938,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "单位",
+        "value": "mg/L",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P02",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-04T14:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "数值",
+        "value": 1.1952,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "单位",
+        "value": "kg/h",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询协税镇P02厂站（厂站编码P02）2026-11-04 14:00的出水总磷（tp_out）原始采样值和PAC投加量（pac_dose_kgh）原始采样值，返回厂站编码、指标名称、采样时间及数值，单位分别为mg/L和kg/h；必须使用该时刻原始记录，不得用当前台账或邻近时刻替代。",
+        "status": "ok",
+        "output": {
+          "question": "查询协税镇P02厂站（厂站编码P02）2026-11-04 14:00的出水总磷（tp_out）原始采样值和PAC投加量（pac_dose_kgh）原始采样值，返回厂站编码、指标名称、采样时间及数值，单位分别为mg/L和kg/h；必须使用该时刻原始记录，不得用当前台账或邻近时刻替代。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, v.指标名称, r.ts AS 采样时间, v.数值, v.单位 FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id CROSS JOIN LATERAL (VALUES ('出水总磷', r.tp_out, 'mg/L'), ('PAC投加量', r.pac_dose_kgh, 'kg/h')) AS v(指标名称, 数值, 单位) WHERE p.code = 'P02' AND r.ts = '2026-11-04 14:00:00+08' LIMIT 200",
+          "explanation": "对P02在2026-11-04 14:00这条原始采样记录只做单次扫描，并用LATERAL展开为两行指标，严格按精确时刻进行等值筛选，不取邻近时刻，也不做四舍五入。",
+          "columns": [
+            "厂站编码",
+            "指标名称",
+            "采样时间",
+            "数值",
+            "单位"
+          ],
+          "rows": [
+            [
+              "P02",
+              "出水总磷",
+              "2026-11-04T14:00:00+08:00",
+              0.2938,
+              "mg/L"
+            ],
+            [
+              "P02",
+              "PAC投加量",
+              "2026-11-04T14:00:00+08:00",
+              1.1952,
+              "kg/h"
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, v.指标名称, r.ts AS 采样时间, v.数值, v.单位 FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id CROSS JOIN LATERAL (VALUES ('出水总磷', r.tp_out, 'mg/L'), ('PAC投加量', r.pac_dose_kgh, 'kg/h')) AS v(指标名称, 数值, 单位) WHERE p.code = 'P02' AND r.ts = '2026-11-04 14:00:00+08' LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2158,
+          "completion_tokens": 671,
+          "llm_ms": 4487.2,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2158,
+              "completion_tokens": 671,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 4487.2,
+              "latency_ms": 4487.1,
+              "total_latency_ms": 4487.2,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 4487.1,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 4501.8,
+          "examples_used": [
+            "本月各厂PAC投加量排名",
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "各厂站最新的出水氨氮和总磷是多少？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "device"
+          ]
+        },
+        "error": null,
+        "total_ms": 4502.0,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2762,
+        "completion_tokens": 321,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2369.5,
+        "latency_ms": 2369.4,
+        "total_latency_ms": 2369.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2369.4,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 3102,
+        "completion_tokens": 74,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 890.0,
+        "latency_ms": 890.0,
+        "total_latency_ms": 890.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 890.0,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2537,
+        "completion_tokens": 301,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2114.2,
+        "latency_ms": 2114.1,
+        "total_latency_ms": 2114.2,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2114.1,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 10559,
+    "completion_tokens": 1367,
+    "llm_ms": 9860.9,
+    "total_ms": 9885.9,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "07cb1ac13d7e49a9bdb8fb7fd064ac68",
+    "7fd0bd6898a44c60bf570d70be2b5950",
+    "ffeefa5ec32a4e49b8f9074d61c0e73e"
+  ],
+  "score": {
+    "mechanical_pass": false,
+    "semantic_pass": false,
+    "status": "fail",
+    "failures": [
+      "data_scope_or_projection:3",
+      "data_scope_or_projection:4",
+      "data_scope_or_projection:7",
+      "data_scope_or_projection:8",
+      "missing_snapshot_metric:0:tp_out",
+      "missing_snapshot_metric:0:pac_dose_kgh"
+    ],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "前一天同一时刻应恢复为11月4日14:00，且仍是协税镇。"
+      }
+    ]
+  },
+  "elapsed_ms": 9953.4
+}

@@ -1,0 +1,13 @@
+.venv
+__pycache__
+.pytest_cache
+tests
+evals/text2sql/cassettes
+evals/text2sql/results
+data
+.cache
+evals/rag/cassettes
+evals/rag/results
+evals/agent/results
+vision
+evals/vision/results

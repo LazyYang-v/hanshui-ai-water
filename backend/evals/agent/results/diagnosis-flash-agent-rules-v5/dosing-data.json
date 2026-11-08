@@ -1,0 +1,412 @@
+{
+  "id": "dosing-data",
+  "family": "dosing_block",
+  "mode": "data",
+  "question": "协税镇P02在2026年11月5日14:00的原始出水总磷、PAC投加量和P02-DP-P电流、振动是多少？逐项引用并保留厂站/设备编码和采样时间；单位mg/L、kg/h、A、mm/s，不用当前台账代替。",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P02",
+        "at": "2026-11-05T14:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "tp_out": 0.6122,
+          "pac_dose_kgh": 2.8578
+        },
+        "units": {
+          "tp_out": "mg/L",
+          "pac_dose_kgh": "kg/h"
+        }
+      },
+      {
+        "entity": "P02-DP-P",
+        "at": "2026-11-05T14:00:00+08:00",
+        "device_id": 49,
+        "values": {
+          "current_a": 1.27,
+          "vibration_mms": 3.93
+        },
+        "units": {
+          "current_a": "A",
+          "vibration_mms": "mm/s"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "协税镇P02在2026年11月5日14:00的原始出水总磷、PAC投加量和P02-DP-P电流、振动是多少？逐项引用并保留厂站/设备编码和采样时间；单位mg/L、kg/h、A、mm/s，不用当前台账代替。"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "协税镇P02在2026年11月5日14:00的原始出水总磷、PAC投加量和P02-DP-P电流、振动是多少？逐项引用并保留厂站/设备编码和采样时间；单位mg/L、kg/h、A、mm/s，不用当前台账代替。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "9cffe2e0b7da436d89a4ab816b51a6f0",
+    "session_id": "50d01b4016a249e0a1e6a47ae1036353",
+    "resolved_question": "查询协税镇P02厂站2026年11月5日14:00的原始出水总磷（mg/L）、PAC投加量（kg/h），以及设备P02-DP-P的电流（A）与振动（mm/s），逐项保留厂站/设备编码与采样时间",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "协税镇P02厂站（编码P02）2026-11-05 14:00:00原始出水总磷为0.6122 mg/L。 [1][2][3]\n\n协税镇P02厂站（编码P02）2026-11-05 14:00:00 PAC投加量为2.8578 kg/h。 [1][2][4]\n\n设备P02-DP-P在2026-11-05 14:00:00电流为1.27 A、振动为3.93 mm/s。 [5][6][7][8]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站（编码P02）2026-11-05 14:00:00原始出水总磷为0.6122 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "协税镇P02厂站（编码P02）2026-11-05 14:00:00 PAC投加量为2.8578 kg/h。",
+        "citation_numbers": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "设备P02-DP-P在2026-11-05 14:00:00电流为1.27 A、振动为3.93 mm/s。",
+        "citation_numbers": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P02",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "采样时间",
+        "value": "2026-11-05T14:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水总磷_mgl",
+        "value": 0.6122,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "pac投加量_kgh",
+        "value": 2.8578,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "设备编码",
+        "value": "P02-DP-P",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "设备采样时间",
+        "value": "2026-11-05T14:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 6,
+        "column_name": "电流_a",
+        "value": 1.27,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 7,
+        "column_name": "振动_mms",
+        "value": 3.93,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询协税镇P02厂站2026-11-05 14:00:00这一采样时刻的原始出水总磷（mg/L）、PAC投加量（kg/h），以及设备P02-DP-P的电流（A）和振动（mm/s）；请返回厂站编码P02、设备编码P02-DP-P及各指标对应采样时间，只查该时刻这四项，不扩展到其他指标或时间窗。",
+        "status": "ok",
+        "output": {
+          "question": "查询协税镇P02厂站2026-11-05 14:00:00这一采样时刻的原始出水总磷（mg/L）、PAC投加量（kg/h），以及设备P02-DP-P的电流（A）和振动（mm/s）；请返回厂站编码P02、设备编码P02-DP-P及各指标对应采样时间，只查该时刻这四项，不扩展到其他指标或时间窗。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.tp_out AS 出水总磷_mgL, r.pac_dose_kgh AS PAC投加量_kgh, dr.ts AS 设备采样时间, dr.current_a AS 电流_A, dr.vibration_mms AS 振动_mms FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P02-DP-P' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P02' AND r.ts = CAST('2026-11-05 14:00:00+08' AS TIMESTAMPTZ) LIMIT 200",
+          "explanation": "按P02厂站与P02-DP-P设备，用原始表精确匹配2026-11-05 14:00:00这一采样时刻，一次性取出出水总磷、PAC投加量及该时刻设备电流与振动，时间均取自实际读数ts。",
+          "columns": [
+            "厂站编码",
+            "设备编码",
+            "采样时间",
+            "出水总磷_mgl",
+            "pac投加量_kgh",
+            "设备采样时间",
+            "电流_a",
+            "振动_mms"
+          ],
+          "rows": [
+            [
+              "P02",
+              "P02-DP-P",
+              "2026-11-05T14:00:00+08:00",
+              0.6122,
+              2.8578,
+              "2026-11-05T14:00:00+08:00",
+              1.27,
+              3.93
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, d.code AS 设备编码, r.ts AS 采样时间, r.tp_out AS 出水总磷_mgL, r.pac_dose_kgh AS PAC投加量_kgh, dr.ts AS 设备采样时间, dr.current_a AS 电流_A, dr.vibration_mms AS 振动_mms FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id JOIN device AS d ON d.plant_id = p.id AND d.code = 'P02-DP-P' LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts = r.ts WHERE p.code = 'P02' AND r.ts = CAST('2026-11-05 14:00:00+08' AS TIMESTAMPTZ) LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2255,
+          "completion_tokens": 767,
+          "llm_ms": 4704.9,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2255,
+              "completion_tokens": 767,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 4704.9,
+              "latency_ms": 4704.9,
+              "total_latency_ms": 4704.9,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 4704.9,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 4719.1,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "本月各厂PAC投加量排名",
+            "今天哪些厂出现过出水总磷超过0.5？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 4719.2,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2048,
+        "completion_tokens": 303,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2788.0,
+        "latency_ms": 2787.9,
+        "total_latency_ms": 2788.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2787.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2442,
+        "completion_tokens": 89,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 1207.5,
+        "latency_ms": 1207.5,
+        "total_latency_ms": 1207.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 1207.5,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1880,
+        "completion_tokens": 423,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2058.0,
+        "latency_ms": 2058.0,
+        "total_latency_ms": 2058.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2058.0,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 8625,
+    "completion_tokens": 1582,
+    "llm_ms": 10758.4,
+    "total_ms": 10779.8,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "stored_session_run_ids": [
+    "9cffe2e0b7da436d89a4ab816b51a6f0"
+  ],
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "pac_dose_kgh为记录的投加/控制读数，不能冒称已实测入池有效PAC下降。"
+      }
+    ]
+  },
+  "elapsed_ms": 10874.2
+}

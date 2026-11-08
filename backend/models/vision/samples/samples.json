@@ -1,0 +1,167 @@
+[
+ {
+  "name": "synth_aeration.jpg",
+  "scene": "pool",
+  "source": "synthetic",
+  "camera": "CAM-AER-01",
+  "note": "expect:floating_debris",
+  "description": "合成曝气池池面：4 个漂浮物，干扰物 bubbles, far_wall, foam_patch, glare, leaves, near_walkway, railing, ripple",
+  "attribution": null,
+  "check": {
+   "gt": 4,
+   "tp": 4,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_clarifier.jpg",
+  "scene": "pool",
+  "source": "synthetic",
+  "camera": "CAM-CLR-01",
+  "note": "expect:floating_debris",
+  "description": "合成二沉池池面：6 个漂浮物，干扰物 far_wall, glare, leaves, railing, ripple, scum",
+  "attribution": null,
+  "check": {
+   "gt": 6,
+   "tp": 6,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_outfall.jpg",
+  "scene": "pool",
+  "source": "synthetic",
+  "camera": "CAM-OUT-01",
+  "note": "expect:floating_debris",
+  "description": "合成出水口池面：4 个漂浮物，干扰物 far_wall, foam_patch, leaves, ripple",
+  "attribution": null,
+  "check": {
+   "gt": 4,
+   "tp": 4,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_leak_streak.jpg",
+  "scene": "gallery",
+  "source": "synthetic",
+  "camera": "CAM-GAL-01",
+  "note": "expect:leak",
+  "description": "管廊渗漏：管壁水痕 + 地面积水",
+  "attribution": null,
+  "check": {
+   "gt": 2,
+   "tp": 2,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_leak_puddle.jpg",
+  "scene": "gallery",
+  "source": "synthetic",
+  "camera": "CAM-GAL-02",
+  "note": "expect:leak",
+  "description": "管廊渗漏：法兰下方积水",
+  "attribution": null,
+  "check": {
+   "gt": 2,
+   "tp": 2,
+   "fp": 2,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_negative_rust.jpg",
+  "scene": "gallery",
+  "source": "synthetic",
+  "camera": "CAM-GAL-01",
+  "note": "期望无检出",
+  "description": "难负样本：锈迹、管道阴影，无渗漏",
+  "attribution": null,
+  "check": {
+   "gt": 0,
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "synth_negative_glare.jpg",
+  "scene": "gallery",
+  "source": "synthetic",
+  "camera": "CAM-GAL-02",
+  "note": "期望无检出",
+  "description": "难负样本：油漆、污渍、地面反光，无渗漏",
+  "attribution": null,
+  "check": {
+   "gt": 0,
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "real_hobart_00754.jpg",
+  "scene": "river",
+  "source": "floatwaste",
+  "camera": "CAM-RIV-01",
+  "note": "expect:floating_debris",
+  "description": "FloatWaste 真实河道/排水沟（Hobart），6 个标注漂浮物，部署模型检出 6",
+  "attribution": "OliviaWuYJ/sc-floatwaste（CC BY 4.0，DOI 10.5281/zenodo.21934286），原图 images/Hobart/trashnet_reviewedSB.SB_tnr_000000001038.jpg，已缩放至长边 1280",
+  "check": {
+   "gt": 6,
+   "tp": 6,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "real_nsw_00119.jpg",
+  "scene": "river",
+  "source": "floatwaste",
+  "camera": "CAM-RIV-01",
+  "note": "expect:floating_debris",
+  "description": "FloatWaste 真实河道/排水沟（NSW），2 个标注漂浮物，部署模型检出 2",
+  "attribution": "OliviaWuYJ/sc-floatwaste（CC BY 4.0，DOI 10.5281/zenodo.21934286），原图 images/NSW/toongabbiecreek-TIMEL0035_1714-131.jpg，已缩放至长边 1280",
+  "check": {
+   "gt": 2,
+   "tp": 2,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "real_indonesia_00073.jpg",
+  "scene": "river",
+  "source": "floatwaste",
+  "camera": "CAM-RIV-01",
+  "note": "expect:floating_debris",
+  "description": "FloatWaste 真实河道/排水沟（Indonesia），2 个标注漂浮物，部署模型检出 2",
+  "attribution": "OliviaWuYJ/sc-floatwaste（CC BY 4.0，DOI 10.5281/zenodo.21934286），原图 images/Indonesia/bandung_confluencecikijingandcimande_2024_october_27_4_frame_0026.jpg，已缩放至长边 1280",
+  "check": {
+   "gt": 2,
+   "tp": 2,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ {
+  "name": "real_indonesia_00057.jpg",
+  "scene": "river",
+  "source": "floatwaste",
+  "camera": "CAM-RIV-01",
+  "note": "",
+  "description": "已知失败案例：FloatWaste（Indonesia）6 个标注漂浮物，阈值 0.45 下检出 0、误检 0、漏检 6；说明合成→真实的域差",
+  "attribution": "OliviaWuYJ/sc-floatwaste（CC BY 4.0，DOI 10.5281/zenodo.21934286），原图 images/Indonesia/bandung_citarik5_2024_october_7_5_frame_0004.jpg，已缩放至长边 1280",
+  "check": {
+   "gt": 6,
+   "tp": 0,
+   "fp": 0,
+   "fn": 6
+  }
+ }
+]

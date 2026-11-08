@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-11-07T12:20:54.166215+00:00",
+  "health": {
+    "status": "ok",
+    "db": "ok",
+    "redis": "ok",
+    "simulator": "ok"
+  },
+  "clock": {
+    "now": "2026-11-07T20:20:46.174802+08:00",
+    "wall": "2026-11-07T20:20:54.142533+08:00",
+    "ahead_s": -8.0,
+    "speed": 1.0
+  },
+  "gateway": {
+    "available": true,
+    "mode": "live",
+    "cache_entries": 31,
+    "cache_hits": 0,
+    "requests": {
+      "calls": 31,
+      "successes": 31,
+      "errors": 0,
+      "cancelled": 0,
+      "total_latency_p50_ms": 4438.9,
+      "total_latency_p95_ms": 19601.8
+    },
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-flash",
+        "calls": 31,
+        "errors": 0,
+        "retries": 0,
+        "cancelled": 0,
+        "prompt_tokens": 107606,
+        "completion_tokens": 27447,
+        "cache_hit_tokens": 25216,
+        "latency_p50_ms": 4438.8,
+        "latency_p95_ms": 19601.8,
+        "attempt_latency_p50_ms": 4438.8,
+        "attempt_latency_p95_ms": 19601.8,
+        "ttft_p50_ms": null,
+        "ttft_p95_ms": null,
+        "circuit": "closed"
+      }
+    }
+  },
+  "work_orders_total": 0,
+  "source_sha256": {
+    "app/ai/gateway.py": "d1dfb176cb26230d064612ea59554fcd9479fbe275780284fa1c30691f850a6a",
+    "app/ai/usage.py": "f825f82561344b2fec39e8ec8a8d6db826ee45f20c0e2f023ba0bc5934832265",
+    "app/ai/agent/service.py": "9bfced46130445cead0a97b178c46bd82672da0998855ea38381c747fb0caa9b",
+    "app/ai/agent/models.py": "5eaa93bc6c4217cffe6c29590fa151a4c073310b8706d40412573c989e33440b",
+    "app/ai/agent/evidence.py": "3d957d05f1549641224bcca8c0835759119270e9e2c175f9ee37b30d28f42df5",
+    "app/ai/agent/prompts.py": "b31464aa9846b4b86da9d65c1479736560679e64073f9cd2590766d996dc299c",
+    "app/analytics/statistics.py": "7e4b877b28fddd443dc4a3f6cc8d15be7cab474934f0696efe34a946f19d0e5e",
+    "app/ai/text2sql/service.py": "7c4383491ad0c6150b91176f6ae5aea553333e39b221214fb9b588c96877b84a",
+    "app/ai/rag/service.py": "d0db66458aae97c6ab827c31a6555fdb572503c735a6b24ee16febc3eaec08d8",
+    "app/ai/advisor.py": "df5b2f777c6f14e1e5cb1be36ad31cbe6082e5dcd716fee94656a64c6b587497",
+    "app/ai/reporter.py": "52f9fe196dcb72e0b1889e58306ea675ac8deec8886ba45dde4deb5c17928305",
+    "app/main.py": "3c6b273f6ee02d72180f58910e303cf530324602c4742e64a11c3fa098c5d66a"
+  }
+}

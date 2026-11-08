@@ -1,0 +1,458 @@
+# Text2SQL 评测集。在评测库 shuiwu_eval 上执行（「现在」固定为 2026-11-05 12:00 周四，数据从 10-29 12:00 开始）。
+# 库里的历史事件：10-31 14:00 暴雨（14 mm/h）；11-03 09:00 协税镇加药泵堵塞 4h；
+#                 11-03 23:00 小雨；11-04 15:00 黄官镇 1 号鼓风机故障 2h（振动上升后跳停）。
+#
+# 字段：id / cat（类别）/ q（问题）/ sql（金标；null 表示应当拒答）/ ordered（结果顺序是否计分，默认否）
+# 判分（执行准确率）：行数相同；金标的每一列都能在预测结果中找到取值一致的列（允许多出列、列序不同）；
+# 数值相对误差 ≤1% 或绝对误差 ≤0.01；零点的时间视作日期。
+# 金标 SQL 不做 round，避免和模型的保留位数冲突。不得与 app/ai/text2sql/examples.yaml 的示例重复。
+
+# ---------------------------------------------------------------- 基础信息（lookup）
+- id: L01
+  cat: 基础信息
+  q: 南郑中心污水处理厂的设计处理规模是多少？
+  sql: SELECT capacity_m3d FROM plant WHERE code = 'P01'
+
+- id: L02
+  cat: 基础信息
+  q: 采用氧化沟工艺的有哪几个厂站？
+  sql: SELECT name FROM plant WHERE process = '氧化沟'
+
+- id: L03
+  cat: 基础信息
+  q: 集镇厂里设计规模最大的是哪一个？
+  sql: SELECT name, capacity_m3d FROM plant WHERE kind = '集镇厂' ORDER BY capacity_m3d DESC LIMIT 1
+
+- id: L04
+  cat: 基础信息
+  q: 全区一共有多少台鼓风机，其中有几台是备用的？
+  sql: SELECT count(*), count(*) FILTER (WHERE status = '备用') FROM device WHERE kind = '鼓风机'
+
+- id: L05
+  cat: 基础信息
+  q: 额定功率最大的设备有哪些？
+  sql: SELECT code, rated_kw FROM device WHERE rated_kw = (SELECT max(rated_kw) FROM device)
+
+- id: L06
+  cat: 基础信息
+  q: 按设备类型统计全区设备的数量和总额定功率
+  sql: SELECT kind, count(*), sum(rated_kw) FROM device GROUP BY kind
+
+- id: L07
+  cat: 基础信息
+  q: 梁山镇污水处理站有哪些设备？列出编码和类型
+  sql: |
+    SELECT d.code, d.kind FROM device d JOIN plant p ON p.id = d.plant_id WHERE p.name LIKE '%梁山%'
+
+- id: L08
+  cat: 基础信息
+  q: 全区所有厂站的设计规模加起来是多少？
+  sql: SELECT sum(capacity_m3d) FROM plant
+
+# ---------------------------------------------------------------- 实时值（latest）
+- id: R01
+  cat: 实时值
+  q: 中心厂现在的进水流量是多少？
+  sql: SELECT inflow_m3h FROM plant_reading WHERE plant_id = 1 ORDER BY ts DESC LIMIT 1
+
+- id: R02
+  cat: 实时值
+  q: 当前各厂好氧区溶解氧分别是多少？
+  sql: |
+    SELECT DISTINCT ON (p.id) p.name, r.do_aerobic_1
+    FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+    WHERE r.ts > now() - interval '1 hour' ORDER BY p.id, r.ts DESC
+
+- id: R03
+  cat: 实时值
+  q: 协税镇现在的污泥浓度MLSS是多少？
+  sql: SELECT mlss FROM plant_reading WHERE plant_id = 2 ORDER BY ts DESC LIMIT 1
+
+- id: R04
+  cat: 实时值
+  q: 中心厂1号鼓风机现在的电流是多少？
+  sql: |
+    SELECT r.current_a FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.code = 'P01-BL-1' ORDER BY r.ts DESC LIMIT 1
+
+- id: R05
+  cat: 实时值
+  q: 现在哪个厂的出水总氮最高？
+  sql: |
+    SELECT name, tn_out FROM (
+      SELECT DISTINCT ON (p.id) p.name, r.tn_out FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+      WHERE r.ts > now() - interval '1 hour' ORDER BY p.id, r.ts DESC
+    ) x ORDER BY tn_out DESC LIMIT 1
+
+# ---------------------------------------------------------------- 统计汇总（agg）
+- id: A01
+  cat: 统计汇总
+  q: 昨天全区一共处理了多少水？
+  sql: |
+    SELECT sum(inflow_m3h) FROM plant_reading_1h
+    WHERE hour >= date_trunc('day', now()) - interval '1 day' AND hour < date_trunc('day', now())
+
+- id: A02
+  cat: 统计汇总
+  q: 中心厂昨天鼓风机一共耗电多少度？
+  sql: |
+    SELECT sum(blower_kw) FROM plant_reading_1h
+    WHERE plant_id = 1 AND hour >= date_trunc('day', now()) - interval '1 day' AND hour < date_trunc('day', now())
+
+- id: A03
+  cat: 统计汇总
+  q: 本周到目前为止各厂分别处理了多少水？
+  sql: |
+    SELECT p.name, sum(h.inflow_m3h) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('week', now()) GROUP BY p.name
+
+- id: A04
+  cat: 统计汇总
+  q: 10月30日到11月4日这6天，梁山镇平均每天处理多少水？
+  sql: |
+    SELECT sum(h.inflow_m3h) / 6 FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE p.code = 'P03' AND h.hour >= '2026-10-30' AND h.hour < '2026-11-05'
+
+- id: A05
+  cat: 统计汇总
+  q: 昨天中心厂出水COD、氨氮、总氮、总磷的日均值
+  sql: |
+    SELECT avg(cod_out), avg(nh3n_out), avg(tn_out), avg(tp_out) FROM plant_reading_1h
+    WHERE plant_id = 1 AND hour >= date_trunc('day', now()) - interval '1 day' AND hour < date_trunc('day', now())
+
+- id: A06
+  cat: 统计汇总
+  q: 今天上午中心厂进水COD的平均值是多少？
+  sql: |
+    SELECT avg(cod_in) FROM plant_reading_1h
+    WHERE plant_id = 1 AND hour >= date_trunc('day', now()) AND hour < date_trunc('day', now()) + interval '12 hours'
+
+- id: A07
+  cat: 统计汇总
+  q: 过去24小时各厂的平均进水氨氮
+  sql: |
+    SELECT p.name, avg(h.nh3n_in) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '24 hours' GROUP BY p.name
+
+- id: A08
+  cat: 统计汇总
+  q: 昨天全区鼓风机总耗电量和吨水曝气电耗是多少？
+  sql: |
+    SELECT sum(blower_kw), sum(blower_kw) / sum(inflow_m3h) FROM plant_reading_1h
+    WHERE hour >= date_trunc('day', now()) - interval '1 day' AND hour < date_trunc('day', now())
+
+- id: A09
+  cat: 统计汇总
+  q: 本周全区碳源和PAC分别一共投加了多少公斤？
+  sql: SELECT sum(carbon_dose_kgh), sum(pac_dose_kgh) FROM plant_reading_1h WHERE hour >= date_trunc('week', now())
+
+- id: A10
+  cat: 统计汇总
+  q: 昨天的最高气温和最低气温分别是多少？
+  sql: |
+    SELECT max(temp_c), min(temp_c) FROM weather
+    WHERE ts >= date_trunc('day', now()) - interval '1 day' AND ts < date_trunc('day', now())
+
+- id: A11
+  cat: 统计汇总
+  q: 过去7天各厂的平均污泥浓度
+  sql: |
+    SELECT p.name, avg(r.mlss) FROM plant_reading r JOIN plant p ON p.id = r.plant_id
+    WHERE r.ts >= now() - interval '7 days' GROUP BY p.name
+
+- id: A12
+  cat: 统计汇总
+  q: 昨天中心厂好氧区平均曝气风量是多少？
+  sql: |
+    SELECT avg(air_flow_m3h) FROM plant_reading_1h
+    WHERE plant_id = 1 AND hour >= date_trunc('day', now()) - interval '1 day' AND hour < date_trunc('day', now())
+
+# ---------------------------------------------------------------- 时间序列（series，按顺序计分）
+- id: T01
+  cat: 时间序列
+  q: 11月3日协税镇每小时的出水总磷均值
+  ordered: true
+  sql: |
+    SELECT h.hour, h.tp_out FROM plant_reading_1h h
+    WHERE h.plant_id = 2 AND h.hour >= '2026-11-03' AND h.hour < '2026-11-04' ORDER BY h.hour
+
+- id: T02
+  cat: 时间序列
+  q: 今天每小时全区的处理水量
+  ordered: true
+  sql: |
+    SELECT hour, sum(inflow_m3h) FROM plant_reading_1h WHERE hour >= date_trunc('day', now())
+    GROUP BY hour ORDER BY hour
+
+- id: T03
+  cat: 时间序列
+  q: 本周每天中心厂的吨水曝气电耗
+  ordered: true
+  sql: |
+    SELECT date_trunc('day', hour)::date, sum(blower_kw) / sum(inflow_m3h) FROM plant_reading_1h
+    WHERE plant_id = 1 AND hour >= date_trunc('week', now()) GROUP BY 1 ORDER BY 1
+
+- id: T04
+  cat: 时间序列
+  q: 11月1日到11月4日每天的平均气温
+  ordered: true
+  sql: |
+    SELECT date_trunc('day', ts)::date, avg(temp_c) FROM weather
+    WHERE ts >= '2026-11-01' AND ts < '2026-11-05' GROUP BY 1 ORDER BY 1
+
+# ---------------------------------------------------------------- 排序与 TopN（rank）
+- id: K01
+  cat: 排序TopN
+  q: 过去7天哪个厂的平均出水COD最高？
+  sql: |
+    SELECT p.name, avg(h.cod_out) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days' GROUP BY p.name ORDER BY 2 DESC LIMIT 1
+
+- id: K02
+  cat: 排序TopN
+  q: 昨天处理水量排名前三的厂站
+  ordered: true
+  sql: |
+    SELECT p.name, sum(h.inflow_m3h) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) - interval '1 day' AND h.hour < date_trunc('day', now())
+    GROUP BY p.name ORDER BY 2 DESC LIMIT 3
+
+- id: K03
+  cat: 排序TopN
+  q: 过去7天各厂吨水碳源投加量（kg/m³）从高到低排列
+  ordered: true
+  sql: |
+    SELECT p.name, sum(h.carbon_dose_kgh) / sum(h.inflow_m3h) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days' GROUP BY p.name ORDER BY 2 DESC
+
+- id: K04
+  cat: 排序TopN
+  q: 过去7天出水COD最高的那个小时是哪个厂、什么时间、多少？
+  sql: |
+    SELECT p.name, h.hour, h.cod_out FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days' ORDER BY h.cod_out DESC LIMIT 1
+
+- id: K05
+  cat: 排序TopN
+  q: 过去7天哪一天全区处理水量最大？
+  sql: |
+    SELECT date_trunc('day', hour)::date, sum(inflow_m3h) FROM plant_reading_1h
+    WHERE hour >= now() - interval '7 days' GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+
+- id: K06
+  cat: 排序TopN
+  q: 本周吨水曝气电耗最低的两个厂
+  ordered: true
+  sql: |
+    SELECT p.name, sum(h.blower_kw) / sum(h.inflow_m3h) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('week', now()) GROUP BY p.name ORDER BY 2 LIMIT 2
+
+# ---------------------------------------------------------------- 达标与超标（compliance）
+- id: C01
+  cat: 达标超标
+  q: 过去7天有哪些厂出现过出水氨氮超标？
+  sql: |
+    SELECT DISTINCT p.name FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days' AND h.nh3n_out_max > 5
+
+- id: C02
+  cat: 达标超标
+  q: 11月4日黄官镇氨氮超标了几个小时？最高到了多少？
+  sql: |
+    SELECT count(*), max(h.nh3n_out_max) FROM plant_reading_1h h
+    WHERE h.plant_id = 6 AND h.hour >= '2026-11-04' AND h.hour < '2026-11-05' AND h.nh3n_out_max > 5
+
+- id: C03
+  cat: 达标超标
+  q: 本周全区出水总磷超标的小时数一共有多少？
+  sql: SELECT count(*) FROM plant_reading_1h WHERE hour >= date_trunc('week', now()) AND tp_out_max > 0.5
+
+- id: C04
+  cat: 达标超标
+  q: 昨天每个厂各有几个小时出水不达标？没有超标的厂也要列出来
+  sql: |
+    SELECT p.name, count(*) FILTER (WHERE h.cod_out > 50 OR h.nh3n_out_max > 5 OR h.tn_out > 15
+                                     OR h.tp_out_max > 0.5 OR h.ss_out > 10)
+    FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) - interval '1 day' AND h.hour < date_trunc('day', now())
+    GROUP BY p.name
+
+- id: C05
+  cat: 达标超标
+  q: 过去7天中心厂出水总氮的平均值和最大小时均值
+  sql: |
+    SELECT avg(tn_out), max(tn_out) FROM plant_reading_1h WHERE plant_id = 1 AND hour >= now() - interval '7 days'
+
+- id: C06
+  cat: 达标超标
+  q: 协税镇本周第一次出现总磷超标是什么时候？
+  sql: |
+    SELECT min(hour) FROM plant_reading_1h
+    WHERE plant_id = 2 AND hour >= date_trunc('week', now()) AND tp_out_max > 0.5
+
+# ---------------------------------------------------------------- 设备（device）
+- id: D01
+  cat: 设备
+  q: 过去7天振动值最大的鼓风机是哪台？最大振动是多少？
+  sql: |
+    SELECT d.code, max(r.vibration_mms) FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.kind = '鼓风机' AND r.ts >= now() - interval '7 days' GROUP BY d.code ORDER BY 2 DESC LIMIT 1
+
+- id: D02
+  cat: 设备
+  q: 11月4日黄官镇1号鼓风机停机了多少分钟？（设备数据每分钟一条）
+  sql: |
+    SELECT count(*) FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.code = 'P06-BL-1' AND NOT r.running AND r.ts >= '2026-11-04' AND r.ts < '2026-11-05'
+
+- id: D03
+  cat: 设备
+  q: 目前处于备用状态的鼓风机分别属于哪个厂？
+  sql: |
+    SELECT p.name, d.code FROM device d JOIN plant p ON p.id = d.plant_id WHERE d.kind = '鼓风机' AND d.status = '备用'
+
+- id: D04
+  cat: 设备
+  q: 中心厂各台运行中的鼓风机过去24小时的平均温度
+  sql: |
+    SELECT d.code, avg(r.temp_c) FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.plant_id = 1 AND d.kind = '鼓风机' AND r.running AND r.ts >= now() - interval '24 hours'
+    GROUP BY d.code
+
+- id: D05
+  cat: 设备
+  q: 昨天中心厂两台提升泵运行时的平均电流分别是多少？
+  sql: |
+    SELECT d.code, avg(r.current_a) FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.plant_id = 1 AND d.kind = '提升泵' AND r.running
+      AND r.ts >= date_trunc('day', now()) - interval '1 day' AND r.ts < date_trunc('day', now())
+    GROUP BY d.code
+
+- id: D06
+  cat: 设备
+  q: 昨天各厂污泥泵分别运行了多少分钟？（设备数据每分钟一条）
+  sql: |
+    SELECT p.name, count(*) FILTER (WHERE r.running)
+    FROM device_reading r JOIN device d ON d.id = r.device_id JOIN plant p ON p.id = d.plant_id
+    WHERE d.kind = '污泥泵' AND r.ts >= date_trunc('day', now()) - interval '1 day' AND r.ts < date_trunc('day', now())
+    GROUP BY p.name
+
+- id: D07
+  cat: 设备
+  q: 11月4日黄官镇1号鼓风机振动第一次超过7.1 mm/s是什么时间？
+  sql: |
+    SELECT min(r.ts) FROM device_reading r JOIN device d ON d.id = r.device_id
+    WHERE d.code = 'P06-BL-1' AND r.vibration_mms > 7.1 AND r.ts >= '2026-11-04' AND r.ts < '2026-11-05'
+
+# ---------------------------------------------------------------- 事件追溯（event）
+- id: E01
+  cat: 事件追溯
+  q: 10月31日那场暴雨的最大降雨强度是多少？
+  sql: SELECT max(rain_mm_h) FROM weather WHERE ts >= '2026-10-31' AND ts < '2026-11-01'
+
+- id: E02
+  cat: 事件追溯
+  q: 10月31日的降雨从几点开始、几点结束？
+  time_only: true  # 仅这道「几点」题允许只答时刻；其他题必须保留日期
+  sql: SELECT min(ts), max(ts) FROM weather WHERE ts >= '2026-10-31' AND ts < '2026-11-01' AND rain_mm_h > 0
+
+- id: E03
+  cat: 事件追溯
+  q: 10月31日暴雨当天梁山镇的处理水量比前一天多了多少立方米？
+  sql: |
+    SELECT sum(inflow_m3h) FILTER (WHERE hour >= '2026-10-31')
+         - sum(inflow_m3h) FILTER (WHERE hour < '2026-10-31')
+    FROM plant_reading_1h WHERE plant_id = 3 AND hour >= '2026-10-30' AND hour < '2026-11-01'
+
+- id: E04
+  cat: 事件追溯
+  q: 11月4日黄官镇鼓风机故障期间（15点到18点），好氧区溶解氧最低降到多少？（按原始数据）
+  sql: |
+    SELECT min(do_aerobic_1) FROM plant_reading
+    WHERE plant_id = 6 AND ts >= '2026-11-04 15:00' AND ts < '2026-11-04 18:00'
+
+- id: E05
+  cat: 事件追溯
+  q: 过去7天降雨强度最大的那一天，全区处理了多少水？
+  sql: |
+    WITH d AS (
+      SELECT date_trunc('day', ts) AS day FROM weather WHERE ts >= now() - interval '7 days'
+      ORDER BY rain_mm_h DESC LIMIT 1
+    )
+    SELECT sum(h.inflow_m3h) FROM plant_reading_1h h, d WHERE h.hour >= d.day AND h.hour < d.day + interval '1 day'
+
+- id: E06
+  cat: 事件追溯
+  q: 11月3日协税镇出水总磷最高达到多少？
+  sql: SELECT max(tp_out_max) FROM plant_reading_1h WHERE plant_id = 2 AND hour >= '2026-11-03' AND hour < '2026-11-04'
+
+# ---------------------------------------------------------------- 复合计算（multi）
+- id: M01
+  cat: 复合计算
+  q: 昨天全区的处理水量比前天多了多少立方米？
+  sql: |
+    SELECT sum(inflow_m3h) FILTER (WHERE hour >= date_trunc('day', now()) - interval '1 day')
+         - sum(inflow_m3h) FILTER (WHERE hour < date_trunc('day', now()) - interval '1 day')
+    FROM plant_reading_1h
+    WHERE hour >= date_trunc('day', now()) - interval '2 days' AND hour < date_trunc('day', now())
+
+- id: M02
+  cat: 复合计算
+  q: 过去7天平均进水COD高于全区平均水平的厂站有哪些？
+  sql: |
+    WITH x AS (
+      SELECT plant_id, avg(cod_in) AS v FROM plant_reading_1h WHERE hour >= now() - interval '7 days' GROUP BY plant_id
+    )
+    SELECT p.name FROM x JOIN plant p ON p.id = x.plant_id
+    WHERE x.v > (SELECT avg(cod_in) FROM plant_reading_1h WHERE hour >= now() - interval '7 days')
+
+- id: M03
+  cat: 复合计算
+  q: 过去7天中心厂处理水量占全区的百分比
+  sql: |
+    SELECT 100 * sum(inflow_m3h) FILTER (WHERE plant_id = 1) / sum(inflow_m3h) FROM plant_reading_1h
+    WHERE hour >= now() - interval '7 days'
+
+- id: M04
+  cat: 复合计算
+  q: 过去7天各厂的总氮去除率（百分比）
+  sql: |
+    SELECT p.name, 100 * (1 - avg(h.tn_out) / avg(h.tn_in)) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= now() - interval '7 days' GROUP BY p.name
+
+- id: M05
+  cat: 复合计算
+  q: 昨天各厂的实际处理水量占设计规模的负荷率（百分比）
+  sql: |
+    SELECT p.name, 100 * sum(h.inflow_m3h) / p.capacity_m3d FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) - interval '1 day' AND h.hour < date_trunc('day', now())
+    GROUP BY p.name, p.capacity_m3d
+
+- id: M06
+  cat: 复合计算
+  q: 昨天A2O工艺和氧化沟工艺的厂站分别处理了多少水？
+  sql: |
+    SELECT p.process, sum(h.inflow_m3h) FROM plant_reading_1h h JOIN plant p ON p.id = h.plant_id
+    WHERE h.hour >= date_trunc('day', now()) - interval '1 day' AND h.hour < date_trunc('day', now())
+    GROUP BY p.process
+
+# ---------------------------------------------------------------- 应当拒答（unanswerable）
+- id: U01
+  cat: 拒答
+  q: 下周汉中会下雨吗？
+  sql: null
+
+- id: U02
+  cat: 拒答
+  q: 黄官镇污水处理站的站长是谁，电话多少？
+  sql: null
+
+- id: U03
+  cat: 拒答
+  q: 中心厂今年交了多少电费？
+  sql: null
+
+- id: U04
+  cat: 拒答
+  q: 把P06-BL-1的状态改成检修
+  sql: null

@@ -1,0 +1,83 @@
+{
+ "machine_before": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 4.9,
+  "cpu": "Apple M3"
+ },
+ "runs": 200,
+ "threads": {
+  "1": {
+   "decode": {
+    "p50": 5.22,
+    "p95": 6.15
+   },
+   "preprocess": {
+    "p50": 5.66,
+    "p95": 6.3
+   },
+   "infer": {
+    "p50": 88.54,
+    "p95": 98.52
+   },
+   "postprocess": {
+    "p50": 0.32,
+    "p95": 0.38
+   },
+   "total": {
+    "p50": 99.97,
+    "p95": 111.89
+   }
+  },
+  "2": {
+   "decode": {
+    "p50": 6.91,
+    "p95": 11.71
+   },
+   "preprocess": {
+    "p50": 7.33,
+    "p95": 12.65
+   },
+   "infer": {
+    "p50": 60.8,
+    "p95": 126.88
+   },
+   "postprocess": {
+    "p50": 0.43,
+    "p95": 0.75
+   },
+   "total": {
+    "p50": 74.93,
+    "p95": 151.97
+   }
+  },
+  "4": {
+   "decode": {
+    "p50": 7.98,
+    "p95": 10.82
+   },
+   "preprocess": {
+    "p50": 8.45,
+    "p95": 9.9
+   },
+   "infer": {
+    "p50": 41.23,
+    "p95": 63.05
+   },
+   "postprocess": {
+    "p50": 0.48,
+    "p95": 0.72
+   },
+   "total": {
+    "p50": 58.45,
+    "p95": 81.95
+   }
+  }
+ },
+ "machine_after": {
+  "platform": "macOS-26.0.1-arm64-arm-64bit",
+  "cpu_count": 8,
+  "load_avg_1m": 4.7,
+  "cpu": "Apple M3"
+ }
+}

@@ -1,0 +1,429 @@
+{
+  "id": "pipe-data",
+  "family": "pipe_leak",
+  "mode": "data",
+  "question": "新集镇P05在2026年11月6日16:00与11月5日16:00的原始碳源投加量、进水流量和出水总氮各是多少？逐项引用，行内保留厂站编码和时间；单位kg/h、m³/h、mg/L，不要小时均值。",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P05",
+        "at": "2026-11-06T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "carbon_dose_kgh": 14.9193,
+          "inflow_m3h": 111.3459,
+          "tn_out": 13.4557
+        },
+        "units": {
+          "carbon_dose_kgh": "kg/h",
+          "inflow_m3h": "m³/h",
+          "tn_out": "mg/L"
+        }
+      },
+      {
+        "entity": "P05",
+        "at": "2026-11-05T16:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "carbon_dose_kgh": 4.2615,
+          "inflow_m3h": 109.7595,
+          "tn_out": 11.0405
+        },
+        "units": {
+          "carbon_dose_kgh": "kg/h",
+          "inflow_m3h": "m³/h",
+          "tn_out": "mg/L"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "新集镇P05在2026年11月6日16:00与11月5日16:00的原始碳源投加量、进水流量和出水总氮各是多少？逐项引用，行内保留厂站编码和时间；单位kg/h、m³/h、mg/L，不要小时均值。"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "新集镇P05在2026年11月6日16:00与11月5日16:00的原始碳源投加量、进水流量和出水总氮各是多少？逐项引用，行内保留厂站编码和时间；单位kg/h、m³/h、mg/L，不要小时均值。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "2523bdff9184488f8aba5b70bee8b55f",
+    "session_id": "61b03d8c776e4a189b59f0441434bd84",
+    "resolved_question": "查询新集镇 P05 在 2026-11-06 16:00 与 2026-11-05 16:00 两个时刻的原始碳源投加量（kg/h）、进水流量（m³/h）、出水总氮（mg/L）读数，均取该时刻原始采样值，非小时均值",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "P05 2026-11-06 16:00 原始碳源投加量14.9193 kg/h、进水流量111.3459 m³/h、出水总氮13.4557 mg/L。 [1][2][3][4][5]\n\nP05 2026-11-05 16:00 原始碳源投加量4.2615 kg/h、进水流量109.7595 m³/h、出水总氮11.0405 mg/L。 [6][7][8][9][10]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "P05 2026-11-06 16:00 原始碳源投加量14.9193 kg/h、进水流量111.3459 m³/h、出水总氮13.4557 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P05 2026-11-05 16:00 原始碳源投加量4.2615 kg/h、进水流量109.7595 m³/h、出水总氮11.0405 mg/L。",
+        "citation_numbers": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P05",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-06T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "碳源投加量_kgh",
+        "value": 14.9193,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "进水流量_m3h",
+        "value": 111.3459,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水总氮_mgl",
+        "value": 13.4557,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P05",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-05T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "碳源投加量_kgh",
+        "value": 4.2615,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "进水流量_m3h",
+        "value": 109.7595,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "出水总氮_mgl",
+        "value": 11.0405,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询新集镇 P05 在 2026-11-06 16:00 与 2026-11-05 16:00 两个时刻的原始采样读数：碳源投加量（kg/h）、进水流量（m³/h）、出水总氮（mg/L），逐时刻返回该时刻瞬时值，不要小时均值，结果行内保留厂站编码 P05 和对应时间",
+        "status": "ok",
+        "output": {
+          "question": "查询新集镇 P05 在 2026-11-06 16:00 与 2026-11-05 16:00 两个时刻的原始采样读数：碳源投加量（kg/h）、进水流量（m³/h）、出水总氮（mg/L），逐时刻返回该时刻瞬时值，不要小时均值，结果行内保留厂站编码 P05 和对应时间",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.carbon_dose_kgh AS 碳源投加量_kgh, r.tn_out AS 出水总氮_mgL, r.inflow_m3h AS 进水流量_m3h FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P05' AND r.ts IN ('2026-11-06 16:00:00+08', '2026-11-05 16:00:00+08') ORDER BY r.ts DESC LIMIT 200",
+          "explanation": "直接查询 plant_reading 原始表，用 ts IN 精确匹配新集镇 P05 在两个指定时刻的采样，逐行返回碳源投加量、进水流量、出水总氮的瞬时值及实际采样时间。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "碳源投加量_kgh",
+            "出水总氮_mgl",
+            "进水流量_m3h"
+          ],
+          "rows": [
+            [
+              "P05",
+              "2026-11-06T16:00:00+08:00",
+              14.9193,
+              13.4557,
+              111.3459
+            ],
+            [
+              "P05",
+              "2026-11-05T16:00:00+08:00",
+              4.2615,
+              11.0405,
+              109.7595
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.carbon_dose_kgh AS 碳源投加量_kgh, r.tn_out AS 出水总氮_mgL, r.inflow_m3h AS 进水流量_m3h FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P05' AND r.ts IN ('2026-11-06 16:00:00+08', '2026-11-05 16:00:00+08') ORDER BY r.ts DESC LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2226,
+          "completion_tokens": 205,
+          "llm_ms": 1710.6,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2226,
+              "completion_tokens": 205,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 1710.6,
+              "latency_ms": 1710.6,
+              "total_latency_ms": 1710.6,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 1710.6,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 1719.7,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "今天哪些厂出现过出水总磷超过0.5？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h"
+          ]
+        },
+        "error": null,
+        "total_ms": 1719.8,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2048,
+        "completion_tokens": 334,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2655.7,
+        "latency_ms": 2655.6,
+        "total_latency_ms": 2655.7,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2655.6,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2427,
+        "completion_tokens": 97,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 1017.5,
+        "latency_ms": 1017.5,
+        "total_latency_ms": 1017.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 1017.5,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1865,
+        "completion_tokens": 380,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2030.0,
+        "latency_ms": 2029.9,
+        "total_latency_ms": 2030.0,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2029.9,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 8566,
+    "completion_tokens": 1016,
+    "llm_ms": 7413.8,
+    "total_ms": 7429.5,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "碳源计量/控制读数明显上升；不能把该读数直接解释成实际入池有效碳量。"
+      }
+    ]
+  },
+  "elapsed_ms": 7503.9
+}

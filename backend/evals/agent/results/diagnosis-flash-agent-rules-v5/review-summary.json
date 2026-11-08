@@ -1,0 +1,47 @@
+{
+ "cases": 22,
+ "reviewed_or_auto": 4,
+ "semantic_pass": 3,
+ "pending": [
+  "blower-data",
+  "blower-diagnosis",
+  "blower-followup-latest",
+  "shock-data",
+  "shock-diagnosis",
+  "storm-data",
+  "storm-followup",
+  "dosing-data",
+  "dosing-diagnosis",
+  "dosing-followup",
+  "pipe-data",
+  "pipe-diagnosis",
+  "normal-data",
+  "missing-history",
+  "missing-gap",
+  "missing-null-metric",
+  "refuse-private",
+  "refuse-control"
+ ],
+ "rows": [
+  {
+   "id": "blower-followup-duration",
+   "pass": true,
+   "by": "自动"
+  },
+  {
+   "id": "storm-diagnosis",
+   "pass": false,
+   "by": "自动检查失败"
+  },
+  {
+   "id": "statistics-peaks",
+   "pass": true,
+   "by": "自动"
+  },
+  {
+   "id": "statistics-duration",
+   "pass": true,
+   "by": "自动"
+  }
+ ]
+}

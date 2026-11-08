@@ -1,0 +1,1017 @@
+{
+  "A11.id": {
+    "id": "A11.id",
+    "llm": true,
+    "text": "#11",
+    "label": "告警编号",
+    "value": 11
+  },
+  "A12.id": {
+    "id": "A12.id",
+    "llm": true,
+    "text": "#12",
+    "label": "告警编号",
+    "value": 12
+  },
+  "A13.id": {
+    "id": "A13.id",
+    "llm": true,
+    "text": "#13",
+    "label": "告警编号",
+    "value": 13
+  },
+  "A14.id": {
+    "id": "A14.id",
+    "llm": true,
+    "text": "#14",
+    "label": "告警编号",
+    "value": 14
+  },
+  "A15.id": {
+    "id": "A15.id",
+    "llm": true,
+    "text": "#15",
+    "label": "告警编号",
+    "value": 15
+  },
+  "A16.id": {
+    "id": "A16.id",
+    "llm": true,
+    "text": "#16",
+    "label": "告警编号",
+    "value": 16
+  },
+  "A17.id": {
+    "id": "A17.id",
+    "llm": true,
+    "text": "#17",
+    "label": "告警编号",
+    "value": 17
+  },
+  "A18.id": {
+    "id": "A18.id",
+    "llm": true,
+    "text": "#18",
+    "label": "告警编号",
+    "value": 18
+  },
+  "A11.end": {
+    "id": "A11.end",
+    "llm": true,
+    "text": "11-06 17:00",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T17:00:00+08:00"
+  },
+  "A12.end": {
+    "id": "A12.end",
+    "llm": true,
+    "text": "11-06 17:00",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T17:00:00+08:00"
+  },
+  "A13.end": {
+    "id": "A13.end",
+    "llm": true,
+    "text": "11-06 17:00",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T17:00:00+08:00"
+  },
+  "A14.end": {
+    "id": "A14.end",
+    "llm": true,
+    "text": "11-06 17:05",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T17:05:00+08:00"
+  },
+  "A15.end": {
+    "id": "A15.end",
+    "llm": true,
+    "text": "11-06 18:15",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T18:15:00+08:00"
+  },
+  "A16.end": {
+    "id": "A16.end",
+    "llm": true,
+    "text": "11-06 16:35",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T16:35:00+08:00"
+  },
+  "A17.end": {
+    "id": "A17.end",
+    "llm": true,
+    "text": "11-06 17:10",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T17:10:00+08:00"
+  },
+  "A18.end": {
+    "id": "A18.end",
+    "llm": true,
+    "text": "11-06 21:55",
+    "label": "数据恢复时间",
+    "value": "2026-11-06T21:55:00+08:00"
+  },
+  "plants.n": {
+    "id": "plants.n",
+    "llm": true,
+    "text": "7 座",
+    "label": "厂站数",
+    "value": 7
+  },
+  "A11.start": {
+    "id": "A11.start",
+    "llm": true,
+    "text": "11-06 15:15",
+    "label": "开始时间",
+    "value": "2026-11-06T15:15:00+08:00"
+  },
+  "A12.start": {
+    "id": "A12.start",
+    "llm": true,
+    "text": "11-06 15:15",
+    "label": "开始时间",
+    "value": "2026-11-06T15:15:00+08:00"
+  },
+  "A13.start": {
+    "id": "A13.start",
+    "llm": true,
+    "text": "11-06 15:30",
+    "label": "开始时间",
+    "value": "2026-11-06T15:30:00+08:00"
+  },
+  "A14.start": {
+    "id": "A14.start",
+    "llm": true,
+    "text": "11-06 15:30",
+    "label": "开始时间",
+    "value": "2026-11-06T15:30:00+08:00"
+  },
+  "A15.start": {
+    "id": "A15.start",
+    "llm": true,
+    "text": "11-06 15:45",
+    "label": "开始时间",
+    "value": "2026-11-06T15:45:00+08:00"
+  },
+  "A16.start": {
+    "id": "A16.start",
+    "llm": true,
+    "text": "11-06 16:20",
+    "label": "开始时间",
+    "value": "2026-11-06T16:20:00+08:00"
+  },
+  "A17.start": {
+    "id": "A17.start",
+    "llm": true,
+    "text": "11-06 16:35",
+    "label": "开始时间",
+    "value": "2026-11-06T16:35:00+08:00"
+  },
+  "A18.start": {
+    "id": "A18.start",
+    "llm": true,
+    "text": "11-06 18:15",
+    "label": "开始时间",
+    "value": "2026-11-06T18:15:00+08:00"
+  },
+  "rain.peak": {
+    "id": "rain.peak",
+    "llm": true,
+    "text": "0.0 mm/h",
+    "label": "最大降雨强度",
+    "value": 0.0
+  },
+  "P01.pac_kg": {
+    "id": "P01.pac_kg",
+    "llm": true,
+    "text": "787.6 kg",
+    "label": "南郑中心污水处理厂PAC用量",
+    "value": 787.6
+  },
+  "P02.pac_kg": {
+    "id": "P02.pac_kg",
+    "llm": true,
+    "text": "28.7 kg",
+    "label": "协税镇污水处理站PAC用量",
+    "value": 28.7
+  },
+  "P03.pac_kg": {
+    "id": "P03.pac_kg",
+    "llm": true,
+    "text": "71.4 kg",
+    "label": "梁山镇污水处理站PAC用量",
+    "value": 71.4
+  },
+  "P04.pac_kg": {
+    "id": "P04.pac_kg",
+    "llm": true,
+    "text": "42.7 kg",
+    "label": "高台镇污水处理站PAC用量",
+    "value": 42.7
+  },
+  "P05.pac_kg": {
+    "id": "P05.pac_kg",
+    "llm": true,
+    "text": "42.0 kg",
+    "label": "新集镇污水处理站PAC用量",
+    "value": 42.0
+  },
+  "P06.do_min": {
+    "id": "P06.do_min",
+    "llm": true,
+    "text": "0.03 mg/L",
+    "label": "黄官镇污水处理站好氧区DO最低值（时段均值）",
+    "value": 0.029360000556334854
+  },
+  "P06.pac_kg": {
+    "id": "P06.pac_kg",
+    "llm": true,
+    "text": "57.9 kg",
+    "label": "黄官镇污水处理站PAC用量",
+    "value": 57.9
+  },
+  "P07.pac_kg": {
+    "id": "P07.pac_kg",
+    "llm": true,
+    "text": "29.5 kg",
+    "label": "牟家坝镇污水处理站PAC用量",
+    "value": 29.5
+  },
+  "period.end": {
+    "id": "period.end",
+    "llm": true,
+    "text": "2026-11-07 00:00",
+    "label": "统计结束",
+    "value": "2026-11-07T00:00:00+08:00"
+  },
+  "rain.hours": {
+    "id": "rain.hours",
+    "llm": true,
+    "text": "0.0 小时",
+    "label": "降雨时长（雨强超过半毫米每小时）",
+    "value": 0.0
+  },
+  "A11.message": {
+    "id": "A11.message",
+    "llm": true,
+    "text": "P06-BL-1 轴承温度 80.4 ℃，超过关注值 75 ℃",
+    "label": "触发时的告警说明",
+    "value": "P06-BL-1 轴承温度 80.4 ℃，超过关注值 75 ℃"
+  },
+  "A12.message": {
+    "id": "A12.message",
+    "llm": true,
+    "text": "P06-BL-1 振动 5.56 mm/s，超过关注值 4.5",
+    "label": "触发时的告警说明",
+    "value": "P06-BL-1 振动 5.56 mm/s，超过关注值 4.5"
+  },
+  "A13.message": {
+    "id": "A13.message",
+    "llm": true,
+    "text": "P06-BL-1（鼓风机，非备用）停机",
+    "label": "触发时的告警说明",
+    "value": "P06-BL-1（鼓风机，非备用）停机"
+  },
+  "A14.message": {
+    "id": "A14.message",
+    "llm": true,
+    "text": "好氧区 DO 0.61 mg/L，低于 1 mg/L",
+    "label": "触发时的告警说明",
+    "value": "好氧区 DO 0.61 mg/L，低于 1 mg/L"
+  },
+  "A15.message": {
+    "id": "A15.message",
+    "llm": true,
+    "text": "出水氨氮 5.07 mg/L，超过限值 5",
+    "label": "触发时的告警说明",
+    "value": "出水氨氮 5.07 mg/L，超过限值 5"
+  },
+  "A16.message": {
+    "id": "A16.message",
+    "llm": true,
+    "text": "出水总氮近 60 分钟每小时上升 2.01 mg/L，按线性趋势约 80 分钟后超过限值 15",
+    "label": "触发时的告警说明",
+    "value": "出水总氮近 60 分钟每小时上升 2.01 mg/L，按线性趋势约 80 分钟后超过限值 15"
+  },
+  "A17.message": {
+    "id": "A17.message",
+    "llm": true,
+    "text": "出水总氮 15.33 mg/L，超过限值 15",
+    "label": "触发时的告警说明",
+    "value": "出水总氮 15.33 mg/L，超过限值 15"
+  },
+  "A18.message": {
+    "id": "A18.message",
+    "llm": true,
+    "text": "碳源投加量近 60 分钟均值 9.77 kg/h，为按进水负荷估算值 7.36 kg/h 的 1.33 倍",
+    "label": "触发时的告警说明",
+    "value": "碳源投加量近 60 分钟均值 9.77 kg/h，为按进水负荷估算值 7.36 kg/h 的 1.33 倍"
+  },
+  "orders.open": {
+    "id": "orders.open",
+    "llm": true,
+    "text": "0 张",
+    "label": "统计结束时未关闭的工单",
+    "value": 0
+  },
+  "A11.duration": {
+    "id": "A11.duration",
+    "llm": true,
+    "text": "1.8 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 105.0
+  },
+  "A12.duration": {
+    "id": "A12.duration",
+    "llm": true,
+    "text": "1.8 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 105.0
+  },
+  "A13.duration": {
+    "id": "A13.duration",
+    "llm": true,
+    "text": "1.5 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 90.0
+  },
+  "A14.duration": {
+    "id": "A14.duration",
+    "llm": true,
+    "text": "1.6 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 95.0
+  },
+  "A15.duration": {
+    "id": "A15.duration",
+    "llm": true,
+    "text": "2.5 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 150.0
+  },
+  "A16.duration": {
+    "id": "A16.duration",
+    "llm": true,
+    "text": "15 分钟",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 15.0
+  },
+  "A17.duration": {
+    "id": "A17.duration",
+    "llm": true,
+    "text": "35 分钟",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 35.0
+  },
+  "A18.duration": {
+    "id": "A18.duration",
+    "llm": true,
+    "text": "3.7 小时",
+    "label": "持续时长（未恢复的计至统计结束）",
+    "value": 220.0
+  },
+  "P01.water_m3": {
+    "id": "P01.water_m3",
+    "llm": true,
+    "text": "49,639 m³",
+    "label": "南郑中心污水处理厂处理水量",
+    "value": 49639
+  },
+  "P02.water_m3": {
+    "id": "P02.water_m3",
+    "llm": true,
+    "text": "1,968 m³",
+    "label": "协税镇污水处理站处理水量",
+    "value": 1968
+  },
+  "P03.water_m3": {
+    "id": "P03.water_m3",
+    "llm": true,
+    "text": "5,045 m³",
+    "label": "梁山镇污水处理站处理水量",
+    "value": 5045
+  },
+  "P04.water_m3": {
+    "id": "P04.water_m3",
+    "llm": true,
+    "text": "2,999 m³",
+    "label": "高台镇污水处理站处理水量",
+    "value": 2999
+  },
+  "P05.water_m3": {
+    "id": "P05.water_m3",
+    "llm": true,
+    "text": "2,994 m³",
+    "label": "新集镇污水处理站处理水量",
+    "value": 2994
+  },
+  "P06.do_low_h": {
+    "id": "P06.do_low_h",
+    "llm": true,
+    "text": "1.6 小时",
+    "label": "黄官镇污水处理站好氧区DO低于下限的时长",
+    "value": 1.5833333333333333
+  },
+  "P06.water_m3": {
+    "id": "P06.water_m3",
+    "llm": true,
+    "text": "4,039 m³",
+    "label": "黄官镇污水处理站处理水量",
+    "value": 4039
+  },
+  "P07.water_m3": {
+    "id": "P07.water_m3",
+    "llm": true,
+    "text": "2,018 m³",
+    "label": "牟家坝镇污水处理站处理水量",
+    "value": 2018
+  },
+  "alarms.total": {
+    "id": "alarms.total",
+    "llm": true,
+    "text": "8 起",
+    "label": "时段内告警事件数（含预警）",
+    "value": 8
+  },
+  "period.hours": {
+    "id": "period.hours",
+    "llm": true,
+    "text": "24.0 小时",
+    "label": "统计时长",
+    "value": null
+  },
+  "period.start": {
+    "id": "period.start",
+    "llm": true,
+    "text": "2026-11-06 00:00",
+    "label": "统计开始",
+    "value": "2026-11-06T00:00:00+08:00"
+  },
+  "total.pac_kg": {
+    "id": "total.pac_kg",
+    "llm": true,
+    "text": "1,059.8 kg",
+    "label": "全区PAC用量",
+    "value": 1059.8
+  },
+  "P01.carbon_kg": {
+    "id": "P01.carbon_kg",
+    "llm": true,
+    "text": "1,910.1 kg",
+    "label": "南郑中心污水处理厂碳源用量",
+    "value": 1910.1
+  },
+  "P02.carbon_kg": {
+    "id": "P02.carbon_kg",
+    "llm": true,
+    "text": "56.4 kg",
+    "label": "协税镇污水处理站碳源用量",
+    "value": 56.4
+  },
+  "P03.carbon_kg": {
+    "id": "P03.carbon_kg",
+    "llm": true,
+    "text": "139.3 kg",
+    "label": "梁山镇污水处理站碳源用量",
+    "value": 139.3
+  },
+  "P04.carbon_kg": {
+    "id": "P04.carbon_kg",
+    "llm": true,
+    "text": "91.5 kg",
+    "label": "高台镇污水处理站碳源用量",
+    "value": 91.5
+  },
+  "P05.carbon_kg": {
+    "id": "P05.carbon_kg",
+    "llm": true,
+    "text": "81.8 kg",
+    "label": "新集镇污水处理站碳源用量",
+    "value": 81.8
+  },
+  "P06.carbon_kg": {
+    "id": "P06.carbon_kg",
+    "llm": true,
+    "text": "131.1 kg",
+    "label": "黄官镇污水处理站碳源用量",
+    "value": 131.1
+  },
+  "P07.carbon_kg": {
+    "id": "P07.carbon_kg",
+    "llm": true,
+    "text": "65.9 kg",
+    "label": "牟家坝镇污水处理站碳源用量",
+    "value": 65.9
+  },
+  "orders.closed": {
+    "id": "orders.closed",
+    "llm": true,
+    "text": "0 张",
+    "label": "时段内关闭工单",
+    "value": 0
+  },
+  "P01.compliance": {
+    "id": "P01.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "南郑中心污水处理厂出水达标率",
+    "value": 1.0
+  },
+  "P01.kwh_per_m3": {
+    "id": "P01.kwh_per_m3",
+    "llm": true,
+    "text": "0.101 kWh/m³",
+    "label": "南郑中心污水处理厂吨水曝气电耗",
+    "value": 0.1006
+  },
+  "P01.ss_out.max": {
+    "id": "P01.ss_out.max",
+    "llm": false,
+    "text": "6.17 mg/L",
+    "label": "南郑中心污水处理厂出水 SS最高值（时段均值）",
+    "value": 6.16978006362915
+  },
+  "P01.tn_out.max": {
+    "id": "P01.tn_out.max",
+    "llm": false,
+    "text": "11.25 mg/L",
+    "label": "南郑中心污水处理厂出水总氮最高值（时段均值）",
+    "value": 11.25392017364502
+  },
+  "P01.tp_out.max": {
+    "id": "P01.tp_out.max",
+    "llm": false,
+    "text": "0.32 mg/L",
+    "label": "南郑中心污水处理厂出水总磷最高值（时段均值）",
+    "value": 0.31500000357627866
+  },
+  "P02.compliance": {
+    "id": "P02.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "协税镇污水处理站出水达标率",
+    "value": 1.0
+  },
+  "P02.kwh_per_m3": {
+    "id": "P02.kwh_per_m3",
+    "llm": true,
+    "text": "0.099 kWh/m³",
+    "label": "协税镇污水处理站吨水曝气电耗",
+    "value": 0.0994
+  },
+  "P02.ss_out.max": {
+    "id": "P02.ss_out.max",
+    "llm": false,
+    "text": "5.83 mg/L",
+    "label": "协税镇污水处理站出水 SS最高值（时段均值）",
+    "value": 5.827779960632324
+  },
+  "P02.tn_out.max": {
+    "id": "P02.tn_out.max",
+    "llm": false,
+    "text": "11.24 mg/L",
+    "label": "协税镇污水处理站出水总氮最高值（时段均值）",
+    "value": 11.243120193481445
+  },
+  "P02.tp_out.max": {
+    "id": "P02.tp_out.max",
+    "llm": false,
+    "text": "0.32 mg/L",
+    "label": "协税镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.3159400045871735
+  },
+  "P03.compliance": {
+    "id": "P03.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "梁山镇污水处理站出水达标率",
+    "value": 1.0
+  },
+  "P03.kwh_per_m3": {
+    "id": "P03.kwh_per_m3",
+    "llm": true,
+    "text": "0.100 kWh/m³",
+    "label": "梁山镇污水处理站吨水曝气电耗",
+    "value": 0.0997
+  },
+  "P03.ss_out.max": {
+    "id": "P03.ss_out.max",
+    "llm": false,
+    "text": "6.24 mg/L",
+    "label": "梁山镇污水处理站出水 SS最高值（时段均值）",
+    "value": 6.240480136871338
+  },
+  "P03.tn_out.max": {
+    "id": "P03.tn_out.max",
+    "llm": false,
+    "text": "11.26 mg/L",
+    "label": "梁山镇污水处理站出水总氮最高值（时段均值）",
+    "value": 11.257099914550782
+  },
+  "P03.tp_out.max": {
+    "id": "P03.tp_out.max",
+    "llm": false,
+    "text": "0.31 mg/L",
+    "label": "梁山镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.31456000208854673
+  },
+  "P04.compliance": {
+    "id": "P04.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "高台镇污水处理站出水达标率",
+    "value": 1.0
+  },
+  "P04.kwh_per_m3": {
+    "id": "P04.kwh_per_m3",
+    "llm": true,
+    "text": "0.097 kWh/m³",
+    "label": "高台镇污水处理站吨水曝气电耗",
+    "value": 0.0972
+  },
+  "P04.ss_out.max": {
+    "id": "P04.ss_out.max",
+    "llm": false,
+    "text": "6.23 mg/L",
+    "label": "高台镇污水处理站出水 SS最高值（时段均值）",
+    "value": 6.229780101776123
+  },
+  "P04.tn_out.max": {
+    "id": "P04.tn_out.max",
+    "llm": false,
+    "text": "11.30 mg/L",
+    "label": "高台镇污水处理站出水总氮最高值（时段均值）",
+    "value": 11.302780151367188
+  },
+  "P04.tp_out.max": {
+    "id": "P04.tp_out.max",
+    "llm": false,
+    "text": "0.32 mg/L",
+    "label": "高台镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.31674000024795534
+  },
+  "P05.compliance": {
+    "id": "P05.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "新集镇污水处理站出水达标率",
+    "value": 1.0
+  },
+  "P05.kwh_per_m3": {
+    "id": "P05.kwh_per_m3",
+    "llm": true,
+    "text": "0.099 kWh/m³",
+    "label": "新集镇污水处理站吨水曝气电耗",
+    "value": 0.0987
+  },
+  "P05.ss_out.max": {
+    "id": "P05.ss_out.max",
+    "llm": false,
+    "text": "6.09 mg/L",
+    "label": "新集镇污水处理站出水 SS最高值（时段均值）",
+    "value": 6.0900599479675295
+  },
+  "P05.tn_out.max": {
+    "id": "P05.tn_out.max",
+    "llm": false,
+    "text": "11.31 mg/L",
+    "label": "新集镇污水处理站出水总氮最高值（时段均值）",
+    "value": 11.309119987487794
+  },
+  "P05.tp_out.max": {
+    "id": "P05.tp_out.max",
+    "llm": false,
+    "text": "0.31 mg/L",
+    "label": "新集镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.31124000549316405
+  },
+  "P06.compliance": {
+    "id": "P06.compliance",
+    "llm": true,
+    "text": "89.24%",
+    "label": "黄官镇污水处理站出水达标率",
+    "value": 0.8924
+  },
+  "P06.kwh_per_m3": {
+    "id": "P06.kwh_per_m3",
+    "llm": true,
+    "text": "0.093 kWh/m³",
+    "label": "黄官镇污水处理站吨水曝气电耗",
+    "value": 0.0929
+  },
+  "P06.ss_out.max": {
+    "id": "P06.ss_out.max",
+    "llm": false,
+    "text": "5.95 mg/L",
+    "label": "黄官镇污水处理站出水 SS最高值（时段均值）",
+    "value": 5.9535599708557125
+  },
+  "P06.tn_out.max": {
+    "id": "P06.tn_out.max",
+    "llm": true,
+    "text": "17.73 mg/L",
+    "label": "黄官镇污水处理站出水总氮最高值（时段均值）",
+    "value": 17.728099822998047
+  },
+  "P06.tp_out.max": {
+    "id": "P06.tp_out.max",
+    "llm": false,
+    "text": "0.31 mg/L",
+    "label": "黄官镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.3136400043964386
+  },
+  "P07.compliance": {
+    "id": "P07.compliance",
+    "llm": true,
+    "text": "100.00%",
+    "label": "牟家坝镇污水处理站出水达标率",
+    "value": 1.0
+  },
+  "P07.kwh_per_m3": {
+    "id": "P07.kwh_per_m3",
+    "llm": true,
+    "text": "0.101 kWh/m³",
+    "label": "牟家坝镇污水处理站吨水曝气电耗",
+    "value": 0.1014
+  },
+  "P07.ss_out.max": {
+    "id": "P07.ss_out.max",
+    "llm": false,
+    "text": "6.06 mg/L",
+    "label": "牟家坝镇污水处理站出水 SS最高值（时段均值）",
+    "value": 6.064579868316651
+  },
+  "P07.tn_out.max": {
+    "id": "P07.tn_out.max",
+    "llm": false,
+    "text": "11.27 mg/L",
+    "label": "牟家坝镇污水处理站出水总氮最高值（时段均值）",
+    "value": 11.270419883728028
+  },
+  "P07.tp_out.max": {
+    "id": "P07.tp_out.max",
+    "llm": false,
+    "text": "0.31 mg/L",
+    "label": "牟家坝镇污水处理站出水总磷最高值（时段均值）",
+    "value": 0.3135600030422211
+  },
+  "orders.created": {
+    "id": "orders.created",
+    "llm": true,
+    "text": "0 张",
+    "label": "时段内新建工单",
+    "value": 0
+  },
+  "total.water_m3": {
+    "id": "total.water_m3",
+    "llm": true,
+    "text": "68,702 m³",
+    "label": "全区处理水量",
+    "value": 68702
+  },
+  "P01.cod_out.max": {
+    "id": "P01.cod_out.max",
+    "llm": false,
+    "text": "33.23 mg/L",
+    "label": "南郑中心污水处理厂出水 COD最高值（时段均值）",
+    "value": 33.23224029541016
+  },
+  "P02.cod_out.max": {
+    "id": "P02.cod_out.max",
+    "llm": false,
+    "text": "28.75 mg/L",
+    "label": "协税镇污水处理站出水 COD最高值（时段均值）",
+    "value": 28.753160095214845
+  },
+  "P03.cod_out.max": {
+    "id": "P03.cod_out.max",
+    "llm": false,
+    "text": "29.86 mg/L",
+    "label": "梁山镇污水处理站出水 COD最高值（时段均值）",
+    "value": 29.8635196685791
+  },
+  "P04.cod_out.max": {
+    "id": "P04.cod_out.max",
+    "llm": false,
+    "text": "29.29 mg/L",
+    "label": "高台镇污水处理站出水 COD最高值（时段均值）",
+    "value": 29.294379806518556
+  },
+  "P05.cod_out.max": {
+    "id": "P05.cod_out.max",
+    "llm": false,
+    "text": "28.65 mg/L",
+    "label": "新集镇污水处理站出水 COD最高值（时段均值）",
+    "value": 28.646159744262697
+  },
+  "P06.cod_out.max": {
+    "id": "P06.cod_out.max",
+    "llm": false,
+    "text": "30.17 mg/L",
+    "label": "黄官镇污水处理站出水 COD最高值（时段均值）",
+    "value": 30.167500305175782
+  },
+  "P07.cod_out.max": {
+    "id": "P07.cod_out.max",
+    "llm": false,
+    "text": "29.97 mg/L",
+    "label": "牟家坝镇污水处理站出水 COD最高值（时段均值）",
+    "value": 29.970760345458984
+  },
+  "alarms.unclosed": {
+    "id": "alarms.unclosed",
+    "llm": true,
+    "text": "8 起",
+    "label": "处理状态未关闭的告警（截至生成时）",
+    "value": 8
+  },
+  "total.carbon_kg": {
+    "id": "total.carbon_kg",
+    "llm": true,
+    "text": "2,476.1 kg",
+    "label": "全区碳源用量",
+    "value": 2476.1
+  },
+  "P01.nh3n_out.max": {
+    "id": "P01.nh3n_out.max",
+    "llm": false,
+    "text": "1.38 mg/L",
+    "label": "南郑中心污水处理厂出水氨氮最高值（时段均值）",
+    "value": 1.3761399984359741
+  },
+  "P02.nh3n_out.max": {
+    "id": "P02.nh3n_out.max",
+    "llm": false,
+    "text": "0.88 mg/L",
+    "label": "协税镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 0.8802000045776367
+  },
+  "P03.nh3n_out.max": {
+    "id": "P03.nh3n_out.max",
+    "llm": false,
+    "text": "1.13 mg/L",
+    "label": "梁山镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 1.127799963951111
+  },
+  "P04.nh3n_out.max": {
+    "id": "P04.nh3n_out.max",
+    "llm": false,
+    "text": "0.93 mg/L",
+    "label": "高台镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 0.9318399906158448
+  },
+  "P05.nh3n_out.max": {
+    "id": "P05.nh3n_out.max",
+    "llm": false,
+    "text": "1.06 mg/L",
+    "label": "新集镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 1.056819987297058
+  },
+  "P06.nh3n_out.max": {
+    "id": "P06.nh3n_out.max",
+    "llm": true,
+    "text": "16.73 mg/L",
+    "label": "黄官镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 16.728099822998047
+  },
+  "P07.nh3n_out.max": {
+    "id": "P07.nh3n_out.max",
+    "llm": false,
+    "text": "1.35 mg/L",
+    "label": "牟家坝镇污水处理站出水氨氮最高值（时段均值）",
+    "value": 1.3515599966049194
+  },
+  "total.compliance": {
+    "id": "total.compliance",
+    "llm": true,
+    "text": "98.46%",
+    "label": "全区出水达标率（按运行时长加权）",
+    "value": 0.9846
+  },
+  "total.kwh_per_m3": {
+    "id": "total.kwh_per_m3",
+    "llm": true,
+    "text": "0.100 kWh/m³",
+    "label": "全区吨水曝气电耗",
+    "value": 0.0999
+  },
+  "alarms.level_info": {
+    "id": "alarms.level_info",
+    "llm": true,
+    "text": "0 起",
+    "label": "提示级事件数",
+    "value": 0
+  },
+  "plants.pac_kg.max": {
+    "id": "plants.pac_kg.max",
+    "llm": true,
+    "text": "787.6 kg",
+    "label": "各厂站PAC用量最高值（南郑中心污水处理厂）",
+    "value": 787.6
+  },
+  "plants.pac_kg.min": {
+    "id": "plants.pac_kg.min",
+    "llm": true,
+    "text": "28.7 kg",
+    "label": "各厂站PAC用量最低值（协税镇污水处理站）",
+    "value": 28.7
+  },
+  "alarms.level_alarm": {
+    "id": "alarms.level_alarm",
+    "llm": true,
+    "text": "6 起",
+    "label": "告警级事件数",
+    "value": 6
+  },
+  "total.aeration_kwh": {
+    "id": "total.aeration_kwh",
+    "llm": true,
+    "text": "6,862 kWh",
+    "label": "全区曝气电耗",
+    "value": 6861.5
+  },
+  "P06.tn_out.exceed_h": {
+    "id": "P06.tn_out.exceed_h",
+    "llm": true,
+    "text": "0.6 小时",
+    "label": "黄官镇污水处理站出水总氮超标时长",
+    "value": 0.5833333333333334
+  },
+  "plants.water_m3.max": {
+    "id": "plants.water_m3.max",
+    "llm": true,
+    "text": "49,639 m³",
+    "label": "各厂站处理水量最高值（南郑中心污水处理厂）",
+    "value": 49639
+  },
+  "plants.water_m3.min": {
+    "id": "plants.water_m3.min",
+    "llm": true,
+    "text": "1,968 m³",
+    "label": "各厂站处理水量最低值（协税镇污水处理站）",
+    "value": 1968
+  },
+  "alarms.level_warning": {
+    "id": "alarms.level_warning",
+    "llm": true,
+    "text": "2 起",
+    "label": "预警级事件数",
+    "value": 2
+  },
+  "plants.carbon_kg.max": {
+    "id": "plants.carbon_kg.max",
+    "llm": true,
+    "text": "1,910.1 kg",
+    "label": "各厂站碳源用量最高值（南郑中心污水处理厂）",
+    "value": 1910.1
+  },
+  "plants.carbon_kg.min": {
+    "id": "plants.carbon_kg.min",
+    "llm": true,
+    "text": "56.4 kg",
+    "label": "各厂站碳源用量最低值（协税镇污水处理站）",
+    "value": 56.4
+  },
+  "P06.nh3n_out.exceed_h": {
+    "id": "P06.nh3n_out.exceed_h",
+    "llm": true,
+    "text": "2.5 小时",
+    "label": "黄官镇污水处理站出水氨氮超标时长",
+    "value": 2.5
+  },
+  "plants.compliance.max": {
+    "id": "plants.compliance.max",
+    "llm": true,
+    "text": "100.00%",
+    "label": "各厂站出水达标率最高值（南郑中心污水处理厂、协税镇污水处理站、梁山镇污水处理站、高台镇污水处理站、新集镇污水处理站、牟家坝镇污水处理站）",
+    "value": 1.0
+  },
+  "plants.compliance.min": {
+    "id": "plants.compliance.min",
+    "llm": true,
+    "text": "89.24%",
+    "label": "各厂站出水达标率最低值（黄官镇污水处理站）",
+    "value": 0.8924
+  },
+  "plants.kwh_per_m3.max": {
+    "id": "plants.kwh_per_m3.max",
+    "llm": true,
+    "text": "0.101 kWh/m³",
+    "label": "各厂站吨水曝气电耗最高值（南郑中心污水处理厂、牟家坝镇污水处理站）",
+    "value": 0.1014
+  },
+  "plants.kwh_per_m3.min": {
+    "id": "plants.kwh_per_m3.min",
+    "llm": true,
+    "text": "0.093 kWh/m³",
+    "label": "各厂站吨水曝气电耗最低值（黄官镇污水处理站）",
+    "value": 0.0929
+  },
+  "plants.compliance.full_n": {
+    "id": "plants.compliance.full_n",
+    "llm": true,
+    "text": "6 座",
+    "label": "出水全时段达标（达标率为满分）的厂站数",
+    "value": 6
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "id": "shock-data",
+  "family": "shock_load",
+  "mode": "data",
+  "question": "高台镇P04在2026年11月4日10:00与11月3日10:00的原始进水流量、进水COD、进水氨氮各是多少？逐项引用，结果行保留厂站编码和原始采样时间；流量单位m³/h、浓度mg/L，不要小时聚合。",
+  "status": "needs_review",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P04",
+        "at": "2026-11-04T10:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 152.2211,
+          "cod_in": 482.8707,
+          "nh3n_in": 64.4753
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      },
+      {
+        "entity": "P04",
+        "at": "2026-11-03T10:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "inflow_m3h": 150.8577,
+          "cod_in": 219.9381,
+          "nh3n_in": 30.5141
+        },
+        "units": {
+          "inflow_m3h": "m³/h",
+          "cod_in": "mg/L",
+          "nh3n_in": "mg/L"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "高台镇P04在2026年11月4日10:00与11月3日10:00的原始进水流量、进水COD、进水氨氮各是多少？逐项引用，结果行保留厂站编码和原始采样时间；流量单位m³/h、浓度mg/L，不要小时聚合。"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "高台镇P04在2026年11月4日10:00与11月3日10:00的原始进水流量、进水COD、进水氨氮各是多少？逐项引用，结果行保留厂站编码和原始采样时间；流量单位m³/h、浓度mg/L，不要小时聚合。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "9bf983d8067e4697b3b1b31e5fad585d",
+    "session_id": "0e4ecfb867ed4e198ee464ac84830665",
+    "resolved_question": "查询高台镇P04在2026年11月4日10:00与2026年11月3日10:00的原始进水流量、进水COD、进水氨氮读数；结果保留厂站编码和原始采样时间，不做小时聚合，流量单位m³/h、浓度单位mg/L。",
+    "intent": "data",
+    "ok": true,
+    "refused": false,
+    "answer": "P04 在2026-11-03T10:00:00+08:00 原始进水流量150.8577 m³/h、进水COD 219.9381 mg/L、进水氨氮30.5141 mg/L。 [1][2][3][4][5]\n\nP04 在2026-11-04T10:00:00+08:00 原始进水流量152.2211 m³/h、进水COD 482.8707 mg/L、进水氨氮64.4753 mg/L。 [6][7][8][9][10]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "fact",
+        "text": "P04 在2026-11-03T10:00:00+08:00 原始进水流量150.8577 m³/h、进水COD 219.9381 mg/L、进水氨氮30.5141 mg/L。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P04 在2026-11-04T10:00:00+08:00 原始进水流量152.2211 m³/h、进水COD 482.8707 mg/L、进水氨氮64.4753 mg/L。",
+        "citation_numbers": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P04",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 2,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-03T10:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 3,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 150.8577,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 4,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 219.9381,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 30.5141,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P04",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-04T10:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 2,
+        "column_name": "进水流量_m3h",
+        "value": 152.2211,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 3,
+        "column_name": "进水cod_mgl",
+        "value": 482.8707,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 1,
+        "column": 4,
+        "column_name": "进水氨氮_mgl",
+        "value": 64.4753,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询高台镇P04在2026-11-04 10:00:00与2026-11-03 10:00:00的原始进水流量(inflow_m3h)、进水COD(cod_in)、进水氨氮(nh3n_in)读数；逐项列出厂站编码、原始采样时间、指标值，不做小时聚合，流量单位m³/h、浓度单位mg/L。",
+        "status": "ok",
+        "output": {
+          "question": "查询高台镇P04在2026-11-04 10:00:00与2026-11-03 10:00:00的原始进水流量(inflow_m3h)、进水COD(cod_in)、进水氨氮(nh3n_in)读数；逐项列出厂站编码、原始采样时间、指标值，不做小时聚合，流量单位m³/h、浓度单位mg/L。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.inflow_m3h AS 进水流量_m3h, r.cod_in AS 进水COD_mgL, r.nh3n_in AS 进水氨氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P04' AND r.ts IN ('2026-11-04 10:00:00+08', '2026-11-03 10:00:00+08') ORDER BY r.ts LIMIT 200",
+          "explanation": "直接从原始表 plant_reading 按厂站编码 P04 与两个精确采样时刻筛选，宽表返回流量、进水COD、进水氨氮原值，未做小时聚合。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "进水流量_m3h",
+            "进水cod_mgl",
+            "进水氨氮_mgl"
+          ],
+          "rows": [
+            [
+              "P04",
+              "2026-11-03T10:00:00+08:00",
+              150.8577,
+              219.9381,
+              30.5141
+            ],
+            [
+              "P04",
+              "2026-11-04T10:00:00+08:00",
+              152.2211,
+              482.8707,
+              64.4753
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "SELECT p.code AS 厂站编码, r.ts AS 采样时间, r.inflow_m3h AS 进水流量_m3h, r.cod_in AS 进水COD_mgL, r.nh3n_in AS 进水氨氮_mgL FROM plant_reading AS r JOIN plant AS p ON p.id = r.plant_id WHERE p.code = 'P04' AND r.ts IN ('2026-11-04 10:00:00+08', '2026-11-03 10:00:00+08') ORDER BY r.ts LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2214,
+          "completion_tokens": 395,
+          "llm_ms": 2168.1,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2214,
+              "completion_tokens": 395,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 2168.1,
+              "latency_ms": 2168.1,
+              "total_latency_ms": 2168.1,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 2168.1,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 2189.5,
+          "examples_used": [
+            "梁山镇P03在11月1日和11月2日09:30的原始出水COD、总氮，以及P03-BL-1当时的运行状态和电流",
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "氧化沟工艺的厂站今天出水COD平均多少？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h"
+          ]
+        },
+        "error": null,
+        "total_ms": 2189.6,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1979,
+        "completion_tokens": 371,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2780.6,
+        "latency_ms": 2780.6,
+        "total_latency_ms": 2780.6,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2780.6,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2350,
+        "completion_tokens": 91,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 738.7,
+        "latency_ms": 738.7,
+        "total_latency_ms": 738.7,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 738.7,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 1785,
+        "completion_tokens": 390,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2083.5,
+        "latency_ms": 2083.4,
+        "total_latency_ms": 2083.5,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2083.4,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 8328,
+    "completion_tokens": 1247,
+    "llm_ms": 7770.9,
+    "total_ms": 7798.8,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": []
+  },
+  "score": {
+    "mechanical_pass": true,
+    "semantic_pass": null,
+    "status": "needs_review",
+    "failures": [],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "浓度与流量不能互换；同钟点对照仅是观测，不证明上游排污来源。"
+      }
+    ]
+  },
+  "elapsed_ms": 7881.6
+}

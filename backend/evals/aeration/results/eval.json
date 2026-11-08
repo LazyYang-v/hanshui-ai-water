@@ -1,0 +1,1670 @@
+{
+ "generated_at": "2026-11-08T05:07:24",
+ "params": {
+  "fixed_air_frac": 1.307,
+  "pi": {
+   "kp": 0.5,
+   "ki": 4.8
+  },
+  "ff": {
+   "a": 0.067,
+   "b": 0.9305
+  },
+  "ff_pi": {
+   "kp": 0.5,
+   "ki": 0.3,
+   "filter_min": 5.0
+  },
+  "hw": {
+   "alpha": 0.4,
+   "gamma": 0.2,
+   "horizon_min": 0.0,
+   "filter_min": 10.0,
+   "kp": 0.5,
+   "ki": 1.2
+  },
+  "meta": {
+   "calibrated_at": "2026-11-08T05:01:51",
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "scenario": "dry",
+   "setpoint": 2.0,
+   "plant": "P01",
+   "ff_fit": {
+    "r2": 0.9252,
+    "n_blocks": 720,
+    "pi_air_quantiles": {
+     "p50": 1.0035,
+     "p75": 1.1285,
+     "p95": 1.307
+    }
+   },
+   "move_budget": 0.5,
+   "selected": {
+    "pi": {
+     "kp": 0.5,
+     "ki": 4.8,
+     "do_mae": 0.0664,
+     "air_moves_per_h": 0.4987,
+     "kwh": 5126.1
+    },
+    "ff_pi": {
+     "kp": 0.5,
+     "ki": 0.3,
+     "filter_min": 5.0,
+     "do_mae": 0.0649,
+     "air_moves_per_h": 0.4748,
+     "kwh": 5125.7
+    },
+    "ff_hw_pi": {
+     "alpha": 0.4,
+     "gamma": 0.2,
+     "horizon_min": 0.0,
+     "filter_min": 10.0,
+     "kp": 0.5,
+     "ki": 1.2,
+     "do_mae": 0.0816,
+     "air_moves_per_h": 0.4237,
+     "kwh": 5127.2
+    }
+   },
+   "fixed_rule": "整定后 PI 在校准日风量的 95% 分位"
+  }
+ },
+ "seeds": [
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110
+ ],
+ "scenarios": {
+  "dry": {
+   "fixed": {
+    "do_mae": {
+     "mean": 1.6756,
+     "min": 1.5289,
+     "max": 1.7835
+    },
+    "do_p95_abs_err": {
+     "mean": 2.7429,
+     "min": 2.5381,
+     "max": 3.0604
+    },
+    "do_low_pct": {
+     "mean": 0.43,
+     "min": 0.0,
+     "max": 3.12
+    },
+    "do_high_pct": {
+     "mean": 77.659,
+     "min": 73.12,
+     "max": 81.94
+    },
+    "kwh": {
+     "mean": 7081.5,
+     "min": 7081.5,
+     "max": 7081.5
+    },
+    "kwh_per_m3": {
+     "mean": 0.1418,
+     "min": 0.1392,
+     "max": 0.1433
+    },
+    "nh3n_mean": {
+     "mean": 0.373,
+     "min": 0.307,
+     "max": 0.518
+    },
+    "nh3n_max": {
+     "mean": 1.1157,
+     "min": 0.745,
+     "max": 1.751
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 41.6484,
+     "min": 36.6346,
+     "max": 45.9802
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "pi": {
+    "do_mae": {
+     "mean": 0.0641,
+     "min": 0.0608,
+     "max": 0.0696
+    },
+    "do_p95_abs_err": {
+     "mean": 0.1552,
+     "min": 0.1414,
+     "max": 0.1678
+    },
+    "do_low_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5001.81,
+     "min": 4851.0,
+     "max": 5182.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.1002,
+     "min": 0.097,
+     "max": 0.1033
+    },
+    "nh3n_mean": {
+     "mean": 0.6143,
+     "min": 0.556,
+     "max": 0.736
+    },
+    "nh3n_max": {
+     "mean": 1.2851,
+     "min": 1.094,
+     "max": 1.601
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.4806,
+     "min": 0.451,
+     "max": 0.5199
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.3679,
+     "min": -31.4976,
+     "max": -26.8121
+    }
+   },
+   "ff_pi": {
+    "do_mae": {
+     "mean": 0.0637,
+     "min": 0.0586,
+     "max": 0.0666
+    },
+    "do_p95_abs_err": {
+     "mean": 0.1553,
+     "min": 0.1385,
+     "max": 0.1642
+    },
+    "do_low_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5000.99,
+     "min": 4850.9,
+     "max": 5183.6
+    },
+    "kwh_per_m3": {
+     "mean": 0.1001,
+     "min": 0.0969,
+     "max": 0.1033
+    },
+    "nh3n_mean": {
+     "mean": 0.6151,
+     "min": 0.557,
+     "max": 0.736
+    },
+    "nh3n_max": {
+     "mean": 1.2837,
+     "min": 1.092,
+     "max": 1.611
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.4648,
+     "min": 0.4503,
+     "max": 0.4935
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -0.0166,
+     "min": -0.0742,
+     "max": 0.0353
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.3795,
+     "min": -31.499,
+     "max": -26.8008
+    }
+   },
+   "ff_hw_pi": {
+    "do_mae": {
+     "mean": 0.0836,
+     "min": 0.0785,
+     "max": 0.0895
+    },
+    "do_p95_abs_err": {
+     "mean": 0.2082,
+     "min": 0.185,
+     "max": 0.2243
+    },
+    "do_low_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5002.62,
+     "min": 4851.2,
+     "max": 5184.4
+    },
+    "kwh_per_m3": {
+     "mean": 0.1002,
+     "min": 0.097,
+     "max": 0.1033
+    },
+    "nh3n_mean": {
+     "mean": 0.616,
+     "min": 0.558,
+     "max": 0.738
+    },
+    "nh3n_max": {
+     "mean": 1.2794,
+     "min": 1.105,
+     "max": 1.632
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.4189,
+     "min": 0.3997,
+     "max": 0.4326
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.016,
+     "min": -0.0375,
+     "max": 0.0567
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.3565,
+     "min": -31.4947,
+     "max": -26.7895
+    }
+   },
+   "fixed_p50": {
+    "do_mae": {
+     "mean": 0.8116,
+     "min": 0.7019,
+     "max": 0.8726
+    },
+    "do_p95_abs_err": {
+     "mean": 1.757,
+     "min": 1.4623,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 28.549,
+     "min": 20.83,
+     "max": 37.85
+    },
+    "do_high_pct": {
+     "mean": 17.57,
+     "min": 7.22,
+     "max": 26.11
+    },
+    "kwh": {
+     "mean": 5022.8,
+     "min": 5022.8,
+     "max": 5022.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.1006,
+     "min": 0.0987,
+     "max": 0.1016
+    },
+    "nh3n_mean": {
+     "mean": 2.0672,
+     "min": 1.036,
+     "max": 3.618
+    },
+    "nh3n_max": {
+     "mean": 13.7156,
+     "min": 4.814,
+     "max": 23.235
+    },
+    "nh3n_over_limit_h": {
+     "mean": 2.416,
+     "min": 0.0,
+     "max": 5.3
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.4691,
+     "min": -3.0871,
+     "max": 3.5415
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.0715,
+     "min": -29.0715,
+     "max": -29.0715
+    }
+   },
+   "fixed_p75": {
+    "do_mae": {
+     "mean": 1.0263,
+     "min": 0.8413,
+     "max": 1.1244
+    },
+    "do_p95_abs_err": {
+     "mean": 2.0616,
+     "min": 1.813,
+     "max": 2.4374
+    },
+    "do_low_pct": {
+     "mean": 8.007,
+     "min": 2.64,
+     "max": 12.36
+    },
+    "do_high_pct": {
+     "mean": 47.16,
+     "min": 37.92,
+     "max": 52.71
+    },
+    "kwh": {
+     "mean": 5850.9,
+     "min": 5850.9,
+     "max": 5850.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.1172,
+     "min": 0.115,
+     "max": 0.1184
+    },
+    "nh3n_mean": {
+     "mean": 0.7142,
+     "min": 0.459,
+     "max": 1.579
+    },
+    "nh3n_max": {
+     "mean": 3.7604,
+     "min": 1.261,
+     "max": 13.11
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.33,
+     "min": 0.0,
+     "max": 2.3
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 17.0332,
+     "min": 12.8907,
+     "max": 20.6122
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -17.3777,
+     "min": -17.3777,
+     "max": -17.3777
+    }
+   }
+  },
+  "storm": {
+   "fixed": {
+    "do_mae": {
+     "mean": 1.8445,
+     "min": 1.6809,
+     "max": 1.9522
+    },
+    "do_p95_abs_err": {
+     "mean": 2.7672,
+     "min": 2.5536,
+     "max": 3.0604
+    },
+    "do_low_pct": {
+     "mean": 9.34,
+     "min": 7.85,
+     "max": 10.62
+    },
+    "do_high_pct": {
+     "mean": 78.971,
+     "min": 75.0,
+     "max": 83.54
+    },
+    "kwh": {
+     "mean": 7081.5,
+     "min": 7081.5,
+     "max": 7081.5
+    },
+    "kwh_per_m3": {
+     "mean": 0.1355,
+     "min": 0.1331,
+     "max": 0.1368
+    },
+    "nh3n_mean": {
+     "mean": 2.1797,
+     "min": 1.284,
+     "max": 3.038
+    },
+    "nh3n_max": {
+     "mean": 17.8015,
+     "min": 7.318,
+     "max": 24.726
+    },
+    "nh3n_over_limit_h": {
+     "mean": 3.277,
+     "min": 2.37,
+     "max": 3.98
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 37.3224,
+     "min": 33.1284,
+     "max": 41.1782
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "pi": {
+    "do_mae": {
+     "mean": 0.081,
+     "min": 0.0653,
+     "max": 0.1137
+    },
+    "do_p95_abs_err": {
+     "mean": 0.2136,
+     "min": 0.1518,
+     "max": 0.3432
+    },
+    "do_low_pct": {
+     "mean": 1.0,
+     "min": 0.0,
+     "max": 4.58
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5158.77,
+     "min": 5016.0,
+     "max": 5319.3
+    },
+    "kwh_per_m3": {
+     "mean": 0.0987,
+     "min": 0.0958,
+     "max": 0.1016
+    },
+    "nh3n_mean": {
+     "mean": 1.2464,
+     "min": 1.095,
+     "max": 1.625
+    },
+    "nh3n_max": {
+     "mean": 4.1686,
+     "min": 3.651,
+     "max": 5.277
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.208,
+     "min": 0.0,
+     "max": 2.08
+    },
+    "air_moves_per_h": {
+     "mean": 0.4777,
+     "min": 0.4472,
+     "max": 0.5261
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -27.1515,
+     "min": -29.1675,
+     "max": -24.8846
+    }
+   },
+   "ff_pi": {
+    "do_mae": {
+     "mean": 0.0838,
+     "min": 0.0681,
+     "max": 0.117
+    },
+    "do_p95_abs_err": {
+     "mean": 0.2264,
+     "min": 0.172,
+     "max": 0.3388
+    },
+    "do_low_pct": {
+     "mean": 0.986,
+     "min": 0.0,
+     "max": 4.51
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5163.29,
+     "min": 5018.4,
+     "max": 5322.6
+    },
+    "kwh_per_m3": {
+     "mean": 0.0988,
+     "min": 0.0958,
+     "max": 0.1017
+    },
+    "nh3n_mean": {
+     "mean": 1.2411,
+     "min": 1.091,
+     "max": 1.618
+    },
+    "nh3n_max": {
+     "mean": 4.117,
+     "min": 3.596,
+     "max": 5.264
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.205,
+     "min": 0.0,
+     "max": 2.05
+    },
+    "air_moves_per_h": {
+     "mean": 0.4629,
+     "min": 0.4279,
+     "max": 0.501
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0875,
+     "min": 0.0194,
+     "max": 0.1406
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -27.0876,
+     "min": -29.1337,
+     "max": -24.838
+    }
+   },
+   "ff_hw_pi": {
+    "do_mae": {
+     "mean": 0.1058,
+     "min": 0.0847,
+     "max": 0.1389
+    },
+    "do_p95_abs_err": {
+     "mean": 0.3092,
+     "min": 0.206,
+     "max": 0.5426
+    },
+    "do_low_pct": {
+     "mean": 1.132,
+     "min": 0.0,
+     "max": 4.65
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5164.08,
+     "min": 5019.8,
+     "max": 5324.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.0988,
+     "min": 0.0958,
+     "max": 0.1017
+    },
+    "nh3n_mean": {
+     "mean": 1.248,
+     "min": 1.097,
+     "max": 1.63
+    },
+    "nh3n_max": {
+     "mean": 4.1469,
+     "min": 3.662,
+     "max": 5.316
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.215,
+     "min": 0.0,
+     "max": 2.15
+    },
+    "air_moves_per_h": {
+     "mean": 0.4178,
+     "min": 0.3932,
+     "max": 0.4432
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.1029,
+     "min": 0.0644,
+     "max": 0.1515
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -27.0765,
+     "min": -29.1139,
+     "max": -24.8055
+    }
+   },
+   "fixed_p50": {
+    "do_mae": {
+     "mean": 0.9043,
+     "min": 0.761,
+     "max": 1.0039
+    },
+    "do_p95_abs_err": {
+     "mean": 1.95,
+     "min": 1.95,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 26.743,
+     "min": 21.04,
+     "max": 35.07
+    },
+    "do_high_pct": {
+     "mean": 21.249,
+     "min": 7.22,
+     "max": 29.72
+    },
+    "kwh": {
+     "mean": 5022.8,
+     "min": 5022.8,
+     "max": 5022.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.0961,
+     "min": 0.0944,
+     "max": 0.097
+    },
+    "nh3n_mean": {
+     "mean": 4.3318,
+     "min": 3.862,
+     "max": 5.005
+    },
+    "nh3n_max": {
+     "mean": 25.9964,
+     "min": 24.176,
+     "max": 28.571
+    },
+    "nh3n_over_limit_h": {
+     "mean": 5.155,
+     "min": 4.53,
+     "max": 6.02
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -2.5993,
+     "min": -5.574,
+     "max": 0.1356
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.0715,
+     "min": -29.0715,
+     "max": -29.0715
+    }
+   },
+   "fixed_p75": {
+    "do_mae": {
+     "mean": 1.2397,
+     "min": 1.0494,
+     "max": 1.328
+    },
+    "do_p95_abs_err": {
+     "mean": 2.1099,
+     "min": 1.95,
+     "max": 2.4374
+    },
+    "do_low_pct": {
+     "mean": 13.341,
+     "min": 11.39,
+     "max": 14.93
+    },
+    "do_high_pct": {
+     "mean": 54.139,
+     "min": 45.69,
+     "max": 59.38
+    },
+    "kwh": {
+     "mean": 5850.9,
+     "min": 5850.9,
+     "max": 5850.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.1119,
+     "min": 0.1099,
+     "max": 0.113
+    },
+    "nh3n_mean": {
+     "mean": 3.4117,
+     "min": 2.997,
+     "max": 3.919
+    },
+    "nh3n_max": {
+     "mean": 24.6695,
+     "min": 22.322,
+     "max": 27.221
+    },
+    "nh3n_over_limit_h": {
+     "mean": 4.349,
+     "min": 3.93,
+     "max": 4.82
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 13.4589,
+     "min": 9.9938,
+     "max": 16.6447
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -17.3777,
+     "min": -17.3777,
+     "max": -17.3777
+    }
+   }
+  },
+  "shock": {
+   "fixed": {
+    "do_mae": {
+     "mean": 1.4719,
+     "min": 1.3297,
+     "max": 1.6519
+    },
+    "do_p95_abs_err": {
+     "mean": 2.7232,
+     "min": 2.4813,
+     "max": 3.0604
+    },
+    "do_low_pct": {
+     "mean": 5.175,
+     "min": 1.32,
+     "max": 10.97
+    },
+    "do_high_pct": {
+     "mean": 64.945,
+     "min": 60.49,
+     "max": 69.1
+    },
+    "kwh": {
+     "mean": 7081.5,
+     "min": 7081.5,
+     "max": 7081.5
+    },
+    "kwh_per_m3": {
+     "mean": 0.1418,
+     "min": 0.1392,
+     "max": 0.1433
+    },
+    "nh3n_mean": {
+     "mean": 0.697,
+     "min": 0.537,
+     "max": 1.014
+    },
+    "nh3n_max": {
+     "mean": 2.9089,
+     "min": 1.455,
+     "max": 7.703
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.135,
+     "min": 0.0,
+     "max": 1.35
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 31.3198,
+     "min": 26.9632,
+     "max": 34.5858
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "pi": {
+    "do_mae": {
+     "mean": 0.077,
+     "min": 0.0729,
+     "max": 0.0811
+    },
+    "do_p95_abs_err": {
+     "mean": 0.1835,
+     "min": 0.1579,
+     "max": 0.197
+    },
+    "do_low_pct": {
+     "mean": 0.564,
+     "min": 0.42,
+     "max": 0.69
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5394.67,
+     "min": 5261.7,
+     "max": 5577.6
+    },
+    "kwh_per_m3": {
+     "mean": 0.108,
+     "min": 0.1053,
+     "max": 0.1113
+    },
+    "nh3n_mean": {
+     "mean": 0.8163,
+     "min": 0.75,
+     "max": 0.941
+    },
+    "nh3n_max": {
+     "mean": 1.6434,
+     "min": 1.355,
+     "max": 2.038
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.551,
+     "min": 0.5087,
+     "max": 0.5836
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -23.8202,
+     "min": -25.6979,
+     "max": -21.237
+    }
+   },
+   "ff_pi": {
+    "do_mae": {
+     "mean": 0.072,
+     "min": 0.067,
+     "max": 0.0761
+    },
+    "do_p95_abs_err": {
+     "mean": 0.1739,
+     "min": 0.1576,
+     "max": 0.1861
+    },
+    "do_low_pct": {
+     "mean": 0.301,
+     "min": 0.0,
+     "max": 0.49
+    },
+    "do_high_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh": {
+     "mean": 5392.82,
+     "min": 5261.6,
+     "max": 5576.3
+    },
+    "kwh_per_m3": {
+     "mean": 0.108,
+     "min": 0.1053,
+     "max": 0.1112
+    },
+    "nh3n_mean": {
+     "mean": 0.8153,
+     "min": 0.749,
+     "max": 0.939
+    },
+    "nh3n_max": {
+     "mean": 1.6489,
+     "min": 1.35,
+     "max": 2.058
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.5248,
+     "min": 0.5112,
+     "max": 0.5494
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -0.0342,
+     "min": -0.1042,
+     "max": 0.0238
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -23.8464,
+     "min": -25.6994,
+     "max": -21.2554
+    }
+   },
+   "ff_hw_pi": {
+    "do_mae": {
+     "mean": 0.1032,
+     "min": 0.0954,
+     "max": 0.1107
+    },
+    "do_p95_abs_err": {
+     "mean": 0.2543,
+     "min": 0.2223,
+     "max": 0.2894
+    },
+    "do_low_pct": {
+     "mean": 0.706,
+     "min": 0.49,
+     "max": 0.9
+    },
+    "do_high_pct": {
+     "mean": 0.035,
+     "min": 0.0,
+     "max": 0.35
+    },
+    "kwh": {
+     "mean": 5398.01,
+     "min": 5267.3,
+     "max": 5580.3
+    },
+    "kwh_per_m3": {
+     "mean": 0.1081,
+     "min": 0.1054,
+     "max": 0.1113
+    },
+    "nh3n_mean": {
+     "mean": 0.8178,
+     "min": 0.752,
+     "max": 0.941
+    },
+    "nh3n_max": {
+     "mean": 1.6396,
+     "min": 1.331,
+     "max": 2.05
+    },
+    "nh3n_over_limit_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "air_moves_per_h": {
+     "mean": 0.4677,
+     "min": 0.4409,
+     "max": 0.4865
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0623,
+     "min": -0.0092,
+     "max": 0.1214
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -23.7731,
+     "min": -25.6189,
+     "max": -21.1989
+    }
+   },
+   "fixed_p50": {
+    "do_mae": {
+     "mean": 0.9707,
+     "min": 0.8922,
+     "max": 1.0486
+    },
+    "do_p95_abs_err": {
+     "mean": 1.95,
+     "min": 1.95,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 41.562,
+     "min": 33.96,
+     "max": 50.76
+    },
+    "do_high_pct": {
+     "mean": 15.993,
+     "min": 7.22,
+     "max": 25.49
+    },
+    "kwh": {
+     "mean": 5022.8,
+     "min": 5022.8,
+     "max": 5022.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.1006,
+     "min": 0.0987,
+     "max": 0.1016
+    },
+    "nh3n_mean": {
+     "mean": 6.4849,
+     "min": 4.683,
+     "max": 8.381
+    },
+    "nh3n_max": {
+     "mean": 36.5456,
+     "min": 29.72,
+     "max": 39.029
+    },
+    "nh3n_over_limit_h": {
+     "mean": 7.266,
+     "min": 4.95,
+     "max": 10.55
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -6.8569,
+     "min": -9.9469,
+     "max": -4.5404
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.0715,
+     "min": -29.0715,
+     "max": -29.0715
+    }
+   },
+   "fixed_p75": {
+    "do_mae": {
+     "mean": 1.0367,
+     "min": 0.8144,
+     "max": 1.1823
+    },
+    "do_p95_abs_err": {
+     "mean": 2.0753,
+     "min": 1.8044,
+     "max": 2.4374
+    },
+    "do_low_pct": {
+     "mean": 20.028,
+     "min": 15.07,
+     "max": 24.24
+    },
+    "do_high_pct": {
+     "mean": 36.735,
+     "min": 28.82,
+     "max": 43.26
+    },
+    "kwh": {
+     "mean": 5850.9,
+     "min": 5850.9,
+     "max": 5850.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.1172,
+     "min": 0.115,
+     "max": 0.1184
+    },
+    "nh3n_mean": {
+     "mean": 2.7448,
+     "min": 1.292,
+     "max": 3.81
+    },
+    "nh3n_max": {
+     "mean": 21.3251,
+     "min": 8.632,
+     "max": 34.778
+    },
+    "nh3n_over_limit_h": {
+     "mean": 3.33,
+     "min": 1.25,
+     "max": 5.52
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 8.4994,
+     "min": 4.9,
+     "max": 11.1979
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -17.3777,
+     "min": -17.3777,
+     "max": -17.3777
+    }
+   }
+  },
+  "overload": {
+   "fixed": {
+    "do_mae": {
+     "mean": 1.7702,
+     "min": 1.6419,
+     "max": 1.8998
+    },
+    "do_p95_abs_err": {
+     "mean": 2.7428,
+     "min": 2.5381,
+     "max": 3.0604
+    },
+    "do_low_pct": {
+     "mean": 13.05,
+     "min": 12.57,
+     "max": 15.83
+    },
+    "do_high_pct": {
+     "mean": 69.84,
+     "min": 64.1,
+     "max": 75.56
+    },
+    "kwh": {
+     "mean": 7081.5,
+     "min": 7081.5,
+     "max": 7081.5
+    },
+    "kwh_per_m3": {
+     "mean": 0.1418,
+     "min": 0.1392,
+     "max": 0.1433
+    },
+    "nh3n_mean": {
+     "mean": 6.6297,
+     "min": 6.317,
+     "max": 6.955
+    },
+    "nh3n_max": {
+     "mean": 49.073,
+     "min": 46.495,
+     "max": 52.629
+    },
+    "nh3n_over_limit_h": {
+     "mean": 5.282,
+     "min": 5.17,
+     "max": 5.38
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 28.2283,
+     "min": 23.0324,
+     "max": 32.236
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "pi": {
+    "do_mae": {
+     "mean": 0.2097,
+     "min": 0.15,
+     "max": 0.24
+    },
+    "do_p95_abs_err": {
+     "mean": 1.44,
+     "min": 0.6771,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 10.021,
+     "min": 6.67,
+     "max": 12.5
+    },
+    "do_high_pct": {
+     "mean": 0.238,
+     "min": 0.0,
+     "max": 0.42
+    },
+    "kwh": {
+     "mean": 5525.25,
+     "min": 5355.2,
+     "max": 5755.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.1106,
+     "min": 0.1077,
+     "max": 0.1147
+    },
+    "nh3n_mean": {
+     "mean": 3.3126,
+     "min": 1.601,
+     "max": 4.614
+    },
+    "nh3n_max": {
+     "mean": 26.5089,
+     "min": 6.969,
+     "max": 40.898
+    },
+    "nh3n_over_limit_h": {
+     "mean": 4.091,
+     "min": 3.15,
+     "max": 4.58
+    },
+    "air_moves_per_h": {
+     "mean": 0.495,
+     "min": 0.442,
+     "max": 0.5387
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -21.9763,
+     "min": -24.3776,
+     "max": -18.7206
+    }
+   },
+   "ff_pi": {
+    "do_mae": {
+     "mean": 0.2039,
+     "min": 0.1386,
+     "max": 0.2335
+    },
+    "do_p95_abs_err": {
+     "mean": 1.4082,
+     "min": 0.6276,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 9.951,
+     "min": 6.6,
+     "max": 12.5
+    },
+    "do_high_pct": {
+     "mean": 0.007,
+     "min": 0.0,
+     "max": 0.07
+    },
+    "kwh": {
+     "mean": 5524.34,
+     "min": 5357.6,
+     "max": 5754.4
+    },
+    "kwh_per_m3": {
+     "mean": 0.1106,
+     "min": 0.1077,
+     "max": 0.1147
+    },
+    "nh3n_mean": {
+     "mean": 3.2635,
+     "min": 1.499,
+     "max": 4.615
+    },
+    "nh3n_max": {
+     "mean": 26.1784,
+     "min": 6.54,
+     "max": 40.838
+    },
+    "nh3n_over_limit_h": {
+     "mean": 4.018,
+     "min": 2.83,
+     "max": 4.52
+    },
+    "air_moves_per_h": {
+     "mean": 0.4608,
+     "min": 0.4328,
+     "max": 0.4922
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -0.0164,
+     "min": -0.1154,
+     "max": 0.0448
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -21.9891,
+     "min": -24.3437,
+     "max": -18.7404
+    }
+   },
+   "ff_hw_pi": {
+    "do_mae": {
+     "mean": 0.2323,
+     "min": 0.1747,
+     "max": 0.2623
+    },
+    "do_p95_abs_err": {
+     "mean": 1.4606,
+     "min": 0.6805,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 10.013,
+     "min": 7.22,
+     "max": 12.5
+    },
+    "do_high_pct": {
+     "mean": 0.577,
+     "min": 0.49,
+     "max": 0.69
+    },
+    "kwh": {
+     "mean": 5525.86,
+     "min": 5355.9,
+     "max": 5755.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.1107,
+     "min": 0.1077,
+     "max": 0.1147
+    },
+    "nh3n_mean": {
+     "mean": 3.3172,
+     "min": 1.589,
+     "max": 4.628
+    },
+    "nh3n_max": {
+     "mean": 26.5243,
+     "min": 6.736,
+     "max": 40.936
+    },
+    "nh3n_over_limit_h": {
+     "mean": 4.103,
+     "min": 3.1,
+     "max": 4.55
+    },
+    "air_moves_per_h": {
+     "mean": 0.4149,
+     "min": 0.3913,
+     "max": 0.4317
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 0.0109,
+     "min": -0.0487,
+     "max": 0.0847
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -21.9677,
+     "min": -24.3677,
+     "max": -18.7192
+    }
+   },
+   "fixed_p50": {
+    "do_mae": {
+     "mean": 0.9533,
+     "min": 0.8363,
+     "max": 1.0145
+    },
+    "do_p95_abs_err": {
+     "mean": 1.95,
+     "min": 1.95,
+     "max": 1.95
+    },
+    "do_low_pct": {
+     "mean": 34.48,
+     "min": 26.39,
+     "max": 44.58
+    },
+    "do_high_pct": {
+     "mean": 17.515,
+     "min": 7.22,
+     "max": 26.11
+    },
+    "kwh": {
+     "mean": 5022.8,
+     "min": 5022.8,
+     "max": 5022.8
+    },
+    "kwh_per_m3": {
+     "mean": 0.1006,
+     "min": 0.0987,
+     "max": 0.1016
+    },
+    "nh3n_mean": {
+     "mean": 7.9791,
+     "min": 7.249,
+     "max": 9.552
+    },
+    "nh3n_max": {
+     "mean": 49.8657,
+     "min": 47.249,
+     "max": 52.892
+    },
+    "nh3n_over_limit_h": {
+     "mean": 6.571,
+     "min": 5.55,
+     "max": 8.8
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": -9.0496,
+     "min": -12.735,
+     "max": -6.2071
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -29.0715,
+     "min": -29.0715,
+     "max": -29.0715
+    }
+   },
+   "fixed_p75": {
+    "do_mae": {
+     "mean": 1.1878,
+     "min": 1.0545,
+     "max": 1.2714
+    },
+    "do_p95_abs_err": {
+     "mean": 2.0978,
+     "min": 1.95,
+     "max": 2.4374
+    },
+    "do_low_pct": {
+     "mean": 18.097,
+     "min": 13.33,
+     "max": 24.24
+    },
+    "do_high_pct": {
+     "mean": 45.389,
+     "min": 37.85,
+     "max": 52.08
+    },
+    "kwh": {
+     "mean": 5850.9,
+     "min": 5850.9,
+     "max": 5850.9
+    },
+    "kwh_per_m3": {
+     "mean": 0.1172,
+     "min": 0.115,
+     "max": 0.1184
+    },
+    "nh3n_mean": {
+     "mean": 7.0171,
+     "min": 6.636,
+     "max": 7.643
+    },
+    "nh3n_max": {
+     "mean": 49.4755,
+     "min": 47.007,
+     "max": 52.756
+    },
+    "nh3n_over_limit_h": {
+     "mean": 5.553,
+     "min": 5.32,
+     "max": 6.9
+    },
+    "air_moves_per_h": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "kwh_vs_pi_pct": {
+     "mean": 5.9452,
+     "min": 1.6522,
+     "max": 9.2564
+    },
+    "kwh_vs_fixed_pct": {
+     "mean": -17.3777,
+     "min": -17.3777,
+     "max": -17.3777
+    }
+   }
+  }
+ },
+ "setpoint_sweep": {
+  "1.5": {
+   "pi": {
+    "do_mae": 0.0634,
+    "kwh": 4594.82
+   },
+   "ff_pi": {
+    "do_mae": 0.0614,
+    "kwh": 4594.34
+   },
+   "ff_hw_pi": {
+    "do_mae": 0.0815,
+    "kwh": 4595.88
+   }
+  },
+  "2.0": {
+   "pi": {
+    "do_mae": 0.0641,
+    "kwh": 5025.94
+   },
+   "ff_pi": {
+    "do_mae": 0.0627,
+    "kwh": 5025.4
+   },
+   "ff_hw_pi": {
+    "do_mae": 0.0844,
+    "kwh": 5027.34
+   }
+  },
+  "2.5": {
+   "pi": {
+    "do_mae": 0.065,
+    "kwh": 5534.14
+   },
+   "ff_pi": {
+    "do_mae": 0.064,
+    "kwh": 5533.52
+   },
+   "ff_hw_pi": {
+    "do_mae": 0.0873,
+    "kwh": 5536.06
+   }
+  }
+ },
+ "forecast_mape_pct": {
+  "dry": {
+   "10": {
+    "persistence": 5.22,
+    "hw": 7.23,
+    "oracle_shape": 5.15
+   },
+   "30": {
+    "persistence": 7.39,
+    "hw": 9.16,
+    "oracle_shape": 6.88
+   },
+   "60": {
+    "persistence": 9.65,
+    "hw": 10.63,
+    "oracle_shape": 8.06
+   }
+  },
+  "storm": {
+   "10": {
+    "persistence": 5.49,
+    "hw": 7.58,
+    "oracle_shape": 5.34
+   },
+   "30": {
+    "persistence": 8.44,
+    "hw": 9.94,
+    "oracle_shape": 7.63
+   },
+   "60": {
+    "persistence": 12.04,
+    "hw": 12.34,
+    "oracle_shape": 9.6
+   }
+  }
+ },
+ "elapsed_s": 60.4
+}

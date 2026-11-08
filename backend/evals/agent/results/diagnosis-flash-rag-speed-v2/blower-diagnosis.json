@@ -1,0 +1,1490 @@
+{
+  "id": "blower-diagnosis",
+  "family": "blower_fault",
+  "mode": "diagnosis",
+  "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+  "status": "fail",
+  "agent_http_requests": 1,
+  "reference": {
+    "plants": {
+      "P01": {
+        "id": 1,
+        "code": "P01",
+        "name": "南郑中心污水处理厂"
+      },
+      "P02": {
+        "id": 2,
+        "code": "P02",
+        "name": "协税镇污水处理站"
+      },
+      "P03": {
+        "id": 3,
+        "code": "P03",
+        "name": "梁山镇污水处理站"
+      },
+      "P04": {
+        "id": 4,
+        "code": "P04",
+        "name": "高台镇污水处理站"
+      },
+      "P05": {
+        "id": 5,
+        "code": "P05",
+        "name": "新集镇污水处理站"
+      },
+      "P06": {
+        "id": 6,
+        "code": "P06",
+        "name": "黄官镇污水处理站"
+      },
+      "P07": {
+        "id": 7,
+        "code": "P07",
+        "name": "牟家坝镇污水处理站"
+      }
+    },
+    "snapshots": [
+      {
+        "entity": "P06",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": null,
+        "values": {
+          "nh3n_out": 17.0177,
+          "do_aerobic_1": 0.0316,
+          "air_flow_m3h": 0.0,
+          "blower_kw": 0.0
+        },
+        "units": {
+          "nh3n_out": "mg/L",
+          "do_aerobic_1": "mg/L",
+          "air_flow_m3h": "m³/h",
+          "blower_kw": "kW"
+        }
+      },
+      {
+        "entity": "P06-BL-1",
+        "at": "2026-11-06T18:00:00+08:00",
+        "device_id": 121,
+        "values": {
+          "running": false
+        },
+        "units": {
+          "running": "bool"
+        }
+      }
+    ]
+  },
+  "request": {
+    "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+    "session_id": "3abf224dec374d8d93b7bdbf7df86e3e"
+  },
+  "http_status": 200,
+  "result": {
+    "question": "结合它2026年11月6日18:00原始采样的氨氮、1号DO、曝气风量、鼓风机功率和P06-BL-1运行状态，分析可能原因并给现场核查建议。重新查数，每个关键读数引用，行内保留厂站/设备编码与采样时间。区分已观测事实与待核查假设，不直接控制设备。",
+    "now": "2026-11-07T12:00:00+08:00",
+    "run_id": "025b5a3245164d998c12ba5d8a568eb8",
+    "session_id": "3abf224dec374d8d93b7bdbf7df86e3e",
+    "resolved_question": "复核黄官镇P06在2026-11-06 18:00原始采样的出水氨氮(mg/L)、1#好氧区DO(mg/L)、曝气风量(m³/h)、鼓风机功率(kW)及P06-BL-1运行状态，并结合同时段进水量、鼓风机运行采样占比、振动和电流分析可能原因，给出不涉及设备控制的现场核查建议。",
+    "intent": "diagnosis",
+    "ok": true,
+    "refused": false,
+    "answer": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为25.4893 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为24.3531 mg/L；有效288/288个5分钟桶。 [1][2][3][4]\n\nP06在2026-11-06 18:00原始采样：出水氨氮17.02 mg/L、1#好氧区DO 0.03 mg/L、曝气风量0.0 m³/h、鼓风机功率0.0 kW、进水流量179 m³/h，P06-BL-1运行状态为false。 [5][6][7][8][9][10]\n\n17:00~19:00窗口内P06-BL-1、P06-BL-2运行采样占比均为0%，小时内曾运行设备数为0；16:00时曝气风量已降至444 m³/h、DO 1.13 mg/L，17:00起风量与功率均为0。 [11][12][13][14][15][16]\n\n原因假设（待核查）：曝气风量与鼓风机功率同时归零、DO极低后氨氮升高，符合供氧不足削弱硝化的时序；但振动与跳停的相关性不能证明机械损坏或保护动作，需核查保护记录与检修证据。 [17][18][19][20][21]\n\n核查建议：建议由有权限人员核实两台鼓风机的告警与保护记录、设备状态及现场检查条件，关注振动测点、连接基础、润滑与进排气通路；备用机投入前核实可用性、联锁与供气路径，恢复后连续观察风量、DO与氨氮趋势，不以反复复位代替原因确认。 [22][23]",
+    "reason": null,
+    "error": null,
+    "claims": [
+      {
+        "kind": "statistic",
+        "text": "统计时段2026-11-06 00:00至2026-11-07 00:00（北京时间）：黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为25.4893 mg/L；有效288/288个5分钟桶；黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为24.3531 mg/L；有效288/288个5分钟桶。",
+        "citation_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "P06在2026-11-06 18:00原始采样：出水氨氮17.02 mg/L、1#好氧区DO 0.03 mg/L、曝气风量0.0 m³/h、鼓风机功率0.0 kW、进水流量179 m³/h，P06-BL-1运行状态为false。",
+        "citation_numbers": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "fact",
+        "text": "17:00~19:00窗口内P06-BL-1、P06-BL-2运行采样占比均为0%，小时内曾运行设备数为0；16:00时曝气风量已降至444 m³/h、DO 1.13 mg/L，17:00起风量与功率均为0。",
+        "citation_numbers": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      {
+        "kind": "hypothesis",
+        "text": "曝气风量与鼓风机功率同时归零、DO极低后氨氮升高，符合供氧不足削弱硝化的时序；但振动与跳停的相关性不能证明机械损坏或保护动作，需核查保护记录与检修证据。",
+        "citation_numbers": [
+          17,
+          18,
+          19,
+          20,
+          21
+        ]
+      },
+      {
+        "kind": "recommendation",
+        "text": "建议由有权限人员核实两台鼓风机的告警与保护记录、设备状态及现场检查条件，关注振动测点、连接基础、润滑与进排气通路；备用机投入前核实可用性、联锁与供气路径，恢复后连续观察风量、DO与氨氮趋势，不以反复复位代替原因确认。",
+        "citation_numbers": [
+          22,
+          23
+        ]
+      }
+    ],
+    "citations": [
+      {
+        "number": 1,
+        "kind": "statistic",
+        "call_id": "t4",
+        "fact_id": "P06.nh3n_out.exceed_hours",
+        "value": 7.166666666666667,
+        "statistic": "exceed_hours",
+        "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "小时",
+        "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      },
+      {
+        "number": 2,
+        "kind": "statistic",
+        "call_id": "t4",
+        "fact_id": "P06.nh3n_out.longest_exceed_hours",
+        "value": 7.166666666666667,
+        "statistic": "longest_exceed_hours",
+        "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "小时",
+        "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      },
+      {
+        "number": 3,
+        "kind": "statistic",
+        "call_id": "t4",
+        "fact_id": "P06.nh3n_out.instant_max",
+        "value": 25.4893,
+        "statistic": "instant_max",
+        "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为25.4893 mg/L；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "mg/L",
+        "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      },
+      {
+        "number": 4,
+        "kind": "statistic",
+        "call_id": "t4",
+        "fact_id": "P06.nh3n_out.bucket_mean_max",
+        "value": 24.3531,
+        "statistic": "bucket_mean_max",
+        "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为24.3531 mg/L；有效288/288个5分钟桶",
+        "metric": "nh3n_out",
+        "unit": "mg/L",
+        "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+        "coverage": {
+          "P06": {
+            "expected_buckets": 288,
+            "observed_buckets": 288,
+            "missing_buckets": 0,
+            "coverage": 1.0
+          }
+        },
+        "period": {
+          "requested_start": "2026-11-06T00:00:00+08:00",
+          "requested_end": "2026-11-07T00:00:00+08:00",
+          "start": "2026-11-06T00:00:00+08:00",
+          "end": "2026-11-07T00:00:00+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+        "source": "服务端固定只读统计"
+      },
+      {
+        "number": 5,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 0,
+        "column_name": "厂站编码",
+        "value": "P06",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 6,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 1,
+        "column_name": "采样时间",
+        "value": "2026-11-06T18:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 7,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 2,
+        "column_name": "设备编码",
+        "value": "P06-BL-1",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 8,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 3,
+        "column_name": "出水氨氮_mgl",
+        "value": 17.02,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 9,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 4,
+        "column_name": "1#好氧区DO_mgL",
+        "value": 0.03,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 10,
+        "kind": "data",
+        "call_id": "t1",
+        "row": 0,
+        "column": 5,
+        "column_name": "曝气风量_m3h",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 11,
+        "kind": "data",
+        "call_id": "t2",
+        "row": 0,
+        "column": 1,
+        "column_name": "对象",
+        "value": "P06 P06-BL-1",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 12,
+        "kind": "data",
+        "call_id": "t2",
+        "row": 0,
+        "column": 9,
+        "column_name": "运行采样占比_pct",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 13,
+        "kind": "data",
+        "call_id": "t2",
+        "row": 2,
+        "column": 14,
+        "column_name": "备注",
+        "value": "COUNT(*) 为采样条数；设备数按 device.id 去重，为窗口内有采样的鼓风机台数，其中小时内曾运行设备数=0",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 14,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 4,
+        "column": 0,
+        "column_name": "时间",
+        "value": "2026-11-06T16:00:00+08:00",
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 15,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 4,
+        "column": 2,
+        "column_name": "好氧区do_mg_l",
+        "value": 1.13,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 16,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 4,
+        "column": 3,
+        "column_name": "曝气风量_m3_h",
+        "value": 444.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 17,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 4,
+        "column": 7,
+        "column_name": "平均振动",
+        "value": 4.59,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 18,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 5,
+        "column": 3,
+        "column_name": "曝气风量_m3_h",
+        "value": 0.0,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 19,
+        "kind": "data",
+        "call_id": "t5",
+        "row": 6,
+        "column": 1,
+        "column_name": "出水氨氮_mg_l",
+        "value": 18.82,
+        "now": "2026-11-07T12:00:00+08:00",
+        "source": "模拟运行数据库"
+      },
+      {
+        "number": 20,
+        "kind": "knowledge",
+        "call_id": "t3",
+        "chunk_id": "fault-ammonia:ammonia-oxygen-evidence:1",
+        "quote": "硝化需要氧，供氧不足会削弱氨氮氧化能力",
+        "document_id": "fault-ammonia",
+        "title": "出水氨氮异常的证据核查与原因假设",
+        "heading": "低溶解氧与鼓风机故障证据",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1"
+      },
+      {
+        "number": 21,
+        "kind": "knowledge",
+        "call_id": "t3",
+        "chunk_id": "equipment-blower:blower-fault-evidence:1",
+        "quote": "与跳停相邻也不能证明轴承损坏，更不能仅凭相关性断定振动触发了保护",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "振动、温度与跳停的证据边界",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 12,
+        "line_end": 14,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-fault-evidence:1"
+      },
+      {
+        "number": 22,
+        "kind": "knowledge",
+        "call_id": "t3",
+        "chunk_id": "equipment-blower:blower-maintenance-boundary:1",
+        "quote": "应先核实告警与保护记录、设备状态及现场检查条件，再由有权限人员依适用规程安排隔离和检修",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "检查、隔离与恢复验证",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 24,
+        "line_end": 26,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1"
+      },
+      {
+        "number": 23,
+        "kind": "knowledge",
+        "call_id": "t3",
+        "chunk_id": "equipment-blower:blower-air-water-chain:1",
+        "quote": "不能仅因设备清单存在备用机就宣称已经自动切换",
+        "document_id": "equipment-blower",
+        "title": "鼓风机状态核查与供氧故障演示要点",
+        "heading": "供气能力与水质响应链",
+        "source_type": "demo",
+        "source": "项目自编演示知识，不是真实厂站规程。",
+        "source_url": null,
+        "source_page": null,
+        "line_start": 18,
+        "line_end": 20,
+        "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "t1",
+        "tool": "sql_query",
+        "question": "查询黄官镇P06在2026-11-06 18:00的原始采样：出水氨氮(mg/L)、1#好氧区DO(mg/L)、曝气风量(m³/h)、鼓风机功率(kW)、进水流量(m³/h)及设备P06-BL-1运行状态布尔值；保留厂站编码、设备编码和采样时间，不使用小时均值或当前台账替代历史采样。",
+        "status": "ok",
+        "output": {
+          "question": "查询黄官镇P06在2026-11-06 18:00的原始采样：出水氨氮(mg/L)、1#好氧区DO(mg/L)、曝气风量(m³/h)、鼓风机功率(kW)、进水流量(m³/h)及设备P06-BL-1运行状态布尔值；保留厂站编码、设备编码和采样时间，不使用小时均值或当前台账替代历史采样。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "WITH t AS (SELECT CAST('2026-11-06 18:00:00+08' AS TIMESTAMPTZ) AS ts) SELECT p.code AS 厂站编码, pr.ts AS 采样时间, 'P06-BL-1' AS 设备编码, ROUND(CAST(pr.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(pr.do_aerobic_1 AS DECIMAL), 2) AS \"1#好氧区DO_mgL\", ROUND(CAST(pr.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(pr.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, ROUND(CAST(pr.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3h, dr.running AS 设备运行状态, dr.ts AS 设备采样时间 FROM plant AS p CROSS JOIN t LEFT JOIN LATERAL (SELECT r.ts, r.nh3n_out, r.do_aerobic_1, r.air_flow_m3h, r.blower_kw, r.inflow_m3h FROM plant_reading AS r WHERE r.plant_id = p.id AND ABS(EXTRACT(EPOCH FROM r.ts - t.ts)) <= 3600 ORDER BY ABS(EXTRACT(EPOCH FROM r.ts - t.ts)) LIMIT 1) AS pr ON TRUE LEFT JOIN LATERAL (SELECT dr2.ts, dr2.running FROM device_reading AS dr2 WHERE dr2.device_id = (SELECT id FROM device WHERE code = 'P06-BL-1') AND ABS(EXTRACT(EPOCH FROM dr2.ts - t.ts)) <= 3600 ORDER BY ABS(EXTRACT(EPOCH FROM dr2.ts - t.ts)) LIMIT 1) AS dr ON TRUE WHERE p.code = 'P06' LIMIT 200",
+          "explanation": "以 2026-11-06 18:00 为目标时刻，分别从 plant_reading 和 device_reading 中取 P06 厂站及 P06-BL-1 鼓风机距该时刻最近的一条原始采样（1 小时内），返回出水氨氮、好氧区 DO、曝气风量、鼓风机功率、进水流量和运行状态布尔值，不使用小时均值或设备台账状态。",
+          "columns": [
+            "厂站编码",
+            "采样时间",
+            "设备编码",
+            "出水氨氮_mgl",
+            "1#好氧区DO_mgL",
+            "曝气风量_m3h",
+            "鼓风机功率_kw",
+            "进水流量_m3h",
+            "设备运行状态",
+            "设备采样时间"
+          ],
+          "rows": [
+            [
+              "P06",
+              "2026-11-06T18:00:00+08:00",
+              "P06-BL-1",
+              17.02,
+              0.03,
+              0.0,
+              0.0,
+              179.0,
+              false,
+              "2026-11-06T18:00:00+08:00"
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "WITH t AS (SELECT CAST('2026-11-06 18:00:00+08' AS TIMESTAMPTZ) AS ts) SELECT p.code AS 厂站编码, pr.ts AS 采样时间, 'P06-BL-1' AS 设备编码, ROUND(CAST(pr.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(pr.do_aerobic_1 AS DECIMAL), 2) AS \"1#好氧区DO_mgL\", ROUND(CAST(pr.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(pr.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, ROUND(CAST(pr.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3h, dr.running AS 设备运行状态, dr.ts AS 设备采样时间 FROM plant AS p CROSS JOIN t LEFT JOIN LATERAL (SELECT r.ts, r.nh3n_out, r.do_aerobic_1, r.air_flow_m3h, r.blower_kw, r.inflow_m3h FROM plant_reading AS r WHERE r.plant_id = p.id AND ABS(EXTRACT(EPOCH FROM r.ts - t.ts)) <= 3600 ORDER BY ABS(EXTRACT(EPOCH FROM r.ts - t.ts)) LIMIT 1) AS pr ON TRUE LEFT JOIN LATERAL (SELECT dr2.ts, dr2.running FROM device_reading AS dr2 WHERE dr2.device_id = (SELECT id FROM device WHERE code = 'P06-BL-1') AND ABS(EXTRACT(EPOCH FROM dr2.ts - t.ts)) <= 3600 ORDER BY ABS(EXTRACT(EPOCH FROM dr2.ts - t.ts)) LIMIT 1) AS dr ON TRUE WHERE p.code = 'P06' LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2182,
+          "completion_tokens": 1570,
+          "llm_ms": 7330.1,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2182,
+              "completion_tokens": 1570,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 7330.1,
+              "latency_ms": 7330.1,
+              "total_latency_ms": 7330.1,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 7330.1,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 7453.9,
+          "examples_used": [
+            "最近24小时高台镇好氧区DO每小时的均值",
+            "中心厂过去24小时进水流量最大的时刻和流量",
+            "现在有哪些设备处于故障或检修状态？"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 7454.0,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t2",
+        "tool": "sql_query",
+        "question": "查询黄官镇P06在2026-11-06 17:00至19:00的同一时间窗证据表：按小时或采样时刻给出出水氨氮、1#好氧区DO、曝气风量、鼓风机功率、进水流量，以及P06-BL-1等鼓风机设备运行采样占比(%)、振动、电流；注明包含哪些设备，COUNT(*)仅表示采样条数，设备数按设备id去重并写明是否为小时内曾运行设备数。",
+        "status": "ok",
+        "output": {
+          "question": "查询黄官镇P06在2026-11-06 17:00至19:00的同一时间窗证据表：按小时或采样时刻给出出水氨氮、1#好氧区DO、曝气风量、鼓风机功率、进水流量，以及P06-BL-1等鼓风机设备运行采样占比(%)、振动、电流；注明包含哪些设备，COUNT(*)仅表示采样条数，设备数按设备id去重并写明是否为小时内曾运行设备数。",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "WITH w AS (SELECT CAST('2026-11-06 17:00:00+08' AS TIMESTAMPTZ) AS t0, CAST('2026-11-06 19:00:00+08' AS TIMESTAMPTZ) AS t1), h AS (SELECT r.hour, r.nh3n_out, r.nh3n_out_max, r.do_aerobic_1, r.air_flow_m3h, r.blower_kw, r.inflow_m3h FROM plant_reading_1h AS r JOIN plant AS p ON p.id = r.plant_id CROSS JOIN w WHERE p.code = 'P06' AND r.hour >= w.t0 AND r.hour < w.t1), dev AS (SELECT d.id, d.code, COUNT(dr.ts) AS n_sample, COUNT(dr.ts) FILTER(WHERE dr.running) AS n_run, AVG(dr.vibration_mms) AS vib_avg, AVG(dr.current_a) AS cur_avg FROM device AS d JOIN plant AS p ON p.id = d.plant_id CROSS JOIN w LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts >= w.t0 AND dr.ts < w.t1 WHERE p.code = 'P06' AND d.kind = '鼓风机' GROUP BY d.id, d.code) SELECT '厂站小时均值' AS 数据类型, CAST('P06 黄官镇污水处理站' AS TEXT) AS 对象, TO_CHAR(h.hour AT TIME ZONE 'Asia/Shanghai', 'YYYY-MM-DD HH24:00') AS 时间, ROUND(CAST(h.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(h.nh3n_out_max AS DECIMAL), 2) AS 出水氨氮小时最大_mgL, ROUND(CAST(h.do_aerobic_1 AS DECIMAL), 2) AS 好氧1号DO_mgL, ROUND(CAST(h.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(h.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, ROUND(CAST(h.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3h, CAST(NULL AS DECIMAL) AS 运行采样占比_pct, CAST(NULL AS DECIMAL) AS 平均振动_mms, CAST(NULL AS DECIMAL) AS 平均电流_A, CAST(NULL AS BIGINT) AS 采样条数, CAST(NULL AS BIGINT) AS 设备数, CAST('小时均值来自 plant_reading_1h（hour 为整点，左闭右开）' AS TEXT) AS 备注 FROM h UNION ALL SELECT '鼓风机设备' AS 数据类型, CAST(('P06 ' || dev.code) AS TEXT) AS 对象, CAST('2026-11-06 17:00~19:00' AS TEXT) AS 时间, NULL, NULL, NULL, NULL, NULL, NULL, ROUND(CAST((100.0 * dev.n_run / NULLIF(dev.n_sample, 0)) AS DECIMAL), 1) AS 运行采样占比_pct, ROUND(CAST(dev.vib_avg AS DECIMAL), 2) AS 平均振动_mms, ROUND(CAST(dev.cur_avg AS DECIMAL), 2) AS 平均电流_A, dev.n_sample AS 采样条数, CAST(1 AS BIGINT) AS 设备数, CAST('设备数按 device.id 去重=1 台；采样条数为 device_reading 行数' AS TEXT) AS 备注 FROM dev UNION ALL SELECT '鼓风机汇总' AS 数据类型, CAST(('包含设备：' || STRING_AGG(dev.code, '、' ORDER BY dev.code)) AS TEXT) AS 对象, CAST('2026-11-06 17:00~19:00' AS TEXT) AS 时间, NULL, NULL, NULL, NULL, NULL, NULL, ROUND(CAST((100.0 * SUM(dev.n_run) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 1) AS 运行采样占比_pct, ROUND(CAST((SUM(dev.vib_avg * dev.n_sample) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 2) AS 平均振动_mms, ROUND(CAST((SUM(dev.cur_avg * dev.n_sample) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 2) AS 平均电流_A, SUM(dev.n_sample) AS 采样条数, COUNT(DISTINCT dev.id) AS 设备数, CAST(('COUNT(*) 为采样条数；设备数按 device.id 去重，为窗口内有采样的鼓风机台数，其中小时内曾运行设备数=' || COUNT(DISTINCT dev.id) FILTER(WHERE dev.n_run > 0)) AS TEXT) AS 备注 FROM dev ORDER BY 数据类型 DESC, 时间, 对象 LIMIT 200",
+          "explanation": "以 2026-11-06 17:00-19:00（左闭右开）为同一时间窗：小时均值表直接给出 P06 出水氨氮（含小时最大）、1#好氧区 DO、曝气风量、鼓风机功率、进水流量；同时按 device.id 聚合 P06 鼓风机（如 P06-BL-1 等）的 device_reading 采样条数、运行采样占比、平均振动与平均电流，并汇总给出包含设备清单、去重设备数及其中曾运行设备数。",
+          "columns": [
+            "数据类型",
+            "对象",
+            "时间",
+            "出水氨氮_mgl",
+            "出水氨氮小时最大_mgl",
+            "好氧1号do_mgl",
+            "曝气风量_m3h",
+            "鼓风机功率_kw",
+            "进水流量_m3h",
+            "运行采样占比_pct",
+            "平均振动_mms",
+            "平均电流_a",
+            "采样条数",
+            "设备数",
+            "备注"
+          ],
+          "rows": [
+            [
+              "鼓风机设备",
+              "P06 P06-BL-1",
+              "2026-11-06 17:00~19:00",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              0.0,
+              0.43,
+              0.0,
+              120.0,
+              1,
+              "设备数按 device.id 去重=1 台；采样条数为 device_reading 行数"
+            ],
+            [
+              "鼓风机设备",
+              "P06 P06-BL-2",
+              "2026-11-06 17:00~19:00",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              0.0,
+              0.34,
+              0.0,
+              120.0,
+              1,
+              "设备数按 device.id 去重=1 台；采样条数为 device_reading 行数"
+            ],
+            [
+              "鼓风机汇总",
+              "包含设备：P06-BL-1、P06-BL-2",
+              "2026-11-06 17:00~19:00",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              0.0,
+              0.39,
+              0.0,
+              240.0,
+              2,
+              "COUNT(*) 为采样条数；设备数按 device.id 去重，为窗口内有采样的鼓风机台数，其中小时内曾运行设备数=0"
+            ],
+            [
+              "厂站小时均值",
+              "P06 黄官镇污水处理站",
+              "2026-11-06 17:00",
+              13.11,
+              17.22,
+              0.05,
+              0.0,
+              0.0,
+              162.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "小时均值来自 plant_reading_1h（hour 为整点，左闭右开）"
+            ],
+            [
+              "厂站小时均值",
+              "P06 黄官镇污水处理站",
+              "2026-11-06 18:00",
+              18.82,
+              20.77,
+              0.05,
+              0.0,
+              0.0,
+              181.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "小时均值来自 plant_reading_1h（hour 为整点，左闭右开）"
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": null,
+              "error": "输出不是合法 JSON 对象（必须含字符串 sql 和 explanation）"
+            },
+            {
+              "sql": null,
+              "error": "输出不是合法 JSON 对象（必须含字符串 sql 和 explanation）"
+            },
+            {
+              "sql": "WITH w AS (SELECT CAST('2026-11-06 17:00:00+08' AS TIMESTAMPTZ) AS t0, CAST('2026-11-06 19:00:00+08' AS TIMESTAMPTZ) AS t1), h AS (SELECT r.hour, r.nh3n_out, r.nh3n_out_max, r.do_aerobic_1, r.air_flow_m3h, r.blower_kw, r.inflow_m3h FROM plant_reading_1h AS r JOIN plant AS p ON p.id = r.plant_id CROSS JOIN w WHERE p.code = 'P06' AND r.hour >= w.t0 AND r.hour < w.t1), dev AS (SELECT d.id, d.code, COUNT(dr.ts) AS n_sample, COUNT(dr.ts) FILTER(WHERE dr.running) AS n_run, AVG(dr.vibration_mms) AS vib_avg, AVG(dr.current_a) AS cur_avg FROM device AS d JOIN plant AS p ON p.id = d.plant_id CROSS JOIN w LEFT JOIN device_reading AS dr ON dr.device_id = d.id AND dr.ts >= w.t0 AND dr.ts < w.t1 WHERE p.code = 'P06' AND d.kind = '鼓风机' GROUP BY d.id, d.code) SELECT '厂站小时均值' AS 数据类型, CAST('P06 黄官镇污水处理站' AS TEXT) AS 对象, TO_CHAR(h.hour AT TIME ZONE 'Asia/Shanghai', 'YYYY-MM-DD HH24:00') AS 时间, ROUND(CAST(h.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mgL, ROUND(CAST(h.nh3n_out_max AS DECIMAL), 2) AS 出水氨氮小时最大_mgL, ROUND(CAST(h.do_aerobic_1 AS DECIMAL), 2) AS 好氧1号DO_mgL, ROUND(CAST(h.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3h, ROUND(CAST(h.blower_kw AS DECIMAL), 2) AS 鼓风机功率_kW, ROUND(CAST(h.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3h, CAST(NULL AS DECIMAL) AS 运行采样占比_pct, CAST(NULL AS DECIMAL) AS 平均振动_mms, CAST(NULL AS DECIMAL) AS 平均电流_A, CAST(NULL AS BIGINT) AS 采样条数, CAST(NULL AS BIGINT) AS 设备数, CAST('小时均值来自 plant_reading_1h（hour 为整点，左闭右开）' AS TEXT) AS 备注 FROM h UNION ALL SELECT '鼓风机设备' AS 数据类型, CAST(('P06 ' || dev.code) AS TEXT) AS 对象, CAST('2026-11-06 17:00~19:00' AS TEXT) AS 时间, NULL, NULL, NULL, NULL, NULL, NULL, ROUND(CAST((100.0 * dev.n_run / NULLIF(dev.n_sample, 0)) AS DECIMAL), 1) AS 运行采样占比_pct, ROUND(CAST(dev.vib_avg AS DECIMAL), 2) AS 平均振动_mms, ROUND(CAST(dev.cur_avg AS DECIMAL), 2) AS 平均电流_A, dev.n_sample AS 采样条数, CAST(1 AS BIGINT) AS 设备数, CAST('设备数按 device.id 去重=1 台；采样条数为 device_reading 行数' AS TEXT) AS 备注 FROM dev UNION ALL SELECT '鼓风机汇总' AS 数据类型, CAST(('包含设备：' || STRING_AGG(dev.code, '、' ORDER BY dev.code)) AS TEXT) AS 对象, CAST('2026-11-06 17:00~19:00' AS TEXT) AS 时间, NULL, NULL, NULL, NULL, NULL, NULL, ROUND(CAST((100.0 * SUM(dev.n_run) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 1) AS 运行采样占比_pct, ROUND(CAST((SUM(dev.vib_avg * dev.n_sample) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 2) AS 平均振动_mms, ROUND(CAST((SUM(dev.cur_avg * dev.n_sample) / NULLIF(SUM(dev.n_sample), 0)) AS DECIMAL), 2) AS 平均电流_A, SUM(dev.n_sample) AS 采样条数, COUNT(DISTINCT dev.id) AS 设备数, CAST(('COUNT(*) 为采样条数；设备数按 device.id 去重，为窗口内有采样的鼓风机台数，其中小时内曾运行设备数=' || COUNT(DISTINCT dev.id) FILTER(WHERE dev.n_run > 0)) AS TEXT) AS 备注 FROM dev ORDER BY 数据类型 DESC, 时间, 对象 LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 7510,
+          "completion_tokens": 9931,
+          "llm_ms": 49336.9,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2194,
+              "completion_tokens": 4000,
+              "from_cache": false,
+              "finish_reason": "length",
+              "llm_ms": 21314.8,
+              "latency_ms": 21314.8,
+              "total_latency_ms": 21314.8,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 21314.8,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            },
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2220,
+              "completion_tokens": 4000,
+              "from_cache": false,
+              "finish_reason": "length",
+              "llm_ms": 18746.8,
+              "latency_ms": 18746.8,
+              "total_latency_ms": 18746.8,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 18746.8,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            },
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 3096,
+              "completion_tokens": 1931,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 9275.3,
+              "latency_ms": 9275.2,
+              "total_latency_ms": 9275.3,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 9275.2,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 49411.2,
+          "examples_used": [
+            "现在有哪些设备处于故障或检修状态？",
+            "每台运行中的鼓风机今天的平均电流",
+            "中心厂过去24小时进水流量最大的时刻和流量"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 49411.4,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t3",
+        "tool": "rag_search",
+        "question": "黄官镇P06曝气风量为0、1#好氧区DO极低、出水氨氮超标时，鼓风机停机或供氧不足的可能原因与现场核查建议，区分已观测事实和待核查假设，不涉及设备控制。",
+        "status": "ok",
+        "output": {
+          "hits": [
+            {
+              "id": "fault-ammonia:ammonia-oxygen-evidence:1",
+              "document_id": "fault-ammonia",
+              "title": "出水氨氮异常的证据核查与原因假设",
+              "heading": "低溶解氧与鼓风机故障证据",
+              "text": "硝化需要氧，供氧不足会削弱氨氮氧化能力。本 Demo 的 `blower_fault` 场景让一号鼓风机振动、轴承温度先升高，随后按场景时序跳停并减少可用曝气能力；出水氨氮通过过程响应滞后变化。排查应按时间对齐振动、温度、设备状态、风量、好氧区 DO 与出水氨氮，确认是否出现“可用风量下降、DO 下降、氨氮随后升高”的证据链。\n\n这条时序支持供氧不足假设，但振动与跳停的相关性不能证明某种机械损坏，也不能证明振动直接触发了真实保护动作。需另核查保护记录、检修检查和运行方式。若风量未降而 DO 下降，还应检查进水耗氧负荷和测量可靠性。建议先由人员确认故障状态与备用供氧条件，不能仅凭氨氮曲线自动提高风量设定，更不能屏蔽保护或反复强行重启设备。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/fault-ammonia:ammonia-oxygen-evidence:1",
+              "score": 0.032522,
+              "lexical_score": 32.523,
+              "dense_score": 0.7629,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-blower:blower-air-water-chain:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "供气能力与水质响应链",
+              "text": "鼓风机故障对水质的影响，应沿“设备状态、可用供气、好氧区 DO、硝化、出水氨氮”的顺序核查。对齐曝气风量、鼓风机功率和进水负荷，判断风量变化是否确实发生，以及 DO 是否在相应时段下降。NH3-N 是氨氮，硝化受限可使其升高；总氮还受反硝化与碳源等因素影响，不能将所有氮指标异常都归因于风机。\n\n本 Demo 在跳停后扣减运行鼓风机数量，实际风量上限随可用台数变化，具体影响取决于配置和负荷。不能仅因设备清单存在备用机就宣称已经自动切换。水质有过程时滞，需比较停机前后连续趋势；若 DO 下降同时存在暴雨或浓度冲击，应保留耗氧增加等替代解释。功率下降在此可能意味着供氧损失，不能直接评价为节能。建议由人员核实供气能力，不输出固定增风比例或自动切换指令。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 18,
+              "line_end": 20,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-air-water-chain:1",
+              "score": 0.032266,
+              "lexical_score": 27.6602,
+              "dense_score": 0.77,
+              "relevance": 3
+            },
+            {
+              "id": "equipment-blower:blower-maintenance-boundary:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "检查、隔离与恢复验证",
+              "text": "对疑似故障鼓风机，应先核实告警与保护记录、设备状态及现场检查条件，再由有权限人员依适用规程安排隔离和检修。检查可关注振动测点、连接与基础、润滑状态、进排气通路等，但这些只是待核实项目，不是针对某型号的厂家拆检步骤。本 Demo 没有轴承频谱、润滑检测或故障拆解证据，不能据趋势图指定更换零件。\n\n备用设备投入前需核实可用性、联锁、供气路径与操作权限；异常机组不应以反复复位代替原因确认。恢复后应观察设备状态、振动与温度趋势、风量、DO 及出水氨氮，区分供气恢复与生化恢复。某个采样点正常不足以结束观察，具体观察时长由实际设备及工况确定。演示知识不承诺固定时间恢复，也不提供未经核实的风量设定、厂家保养周期或自动控制操作。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 24,
+              "line_end": 26,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-maintenance-boundary:1",
+              "score": 0.031498,
+              "lexical_score": 22.1536,
+              "dense_score": 0.7269,
+              "relevance": 2
+            },
+            {
+              "id": "equipment-blower:blower-fault-evidence:1",
+              "document_id": "equipment-blower",
+              "title": "鼓风机状态核查与供氧故障演示要点",
+              "heading": "振动、温度与跳停的证据边界",
+              "text": "本 Demo 的 `blower_fault` 让一号鼓风机的振动、轴承温度逐渐升高，随后按场景时序进入跳停状态并损失可用曝气能力。这是人为设定的演示过程，不是真实故障记录，也不表示模型完成了机械故障诊断。观察应同时核对振动速度、轴承温度、运行电流、设备状态和事件时间，区分状态变化与传感器异常。\n\n振动和温度升高可以支持设备异常假设，但可能涉及多种机械、工况或测量因素；与跳停相邻也不能证明轴承损坏，更不能仅凭相关性断定振动触发了保护。真实因果判断需保护动作记录、检查和检修证据。项目指标目录中的振动、温度告警数值只是演示管理阈值，不能作为所有风机的通用设备标准。现场应依据具体机型、测点、安装状态及已确认的维护要求复核，不据此绕过保护或强制复位。",
+              "source_type": "demo",
+              "source": "项目自编演示知识，不是真实厂站规程。",
+              "source_url": null,
+              "source_page": null,
+              "line_start": 12,
+              "line_end": 14,
+              "url": "/api/ai/knowledge/chunks/equipment-blower:blower-fault-evidence:1",
+              "score": 0.030777,
+              "lexical_score": 15.165,
+              "dense_score": 0.7138,
+              "relevance": 2
+            }
+          ],
+          "mode": "hybrid",
+          "requested_mode": "hybrid",
+          "retrieval_ms": 23.2,
+          "warnings": [],
+          "reranked": true,
+          "prompt_tokens": 1748,
+          "completion_tokens": 122,
+          "llm_ms": 823.4,
+          "model": "deepseek-flash",
+          "generation_calls": [
+            {
+              "stage": "rerank",
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 1748,
+              "completion_tokens": 122,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 823.4,
+              "latency_ms": 823.4,
+              "total_latency_ms": 823.4,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 823.4,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ],
+              "thinking": false
+            }
+          ],
+          "total_ms": 847.4,
+          "rerank_status": "model",
+          "cache_hit": false,
+          "cache_age_s": 0.0,
+          "confidence": {
+            "same_top": false,
+            "lexical_top": "fault-ammonia:ammonia-oxygen-evidence:1",
+            "term_coverage": 0.3158,
+            "lexical_margin": 1.1279122370115267
+          }
+        },
+        "error": null,
+        "total_ms": 847.5,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t4",
+        "tool": "plant_statistics",
+        "question": "黄官镇P06在2026-11-06全天出水氨氮与1#好氧区DO的超标时长、最长连续超标时长及峰值统计",
+        "status": "ok",
+        "output": {
+          "period": {
+            "requested_start": "2026-11-06T00:00:00+08:00",
+            "requested_end": "2026-11-07T00:00:00+08:00",
+            "start": "2026-11-06T00:00:00+08:00",
+            "end": "2026-11-07T00:00:00+08:00",
+            "timezone": "Asia/Shanghai"
+          },
+          "metric": {
+            "key": "nh3n_out",
+            "label": "出水氨氮",
+            "unit": "mg/L",
+            "group": "出水",
+            "limit": 5,
+            "lower_is_bad": false
+          },
+          "bucket_minutes": 5,
+          "ranking_precision": 4,
+          "coverage_policy": "完整5分钟桶内至少一个有效采样即计一个有效桶；缺失不补零且打断连续异常；不保证桶内持续观测",
+          "facts": [
+            {
+              "id": "P06.nh3n_out.exceed_hours",
+              "statistic": "exceed_hours",
+              "value": 7.166666666666667,
+              "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，累计超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "小时",
+              "aggregation": "5分钟桶均值超标即累计5分钟；缺失不补零，不推断桶内持续异常",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            },
+            {
+              "id": "P06.nh3n_out.longest_exceed_hours",
+              "statistic": "longest_exceed_hours",
+              "value": 7.166666666666667,
+              "text": "黄官镇污水处理站（P06）出水氨氮按5分钟均值统计，已观测的最长连续超标时长为7.1667小时（430分钟，86个5分钟桶；阈值5 mg/L），不代表桶内持续观测；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "小时",
+              "aggregation": "5分钟桶均值超标的最长连续桶数乘5分钟；正常或缺失桶中断，不推断桶内持续异常",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            },
+            {
+              "id": "P06.nh3n_out.instant_max",
+              "statistic": "instant_max",
+              "value": 25.4893,
+              "text": "黄官镇污水处理站（P06）出水氨氮的原始采样瞬时最大值为25.4893 mg/L；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "mg/L",
+              "aggregation": "统计时段内完整5分钟桶中，有效原始采样值的最大值",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            },
+            {
+              "id": "P06.nh3n_out.bucket_mean_max",
+              "statistic": "bucket_mean_max",
+              "value": 24.3531,
+              "text": "黄官镇污水处理站（P06）出水氨氮的5分钟均值最大值为24.3531 mg/L；有效288/288个5分钟桶",
+              "metric": "nh3n_out",
+              "plant": "P06",
+              "unit": "mg/L",
+              "aggregation": "完整5分钟桶内先对有效采样求均值，再取有效桶均值的最大值",
+              "coverage": {
+                "P06": {
+                  "expected_buckets": 288,
+                  "observed_buckets": 288,
+                  "missing_buckets": 0,
+                  "coverage": 1.0
+                }
+              }
+            }
+          ],
+          "warnings": [],
+          "plants": [
+            {
+              "code": "P06",
+              "name": "黄官镇污水处理站",
+              "summary": {
+                "expected_buckets": 288,
+                "observed_buckets": 288,
+                "missing_buckets": 0,
+                "coverage": 1.0,
+                "mean": 6.3721,
+                "instant_max": 25.4893,
+                "instant_min": 0.1155,
+                "bucket_mean_max": 24.3531,
+                "bucket_mean_min": 0.1206,
+                "exceed_hours": 7.166666666666667,
+                "longest_exceed_hours": 7.166666666666667,
+                "hours_with_exceed": 8
+              }
+            }
+          ],
+          "period_text": "2026-11-06 00:00至2026-11-07 00:00（北京时间）",
+          "sql": "\n        WITH b AS (\n            SELECT plant_id, time_bucket('5 minutes', ts) AS t,\n                   avg(\"nh3n_out\")::float8 AS mean, max(\"nh3n_out\")::float8 AS raw_max,\n                   min(\"nh3n_out\")::float8 AS raw_min, count(\"nh3n_out\") AS samples\n            FROM plant_reading WHERE ts >= %(start)s AND ts < %(end)s\n            GROUP BY 1, 2\n        )\n        SELECT p.code, p.name, b.t, b.mean, b.raw_max, b.raw_min, b.samples\n        FROM plant p LEFT JOIN b ON b.plant_id = p.id ORDER BY p.code, b.t\n    ",
+          "params": {
+            "start": "2026-11-06T00:00:00+08:00",
+            "end": "2026-11-07T00:00:00+08:00"
+          }
+        },
+        "error": null,
+        "total_ms": 18.3,
+        "queue_ms": 0.0
+      },
+      {
+        "id": "t5",
+        "tool": "sql_query",
+        "question": "查询黄官镇P06在2026-11-06 12:00至2026-11-06 23:00按小时的出水氨氮、1#好氧区DO、曝气风量、鼓风机功率、进水流量，以及P06-BL-1、P06-BL-2鼓风机运行采样占比(%)、平均振动、平均电流；注明包含设备，设备数按device.id去重并写明小时内曾运行设备数，COUNT(*)仅为采样条数，结果聚合在30行以内",
+        "status": "ok",
+        "output": {
+          "question": "查询黄官镇P06在2026-11-06 12:00至2026-11-06 23:00按小时的出水氨氮、1#好氧区DO、曝气风量、鼓风机功率、进水流量，以及P06-BL-1、P06-BL-2鼓风机运行采样占比(%)、平均振动、平均电流；注明包含设备，设备数按device.id去重并写明小时内曾运行设备数，COUNT(*)仅为采样条数，结果聚合在30行以内",
+          "ok": true,
+          "refused": false,
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "sql": "WITH p AS (SELECT hour, nh3n_out, do_aerobic_1, air_flow_m3h, blower_kw, inflow_m3h FROM plant_reading_1h WHERE plant_id = 6 AND hour >= '2026-11-06 12:00+08' AND hour < '2026-11-07 00:00+08'), d AS (SELECT DATE_TRUNC('HOUR', r.ts) AS hour, COUNT(*) AS 采样条数, COUNT(DISTINCT d.id) AS 设备数, COUNT(DISTINCT d.id) FILTER(WHERE r.running) AS 曾运行设备数, STRING_AGG(DISTINCT d.code, ',') AS 包含设备, ROUND((CAST(COUNT(*) FILTER(WHERE r.running) AS DECIMAL) / NULLIF(COUNT(*), 0)) * 100, 1) AS 运行采样占比, ROUND(CAST(AVG(r.vibration_mms) FILTER(WHERE r.running) AS DECIMAL), 2) AS 平均振动, ROUND(CAST(AVG(r.current_a) FILTER(WHERE r.running) AS DECIMAL), 2) AS 平均电流 FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.code IN ('P06-BL-1', 'P06-BL-2') AND r.ts >= '2026-11-06 12:00+08' AND r.ts < '2026-11-07 00:00+08' GROUP BY 1) SELECT p.hour AS 时间, ROUND(CAST(p.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mg_L, ROUND(CAST(p.do_aerobic_1 AS DECIMAL), 2) AS 好氧区DO_mg_L, ROUND(CAST(p.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3_h, ROUND(CAST(p.blower_kw AS DECIMAL), 1) AS 鼓风机功率_kW, ROUND(CAST(p.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3_h, d.运行采样占比, d.平均振动, d.平均电流, d.包含设备, d.设备数, d.曾运行设备数, d.采样条数 FROM p LEFT JOIN d ON d.hour = p.hour ORDER BY p.hour LIMIT 200",
+          "explanation": "以12个整点小时为骨架，先从 plant_reading_1h 取 P06 的出水氨氮、DO、风量、功率、进水量，再按小时聚合 P06-BL-1/2 的 device_reading，计算运行采样占比、运行均振动/电流，并用 count(DISTINCT device.id) 去重统计设备数与曾运行设备数，最终 LEFT JOIN 合并后仅12行，在30行以内。",
+          "columns": [
+            "时间",
+            "出水氨氮_mg_l",
+            "好氧区do_mg_l",
+            "曝气风量_m3_h",
+            "鼓风机功率_kw",
+            "进水流量_m3_h",
+            "运行采样占比",
+            "平均振动",
+            "平均电流",
+            "包含设备",
+            "设备数",
+            "曾运行设备数",
+            "采样条数"
+          ],
+          "rows": [
+            [
+              "2026-11-06T12:00:00+08:00",
+              0.77,
+              2.05,
+              1017.0,
+              17.0,
+              167.0,
+              50.0,
+              2.19,
+              30.51,
+              "P06-BL-1,P06-BL-2",
+              2,
+              1,
+              120
+            ],
+            [
+              "2026-11-06T13:00:00+08:00",
+              0.62,
+              2.11,
+              943.0,
+              15.4,
+              160.0,
+              50.0,
+              2.21,
+              27.53,
+              "P06-BL-1,P06-BL-2",
+              2,
+              1,
+              120
+            ],
+            [
+              "2026-11-06T14:00:00+08:00",
+              0.48,
+              2.06,
+              930.0,
+              15.1,
+              157.0,
+              50.0,
+              2.21,
+              27.07,
+              "P06-BL-1,P06-BL-2",
+              2,
+              1,
+              120
+            ],
+            [
+              "2026-11-06T15:00:00+08:00",
+              0.37,
+              1.99,
+              906.0,
+              14.7,
+              152.0,
+              50.0,
+              2.19,
+              26.3,
+              "P06-BL-1,P06-BL-2",
+              2,
+              1,
+              120
+            ],
+            [
+              "2026-11-06T16:00:00+08:00",
+              2.12,
+              1.13,
+              444.0,
+              7.1,
+              152.0,
+              25.0,
+              4.59,
+              25.58,
+              "P06-BL-1,P06-BL-2",
+              2,
+              1,
+              120
+            ],
+            [
+              "2026-11-06T17:00:00+08:00",
+              13.11,
+              0.05,
+              0.0,
+              0.0,
+              162.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T18:00:00+08:00",
+              18.82,
+              0.05,
+              0.0,
+              0.0,
+              181.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T19:00:00+08:00",
+              21.41,
+              0.06,
+              0.0,
+              0.0,
+              198.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T20:00:00+08:00",
+              22.65,
+              0.05,
+              0.0,
+              0.0,
+              201.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T21:00:00+08:00",
+              23.49,
+              0.05,
+              0.0,
+              0.0,
+              180.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T22:00:00+08:00",
+              22.75,
+              0.05,
+              0.0,
+              0.0,
+              172.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ],
+            [
+              "2026-11-06T23:00:00+08:00",
+              21.18,
+              0.05,
+              0.0,
+              0.0,
+              151.0,
+              0.0,
+              null,
+              null,
+              "P06-BL-1,P06-BL-2",
+              2,
+              0,
+              120
+            ]
+          ],
+          "truncated": false,
+          "error": null,
+          "attempts": [
+            {
+              "sql": "WITH p AS (SELECT hour, nh3n_out, do_aerobic_1, air_flow_m3h, blower_kw, inflow_m3h FROM plant_reading_1h WHERE plant_id = 6 AND hour >= '2026-11-06 12:00+08' AND hour < '2026-11-07 00:00+08'), d AS (SELECT DATE_TRUNC('HOUR', r.ts) AS hour, COUNT(*) AS 采样条数, COUNT(DISTINCT d.id) AS 设备数, COUNT(DISTINCT d.id) FILTER(WHERE r.running) AS 曾运行设备数, STRING_AGG(DISTINCT d.code, ',') AS 包含设备, ROUND((CAST(COUNT(*) FILTER(WHERE r.running) AS DECIMAL) / NULLIF(COUNT(*), 0)) * 100, 1) AS 运行采样占比, ROUND(CAST(AVG(r.vibration_mms) FILTER(WHERE r.running) AS DECIMAL), 2) AS 平均振动, ROUND(CAST(AVG(r.current_a) FILTER(WHERE r.running) AS DECIMAL), 2) AS 平均电流 FROM device_reading AS r JOIN device AS d ON d.id = r.device_id WHERE d.code IN ('P06-BL-1', 'P06-BL-2') AND r.ts >= '2026-11-06 12:00+08' AND r.ts < '2026-11-07 00:00+08' GROUP BY 1) SELECT p.hour AS 时间, ROUND(CAST(p.nh3n_out AS DECIMAL), 2) AS 出水氨氮_mg_L, ROUND(CAST(p.do_aerobic_1 AS DECIMAL), 2) AS 好氧区DO_mg_L, ROUND(CAST(p.air_flow_m3h AS DECIMAL), 0) AS 曝气风量_m3_h, ROUND(CAST(p.blower_kw AS DECIMAL), 1) AS 鼓风机功率_kW, ROUND(CAST(p.inflow_m3h AS DECIMAL), 0) AS 进水流量_m3_h, d.运行采样占比, d.平均振动, d.平均电流, d.包含设备, d.设备数, d.曾运行设备数, d.采样条数 FROM p LEFT JOIN d ON d.hour = p.hour ORDER BY p.hour LIMIT 200",
+              "error": null
+            }
+          ],
+          "prompt_tokens": 2255,
+          "completion_tokens": 2413,
+          "llm_ms": 11216.9,
+          "generation_calls": [
+            {
+              "model": "deepseek-flash",
+              "provider": "deepseek",
+              "prompt_tokens": 2255,
+              "completion_tokens": 2413,
+              "from_cache": false,
+              "finish_reason": "stop",
+              "llm_ms": 11216.9,
+              "latency_ms": 11216.9,
+              "total_latency_ms": 11216.9,
+              "status": "success",
+              "error_type": null,
+              "attempt_history": [
+                {
+                  "provider": "deepseek",
+                  "attempt": 1,
+                  "status": "success",
+                  "latency_ms": 11216.9,
+                  "wait_ms": 0.0,
+                  "error_type": null,
+                  "status_code": null
+                }
+              ]
+            }
+          ],
+          "total_ms": 11244.1,
+          "examples_used": [
+            "每台运行中的鼓风机今天的平均电流",
+            "最近24小时高台镇好氧区DO每小时的均值",
+            "中心厂1号鼓风机最近一小时的振动和温度变化"
+          ],
+          "tables_used": [
+            "plant",
+            "plant_reading",
+            "plant_reading_1h",
+            "device",
+            "device_reading"
+          ]
+        },
+        "error": null,
+        "total_ms": 11244.2,
+        "queue_ms": 0.0
+      }
+    ],
+    "models": [
+      "deepseek-flash"
+    ],
+    "generation_calls": [
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 2326,
+        "completion_tokens": 1359,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 8565.9,
+        "latency_ms": 8565.8,
+        "total_latency_ms": 8565.9,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 8565.8,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 1,
+        "thinking": null
+      },
+      {
+        "stage": "plan",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 4833,
+        "completion_tokens": 343,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 2454.2,
+        "latency_ms": 2454.2,
+        "total_latency_ms": 2454.2,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 2454.2,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      },
+      {
+        "stage": "answer",
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "prompt_tokens": 6673,
+        "completion_tokens": 1205,
+        "from_cache": false,
+        "finish_reason": "stop",
+        "llm_ms": 5926.1,
+        "latency_ms": 5926.1,
+        "total_latency_ms": 5926.1,
+        "status": "success",
+        "error_type": null,
+        "attempt_history": [
+          {
+            "provider": "deepseek",
+            "attempt": 1,
+            "status": "success",
+            "latency_ms": 5926.1,
+            "wait_ms": 0.0,
+            "error_type": null,
+            "status_code": null
+          }
+        ],
+        "round": 2,
+        "thinking": false
+      }
+    ],
+    "prompt_tokens": 27527,
+    "completion_tokens": 16943,
+    "llm_ms": 85653.5,
+    "total_ms": 77616.9,
+    "planning_rounds": 2,
+    "validation_errors": [],
+    "warnings": [
+      "已达到规划或工具调用上限，按现有证据作答"
+    ]
+  },
+  "stored_session_run_ids": [
+    "187fe422ff534480b128248d792ecbaf",
+    "025b5a3245164d998c12ba5d8a568eb8"
+  ],
+  "score": {
+    "mechanical_pass": false,
+    "semantic_pass": false,
+    "status": "fail",
+    "failures": [
+      "data_scope_or_projection:5",
+      "data_scope_or_projection:6",
+      "data_scope_or_projection:7",
+      "data_scope_or_projection:8",
+      "data_scope_or_projection:9",
+      "data_scope_or_projection:10",
+      "data_scope_or_projection:11",
+      "data_scope_or_projection:12",
+      "data_scope_or_projection:13",
+      "data_scope_or_projection:14",
+      "data_scope_or_projection:15",
+      "data_scope_or_projection:16",
+      "data_scope_or_projection:17",
+      "data_scope_or_projection:18",
+      "data_scope_or_projection:19",
+      "missing_snapshot_metric:0:nh3n_out",
+      "missing_snapshot_metric:0:do_aerobic_1",
+      "missing_snapshot_metric:0:air_flow_m3h",
+      "missing_snapshot_metric:0:blower_kw",
+      "missing_snapshot_metric:1:running",
+      "claim_time_scope"
+    ],
+    "manual_review": [
+      {
+        "status": "pending",
+        "item": "应把鼓风机跳停、供气下降、低DO与氨氮升高作为相容证据；因果仍是待核查假设。"
+      },
+      {
+        "status": "pending",
+        "item": "核查联锁、供电、备用机与仪表；建议不能宣称已完成调频或启动。"
+      }
+    ]
+  },
+  "elapsed_ms": 77802.3
+}
