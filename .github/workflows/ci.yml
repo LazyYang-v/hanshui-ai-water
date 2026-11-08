@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: timescale/timescaledb:latest-pg17
+        env:
+          POSTGRES_DB: shuiwu
+          POSTGRES_USER: shuiwu
+          POSTGRES_PASSWORD: shuiwu
+          TZ: Asia/Shanghai
+        ports: ["15432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U shuiwu -d shuiwu"
+          --health-interval 3s
+          --health-retries 20
+    env:
+      # 测试夹具只执行 db/init/*.sql，只读账号保持 003_readonly.sql 里的初始口令
+      TEXT2SQL_RO_PASSWORD: change_me
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run pytest -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build

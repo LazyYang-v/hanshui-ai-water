@@ -2,6 +2,7 @@
 
 import json
 
+import psycopg
 import pytest
 from psycopg_pool import AsyncConnectionPool
 
@@ -71,6 +72,18 @@ async def test_examples_execute_on_test_db(ro_pool, schema):
     from app.ai.text2sql.guard import guard
     for e in ExampleIndex.load().examples:
         await execute_readonly(ro_pool, guard(e["sql"], schema.names, END))
+
+
+@pytest.mark.parametrize("table,readable", [("plant", True), ("plant_reading", True), ("plant_reading_1h", True),
+                                             ("device", True), ("device_reading", True), ("weather", True),
+                                             ("alarm", False), ("work_order", False), ("report", False)])
+async def test_readonly_account_only_reads_visible_tables(ro_pool, table, readable):
+    async with ro_pool.connection() as conn:
+        if readable:
+            await conn.execute(f"SELECT 1 FROM {table} LIMIT 1")
+        else:
+            with pytest.raises(psycopg.errors.InsufficientPrivilege):
+                await conn.execute(f"SELECT 1 FROM {table} LIMIT 1")
 
 
 async def test_readonly_account_blocks_writes_even_without_guard(ro_pool):

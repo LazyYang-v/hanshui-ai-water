@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shuiwu}
       TEXT2SQL_RO_PASSWORD: ${TEXT2SQL_RO_PASSWORD:-readonly}
       TZ: Asia/Shanghai
-    ports: ["${DB_PORT:-15432}:5432"]
+    ports: ["127.0.0.1:${DB_PORT:-15432}:5432"]   # 只绑本机：数据库、Redis、API 不对外，公网入口只有 web
     volumes:
       - dbdata:/var/lib/postgresql/data
       - ./backend/db/init:/docker-entrypoint-initdb.d:ro
@@ -20,7 +20,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    ports: ["${REDIS_PORT:-16379}:6379"]
+    ports: ["127.0.0.1:${REDIS_PORT:-16379}:6379"]
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 3s
@@ -58,7 +58,7 @@ services:
     volumes:
       - ./backend/.cache/rag-models:/app/.cache/rag-models
       - ./backend/data/rag-index:/app/data/rag-index
-    ports: ["${API_PORT:-8000}:8000"]
+    ports: ["127.0.0.1:${API_PORT:-8000}:8000"]
     depends_on:
       db: { condition: service_healthy }
       redis: { condition: service_healthy }

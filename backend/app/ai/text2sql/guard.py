@@ -1,8 +1,8 @@
 """SQL 安全校验与改写（数据库只读账号之外的第二道防线）。
 
 - 只允许单条 SELECT（含 WITH / UNION）
-- 只允许访问白名单中的表和视图；禁止系统函数（pg_*、dblink、set_config 等）
-- 把 now() / CURRENT_TIMESTAMP / CURRENT_DATE 改写为演示时钟（加速演示时它领先墙上时间）
+- 只允许访问白名单中的表和视图；函数走白名单，未列入的（table_to_xml、pg_*、dblink 等）一律拒绝
+- 把 now() / CURRENT_TIMESTAMP / CURRENT_DATE / LOCALTIMESTAMP 等改写为演示时钟（加速演示时它领先墙上时间）
 - 补 LIMIT，并给过大的 LIMIT 封顶
 """
 
@@ -16,8 +16,21 @@ from sqlglot.optimizer.scope import traverse_scope
 
 MAX_ROWS = 200
 TIME_FUNCS = {"now", "statement_timestamp", "transaction_timestamp", "clock_timestamp", "localtimestamp"}
-BLOCKED_FUNCS = {"dblink", "set_config", "current_setting", "lo_import", "lo_export", "copy", "query_to_xml",
-                 "version", "txid_current", "inet_server_addr"}
+# sqlglot 不认识的函数都解析成 Anonymous，这里是它们的白名单：只放数值、字符串、时间计算和 TimescaleDB 分桶。
+# 名单外的正常函数被拒后，模型会收到报错并自修复，代价是一次重试；反过来放行系统函数的代价更大。
+ALLOWED_ANONYMOUS = TIME_FUNCS | {
+    "time_bucket", "time_bucket_gapfill", "locf", "interpolate", "first", "last",
+    "make_date", "make_time", "make_timestamp", "make_timestamptz", "make_interval", "to_date", "to_timestamp",
+    "to_char", "to_number", "date_part", "date_bin", "age", "justify_days", "justify_hours", "justify_interval",
+    "isfinite", "trunc", "ceiling", "cbrt", "degrees", "radians", "div", "gcd", "lcm", "scale", "sign", "width_bucket",
+    "mode", "percent_rank", "cume_dist", "dense_rank", "rank", "ntile", "lead", "first_value", "last_value", "nth_value",
+    "stddev", "stddev_pop", "stddev_samp", "variance", "var_pop", "var_samp", "corr", "covar_pop", "covar_samp",
+    "regr_slope", "regr_intercept", "regr_r2", "percentile_cont", "percentile_disc", "bool_and", "bool_or", "every",
+    "string_agg", "array_agg", "array_length", "array_to_string", "cardinality",
+    "length", "char_length", "lower", "upper", "initcap", "trim", "ltrim", "rtrim", "btrim", "lpad", "rpad", "left",
+    "right", "substr", "substring", "replace", "translate", "split_part", "position", "strpos", "concat", "concat_ws",
+    "format", "repeat", "reverse", "starts_with", "regexp_replace", "regexp_match", "regexp_like",
+}
 # sqlglot 把这些系统信息函数解析成专门的节点（而不是 Anonymous），按类型拦截
 SYSTEM_INFO_NODES = tuple(getattr(exp, n) for n in (
     "CurrentVersion", "CurrentUser", "CurrentDatabase", "CurrentSchema", "CurrentRole", "SessionUser",
@@ -28,12 +41,6 @@ WRITE_NODES = (exp.Insert, exp.Update, exp.Delete, exp.Merge, exp.Create, exp.Dr
 
 class SQLRejected(ValueError):
     pass
-
-
-def _func_name(node: exp.Func) -> str:
-    if isinstance(node, exp.Anonymous):
-        return node.name.lower()
-    return node.sql_name().lower()
 
 
 def guard(sql: str, allowed_tables: set[str], now: datetime, max_rows: int = MAX_ROWS) -> str:
@@ -57,6 +64,8 @@ def guard(sql: str, allowed_tables: set[str], now: datetime, max_rows: int = MAX
         for table in scope.sources.values():
             if not isinstance(table, exp.Table):
                 continue  # 已解析为 CTE / 派生表作用域，内部物理表会单独校验
+            if isinstance(table.this, exp.Func):
+                continue  # FROM generate_series(...) 这类表函数不是物理表，由下方函数校验把关
             if table.catalog or (table.db and table.db != "public"):
                 raise SQLRejected("只允许访问当前数据库的 public schema")
             if table.name not in allowed_tables:
@@ -64,19 +73,25 @@ def guard(sql: str, allowed_tables: set[str], now: datetime, max_rows: int = MAX
 
     if node := tree.find(*SYSTEM_INFO_NODES):
         raise SQLRejected(f"不允许调用函数 {node.sql_name().lower()}")
-    for fn in tree.find_all(exp.Func):
-        name = _func_name(fn)
-        if name.startswith("pg_") or name in BLOCKED_FUNCS:
+    for fn in tree.find_all(exp.Anonymous):
+        if (name := fn.name.lower()) not in ALLOWED_ANONYMOUS:
             raise SQLRejected(f"不允许调用函数 {name}")
 
     now_lit = exp.cast(exp.Literal.string(now.isoformat()), exp.DataType.build("timestamptz"))
     today_lit = exp.cast(exp.Literal.string(now.date().isoformat()), exp.DataType.build("date"))
+    # 不带时区的“当前时间”按演示时钟的本地钟面值改写
+    local_lit = exp.cast(exp.Literal.string(now.replace(tzinfo=None).isoformat()), exp.DataType.build("timestamp"))
+    time_lit = exp.cast(exp.Literal.string(now.time().replace(tzinfo=None).isoformat()), exp.DataType.build("time"))
 
     def rewrite(node: exp.Expression) -> exp.Expression:
         if isinstance(node, exp.CurrentTimestamp):
             return now_lit.copy()
         if isinstance(node, exp.CurrentDate):
             return today_lit.copy()
+        if isinstance(node, exp.Localtimestamp):
+            return local_lit.copy()
+        if isinstance(node, exp.Localtime | exp.CurrentTime):
+            return time_lit.copy()
         if isinstance(node, exp.Anonymous) and node.name.lower() in TIME_FUNCS:
             return now_lit.copy()
         return node

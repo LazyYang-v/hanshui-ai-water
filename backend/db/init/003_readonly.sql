@@ -11,5 +11,5 @@ ALTER ROLE text2sql_ro SET default_transaction_read_only = on;
 
 DO $$ BEGIN EXECUTE format('GRANT CONNECT ON DATABASE %I TO text2sql_ro', current_database()); END $$;
 GRANT USAGE ON SCHEMA public TO text2sql_ro;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO text2sql_ro;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO text2sql_ro;
+-- 只授权 Text2SQL 可见的表（与 app/ai/text2sql/schema.py 的 VISIBLE_TABLES 一致），新建的表默认不可读
+GRANT SELECT ON plant, plant_reading, plant_reading_1h, device, device_reading, weather TO text2sql_ro;

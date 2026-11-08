@@ -70,6 +70,34 @@ def test_rejects_dangerous_functions(sql):
         g(sql)
 
 
+@pytest.mark.parametrize("sql", [
+    "SELECT table_to_xml('alarm', true, true, '')",
+    "SELECT * FROM database_to_xml(true, true, '') AS x",
+    "SELECT TABLE_TO_XML('alarm', true, true, '')",
+    "SELECT pg_catalog.query_to_xml('select 1', true, true, '')",
+    "SELECT lo_get(1)",
+    "SELECT * FROM pg_ls_dir('/') AS d",
+])
+def test_functions_outside_the_allowlist_are_rejected(sql):
+    with pytest.raises(SQLRejected, match="不允许调用函数"):
+        g(sql)
+
+
+def test_generate_series_in_from_is_allowed():
+    out = g("SELECT g FROM generate_series(1, 3) AS g")
+    assert "GENERATE_SERIES" in out.upper()
+
+
+def test_physical_table_still_checked_next_to_generate_series():
+    with pytest.raises(SQLRejected, match="alarm"):
+        g("SELECT * FROM generate_series(1, 3) AS g, alarm")
+
+
+def test_common_timescale_and_date_functions_pass():
+    out = g("SELECT time_bucket('1 hour', ts), make_date(2026, 11, 5) FROM plant_reading")
+    assert "time_bucket" in out.lower()
+
+
 def test_allows_cte_and_union():
     out = g("WITH t AS (SELECT id FROM plant) SELECT id FROM t UNION ALL SELECT id FROM device")
     assert "LIMIT 200" in out
@@ -81,6 +109,13 @@ def test_rewrites_now_to_demo_clock():
     assert "now()" not in out.lower() and "current_" not in out.lower()
     assert "'2026-11-05T12:00:00+08:00'" in out
     assert "CAST('2026-11-05' AS DATE)" in out
+
+
+@pytest.mark.parametrize("fn,lit", [("LOCALTIMESTAMP", "CAST('2026-11-05T12:00:00' AS TIMESTAMP)"),
+                                    ("LOCALTIME", "CAST('12:00:00' AS TIME)"),
+                                    ("CURRENT_TIME", "CAST('12:00:00' AS TIME)")])
+def test_rewrites_local_time_to_demo_clock(fn, lit):
+    assert lit in g(f"SELECT {fn} FROM plant")
 
 
 def test_limit_added_and_capped():
